@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-import { cn } from '@/lib/utils';
 
 const Hero: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -34,8 +33,14 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-16">
-      <div className="absolute inset-0 bg-[url('https://source.unsplash.com/random/1920x1080/?luxury,salon')] bg-cover bg-center"></div>
-      <div className="absolute inset-0 bg-hero-pattern"></div>
+      <div className="absolute inset-0">
+        <img 
+          src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png"
+          alt="Vackert svart hår"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto md:ml-0">
@@ -50,7 +55,7 @@ const Hero: React.FC = () => {
           
           <h1 
             ref={el => elementsRef.current[1] = el} 
-            className="animated-element text-4xl md:text-6xl lg:text-7xl font-serif font-medium mb-6 leading-tight"
+            className="animated-element text-4xl md:text-6xl lg:text-7xl font-serif font-medium mb-6 leading-tight text-white"
           >
             Skönhet som får dig <br />
             <span className="text-salon-gold italic">att känna dig speciell</span>
@@ -58,7 +63,7 @@ const Hero: React.FC = () => {
           
           <p 
             ref={el => elementsRef.current[2] = el} 
-            className="animated-element text-lg md:text-xl text-salon-dark/80 mb-8 max-w-xl"
+            className="animated-element text-lg md:text-xl text-white/90 mb-8 max-w-xl"
           >
             Upptäck en lyxig hårupplevelse hos Maria Louis, där exceptionell service möter konstnärlig expertis.
           </p>
@@ -75,7 +80,7 @@ const Hero: React.FC = () => {
             </a>
             <a 
               href="#contact" 
-              className="px-8 py-3 border border-salon-gold text-salon-dark font-medium rounded-sm hover:bg-salon-gold/5 transition-all text-center"
+              className="px-8 py-3 border border-salon-gold text-white font-medium rounded-sm hover:bg-salon-gold/5 transition-all text-center"
             >
               Boka Tid
             </a>
@@ -84,7 +89,7 @@ const Hero: React.FC = () => {
       </div>
       
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-subtle-move">
-        <a href="#about" className="flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
+        <a href="#about" className="flex flex-col items-center text-white opacity-70 hover:opacity-100 transition-opacity">
           <span className="text-sm font-medium mb-2">Bläddra Ner</span>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
