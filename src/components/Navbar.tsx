@@ -21,12 +21,12 @@ const Navbar: React.FC = () => {
   };
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Hem', href: '#home' },
+    { name: 'Om Oss', href: '#about' },
+    { name: 'Tjänster', href: '#services' },
+    { name: 'Galleri', href: '#gallery' },
+    { name: 'Omdömen', href: '#testimonials' },
+    { name: 'Kontakt', href: '#contact' },
   ];
 
   return (
@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
             href="#contact" 
             className="px-5 py-2 rounded-sm bg-salon-gold text-white font-medium text-sm hover:bg-opacity-90 transition-all"
           >
-            Book Now
+            Boka Nu
           </a>
         </div>
 
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
             className="w-full text-center px-5 py-3 rounded-sm bg-salon-gold text-white font-medium"
             onClick={toggleMobileMenu}
           >
-            Book Now
+            Boka Nu
           </a>
         </div>
       </div>

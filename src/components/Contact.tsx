@@ -36,18 +36,18 @@ const Contact: React.FC = () => {
   const contactInfoItems = [
     {
       icon: <MapPin size={22} className="text-salon-gold" />,
-      title: "Location",
-      details: ["123 Elegance Avenue", "San Francisco, CA 94105"]
+      title: "Plats",
+      details: ["123 Elegansvägen", "Stockholm, 114 42"]
     },
     {
       icon: <Phone size={22} className="text-salon-gold" />,
-      title: "Contact",
-      details: ["(555) 123-4567", "info@marialouissalon.com"]
+      title: "Kontakt",
+      details: ["08-123 45 67", "info@marialouissalong.se"]
     },
     {
       icon: <Clock size={22} className="text-salon-gold" />,
-      title: "Hours",
-      details: ["Tuesday - Saturday: 9am - 7pm", "Sunday - Monday: Closed"]
+      title: "Öppettider",
+      details: ["Tisdag - Lördag: 09:00 - 19:00", "Söndag - Måndag: Stängt"]
     }
   ];
 
@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
             className="animated-element mb-4"
           >
             <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm">
-              Contact Us
+              Kontakta Oss
             </span>
           </div>
           
@@ -68,14 +68,14 @@ const Contact: React.FC = () => {
             ref={el => elementsRef.current[1] = el} 
             className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6"
           >
-            Book Your Appointment
+            Boka Din Tid
           </h2>
           
           <p 
             ref={el => elementsRef.current[2] = el} 
             className="animated-element text-salon-dark/80"
           >
-            Ready to transform your look? Contact us to schedule your appointment or ask any questions. We look forward to welcoming you to Maria Louis Hair Salon.
+            Redo att förvandla ditt utseende? Kontakta oss för att boka din tid eller ställa frågor. Vi ser fram emot att välkomna dig till Maria Louis Hårsalong.
           </p>
         </div>
         
@@ -85,74 +85,74 @@ const Contact: React.FC = () => {
             className="animated-element"
           >
             <div className="salon-card p-8">
-              <h3 className="text-2xl font-serif mb-6">Send Us a Message</h3>
+              <h3 className="text-2xl font-serif mb-6">Skicka Oss ett Meddelande</h3>
               
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-salon-dark mb-2">
-                      Your Name
+                      Ditt Namn
                     </label>
                     <input
                       type="text"
                       id="name"
                       className="w-full px-4 py-3 border border-salon-beige rounded-sm focus:outline-none focus:ring-1 focus:ring-salon-gold transition-colors"
-                      placeholder="Jane Doe"
+                      placeholder="Anna Andersson"
                     />
                   </div>
                   
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-salon-dark mb-2">
-                      Email Address
+                      E-postadress
                     </label>
                     <input
                       type="email"
                       id="email"
                       className="w-full px-4 py-3 border border-salon-beige rounded-sm focus:outline-none focus:ring-1 focus:ring-salon-gold transition-colors"
-                      placeholder="jane@example.com"
+                      placeholder="anna@exempel.se"
                     />
                   </div>
                 </div>
                 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-salon-dark mb-2">
-                    Phone Number
+                    Telefonnummer
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     className="w-full px-4 py-3 border border-salon-beige rounded-sm focus:outline-none focus:ring-1 focus:ring-salon-gold transition-colors"
-                    placeholder="(555) 123-4567"
+                    placeholder="070-123 45 67"
                   />
                 </div>
                 
                 <div>
                   <label htmlFor="service" className="block text-sm font-medium text-salon-dark mb-2">
-                    Service Interested In
+                    Tjänst Du Är Intresserad Av
                   </label>
                   <select
                     id="service"
                     className="w-full px-4 py-3 border border-salon-beige rounded-sm focus:outline-none focus:ring-1 focus:ring-salon-gold transition-colors bg-white"
                   >
-                    <option value="">Select a service</option>
-                    <option value="haircut">Haircut</option>
-                    <option value="color">Hair Color</option>
-                    <option value="highlights">Highlights</option>
-                    <option value="treatment">Hair Treatment</option>
+                    <option value="">Välj en tjänst</option>
+                    <option value="haircut">Klippning</option>
+                    <option value="color">Hårfärg</option>
+                    <option value="highlights">Slingor</option>
+                    <option value="treatment">Hårvård</option>
                     <option value="styling">Styling</option>
-                    <option value="other">Other</option>
+                    <option value="other">Annat</option>
                   </select>
                 </div>
                 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-salon-dark mb-2">
-                    Your Message
+                    Ditt Meddelande
                   </label>
                   <textarea
                     id="message"
                     rows={4}
                     className="w-full px-4 py-3 border border-salon-beige rounded-sm focus:outline-none focus:ring-1 focus:ring-salon-gold transition-colors"
-                    placeholder="Tell us more about what you're looking for..."
+                    placeholder="Berätta mer om vad du söker..."
                   ></textarea>
                 </div>
                 
@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
                   type="submit"
                   className="w-full px-8 py-3 bg-salon-gold text-white font-medium rounded-sm hover:bg-opacity-90 transition-all"
                 >
-                  Send Message
+                  Skicka Meddelande
                 </button>
               </form>
             </div>
@@ -173,7 +173,7 @@ const Contact: React.FC = () => {
             >
               <img 
                 src="https://source.unsplash.com/random/800x600/?salon,interior" 
-                alt="Maria Louis Salon Interior" 
+                alt="Maria Louis Salonginredning" 
                 className="w-full h-full object-cover"
               />
             </div>

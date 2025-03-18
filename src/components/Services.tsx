@@ -36,38 +36,38 @@ const Services: React.FC = () => {
   const serviceCategories = [
     {
       icon: <Scissors size={28} className="text-salon-gold" />,
-      title: "Haircuts & Styling",
-      description: "Expert cuts and styling tailored to your unique features and lifestyle.",
+      title: "Klippning & Styling",
+      description: "Expertklippningar och styling anpassad efter dina unika drag och livsstil.",
       services: [
-        { name: "Women's Haircut", price: "$65+" },
-        { name: "Men's Haircut", price: "$45+" },
-        { name: "Children's Haircut", price: "$35+" },
-        { name: "Blowout & Style", price: "$50+" },
-        { name: "Special Occasion Styling", price: "$85+" },
+        { name: "Damklippning", price: "650 kr+" },
+        { name: "Herrklippning", price: "450 kr+" },
+        { name: "Barnklippning", price: "350 kr+" },
+        { name: "Föning & Styling", price: "500 kr+" },
+        { name: "Festfrisyr", price: "850 kr+" },
       ]
     },
     {
       icon: <Droplet size={28} className="text-salon-gold" />,
-      title: "Color Services",
-      description: "Vibrant, long-lasting color that enhances your natural beauty.",
+      title: "Färgtjänster",
+      description: "Vibrerande, långvarig färg som förhöjer din naturliga skönhet.",
       services: [
-        { name: "Single Process Color", price: "$75+" },
-        { name: "Partial Highlights", price: "$95+" },
-        { name: "Full Highlights", price: "$150+" },
-        { name: "Balayage/Ombré", price: "$175+" },
-        { name: "Color Correction", price: "Consultation" },
+        { name: "Enfärgning", price: "750 kr+" },
+        { name: "Slingor (delvis)", price: "950 kr+" },
+        { name: "Slingor (helhet)", price: "1500 kr+" },
+        { name: "Balayage/Ombré", price: "1750 kr+" },
+        { name: "Färgkorrigering", price: "Konsultation" },
       ]
     },
     {
       icon: <Sparkles size={28} className="text-salon-gold" />,
-      title: "Treatments",
-      description: "Restorative treatments to maintain healthy, beautiful hair.",
+      title: "Behandlingar",
+      description: "Återställande behandlingar för att behålla friskt, vackert hår.",
       services: [
-        { name: "Deep Conditioning", price: "$35+" },
-        { name: "Keratin Treatment", price: "$250+" },
-        { name: "Scalp Treatment", price: "$45+" },
-        { name: "Hair Mask", price: "$30+" },
-        { name: "Bond Rebuilding", price: "$50+" },
+        { name: "Djupkonditionering", price: "350 kr+" },
+        { name: "Keratinbehandling", price: "2500 kr+" },
+        { name: "Skalpmassage", price: "450 kr+" },
+        { name: "Hårmask", price: "300 kr+" },
+        { name: "Bindningsbyggande", price: "500 kr+" },
       ]
     }
   ];
@@ -81,7 +81,7 @@ const Services: React.FC = () => {
             className="animated-element mb-4"
           >
             <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm">
-              Our Services
+              Våra Tjänster
             </span>
           </div>
           
@@ -89,14 +89,14 @@ const Services: React.FC = () => {
             ref={el => elementsRef.current[1] = el} 
             className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6"
           >
-            Expert Hair Services for Every Need
+            Experttjänster för Alla Behov
           </h2>
           
           <p 
             ref={el => elementsRef.current[2] = el} 
             className="animated-element text-salon-dark/80"
           >
-            We offer a comprehensive range of hair services designed to enhance your natural beauty and keep your hair looking its best. Each service is personalized to meet your unique needs and preferences.
+            Vi erbjuder ett omfattande utbud av hårtjänster utformade för att förhöja din naturliga skönhet och hålla ditt hår i topptillstånd. Varje tjänst är personlig för att möta dina unika behov och preferenser.
           </p>
         </div>
         
@@ -131,7 +131,7 @@ const Services: React.FC = () => {
             href="#contact" 
             className="inline-block px-8 py-3 bg-salon-gold text-white font-medium rounded-sm hover:bg-opacity-90 transition-all"
           >
-            Book Your Appointment
+            Boka Din Tid
           </a>
         </div>
       </div>

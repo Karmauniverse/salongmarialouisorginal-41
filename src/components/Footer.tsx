@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
               <span className="font-serif text-xl font-medium text-white">Maria Louis</span>
             </a>
             <p className="text-white/70 mb-6">
-              Premium hair salon services dedicated to helping you look and feel your best.
+              Exklusiva hårsalongstjänster dedikerade till att hjälpa dig se och känna dig som bäst.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-white/70 hover:text-salon-gold transition-colors">
@@ -30,63 +30,63 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h4 className="text-white font-medium mb-4">Quick Links</h4>
+            <h4 className="text-white font-medium mb-4">Snabblänkar</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="text-white/70 hover:text-salon-gold transition-colors">Home</a>
+                <a href="#home" className="text-white/70 hover:text-salon-gold transition-colors">Hem</a>
               </li>
               <li>
-                <a href="#about" className="text-white/70 hover:text-salon-gold transition-colors">About</a>
+                <a href="#about" className="text-white/70 hover:text-salon-gold transition-colors">Om Oss</a>
               </li>
               <li>
-                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Services</a>
+                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Tjänster</a>
               </li>
               <li>
-                <a href="#gallery" className="text-white/70 hover:text-salon-gold transition-colors">Gallery</a>
+                <a href="#gallery" className="text-white/70 hover:text-salon-gold transition-colors">Galleri</a>
               </li>
               <li>
-                <a href="#contact" className="text-white/70 hover:text-salon-gold transition-colors">Contact</a>
+                <a href="#contact" className="text-white/70 hover:text-salon-gold transition-colors">Kontakt</a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-white font-medium mb-4">Services</h4>
+            <h4 className="text-white font-medium mb-4">Tjänster</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Haircuts & Styling</a>
+                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Klippning & Styling</a>
               </li>
               <li>
-                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Color Services</a>
+                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Färgtjänster</a>
               </li>
               <li>
-                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Hair Treatments</a>
+                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Hårvårdsbehandlingar</a>
               </li>
               <li>
-                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Bridal Services</a>
+                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Brudtjänster</a>
               </li>
               <li>
-                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Extensions</a>
+                <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors">Hårförlängning</a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-white font-medium mb-4">Contact</h4>
+            <h4 className="text-white font-medium mb-4">Kontakt</h4>
             <ul className="space-y-2">
               <li className="text-white/70">
-                123 Elegance Avenue<br />
-                San Francisco, CA 94105
+                123 Elegansvägen<br />
+                Stockholm, 114 42
               </li>
               <li className="text-white/70">
-                (555) 123-4567
+                08-123 45 67
               </li>
               <li className="text-white/70">
-                info@marialouissalon.com
+                info@marialouissalong.se
               </li>
               <li className="text-white/70">
-                Tuesday - Saturday: 9am - 7pm<br />
-                Sunday - Monday: Closed
+                Tisdag - Lördag: 09:00 - 19:00<br />
+                Söndag - Måndag: Stängt
               </li>
             </ul>
           </div>
@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-white/50 text-sm">
-            © {currentYear} Maria Louis Hair Salon. All rights reserved.
+            © {currentYear} Maria Louis Hårsalong. Alla rättigheter förbehållna.
           </p>
         </div>
       </div>

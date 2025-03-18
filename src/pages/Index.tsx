@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   useEffect(() => {
-    document.title = 'Maria Louis Hair Salon | Premium Styling Experience';
+    document.title = 'Maria Louis Hårsalong | Premiumstyling';
   }, []);
 
   return (

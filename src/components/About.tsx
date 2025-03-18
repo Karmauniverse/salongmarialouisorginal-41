@@ -43,7 +43,7 @@ const About: React.FC = () => {
             >
               <img 
                 src="https://source.unsplash.com/random/800x1000/?hairstylist,salon" 
-                alt="Maria Louis salon owner" 
+                alt="Maria Louis salongsägare" 
                 className="w-full h-[500px] object-cover object-center"
               />
             </div>
@@ -56,7 +56,7 @@ const About: React.FC = () => {
               className="animated-element mb-4"
             >
               <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm">
-                About Us
+                Om Oss
               </span>
             </div>
             
@@ -64,21 +64,21 @@ const About: React.FC = () => {
               ref={el => elementsRef.current[2] = el} 
               className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6"
             >
-              Welcome to <span className="text-salon-gold italic">Maria Louis</span> Hair Salon
+              Välkommen till <span className="text-salon-gold italic">Maria Louis</span> Hårsalong
             </h2>
             
             <p 
               ref={el => elementsRef.current[3] = el} 
               className="animated-element text-salon-dark/80 mb-6"
             >
-              Founded in 2010, Maria Louis Hair Salon has established itself as a premier destination for those seeking exceptional hair services. Our salon combines artistic vision with technical precision to create looks that enhance your natural beauty.
+              Grundad 2010 har Maria Louis Hårsalong etablerat sig som en förstklassig destination för de som söker exceptionella hårtjänster. Vår salong kombinerar konstnärlig vision med teknisk precision för att skapa looks som förhöjer din naturliga skönhet.
             </p>
             
             <p 
               ref={el => elementsRef.current[4] = el} 
               className="animated-element text-salon-dark/80 mb-8"
             >
-              At Maria Louis, we believe that beautiful hair is healthy hair. Our team of expert stylists stays at the forefront of industry trends and techniques, ensuring that you receive the highest quality service with every visit.
+              På Maria Louis tror vi att vackert hår är friskt hår. Vårt team av expertstylister håller sig i framkant av branschens trender och tekniker, vilket säkerställer att du får service av högsta kvalitet vid varje besök.
             </p>
             
             <div 
@@ -86,16 +86,16 @@ const About: React.FC = () => {
               className="animated-element grid grid-cols-2 gap-6"
             >
               <div className="salon-card p-6">
-                <h3 className="text-xl font-serif mb-2">Our Mission</h3>
+                <h3 className="text-xl font-serif mb-2">Vår Mission</h3>
                 <p className="text-salon-dark/80 text-sm">
-                  To provide exceptional hair services that enhance our clients' natural beauty and boost their confidence.
+                  Att tillhandahålla exceptionella hårtjänster som förhöjer våra kunders naturliga skönhet och ökar deras självförtroende.
                 </p>
               </div>
               
               <div className="salon-card p-6">
-                <h3 className="text-xl font-serif mb-2">Our Values</h3>
+                <h3 className="text-xl font-serif mb-2">Våra Värderingar</h3>
                 <p className="text-salon-dark/80 text-sm">
-                  Excellence, creativity, continuous education, and personalized care for every client.
+                  Excellens, kreativitet, kontinuerlig utbildning och personligt omhändertagande för varje kund.
                 </p>
               </div>
             </div>

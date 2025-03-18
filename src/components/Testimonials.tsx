@@ -36,21 +36,21 @@ const Testimonials: React.FC = () => {
 
   const testimonials = [
     {
-      quote: "Maria Louis is a true artist. She transformed my hair from dull and damaged to vibrant and healthy. The entire experience at the salon was luxurious and relaxing. I won't trust anyone else with my hair!",
+      quote: "Maria Louis är en sann konstnär. Hon förvandlade mitt hår från tråkigt och skadat till vibrerande och friskt. Hela upplevelsen på salongen var lyxig och avkopplande. Jag kommer inte att lita på någon annan med mitt hår!",
       author: "Sophia Martinez",
-      role: "Regular Client",
+      role: "Stammis",
       image: "https://source.unsplash.com/random/100x100/?woman,portrait,1"
     },
     {
-      quote: "I've been coming to Maria Louis for over three years now, and I'm consistently impressed with the quality of service. The stylists are knowledgeable and take the time to understand exactly what I want. Highly recommend!",
+      quote: "Jag har kommit till Maria Louis i över tre år nu, och jag är konsekvent imponerad av kvaliteten på servicen. Stylisterna är kunniga och tar sig tid att förstå exakt vad jag vill ha. Rekommenderas starkt!",
       author: "James Wilson",
-      role: "Loyal Customer",
+      role: "Lojal Kund",
       image: "https://source.unsplash.com/random/100x100/?man,portrait,1"
     },
     {
-      quote: "The atmosphere at Maria Louis is so welcoming, and the results speak for themselves. My color is always perfect, and my hair has never been healthier. The salon truly provides a premium experience from start to finish.",
+      quote: "Atmosfären hos Maria Louis är så välkomnande, och resultaten talar för sig själva. Min färg är alltid perfekt, och mitt hår har aldrig varit friskare. Salongen erbjuder verkligen en premiumupplevelse från början till slut.",
       author: "Emma Thompson",
-      role: "First-time Client",
+      role: "Förstagångskund",
       image: "https://source.unsplash.com/random/100x100/?woman,portrait,2"
     }
   ];
@@ -72,7 +72,7 @@ const Testimonials: React.FC = () => {
             className="animated-element mb-4"
           >
             <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm">
-              Testimonials
+              Omdömen
             </span>
           </div>
           
@@ -80,14 +80,14 @@ const Testimonials: React.FC = () => {
             ref={el => elementsRef.current[1] = el} 
             className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6"
           >
-            What Our Clients Say
+            Vad Våra Kunder Säger
           </h2>
           
           <p 
             ref={el => elementsRef.current[2] = el} 
             className="animated-element text-salon-dark/80"
           >
-            We take pride in creating exceptional experiences for our clients. Here's what some of them have to say about their time at Maria Louis.
+            Vi är stolta över att skapa exceptionella upplevelser för våra kunder. Här är vad några av dem har att säga om sin tid hos Maria Louis.
           </p>
         </div>
         
@@ -129,7 +129,7 @@ const Testimonials: React.FC = () => {
             <button 
               onClick={prevTestimonial}
               className="p-2 rounded-full border border-salon-gold text-salon-gold hover:bg-salon-gold hover:text-white transition-colors"
-              aria-label="Previous testimonial"
+              aria-label="Föregående omdöme"
             >
               <ChevronLeft size={20} />
             </button>
@@ -145,7 +145,7 @@ const Testimonials: React.FC = () => {
                       ? "bg-salon-gold w-4" 
                       : "bg-salon-gold/30"
                   )}
-                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-label={`Gå till omdöme ${index + 1}`}
                 />
               ))}
             </div>
@@ -153,7 +153,7 @@ const Testimonials: React.FC = () => {
             <button 
               onClick={nextTestimonial}
               className="p-2 rounded-full border border-salon-gold text-salon-gold hover:bg-salon-gold hover:text-white transition-colors"
-              aria-label="Next testimonial"
+              aria-label="Nästa omdöme"
             >
               <ChevronRight size={20} />
             </button>

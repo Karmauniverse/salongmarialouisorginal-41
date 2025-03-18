@@ -61,7 +61,7 @@ const Gallery: React.FC = () => {
             className="animated-element mb-4"
           >
             <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm">
-              Our Work
+              Vårt Arbete
             </span>
           </div>
           
@@ -69,14 +69,14 @@ const Gallery: React.FC = () => {
             ref={el => elementsRef.current[1] = el} 
             className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6"
           >
-            Gallery of Beautiful Transformations
+            Galleri av Vackra Förvandlingar
           </h2>
           
           <p 
             ref={el => elementsRef.current[2] = el} 
             className="animated-element text-salon-dark/80"
           >
-            Browse through our portfolio showcasing the artistry and expertise of our stylists. These images represent just a fraction of the transformations we create daily at Maria Louis.
+            Bläddra genom vår portfölj som visar konstnärligheten och expertisen hos våra stylister. Dessa bilder representerar bara en bråkdel av de förvandlingar vi skapar dagligen hos Maria Louis.
           </p>
         </div>
         
@@ -91,11 +91,11 @@ const Gallery: React.FC = () => {
               <div className="relative overflow-hidden h-72 md:h-96">
                 <img 
                   src={image} 
-                  alt={`Salon work ${index + 1}`}
+                  alt={`Salongarbete ${index + 1}`}
                   className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-salon-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white font-medium">View Larger</span>
+                  <span className="text-white font-medium">Visa Större</span>
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@ const Gallery: React.FC = () => {
           >
             <img 
               src={selectedImage} 
-              alt="Enlarged salon work" 
+              alt="Förstorat salongarbete" 
               className="max-w-full max-h-[80vh] object-contain"
             />
             <button 
