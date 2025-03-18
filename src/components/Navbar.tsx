@@ -38,7 +38,12 @@ const Navbar: React.FC = () => {
     >
       <div className="container flex justify-between items-center">
         <a href="#home" className="flex items-center">
-          <span className="font-serif text-xl sm:text-2xl font-medium text-salon-dark">Maria Louis</span>
+          <img 
+            src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
+            alt="Maria Louis Logotyp" 
+            className="h-12 mr-3"
+          />
+          <span className="font-serif text-xl sm:text-2xl font-medium text-salon-dark hidden sm:inline-block">Maria Louis</span>
         </a>
 
         {/* Desktop Navigation */}
