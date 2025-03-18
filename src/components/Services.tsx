@@ -1,7 +1,6 @@
-
 import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { Scissors, Droplet, Sparkles } from 'lucide-react';
+import { Scissors, Droplet, Sparkles, Beard, Palette, SparkleIcon } from 'lucide-react';
 
 const Services: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -36,38 +35,69 @@ const Services: React.FC = () => {
   const serviceCategories = [
     {
       icon: <Scissors size={28} className="text-salon-gold" />,
-      title: "Klippning & Styling",
-      description: "Expertklippningar och styling anpassad efter dina unika drag och livsstil.",
+      title: "Klippning",
+      description: "Professionell klippning anpassad efter din stil och önskemål.",
       services: [
-        { name: "Damklippning", price: "650 kr+" },
-        { name: "Herrklippning", price: "450 kr+" },
-        { name: "Barnklippning", price: "350 kr+" },
-        { name: "Föning & Styling", price: "500 kr+" },
-        { name: "Festfrisyr", price: "850 kr+" },
+        { name: "Kort hår", price: "från 390 kr" },
+        { name: "Långt hår", price: "från 470 kr" },
+        { name: "Långt hår (ny frisyr/tjockt hår)", price: "från 560 kr" },
+        { name: "Ungdom (8–18 år)", price: "350 kr" },
+        { name: "Barnklippning (t.o.m. 7 år)", price: "290 kr" },
+      ]
+    },
+    {
+      icon: <Palette size={28} className="text-salon-gold" />,
+      title: "Folieslingor & Färg",
+      description: "Professionell färgning och slingor för ett perfekt resultat.",
+      services: [
+        { name: "Folieslingor inkl. klipp - Kort hår", price: "från 1 590 kr" },
+        { name: "Folieslingor inkl. klipp - Mellanlångt", price: "från 1 930 kr" },
+        { name: "Folieslingor inkl. klipp - Långt", price: "från 2 230 kr" },
+        { name: "Balayage inkl. klipp", price: "från 2 530 kr" },
       ]
     },
     {
       icon: <Droplet size={28} className="text-salon-gold" />,
-      title: "Färgtjänster",
-      description: "Vibrerande, långvarig färg som förhöjer din naturliga skönhet.",
+      title: "Färgbehandlingar",
+      description: "Färgning och toning för ett perfekt resultat.",
       services: [
-        { name: "Enfärgning", price: "750 kr+" },
-        { name: "Slingor (delvis)", price: "950 kr+" },
-        { name: "Slingor (helhet)", price: "1500 kr+" },
-        { name: "Balayage/Ombré", price: "1750 kr+" },
-        { name: "Färgkorrigering", price: "Konsultation" },
+        { name: "Bottenfärg", price: "från 740 kr" },
+        { name: "Toning", price: "från 350 kr" },
+        { name: "Slingor i hätta", price: "930 kr" },
+      ]
+    },
+    {
+      icon: <Beard size={28} className="text-salon-gold" />,
+      title: "Barberaren",
+      description: "Expertklippning för herrar och skäggvård.",
+      services: [
+        { name: "Herrklippning", price: "från 390 kr" },
+        { name: "Kort skägg", price: "från 220 kr" },
+        { name: "Klipp + kort skägg", price: "från 540 kr" },
+        { name: "Klipp + långt skägg", price: "650 kr" },
+      ]
+    },
+    {
+      icon: <SparkleIcon size={28} className="text-salon-gold" />,
+      title: "Keratinbehandling",
+      description: "Professionell keratinbehandling för glansigt och friskt hår.",
+      services: [
+        { name: "Kort hår", price: "1 540–1 940 kr" },
+        { name: "Mellanlångt hår", price: "2 190–2 440 kr" },
+        { name: "Långt hår", price: "från 2 740 kr" },
       ]
     },
     {
       icon: <Sparkles size={28} className="text-salon-gold" />,
-      title: "Behandlingar",
-      description: "Återställande behandlingar för att behålla friskt, vackert hår.",
+      title: "Övriga Behandlingar",
+      description: "Kompletterande skönhetsbehandlingar för ditt välbefinnande.",
       services: [
-        { name: "Djupkonditionering", price: "350 kr+" },
-        { name: "Keratinbehandling", price: "2500 kr+" },
-        { name: "Skalpmassage", price: "450 kr+" },
-        { name: "Hårmask", price: "300 kr+" },
-        { name: "Bindningsbyggande", price: "500 kr+" },
+        { name: "Fransfärg", price: "220 kr" },
+        { name: "Brynfärg", price: "220 kr" },
+        { name: "Ögonbrynsplock", price: "199 kr" },
+        { name: "Franspaket", price: "420 kr" },
+        { name: "Olaplex med behandling", price: "250 kr" },
+        { name: "Fristående Olaplex", price: "500 kr" },
       ]
     }
   ];
@@ -100,7 +130,7 @@ const Services: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviceCategories.map((category, index) => (
             <div 
               key={category.title}
