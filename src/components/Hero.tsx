@@ -1,6 +1,9 @@
+
 import React, { useEffect, useRef } from 'react';
+
 const Hero: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
+
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -24,6 +27,7 @@ const Hero: React.FC = () => {
       });
     };
   }, []);
+
   return <section id="home" className="relative min-h-screen flex items-center pt-16">
       <div className="absolute inset-0">
         <img src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" alt="Vackert svart hår" className="w-full h-full object-cover object-center" />
@@ -66,4 +70,5 @@ const Hero: React.FC = () => {
       </div>
     </section>;
 };
+
 export default Hero;

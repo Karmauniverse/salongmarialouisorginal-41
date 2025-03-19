@@ -34,14 +34,14 @@ const Gallery: React.FC = () => {
     };
   }, []);
 
-  // Placeholder images while waiting for Instagram integration
+  // Real salon work images
   const galleryImages = [
-    "https://source.unsplash.com/random/600x700/?haircut,blonde",
-    "https://source.unsplash.com/random/600x900/?hair,styling",
-    "https://source.unsplash.com/random/600x800/?hairstyle,brunette",
-    "https://source.unsplash.com/random/600x700/?haircolor,salon",
-    "https://source.unsplash.com/random/600x900/?hairstylist,work",
-    "https://source.unsplash.com/random/600x800/?hair,treatment",
+    "/lovable-uploads/d14c977f-f972-4ec3-88bb-7d6b06f1876d.png",
+    "/lovable-uploads/af9782d7-4108-4c69-9b7b-53511f0ec2a5.png",
+    "/lovable-uploads/c84be25b-3ca4-43bb-a30f-961db1e4d981.png",
+    "/lovable-uploads/38443ee9-4f2f-49c8-8d41-b0657c4fb46a.png",
+    "/lovable-uploads/bc783992-385e-4d23-b3ba-4eaa376e0e67.png",
+    "/lovable-uploads/2ad83c14-43d0-4473-894c-d539476f52cf.png"
   ];
 
   const openLightbox = (image: string) => {
