@@ -34,42 +34,47 @@ const About: React.FC = () => {
   return (
     <section id="about" className="py-20 bg-white">
       <div className="section-container">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative">
-            <div 
-              ref={el => elementsRef.current[0] = el} 
-              className="animated-element relative z-10 rounded-sm overflow-hidden shadow-lg"
-            >
+        {/* Introduction Section */}
+        <div 
+          ref={el => elementsRef.current[0] = el} 
+          className="animated-element text-center max-w-3xl mx-auto mb-16"
+        >
+          <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm mb-4">
+            Om Oss
+          </span>
+          
+          <h2 className="text-3xl md:text-4xl font-serif font-medium mb-6">
+            Välkommen till <span className="text-salon-gold italic">Maria Louis</span>
+          </h2>
+          
+          <p className="text-salon-dark/80 text-lg">
+            Sedan 2010 har Maria Louis varit en självklar del av Hägersten – en plats där skönhet, kvalitet och omtanke möts. Ett av våra största ögonblick var när vi, tillsammans med våra fantastiska kunder, blev nominerade till Årets Lokala Företag – en ära vi aldrig hade uppnått utan ert stöd.
+          </p>
+        </div>
+        
+        {/* Maria Section */}
+        <div 
+          ref={el => elementsRef.current[1] = el} 
+          className="animated-element grid md:grid-cols-2 gap-12 items-center mb-16"
+        >
+          <div className="relative h-full flex items-center">
+            <div className="relative z-10 rounded-sm overflow-hidden shadow-lg">
               <img 
                 src="/lovable-uploads/4d446271-aa78-473e-be1e-ae8d64314e46.png"
                 alt="Maria Louis med diplom" 
-                className="w-full h-[500px] object-cover object-center"
+                className="w-full h-auto object-cover object-center"
               />
             </div>
-            <div className="absolute top-8 -left-8 w-full h-full border-2 border-salon-gold rounded-sm -z-10"></div>
+            <div className="absolute top-8 -left-8 w-full h-[90%] border-2 border-salon-gold rounded-sm -z-10"></div>
           </div>
           
           <div>
-            <div 
-              ref={el => elementsRef.current[1] = el} 
-              className="animated-element mb-4"
-            >
-              <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm">
-                Om Oss
-              </span>
-            </div>
-            
-            <h2 
-              ref={el => elementsRef.current[2] = el} 
-              className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6"
-            >
-              Möt <span className="text-salon-gold italic">Maria Louis</span>
+            <h2 className="text-3xl font-serif font-medium mb-2">
+              Möt <span className="text-salon-gold italic">Maria</span>
             </h2>
+            <p className="text-sm text-salon-gold mb-6">Grundare & keratinspecialist</p>
             
-            <div 
-              ref={el => elementsRef.current[3] = el} 
-              className="animated-element space-y-6 text-salon-dark/80"
-            >
+            <div className="space-y-4 text-salon-dark/80 mb-6">
               <p>
                 Maria är en passionerad och erfaren frisör med över 30 års arbete inom branschen och grundaren av salongen. Sedan 2010 har hon drivit sin salong med stort engagemang och hjärta, där hon sätter kundens behov och önskemål i centrum.
               </p>
@@ -77,12 +82,28 @@ const About: React.FC = () => {
               <p>
                 Med en genuin förmåga att få sina kunder att känna sig som hemma, har Maria skapat en miljö av trygghet och välkomnande. Hon är en lyhörd frisör som alltid ser till att varje kund känner sig förstådd och omhändertagen. Marias varma personlighet och sociala förmåga gör att besöken hos henne alltid blir en positiv upplevelse.
               </p>
+              
+              <p>
+                Hennes professionalism och engagemang har inte gått obemärkt förbi – Maria har flera gånger vunnit priser och blivit nominerad till Årets Lokala Företag – Salong inom Stockholm stad, vilket är ett bevis på hennes höga kvalitet och framstående arbete. Marias kombination av expertis, värme och omtanke gör henne till en frisör som verkligen sticker ut.
+              </p>
             </div>
             
-            <div 
-              ref={el => elementsRef.current[4] = el} 
-              className="animated-element mt-8 grid grid-cols-1 md:grid-cols-2 gap-6"
-            >
+            <ul className="space-y-2 mb-6">
+              <li className="flex items-center">
+                <span className="text-salon-gold mr-2">✓</span>
+                <span>Över 30 års erfarenhet</span>
+              </li>
+              <li className="flex items-center">
+                <span className="text-salon-gold mr-2">✓</span>
+                <span>Varm och lyhörd frisör</span>
+              </li>
+              <li className="flex items-center">
+                <span className="text-salon-gold mr-2">✓</span>
+                <span>Nominerad till Årets Lokala Företag – Salong i Stockholm</span>
+              </li>
+            </ul>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="salon-card p-6">
                 <h3 className="text-xl font-serif mb-2">Expertis</h3>
                 <p className="text-salon-dark/80 text-sm">
@@ -97,25 +118,55 @@ const About: React.FC = () => {
                 </p>
               </div>
             </div>
-
-            <div className="mt-8">
-              <h3 className="text-2xl font-serif mb-4">Valentina – Keratinspecialist</h3>
-              <div className="flex gap-6 items-start">
-                <img 
-                  src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png"
-                  alt="Valentina"
-                  className="w-32 h-32 object-cover rounded-full"
-                />
-                <div>
-                  <p className="text-salon-dark/80 mb-4">
-                    Valentina är vår engagerade keratinspecialist och expert på hårstruktur och -vård. Med sin djupa kunskap och passion för skönhet är hon alltid uppdaterad med de senaste behandlingarna och den vård ditt hår behöver.
-                  </p>
-                  <p className="text-salon-dark/80">
-                    Efter en behandling hos Valentina kan du förvänta dig en verklig "WOW"-känsla, ditt hår kommer att kännas friskt, glänsande och lätt att styla.
-                  </p>
-                </div>
-              </div>
+          </div>
+        </div>
+        
+        {/* Valentina Section */}
+        <div 
+          ref={el => elementsRef.current[2] = el} 
+          className="animated-element grid md:grid-cols-2 gap-12 items-center"
+        >
+          <div className="md:order-2 relative h-full flex items-center">
+            <div className="relative z-10 rounded-sm overflow-hidden shadow-lg">
+              <img 
+                src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png"
+                alt="Valentina" 
+                className="w-full h-auto object-cover object-center"
+              />
             </div>
+            <div className="absolute top-8 -right-8 w-full h-[90%] border-2 border-salon-gold rounded-sm -z-10"></div>
+          </div>
+          
+          <div className="md:order-1">
+            <h2 className="text-3xl font-serif font-medium mb-2">
+              Möt <span className="text-salon-gold italic">Valentina</span>
+            </h2>
+            <p className="text-sm text-salon-gold mb-6">Keratinspecialist</p>
+            
+            <div className="space-y-4 text-salon-dark/80 mb-6">
+              <p>
+                Valentina är vår engagerade keratinspecialist och expert på hårstruktur och vård. Med sin djupa kunskap och passion för skönhet är hon alltid uppdaterad med de senaste behandlingarna och den vård ditt hår behöver. Valentina lyssnar noggrant på varje kunds behov och anpassar sina behandlingar för att ge just det resultat du söker.
+              </p>
+              
+              <p>
+                Efter en behandling hos Valentina kan du förvänta dig en verklig "WOW"-känsla, ditt hår kommer att kännas friskt, glänsande och lätt att styla, samtidigt som du får välvårdat och fräscht hår. Hon skapar en inbjudande och avslappnad atmosfär där du känner dig väl omhändertagen, och lämnar salongen med ett självförtroende och bättre hår kvalité.
+              </p>
+            </div>
+            
+            <ul className="space-y-2 mb-6">
+              <li className="flex items-center">
+                <span className="text-salon-gold mr-2">✓</span>
+                <span>Expert på keratinbehandlingar</span>
+              </li>
+              <li className="flex items-center">
+                <span className="text-salon-gold mr-2">✓</span>
+                <span>Skapar friskt, glänsande och lättstylat hår</span>
+              </li>
+              <li className="flex items-center">
+                <span className="text-salon-gold mr-2">✓</span>
+                <span>Erbjuder individuellt anpassade behandlingar</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { Scissors, Droplet, Sparkles, Beard, Palette, SparkleIcon } from 'lucide-react';
+import { Scissors, Droplet, Sparkles, Palette, SparkleIcon } from 'lucide-react';
 
 const Services: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -40,7 +40,7 @@ const Services: React.FC = () => {
       services: [
         { name: "Kort hår", price: "från 390 kr" },
         { name: "Långt hår", price: "från 470 kr" },
-        { name: "Långt hår (ny frisyr/tjockt hår)", price: "från 560 kr" },
+        { name: "Ny frisyr/tjockt hår", price: "från 560 kr" },
         { name: "Ungdom (8–18 år)", price: "350 kr" },
         { name: "Barnklippning (t.o.m. 7 år)", price: "290 kr" },
       ]
@@ -67,7 +67,7 @@ const Services: React.FC = () => {
       ]
     },
     {
-      icon: <Beard size={28} className="text-salon-gold" />,
+      icon: <Scissors size={28} className="text-salon-gold" />,
       title: "Barberaren",
       description: "Expertklippning för herrar och skäggvård.",
       services: [

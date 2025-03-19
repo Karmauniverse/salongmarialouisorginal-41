@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Instagram } from 'lucide-react';
 
 const Gallery: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -33,6 +34,7 @@ const Gallery: React.FC = () => {
     };
   }, []);
 
+  // Placeholder images while waiting for Instagram integration
   const galleryImages = [
     "https://source.unsplash.com/random/600x700/?haircut,blonde",
     "https://source.unsplash.com/random/600x900/?hair,styling",
@@ -74,10 +76,20 @@ const Gallery: React.FC = () => {
           
           <p 
             ref={el => elementsRef.current[2] = el} 
-            className="animated-element text-salon-dark/80"
+            className="animated-element text-salon-dark/80 mb-6"
           >
             Bläddra genom vår portfölj som visar konstnärligheten och expertisen hos våra stylister. Dessa bilder representerar bara en bråkdel av de förvandlingar vi skapar dagligen hos Maria Louis.
           </p>
+          
+          <a 
+            href="https://www.instagram.com/salongmarialouiis/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-salon-gold hover:text-salon-brown transition-colors"
+          >
+            <Instagram size={20} className="mr-2" />
+            <span>Följ oss på Instagram för fler inspirerande bilder</span>
+          </a>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -100,6 +112,18 @@ const Gallery: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+        
+        <div className="text-center mt-12">
+          <a 
+            href="https://www.instagram.com/salongmarialouiis/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-3 border border-salon-gold text-salon-gold hover:bg-salon-gold hover:text-white transition-all font-medium rounded-sm"
+          >
+            <Instagram size={20} className="mr-2" />
+            Se fler bilder på Instagram
+          </a>
         </div>
       </div>
 

@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
           </h1>
           
           <p ref={el => elementsRef.current[2] = el} className="animated-element text-lg md:text-xl text-white/90 mb-8 max-w-xl">
-            Upptäck en lyxig hårupplevelse hos Maria Louis, där exceptionell service möter konstnärlig expertis.
+            I hjärtat av Örnsberg – där 30 års erfarenhet möter omtanke hos varje kund.
           </p>
           
           <div ref={el => elementsRef.current[3] = el} className="animated-element flex flex-col sm:flex-row gap-4">

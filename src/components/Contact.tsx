@@ -37,17 +37,17 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin size={22} className="text-salon-gold" />,
       title: "Plats",
-      details: ["123 Elegansvägen", "Stockholm, 114 42"]
+      details: ["Hägerstensvägen 170", "126 53 Hägersten"]
     },
     {
       icon: <Phone size={22} className="text-salon-gold" />,
       title: "Kontakt",
-      details: ["08-123 45 67", "info@marialouissalong.se"]
+      details: ["08-549 040 50", "salongmarialouis@gmail.com"]
     },
     {
       icon: <Clock size={22} className="text-salon-gold" />,
       title: "Öppettider",
-      details: ["Tisdag - Lördag: 09:00 - 19:00", "Söndag - Måndag: Stängt"]
+      details: ["Måndag–Fredag: 10:00 – 18:00", "Lördag: 10:00 – 16:00", "Söndag: Stängt"]
     }
   ];
 
@@ -158,7 +158,7 @@ const Contact: React.FC = () => {
                 
                 <button
                   type="submit"
-                  className="w-full px-8 py-3 bg-salon-gold text-white font-medium rounded-sm hover:bg-opacity-90 transition-all"
+                  className="w-full px-8 py-3 bg-salon-gold text-white font-medium rounded-sm hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg"
                 >
                   Skicka Meddelande
                 </button>
@@ -169,13 +169,18 @@ const Contact: React.FC = () => {
           <div>
             <div 
               ref={el => elementsRef.current[4] = el} 
-              className="animated-element h-64 md:h-80 rounded-sm overflow-hidden mb-8"
+              className="animated-element h-64 rounded-sm overflow-hidden mb-8"
             >
-              <img 
-                src="https://source.unsplash.com/random/800x600/?salon,interior" 
-                alt="Maria Louis Salonginredning" 
-                className="w-full h-full object-cover"
-              />
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2036.7380891371485!2d17.97927431582818!3d59.30442838164869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77bd4d1c1c15%3A0xdf91287673f2b7a0!2sH%C3%A4gerstensv%C3%A4gen%20170%2C%20126%2053%20H%C3%A4gersten!5e0!3m2!1ssv!2sse!4v1633526309201!5m2!1ssv!2sse" 
+                width="100%" 
+                height="100%" 
+                style={{border: 0}} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Maria Louis Salong karta"
+              ></iframe>
             </div>
             
             <div 
@@ -193,6 +198,17 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
               ))}
+            </div>
+            
+            <div className="mt-8">
+              <a 
+                href="https://www.bokadirekt.se" 
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="block w-full text-center px-8 py-4 bg-salon-gold text-white font-medium rounded-sm hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg transform hover:translate-y-[-2px]"
+              >
+                Boka Tid Online
+              </a>
             </div>
           </div>
         </div>
