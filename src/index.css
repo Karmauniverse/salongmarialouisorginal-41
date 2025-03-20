@@ -107,7 +107,7 @@
 }
 
 .service-item {
-  @apply border-b border-salon-beige py-3 flex justify-between items-center group hover:border-salon-gold transition-colors duration-300;
+  @apply border-b border-salon-beige py-3 flex justify-between items-center hover:border-salon-gold transition-colors duration-300;
 }
 
 .nav-link {
@@ -178,5 +178,5 @@ html {
 }
 
 .photo-overlay {
-  @apply absolute inset-0 bg-gradient-to-b from-transparent to-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100;
+  @apply absolute inset-0 bg-gradient-to-b from-transparent to-black/50 opacity-0 transition-opacity duration-300;
 }

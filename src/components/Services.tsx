@@ -153,9 +153,9 @@ const Services: React.FC = () => {
                     {category.services.map((service) => (
                       <div 
                         key={service.name} 
-                        className="flex justify-between items-center py-3 border-b border-salon-beige group/service"
+                        className="service-item group"
                       >
-                        <span className="font-medium text-salon-dark group-hover/service:text-salon-gold transition-colors duration-300">
+                        <span className="font-medium text-salon-dark group-hover:text-salon-gold transition-colors duration-300">
                           {service.name}
                         </span>
                         <span 

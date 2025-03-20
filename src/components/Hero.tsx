@@ -100,7 +100,9 @@ const Hero: React.FC = () => {
         </a>
       </div>
       
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent group">
+        <div className="photo-overlay group-hover:opacity-100"></div>
+      </div>
     </section>
   );
 };
