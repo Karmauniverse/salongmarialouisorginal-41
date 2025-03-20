@@ -1,9 +1,6 @@
-
 import React, { useEffect, useRef } from 'react';
-
 const Hero: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
-
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -27,7 +24,6 @@ const Hero: React.FC = () => {
       });
     };
   }, []);
-
   return <section id="home" className="relative min-h-screen flex items-center pt-16">
       <div className="absolute inset-0">
         <img src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" alt="Vackert svart hår" className="w-full h-full object-cover object-center" />
@@ -40,9 +36,9 @@ const Hero: React.FC = () => {
             <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm mb-2">Hårsalong</span>
           </div>
           
-          <h1 ref={el => elementsRef.current[1] = el} className="animated-element text-4xl md:text-6xl lg:text-7xl font-serif font-medium mb-6 leading-tight text-white">
+          <h1 ref={el => elementsRef.current[1] = el} className="animated-element md:text-6xl lg:text-7xl font-serif font-medium mb-6 leading-tight text-white text-5xl">
             Skönhet som får dig <br />
-            <span className="text-salon-gold italic">att känna dig speciell</span>
+            <span className="text-salon-gold italic text-5xl">att känna dig speciell</span>
           </h1>
           
           <p ref={el => elementsRef.current[2] = el} className="animated-element text-lg md:text-xl text-white/90 mb-8 max-w-xl">
@@ -70,5 +66,4 @@ const Hero: React.FC = () => {
       </div>
     </section>;
 };
-
 export default Hero;
