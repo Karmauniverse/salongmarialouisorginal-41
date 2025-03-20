@@ -44,21 +44,24 @@ const Navbar: React.FC = () => {
       <nav className={cn('fixed w-full z-50 transition-all duration-300', isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-3' : 'bg-transparent py-6')}>
         <div className="container flex justify-between items-center">
           <a href="#home" className="flex items-center">
-            <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-12 mr-3" />
+            <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-16 mr-3" />
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map(link => <a key={link.name} href={link.href} className="nav-link text-sm font-medium">
+            {navLinks.map(link => <a key={link.name} href={link.href} className={cn(
+              "nav-link text-sm font-medium transition-colors",
+              isScrolled ? "text-salon-dark" : "text-white drop-shadow-md"
+            )}>
                 {link.name}
               </a>)}
-            <a href="#contact" className="px-5 py-2 rounded-sm bg-salon-gold text-white font-medium text-sm hover:bg-opacity-90 transition-all">
+            <a href="#contact" className="px-5 py-2 rounded-sm bg-salon-gold text-white font-medium text-sm hover:bg-opacity-90 transition-all shadow-md">
               Boka Nu
             </a>
           </div>
 
           {/* Mobile menu button */}
-          <button className="md:hidden text-salon-dark p-2" onClick={toggleMobileMenu} aria-label="Toggle menu">
+          <button className={cn("md:hidden p-2", isScrolled ? "text-salon-dark" : "text-white")} onClick={toggleMobileMenu} aria-label="Toggle menu">
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -77,24 +80,25 @@ const Navbar: React.FC = () => {
       </nav>
       
       {/* Floating Social Media Icons */}
-      <div className="fixed right-4 bottom-1/3 z-40 flex flex-col gap-3 p-3 rounded-full bg-white/80 backdrop-blur-sm shadow-md">
+      <div className="fixed right-4 bottom-1/3 z-40 flex flex-col gap-2 py-2 px-1 rounded-full bg-white/80 backdrop-blur-sm shadow-sm">
+        <span className="text-salon-dark text-xs font-medium px-1">Följ oss</span>
         <a 
           href="https://www.instagram.com/salongmarialouiis/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-salon-dark hover:text-salon-gold transition-colors p-2"
+          className="text-salon-dark hover:text-salon-gold transition-colors p-1"
           aria-label="Instagram"
         >
-          <Instagram size={20} />
+          <Instagram size={16} />
         </a>
         <a 
           href="https://www.facebook.com/profile.php?id=100063562662842" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-salon-dark hover:text-salon-gold transition-colors p-2"
+          className="text-salon-dark hover:text-salon-gold transition-colors p-1"
           aria-label="Facebook"
         >
-          <Facebook size={20} />
+          <Facebook size={16} />
         </a>
       </div>
     </>

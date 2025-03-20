@@ -35,27 +35,41 @@ const About: React.FC = () => {
     <section id="about" className="py-20 bg-white">
       <div className="section-container">
         {/* Introduction Section */}
-        <div ref={el => elementsRef.current[0] = el} className="animated-element text-center max-w-3xl mx-auto mb-16">
+        <div ref={el => elementsRef.current[0] = el} className="animated-element text-center max-w-4xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm mb-4">
             Om Oss
           </span>
           
           <h2 className="text-3xl md:text-4xl font-serif font-medium mb-6">
-            Välkommen till <span className="text-salon-gold italic">Maria Louis</span>
+            Om <span className="text-salon-gold italic">Oss</span>
           </h2>
           
-          <p className="text-salon-dark/80 text-lg">
-            Sedan 2010 har vi förenat skönhet och omtanke – en prisbelönt salong med stort hjärta
-          </p>
+          <div className="space-y-4 text-salon-dark/80">
+            <p>
+              Sedan 2010 har Maria Louis varit en självklar del av Hägersten – en plats där skönhet, kvalitet och omtanke möts. Ett av våra största ögonblick var när vi, tillsammans med våra fantastiska kunder, blev nominerade till Årets Lokala Företag – en ära vi aldrig hade uppnått utan ert stöd.
+            </p>
+            
+            <p>
+              Genom åren har vi delat både framgångar och utmaningar, men det som alltid har drivit oss framåt är er lojalitet och ert förtroende. Varje besök, varje samtal och varje leende på salongen betyder allt för oss.
+            </p>
+            
+            <p>
+              På Maria Louis arbetar frisörer och barberare under samma tak, och vi är stolta över att erbjuda en förstklassig service i en välkomnande och personlig miljö. Här står du i fokus – vi lyssnar på dina önskemål och strävar efter att varje besök ska kännas som en avkopplande upplevelse.
+            </p>
+            
+            <p>
+              Vår ambition är att skapa långsiktiga relationer, där hantverk, expertis och personligt bemötande går hand i hand. Oavsett om du söker en klassisk klippning, en modern färgning eller en keratinbehandling, är du alltid varmt välkommen till oss.
+            </p>
+          </div>
         </div>
         
         {/* Maria Section */}
         <div ref={el => elementsRef.current[1] = el} className="animated-element grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div className="relative h-full flex items-center">
-            <div className="relative z-10 rounded-sm overflow-hidden shadow-lg">
+          <div className="relative h-full flex items-center justify-center">
+            <div className="relative z-10 rounded-sm overflow-hidden shadow-lg w-4/5">
               <img src="/lovable-uploads/4d446271-aa78-473e-be1e-ae8d64314e46.png" alt="Maria Louis med diplom" className="w-full h-auto object-cover object-center" />
             </div>
-            <div className="absolute top-8 -left-8 w-full h-[90%] border-2 border-salon-gold rounded-sm -z-10"></div>
+            <div className="absolute top-8 -left-4 w-4/5 h-[90%] border-2 border-salon-gold rounded-sm -z-10"></div>
           </div>
           
           <div>
@@ -72,22 +86,18 @@ const About: React.FC = () => {
               <p>
                 Med en genuin förmåga att få sina kunder att känna sig som hemma, har Maria skapat en miljö av trygghet och välkomnande. Hon är en lyhörd frisör som alltid ser till att varje kund känner sig förstådd och omhändertagen. Marias varma personlighet och sociala förmåga gör att besöken hos henne alltid blir en positiv upplevelse.
               </p>
-              
-              <p>
-                Hennes professionalism och engagemang har inte gått obemärkt förbi – Maria har flera gånger vunnit priser och blivit nominerad till Årets Lokala Företag – Salong inom Stockholm stad, vilket är ett bevis på hennes höga kvalitet och framstående arbete. Marias kombination av expertis, värme och omtanke gör henne till en frisör som verkligen sticker ut.
-              </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="salon-card p-6">
-                <h3 className="text-xl font-serif mb-2">Expertis</h3>
+              <div className="salon-card p-6 bg-salon-cream/50 hover:bg-salon-cream transition-colors">
+                <h3 className="text-xl font-serif mb-2 text-salon-dark">Expertis</h3>
                 <p className="text-salon-dark/80 text-sm">
                   Certifierad keratinbehandlare och expert på avancerade behandlingar för glansigt och starkt hår.
                 </p>
               </div>
               
-              <div className="salon-card p-6">
-                <h3 className="text-xl font-serif mb-2">Utmärkelser</h3>
+              <div className="salon-card p-6 bg-salon-cream/50 hover:bg-salon-cream transition-colors">
+                <h3 className="text-xl font-serif mb-2 text-salon-dark">Utmärkelser</h3>
                 <p className="text-salon-dark/80 text-sm">
                   Nominerad till Årets Lokala Företag – Salong inom Stockholm stad, ett bevis på högsta kvalitet.
                 </p>
@@ -98,11 +108,11 @@ const About: React.FC = () => {
         
         {/* Valentina Section */}
         <div ref={el => elementsRef.current[2] = el} className="animated-element grid md:grid-cols-2 gap-12 items-center">
-          <div className="md:order-2 relative h-full flex items-center">
-            <div className="relative z-10 rounded-sm overflow-hidden shadow-lg w-5/6 mx-auto">
+          <div className="md:order-2 relative h-full flex items-center justify-center">
+            <div className="relative z-10 rounded-sm overflow-hidden shadow-lg w-4/5">
               <img src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png" alt="Valentina" className="w-full h-auto object-cover object-center" />
             </div>
-            <div className="absolute top-8 -right-8 w-5/6 h-[90%] border-2 border-salon-gold rounded-sm -z-10 mx-auto"></div>
+            <div className="absolute top-8 -right-4 w-4/5 h-[90%] border-2 border-salon-gold rounded-sm -z-10"></div>
           </div>
           
           <div className="md:order-1">

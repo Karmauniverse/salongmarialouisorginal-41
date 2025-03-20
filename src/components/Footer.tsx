@@ -1,17 +1,30 @@
+
 import React from 'react';
-import { Instagram, Facebook, Phone, MapPin, Mail, Clock } from 'lucide-react';
+import { Instagram, Facebook, Phone, MapPin, Mail, Clock, CreditCard } from 'lucide-react';
+
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-  return <footer className="bg-salon-dark text-white pt-16 pb-8">
+  return (
+    <footer className="bg-salon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center mb-12 text-center">
-          <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-24 mb-4 object-contain" />
-          <h3 className="font-serif font-medium text-white mb-6 my-0 mx-0 py-0 px-0 text-xl">Maria Louis</h3>
+          <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-32 mb-4 object-contain" />
+          <h3 className="font-serif font-medium text-white mb-6 my-0 mx-0 py-0 px-0 text-2xl">Maria Louis</h3>
         </div>
         
         <div className="grid md:grid-cols-4 gap-8 mb-12">
-          <div className="md:col-span-1">
-            
+          <div className="md:col-span-1 flex flex-col items-center md:items-start">
+            <h4 className="text-white font-medium mb-4">Betalsätt</h4>
+            <div className="flex space-x-4 mb-4">
+              <div className="bg-white p-2 rounded-sm">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png" alt="Visa" className="h-6" />
+              </div>
+              <div className="bg-white p-2 rounded-sm">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1200px-Mastercard-logo.svg.png" alt="Mastercard" className="h-6" />
+              </div>
+              <div className="bg-white p-2 rounded-sm">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/1200px-American_Express_logo_%282018%29.svg.png" alt="American Express" className="h-6" />
+              </div>
+            </div>
           </div>
           
           <div>
@@ -92,10 +105,12 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-white/50 text-sm">
-            © {currentYear} Maria Louis Hårsalong. Alla rättigheter förbehållna.
+            Salong Marialouis © 2025 om inget annat anges.
           </p>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;

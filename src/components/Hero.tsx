@@ -45,33 +45,28 @@ const Hero: React.FC = () => {
           </div>
           
           <h1 ref={el => elementsRef.current[1] = el} className="animated-element text-5xl md:text-6xl lg:text-7xl font-serif font-medium mb-6 leading-tight text-white">
-            Skönhet som får dig <br />
-            <span className="text-salon-gold italic text-5xl">att känna dig speciell</span>
+            <span className="block text-5xl md:text-6xl font-serif">Maria Louis</span>
           </h1>
           
-          <p ref={el => elementsRef.current[2] = el} className="animated-element text-lg md:text-xl text-white/90 mb-6 max-w-xl mx-auto">
-            Maria Louis
-          </p>
-          
-          <p ref={el => elementsRef.current[3] = el} className="animated-element text-lg md:text-xl text-white/90 mb-8 max-w-xl mx-auto">
-            Sedan 2010 har vi förenat skönhet och omtanke – en prisbelönt salong med stort hjärta
+          <p ref={el => elementsRef.current[2] = el} className="animated-element text-lg md:text-xl text-white/90 mb-8 max-w-xl mx-auto">
+            Sedan 2010 har vi förenat skönhet och omtanke – en prisbelönt salong med hjärta
           </p>
           
           <div ref={el => elementsRef.current[4] = el} className="animated-element flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#services" className="px-8 py-3 bg-salon-gold text-white font-medium rounded-sm hover:bg-opacity-90 transition-all text-center">
+            <a href="#services" className="px-8 py-3 bg-salon-gold text-white font-medium rounded-sm hover:bg-opacity-90 transition-all text-center shadow-md">
               Våra Tjänster
             </a>
-            <a href="#contact" className="px-8 py-3 border border-salon-gold text-white font-medium rounded-sm hover:bg-salon-gold/5 transition-all text-center">
+            <a href="#contact" className="px-8 py-3 border border-salon-gold text-white font-medium rounded-sm hover:bg-salon-gold/20 transition-all text-center backdrop-blur-sm">
               Boka Tid
             </a>
           </div>
         </div>
       </div>
       
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-subtle-move">
-        <a href="#about" className="flex flex-col items-center text-white opacity-70 hover:opacity-100 transition-opacity">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-subtle-move">
+        <a href="#about" className="flex flex-col items-center text-white hover:text-salon-gold transition-colors">
           <span className="text-sm font-medium mb-2">Bläddra Ner</span>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-subtle-move">
             <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </a>
