@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { MapPin, Phone, Clock, Mail } from 'lucide-react';
+import { MapPin, Phone, Clock, Mail, CreditCard } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -70,34 +70,33 @@ const Contact: React.FC = () => {
           >
             Boka Din Tid
           </h2>
-          
-          <p 
-            ref={el => elementsRef.current[2] = el} 
-            className="animated-element text-salon-dark/80"
-          >
-            Redo att förvandla ditt utseende? Kontakta oss för att boka din tid eller ställa frågor. Vi ser fram emot att välkomna dig till Maria Louis Hårsalong.
-          </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           <div 
             ref={el => elementsRef.current[3] = el} 
-            className="animated-element salon-card p-8 flex flex-col justify-center items-center text-center"
+            className="animated-element salon-card p-8 flex flex-col justify-center items-center text-center h-full"
           >
-            <h3 className="text-2xl font-serif mb-8">Boka Din Tid Hos Oss</h3>
+            <h3 className="text-2xl font-serif mb-8">Boka Online</h3>
             
             <a 
               href="https://www.bokadirekt.se" 
               target="_blank"
               rel="noopener noreferrer" 
-              className="inline-block w-full max-w-md text-center px-8 py-4 bg-salon-gold text-white font-medium rounded-sm hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg transform hover:translate-y-[-2px] text-lg"
+              className="inline-block w-full max-w-md text-center px-8 py-4 bg-salon-gold text-white font-medium rounded-sm hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg transform hover:translate-y-[-2px] text-lg mb-8"
             >
-              Boka Tid Online
+              Boka Tid
             </a>
             
-            <p className="text-salon-dark/70 mt-6 max-w-md">
-              Klicka på knappen ovan för att komma till vårt bokningssystem där du enkelt kan välja tjänst, tid och frisör.
-            </p>
+            <div className="mt-8 w-full">
+              <h4 className="text-xl font-serif mb-4">Betalningsmetoder</h4>
+              <div className="flex justify-center items-center space-x-6 mb-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" className="h-8" />
+                <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="MasterCard" className="h-8" />
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968287.png" alt="Swish" className="h-8" />
+              </div>
+              <p className="text-sm text-salon-dark/60">Vi accepterar kortbetalning och Swish</p>
+            </div>
           </div>
           
           <div>

@@ -8,34 +8,16 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-salon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center mb-12 text-center">
+          <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-24 mb-4" />
+          <h3 className="font-serif text-2xl font-medium text-white mb-6">Maria Louis</h3>
+        </div>
+        
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-1">
-            <a href="#home" className="inline-block mb-6">
-              <span className="font-serif text-xl font-medium text-white">Maria Louis</span>
-            </a>
             <p className="text-white/70 mb-6">
               Exklusiva hårsalongstjänster dedikerade till att hjälpa dig se och känna dig som bäst.
             </p>
-            <div className="flex space-x-4">
-              <a 
-                href="https://www.instagram.com/salongmarialouiis/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white/70 hover:text-salon-gold transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
-              <a 
-                href="https://www.facebook.com/profile.php?id=100063562662842" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white/70 hover:text-salon-gold transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} />
-              </a>
-            </div>
           </div>
           
           <div>

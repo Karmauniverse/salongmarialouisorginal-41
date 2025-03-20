@@ -87,7 +87,7 @@ const Testimonials: React.FC = () => {
             ref={el => elementsRef.current[2] = el} 
             className="animated-element text-salon-dark/80"
           >
-            Vi är stolta över att skapa exceptionella upplevelser för våra kunder. Här är vad några av dem har att säga om sin tid hos Maria Louis.
+            Vi är stolta över att skapa exceptionella upplevelser för våra kunder.
           </p>
         </div>
         

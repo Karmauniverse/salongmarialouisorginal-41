@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Scissors, Droplet, Sparkles, Palette, SparkleIcon } from 'lucide-react';
@@ -126,7 +127,7 @@ const Services: React.FC = () => {
             ref={el => elementsRef.current[2] = el} 
             className="animated-element text-salon-dark/80"
           >
-            Vi erbjuder ett omfattande utbud av hårtjänster utformade för att förhöja din naturliga skönhet och hålla ditt hår i topptillstånd. Varje tjänst är personlig för att möta dina unika behov och preferenser.
+            Vi erbjuder ett omfattande utbud av hårtjänster utformade för att förhöja din naturliga skönhet och hålla ditt hår i topptillstånd.
           </p>
         </div>
         
@@ -135,7 +136,7 @@ const Services: React.FC = () => {
             <div 
               key={category.title}
               ref={el => elementsRef.current[index + 3] = el} 
-              className="animated-element salon-card p-8"
+              className="animated-element salon-card p-8 h-full"
             >
               <div className="mb-6">{category.icon}</div>
               <h3 className="text-2xl font-serif mb-4">{category.title}</h3>
@@ -145,7 +146,7 @@ const Services: React.FC = () => {
                 {category.services.map((service) => (
                   <div key={service.name} className="service-item">
                     <span className="font-medium">{service.name}</span>
-                    <span className="text-salon-gold">{service.price}</span>
+                    <span className="text-salon-gold font-bold">{service.price}</span>
                   </div>
                 ))}
               </div>
@@ -154,7 +155,7 @@ const Services: React.FC = () => {
         </div>
         
         <div 
-          ref={el => elementsRef.current[6] = el} 
+          ref={el => elementsRef.current[9] = el} 
           className="animated-element text-center mt-12"
         >
           <a 
