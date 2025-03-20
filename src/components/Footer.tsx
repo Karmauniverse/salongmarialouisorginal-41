@@ -11,9 +11,7 @@ const Footer: React.FC = () => {
         
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-1">
-            <p className="text-white/70 mb-6">
-              Exklusiva hårsalongstjänster dedikerade till att hjälpa dig se och känna dig som bäst.
-            </p>
+            
           </div>
           
           <div>
