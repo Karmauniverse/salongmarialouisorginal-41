@@ -1,16 +1,12 @@
-
 import React from 'react';
 import { Instagram, Facebook, Phone, MapPin, Mail, Clock } from 'lucide-react';
-
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  
-  return (
-    <footer className="bg-salon-dark text-white pt-16 pb-8">
+  return <footer className="bg-salon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center mb-12 text-center">
-          <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-24 mb-4" />
-          <h3 className="font-serif text-2xl font-medium text-white mb-6">Maria Louis</h3>
+          <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-24 mb-4 object-contain" />
+          <h3 className="font-serif font-medium text-white mb-6 my-0 mx-0 py-0 px-0 text-xl">Maria Louis</h3>
         </div>
         
         <div className="grid md:grid-cols-4 gap-8 mb-12">
@@ -102,8 +98,6 @@ const Footer: React.FC = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
