@@ -1,17 +1,13 @@
-
 import React, { useEffect, useRef } from 'react';
-
 const About: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
-
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fade-up');
@@ -19,26 +15,19 @@ const About: React.FC = () => {
         }
       });
     }, observerOptions);
-
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
-
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-
-  return (
-    <section id="about" className="py-20 bg-white">
+  return <section id="about" className="py-20 bg-white">
       <div className="section-container">
         {/* Introduction Section */}
-        <div 
-          ref={el => elementsRef.current[0] = el} 
-          className="animated-element text-center max-w-3xl mx-auto mb-16"
-        >
+        <div ref={el => elementsRef.current[0] = el} className="animated-element text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm mb-4">
             Om Oss
           </span>
@@ -53,17 +42,10 @@ const About: React.FC = () => {
         </div>
         
         {/* Maria Section */}
-        <div 
-          ref={el => elementsRef.current[1] = el} 
-          className="animated-element grid md:grid-cols-2 gap-12 items-center mb-16"
-        >
+        <div ref={el => elementsRef.current[1] = el} className="animated-element grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="relative h-full flex items-center">
             <div className="relative z-10 rounded-sm overflow-hidden shadow-lg">
-              <img 
-                src="/lovable-uploads/4d446271-aa78-473e-be1e-ae8d64314e46.png"
-                alt="Maria Louis med diplom" 
-                className="w-full h-auto object-cover object-center"
-              />
+              <img src="/lovable-uploads/4d446271-aa78-473e-be1e-ae8d64314e46.png" alt="Maria Louis med diplom" className="w-full h-auto object-cover object-center" />
             </div>
             <div className="absolute top-8 -left-8 w-full h-[90%] border-2 border-salon-gold rounded-sm -z-10"></div>
           </div>
@@ -88,20 +70,7 @@ const About: React.FC = () => {
               </p>
             </div>
             
-            <ul className="space-y-2 mb-6">
-              <li className="flex items-center">
-                <span className="text-salon-gold mr-2">✓</span>
-                <span>Över 30 års erfarenhet</span>
-              </li>
-              <li className="flex items-center">
-                <span className="text-salon-gold mr-2">✓</span>
-                <span>Varm och lyhörd frisör</span>
-              </li>
-              <li className="flex items-center">
-                <span className="text-salon-gold mr-2">✓</span>
-                <span>Nominerad till Årets Lokala Företag – Salong i Stockholm</span>
-              </li>
-            </ul>
+            
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="salon-card p-6">
@@ -122,17 +91,10 @@ const About: React.FC = () => {
         </div>
         
         {/* Valentina Section */}
-        <div 
-          ref={el => elementsRef.current[2] = el} 
-          className="animated-element grid md:grid-cols-2 gap-12 items-center"
-        >
+        <div ref={el => elementsRef.current[2] = el} className="animated-element grid md:grid-cols-2 gap-12 items-center">
           <div className="md:order-2 relative h-full flex items-center">
             <div className="relative z-10 rounded-sm overflow-hidden shadow-lg">
-              <img 
-                src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png"
-                alt="Valentina" 
-                className="w-full h-auto object-cover object-center"
-              />
+              <img src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png" alt="Valentina" className="w-full h-auto object-cover object-center" />
             </div>
             <div className="absolute top-8 -right-8 w-full h-[90%] border-2 border-salon-gold rounded-sm -z-10"></div>
           </div>
@@ -170,8 +132,6 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
