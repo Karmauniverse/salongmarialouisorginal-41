@@ -1,10 +1,11 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Scissors, Droplet, Sparkles, Palette, SparkleIcon } from 'lucide-react';
 
 const Services: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeCategory, setActiveCategory] = useState<number | null>(null);
 
   useEffect(() => {
     const observerOptions = {
@@ -104,14 +105,14 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-salon-cream/50">
+    <section id="services" className="py-20 bg-gradient-to-b from-white to-salon-cream/30">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div 
             ref={el => elementsRef.current[0] = el} 
             className="animated-element mb-4"
           >
-            <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm">
+            <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full">
               Våra Tjänster
             </span>
           </div>
@@ -131,24 +132,44 @@ const Services: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {serviceCategories.map((category, index) => (
             <div 
               key={category.title}
               ref={el => elementsRef.current[index + 3] = el} 
-              className="animated-element salon-card p-8 h-full"
+              className="animated-element group"
+              onMouseEnter={() => setActiveCategory(index)}
+              onMouseLeave={() => setActiveCategory(null)}
             >
-              <div className="mb-6">{category.icon}</div>
-              <h3 className="text-2xl font-serif mb-4">{category.title}</h3>
-              <p className="text-salon-dark/80 mb-6">{category.description}</p>
-              
-              <div className="space-y-3">
-                {category.services.map((service) => (
-                  <div key={service.name} className="service-item">
-                    <span className="font-medium">{service.name}</span>
-                    <span className="text-salon-gold font-bold">{service.price}</span>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl h-full flex flex-col transform hover:-translate-y-1">
+                <div className="p-8 flex-grow">
+                  <div className="p-3 bg-salon-gold/10 rounded-full inline-block mb-6 group-hover:bg-salon-gold/20 transition-all duration-300">
+                    {category.icon}
                   </div>
-                ))}
+                  <h3 className="text-2xl font-serif mb-4">{category.title}</h3>
+                  <p className="text-salon-dark/80 mb-6">{category.description}</p>
+                  
+                  <div className="space-y-3">
+                    {category.services.map((service) => (
+                      <div 
+                        key={service.name} 
+                        className="flex justify-between items-center py-3 border-b border-salon-beige group/service"
+                      >
+                        <span className="font-medium text-salon-dark group-hover/service:text-salon-gold transition-colors duration-300">
+                          {service.name}
+                        </span>
+                        <span 
+                          className={cn(
+                            "font-bold text-salon-gold transition-all duration-300 rounded-full px-3 py-1",
+                            activeCategory === index ? "bg-salon-gold/10 scale-110" : "bg-transparent"
+                          )}
+                        >
+                          {service.price}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
@@ -160,7 +181,7 @@ const Services: React.FC = () => {
         >
           <a 
             href="#contact" 
-            className="inline-block px-8 py-3 bg-salon-gold text-white font-medium rounded-sm hover:bg-opacity-90 transition-all"
+            className="inline-block px-8 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300"
           >
             Boka Din Tid
           </a>

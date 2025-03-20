@@ -1,11 +1,12 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Instagram } from 'lucide-react';
+import { Instagram, X } from 'lucide-react';
 
 const Gallery: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const observerOptions = {
@@ -45,13 +46,19 @@ const Gallery: React.FC = () => {
   ];
 
   const openLightbox = (image: string) => {
+    setIsAnimating(true);
     setSelectedImage(image);
     document.body.style.overflow = 'hidden';
+    setTimeout(() => setIsAnimating(false), 500);
   };
 
   const closeLightbox = () => {
-    setSelectedImage(null);
-    document.body.style.overflow = 'auto';
+    setIsAnimating(true);
+    setTimeout(() => {
+      setSelectedImage(null);
+      document.body.style.overflow = 'auto';
+      setIsAnimating(false);
+    }, 300);
   };
 
   return (
@@ -62,7 +69,7 @@ const Gallery: React.FC = () => {
             ref={el => elementsRef.current[0] = el} 
             className="animated-element mb-4"
           >
-            <span className="inline-block px-4 py-1.5 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-sm">
+            <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full">
               Vårt Arbete
             </span>
           </div>
@@ -92,22 +99,24 @@ const Gallery: React.FC = () => {
           </a>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
           {galleryImages.map((image, index) => (
             <div 
               key={index}
               ref={el => elementsRef.current[index + 3] = el} 
-              className="animated-element overflow-hidden rounded-sm cursor-pointer group"
+              className="animated-element overflow-hidden rounded-lg cursor-pointer group shadow-md"
               onClick={() => openLightbox(image)}
             >
-              <div className="relative overflow-hidden h-72 md:h-96">
+              <div className="relative overflow-hidden h-72 md:h-[350px]">
                 <img 
                   src={image} 
                   alt={`Salongarbete ${index + 1}`}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-salon-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white font-medium">Visa Större</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-salon-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="text-white font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 bg-salon-gold/70 px-4 py-2 rounded-full backdrop-blur-sm">
+                    Visa Större
+                  </div>
                 </div>
               </div>
             </div>
@@ -119,7 +128,7 @@ const Gallery: React.FC = () => {
             href="https://www.instagram.com/salongmarialouiis/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3 border border-salon-gold text-salon-gold hover:bg-salon-gold hover:text-white transition-all font-medium rounded-sm"
+            className="inline-flex items-center justify-center px-8 py-3 bg-salon-gold text-white hover:bg-salon-brown transition-all font-medium rounded-full shadow-md hover:shadow-lg transform hover:scale-105 duration-300"
           >
             <Instagram size={20} className="mr-2" />
             Se fler bilder på Instagram
@@ -130,25 +139,29 @@ const Gallery: React.FC = () => {
       {/* Lightbox */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 bg-salon-dark/90 z-50 flex items-center justify-center p-4"
+          className={cn(
+            "fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4",
+            isAnimating ? "opacity-0" : "opacity-100 transition-opacity duration-300"
+          )}
           onClick={closeLightbox}
         >
           <div 
-            className="relative max-w-4xl max-h-[90vh] animate-fade-in"
+            className={cn(
+              "relative max-w-5xl w-full max-h-[90vh] transition-all duration-500",
+              isAnimating ? "scale-95 opacity-0" : "scale-100 opacity-100"
+            )}
             onClick={(e) => e.stopPropagation()}
           >
             <img 
               src={selectedImage} 
               alt="Förstorat salongarbete" 
-              className="max-w-full max-h-[80vh] object-contain"
+              className="max-w-full max-h-[80vh] object-contain mx-auto shadow-2xl rounded"
             />
             <button 
-              className="absolute top-4 right-4 text-white bg-salon-dark/50 rounded-full p-2 hover:bg-salon-dark transition-colors"
+              className="absolute top-4 right-4 text-white bg-salon-dark/70 rounded-full p-3 hover:bg-salon-gold transition-colors transform hover:rotate-90 duration-300"
               onClick={closeLightbox}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <X size={24} />
             </button>
           </div>
         </div>
