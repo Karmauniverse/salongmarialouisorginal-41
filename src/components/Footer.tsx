@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center mb-16 text-center">
           <div className="mb-6 relative">
             <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-40 object-contain" />
-            <div className="absolute inset-0 bg-gradient-to-t from-salon-dark to-transparent bottom-0 h-1/3 my-[69px]"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-salon-dark to-transparent bottom-0 h-1/3 my-[69px] py-[68px] mx-0 px-[29px] rounded-3xl"></div>
           </div>
           <h3 className="font-serif font-medium text-salon-gold mb-2 text-3xl">Maria Louis</h3>
           <p className="text-white/60 max-w-md text-sm">Sedan 2010 har vi levererat högkvalitativ hårservice i Hägersten – en prisbelönt salong med hjärta</p>
