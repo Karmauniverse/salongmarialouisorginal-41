@@ -71,7 +71,7 @@ const Navbar: React.FC = () => {
       
       {/* Floating Social Media Icons */}
       <div className="fixed right-6 bottom-1/3 z-40 flex flex-col gap-3 py-3 px-2 backdrop-blur-sm shadow-md rounded-sm bg-transparent">
-        <a href="https://www.instagram.com/salongmarialouiis/" target="_blank" rel="noopener noreferrer" className="text-salon-dark hover:text-salon-gold transition-colors p-2 hover:scale-110 transform duration-300" aria-label="Instagram">
+        <a href="https://www.instagram.com/salongmarialouiis/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-salon-dark hover:text-salon-gold transition-colors p-2 hover:scale-110 transform duration-300 py-0 px-0">
           <Instagram size={18} />
         </a>
         <a href="https://www.facebook.com/profile.php?id=100063562662842" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-salon-dark hover:text-salon-gold transition-colors p-2 hover:scale-110 transform duration-300 py-0 px-0 mx-0">
