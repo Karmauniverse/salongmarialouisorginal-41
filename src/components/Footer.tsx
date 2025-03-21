@@ -1,19 +1,12 @@
-
 import React from 'react';
 import { Instagram, Facebook, Phone, MapPin, Mail, Clock, CreditCard } from 'lucide-react';
-
 const Footer: React.FC = () => {
-  return (
-    <footer className="bg-salon-dark text-white pt-16 pb-8">
+  return <footer className="bg-salon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center mb-16 text-center">
           <div className="mb-6 relative">
-            <img 
-              src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
-              alt="Maria Louis Logotyp" 
-              className="h-40 object-contain" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-salon-dark to-transparent bottom-0 h-1/3"></div>
+            <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-40 object-contain" />
+            <div className="absolute inset-0 bg-gradient-to-t from-salon-dark to-transparent bottom-0 h-1/3 my-[69px]"></div>
           </div>
           <h3 className="font-serif font-medium text-salon-gold mb-2 text-3xl">Maria Louis</h3>
           <p className="text-white/60 max-w-md text-sm">Sedan 2010 har vi levererat högkvalitativ hårservice i Hägersten – en prisbelönt salong med hjärta</p>
@@ -38,32 +31,22 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-medium mb-6 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">Snabblänkar</h4>
             <ul className="space-y-3">
-              {['Hem', 'Om Oss', 'Tjänster', 'Galleri', 'Kontakt'].map((item, index) => (
-                <li key={index}>
-                  <a 
-                    href={`#${item.toLowerCase().replace(' ', '-')}`} 
-                    className="text-white/70 hover:text-salon-gold transition-colors inline-block relative hover:pl-2 duration-300"
-                  >
+              {['Hem', 'Om Oss', 'Tjänster', 'Galleri', 'Kontakt'].map((item, index) => <li key={index}>
+                  <a href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-white/70 hover:text-salon-gold transition-colors inline-block relative hover:pl-2 duration-300">
                     {item}
                   </a>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
           
           <div>
             <h4 className="text-white font-medium mb-6 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">Tjänster</h4>
             <ul className="space-y-3">
-              {['Klippning & Styling', 'Färgtjänster', 'Keratinbehandlingar', 'Barberartjänster', 'Bryn & Fransar'].map((item, index) => (
-                <li key={index}>
-                  <a 
-                    href="#services" 
-                    className="text-white/70 hover:text-salon-gold transition-colors inline-block relative hover:pl-2 duration-300"
-                  >
+              {['Klippning & Styling', 'Färgtjänster', 'Keratinbehandlingar', 'Barberartjänster', 'Bryn & Fransar'].map((item, index) => <li key={index}>
+                  <a href="#services" className="text-white/70 hover:text-salon-gold transition-colors inline-block relative hover:pl-2 duration-300">
                     {item}
                   </a>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
           
@@ -104,22 +87,10 @@ const Footer: React.FC = () => {
         <div className="text-center mb-8">
           <h4 className="text-white font-medium mb-4 text-lg">Följ oss</h4>
           <div className="flex justify-center space-x-4">
-            <a 
-              href="https://www.instagram.com/salongmarialouiis/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group"
-              aria-label="Instagram"
-            >
+            <a href="https://www.instagram.com/salongmarialouiis/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" aria-label="Instagram">
               <Instagram className="text-white group-hover:animate-pulse" size={18} />
             </a>
-            <a 
-              href="https://www.facebook.com/profile.php?id=100063562662842" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group"
-              aria-label="Facebook"
-            >
+            <a href="https://www.facebook.com/profile.php?id=100063562662842" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" aria-label="Facebook">
               <Facebook className="text-white group-hover:animate-pulse" size={18} />
             </a>
           </div>
@@ -131,8 +102,6 @@ const Footer: React.FC = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
