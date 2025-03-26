@@ -5,7 +5,7 @@ import { ServiceCategory } from '../components/ServiceGrid';
 
 export const serviceCategories: ServiceCategory[] = [
   {
-    icon: <Scissors size={28} className="text-salon-gold" />,
+    icon: React.createElement(Scissors, { size: 28, className: "text-salon-gold" }),
     title: "Klippning",
     description: "Professionell klippning anpassad efter din stil och önskemål.",
     services: [
@@ -17,7 +17,7 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
-    icon: <Palette size={28} className="text-salon-gold" />,
+    icon: React.createElement(Palette, { size: 28, className: "text-salon-gold" }),
     title: "Folieslingor & Färg",
     description: "Professionell färgning och slingor för ett perfekt resultat.",
     services: [
@@ -28,7 +28,7 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
-    icon: <Droplet size={28} className="text-salon-gold" />,
+    icon: React.createElement(Droplet, { size: 28, className: "text-salon-gold" }),
     title: "Färgbehandlingar",
     description: "Färgning och toning för ett perfekt resultat.",
     services: [
@@ -38,7 +38,7 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
-    icon: <Scissors size={28} className="text-salon-gold" />,
+    icon: React.createElement(Scissors, { size: 28, className: "text-salon-gold" }),
     title: "Barberaren",
     description: "Expertklippning för herrar och skäggvård.",
     services: [
@@ -49,7 +49,7 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
-    icon: <SparkleIcon size={28} className="text-salon-gold" />,
+    icon: React.createElement(SparkleIcon, { size: 28, className: "text-salon-gold" }),
     title: "Keratinbehandling",
     description: "Professionell keratinbehandling för glansigt och friskt hår.",
     services: [
@@ -59,7 +59,7 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
-    icon: <Sparkles size={28} className="text-salon-gold" />,
+    icon: React.createElement(Sparkles, { size: 28, className: "text-salon-gold" }),
     title: "Övriga Behandlingar",
     description: "Kompletterande skönhetsbehandlingar för ditt välbefinnande.",
     services: [
