@@ -13,7 +13,7 @@ export const serviceCategories: ServiceCategory[] = [
       { name: "Långt hår", price: "fr. 470 kr" },
       { name: "Ny frisyr/tjockt hår", price: "fr. 560 kr" },
       { name: "Ungdom (8–18 år)", price: "350 kr" },
-      { name: "Barnklippning (t.o.m. 7 år)", price: "290 kr" },
+      { name: "Barnklippning (t.o.m. 7 år)", price: "290 kr" }
     ]
   },
   {
@@ -24,7 +24,7 @@ export const serviceCategories: ServiceCategory[] = [
       { name: "Folieslingor inkl. klipp - Kort hår", price: "fr. 1 590 kr" },
       { name: "Folieslingor inkl. klipp - Mellanlångt", price: "fr. 1 930 kr" },
       { name: "Folieslingor inkl. klipp - Långt", price: "fr. 2 230 kr" },
-      { name: "Balayage inkl. klipp", price: "fr. 2 530 kr" },
+      { name: "Balayage inkl. klipp", price: "fr. 2 530 kr" }
     ]
   },
   {
@@ -34,7 +34,7 @@ export const serviceCategories: ServiceCategory[] = [
     services: [
       { name: "Bottenfärg", price: "fr. 740 kr" },
       { name: "Toning", price: "fr. 350 kr" },
-      { name: "Slingor i hätta", price: "930 kr" },
+      { name: "Slingor i hätta", price: "930 kr" }
     ]
   },
   {
@@ -45,7 +45,7 @@ export const serviceCategories: ServiceCategory[] = [
       { name: "Herrklippning", price: "fr. 390 kr" },
       { name: "Kort skägg", price: "fr. 220 kr" },
       { name: "Klipp + kort skägg", price: "fr. 540 kr" },
-      { name: "Klipp + långt skägg", price: "650 kr" },
+      { name: "Klipp + långt skägg", price: "650 kr" }
     ]
   },
   {
@@ -55,7 +55,7 @@ export const serviceCategories: ServiceCategory[] = [
     services: [
       { name: "Kort hår", price: "1 540–1 940 kr" },
       { name: "Mellanlångt hår", price: "2 190–2 440 kr" },
-      { name: "Långt hår", price: "fr. 2 740 kr" },
+      { name: "Långt hår", price: "fr. 2 740 kr" }
     ]
   },
   {
@@ -68,7 +68,7 @@ export const serviceCategories: ServiceCategory[] = [
       { name: "Ögonbrynsplock", price: "199 kr" },
       { name: "Franspaket", price: "420 kr" },
       { name: "Olaplex med behandling", price: "250 kr" },
-      { name: "Fristående Olaplex", price: "500 kr" },
+      { name: "Fristående Olaplex", price: "500 kr" }
     ]
   }
 ];
