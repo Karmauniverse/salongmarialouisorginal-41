@@ -43,14 +43,12 @@ const Hero: React.FC = () => {
             <span className="text-4xl md:text-5xl block mb-1 text-salon-gold font-light tracking-wider">Maria Louis</span>
           </h1>
           
-          <p ref={el => elementsRef.current[2] = el} className="animated-element text-lg md:text-xl text-white/90 mb-10 max-w-xl mx-auto font-light">
+          <p ref={el => elementsRef.current[2] = el} className="animated-element md:text-xl text-white/90 mb-10 max-w-xl mx-auto font-light text-xl">
             Sedan 2010 har vi förenat skönhet och omtanke – en prisbelönt salong med hjärta
           </p>
           
           <div ref={el => elementsRef.current[4] = el} className="animated-element flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#services" className="px-8 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all text-center shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
-              Våra Tjänster
-            </a>
+            <a href="#services" className="px-8 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all text-center shadow-md hover:shadow-lg transform hover:scale-105 duration-300">Behandlingar</a>
             <a href="#contact" className="px-8 py-3 border border-salon-gold text-white font-medium rounded-full hover:bg-salon-gold/30 transition-all text-center backdrop-blur-sm hover:border-white">
               Boka Tid
             </a>
