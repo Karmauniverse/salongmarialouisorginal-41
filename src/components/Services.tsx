@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import ServiceGrid from './ServiceGrid';
 import { serviceCategories } from '../data/serviceData';
+import { ArrowRight } from 'lucide-react';
 
 const Services: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -34,9 +35,9 @@ const Services: React.FC = () => {
   }, []);
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-white to-salon-cream/30">
+    <section id="services" className="py-16 bg-gradient-to-b from-white to-salon-cream/30">
       <div className="section-container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <div 
             ref={el => elementsRef.current[0] = el} 
             className="animated-element mb-4"
@@ -50,14 +51,14 @@ const Services: React.FC = () => {
             ref={el => elementsRef.current[1] = el} 
             className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6"
           >
-            Expertbehandlingar för Alla Behov
+            Din stund hos oss
           </h2>
           
           <p 
             ref={el => elementsRef.current[2] = el} 
             className="animated-element text-salon-dark/80"
           >
-            Vi erbjuder ett omfattande utbud av hårtjänster utformade för att förhöja din naturliga skönhet och hålla ditt hår i topptillstånd.
+            Alla våra klippningar inkluderar tvätt, fön & styling. Vi ser till att du får ett färdigt resultat – redo för vardag, fest eller vila.
           </p>
         </div>
         
@@ -67,15 +68,16 @@ const Services: React.FC = () => {
         
         <div 
           ref={el => elementsRef.current[4] = el} 
-          className="animated-element text-center mt-12"
+          className="animated-element text-center mt-10"
         >
           <a 
             href="https://bokning.voady.se/marialouis/marialouisebarbershop/" 
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300"
+            className="inline-flex items-center px-8 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300"
           >
             Boka Din Tid
+            <ArrowRight className="ml-2 h-4 w-4" />
           </a>
         </div>
       </div>

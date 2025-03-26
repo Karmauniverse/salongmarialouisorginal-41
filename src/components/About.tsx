@@ -33,19 +33,19 @@ const About: React.FC = () => {
   }, []);
   
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-salon-cream/30 to-white">
+    <section id="about" className="py-16 bg-gradient-to-b from-salon-cream/30 to-white">
       <div className="section-container">
         {/* Introduction Section */}
         <div 
           ref={el => elementsRef.current[0] = el} 
-          className="animated-element text-center max-w-4xl mx-auto mb-20"
+          className="animated-element text-center max-w-4xl mx-auto mb-16"
         >
           <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full mb-4">
             Om Oss
           </span>
           
           <h2 className="text-3xl md:text-4xl font-serif font-medium mb-10">
-            Om <span className="text-salon-gold italic">Oss</span>
+            Vårt <span className="text-salon-gold italic">Team</span>
           </h2>
           
           <div className="space-y-6 text-salon-dark/80 my-0 mx-0">
@@ -71,13 +71,13 @@ hade uppnått utan ert stöd.</p>
         {/* Maria Section */}
         <div 
           ref={el => elementsRef.current[1] = el} 
-          className="animated-element mb-24"
+          className="animated-element mb-20"
         >
           <div className="bg-white rounded-xl shadow-xl overflow-hidden">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-full bg-salon-cream/30 p-8 md:p-12 flex items-center justify-center order-2 md:order-1">
                 <div className="max-w-md">
-                  <span className="text-sm text-salon-gold mb-1 block">Grundare & keratinspecialist</span>
+                  <span className="text-sm text-salon-brown font-medium mb-1 block">Grundare & keratinspecialist</span>
                   <h2 className="text-3xl font-serif font-medium mb-6">
                     Möt <span className="text-salon-gold italic">Maria</span>
                   </h2>
@@ -150,7 +150,7 @@ hade uppnått utan ert stöd.</p>
               
               <div className="relative h-full bg-salon-cream/30 p-8 md:p-12 flex items-center justify-center">
                 <div className="max-w-md">
-                  <span className="text-sm text-salon-gold mb-1 block">Keratinspecialist</span>
+                  <span className="text-sm text-salon-brown font-medium mb-1 block">Keratinspecialist</span>
                   <h2 className="text-3xl font-serif font-medium mb-6">
                     Möt <span className="text-salon-gold italic">Valentina</span>
                   </h2>

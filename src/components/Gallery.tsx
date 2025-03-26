@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Instagram, X } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 
 const Gallery: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -62,9 +62,9 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-white">
+    <section id="gallery" className="py-16 bg-white">
       <div className="section-container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <div 
             ref={el => elementsRef.current[0] = el} 
             className="animated-element mb-4"
@@ -76,27 +76,33 @@ const Gallery: React.FC = () => {
           
           <h2 
             ref={el => elementsRef.current[1] = el} 
-            className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6"
+            className="animated-element text-3xl md:text-4xl font-serif font-medium mb-8"
           >
-            Galleri av Vackra Förvandlingar
+            Se vårt arbete
           </h2>
           
-          <p 
+          <div 
             ref={el => elementsRef.current[2] = el} 
-            className="animated-element text-salon-dark/80 mb-6"
+            className="animated-element flex flex-wrap justify-center gap-4 mb-10"
           >
-            Bläddra genom vår portfölj som visar konstnärligheten och expertisen hos våra stylister. Dessa bilder representerar bara en bråkdel av de förvandlingar vi skapar dagligen hos Maria Louis.
-          </p>
-          
-          <a 
-            href="https://www.instagram.com/salongmarialouiis/" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center text-salon-gold hover:text-salon-brown transition-colors"
-          >
-            <Instagram size={20} className="mr-2" />
-            <span>Följ oss på Instagram för fler inspirerande bilder</span>
-          </a>
+            <a 
+              href="#services" 
+              className="inline-flex items-center px-6 py-3 bg-white border border-salon-gold text-salon-gold font-medium rounded-full hover:bg-salon-gold hover:text-white transition-all shadow-sm hover:shadow-md"
+            >
+              Våra Behandlingar
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+            
+            <a 
+              href="https://bokning.voady.se/marialouis/marialouisebarbershop/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg"
+            >
+              Boka Tid
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+          </div>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
@@ -121,18 +127,6 @@ const Gallery: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-        
-        <div className="text-center mt-12">
-          <a 
-            href="https://www.instagram.com/salongmarialouiis/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3 bg-salon-gold text-white hover:bg-salon-brown transition-all font-medium rounded-full shadow-md hover:shadow-lg transform hover:scale-105 duration-300"
-          >
-            <Instagram size={20} className="mr-2" />
-            Se fler bilder på Instagram
-          </a>
         </div>
       </div>
 

@@ -1,21 +1,22 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { LucideIcon } from 'lucide-react';
 
-export type ServiceItem = {
+export interface ServiceItem {
   name: string;
   price: string;
-};
+}
 
 interface ServiceCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
   services: ServiceItem[];
-  isActive: boolean;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
+  isActive?: boolean;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
@@ -25,67 +26,75 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   services,
   isActive,
   onMouseEnter,
-  onMouseLeave,
+  onMouseLeave
 }) => {
-  // Create an intro text based on title
-  const getIntroText = (title: string) => {
-    switch (title) {
-      case "Klippning":
-        return "Alla klippningar inkluderar tvätt, fön och styling – vi tar hand om hela upplevelsen.";
-      case "Folieslingor & Färg":
-        return "Professionell färgning för ett vackert och hållbart resultat med produkter av högsta kvalitet.";
-      case "Färgbehandlingar":
-        return "Våra färgbehandlingar ger ditt hår fantastisk lyster och djup med långvarig effekt.";
-      case "Barberaren":
-        return "Traditionellt hantverk med moderna tekniker för perfekt resultat för män av alla åldrar.";
-      case "Keratinbehandling":
-        return "Återställ hårets naturliga glans och mjukhet med vår intensiva keratin-behandlingsterapi.";
-      case "Övriga Behandlingar":
-        return "Kompletterande behandlingar för att förfina och förhöja din look till perfektion.";
-      default:
-        return "";
-    }
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpanded = () => {
+    setIsExpanded(!isExpanded);
   };
 
   return (
     <div 
-      className="group"
+      className={cn(
+        "bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300",
+        isActive ? "transform scale-[1.02] shadow-xl" : "",
+        isExpanded ? "shadow-xl" : ""
+      )}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl h-full flex flex-col transform hover:-translate-y-1">
-        <div className="p-8 flex-grow">
-          <div className="p-3 bg-salon-gold/10 rounded-full inline-block mb-6 group-hover:bg-salon-gold/20 transition-all duration-300">
-            {icon}
+      <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
+        <div className="p-6">
+          <div className="flex items-start mb-4">
+            <div className="p-3 rounded-full bg-salon-gold/10 flex-shrink-0 mr-4">
+              {icon}
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl font-serif font-medium text-salon-dark mb-2">{title}</h3>
+              <p className="text-salon-dark/70 text-sm">{description}</p>
+            </div>
           </div>
-          <h3 className="text-2xl font-serif mb-4">{title}</h3>
-          <p className="text-salon-dark/80 mb-3">{description}</p>
-          <p className="text-salon-gold italic mb-6 text-sm">{getIntroText(title)}</p>
           
-          <div className="space-y-3">
-            {services.map((service) => {
-              // Split the price string to format it correctly
-              const priceText = service.price.includes("från") 
-                ? service.price.replace("från", "fr.") 
-                : service.price;
-              
-              return (
-                <div 
-                  key={service.name} 
-                  className="border-b border-salon-beige py-3 flex justify-between items-center hover:border-salon-gold transition-colors duration-300"
-                >
-                  <span className="font-medium text-salon-dark transition-colors duration-300">
-                    {service.name}
-                  </span>
-                  <span className="text-salon-brown font-bold">
-                    {priceText}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
+          <CollapsibleTrigger asChild>
+            <button
+              className="mt-2 w-full flex items-center justify-center py-2 text-salon-gold hover:text-salon-brown transition-colors font-medium"
+              onClick={toggleExpanded}
+            >
+              {isExpanded ? (
+                <>
+                  <span>Visa mindre</span>
+                  <ChevronUp className="ml-1 h-4 w-4" />
+                </>
+              ) : (
+                <>
+                  <span>Visa priser</span>
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </>
+              )}
+            </button>
+          </CollapsibleTrigger>
         </div>
-      </div>
+        
+        <CollapsibleContent>
+          <div className="border-t border-salon-beige/30">
+            <div className="px-6 py-4 space-y-3">
+              {services.map((service, index) => (
+                <div 
+                  key={index} 
+                  className={cn(
+                    "py-3 flex flex-col",
+                    index !== services.length - 1 && "border-b border-salon-beige/30"
+                  )}
+                >
+                  <span className="font-medium text-salon-dark">{service.name}</span>
+                  <span className="text-salon-brown mt-1">{service.price}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
     </div>
   );
 };
