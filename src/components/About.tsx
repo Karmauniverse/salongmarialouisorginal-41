@@ -1,13 +1,17 @@
+
 import React, { useEffect, useRef } from 'react';
-import { Award, Check } from 'lucide-react';
+import { Award, Check, Instagram } from 'lucide-react';
+
 const About: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
+  
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
+    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -16,19 +20,26 @@ const About: React.FC = () => {
         }
       });
     }, observerOptions);
+    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
+    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-  return <section id="about" className="py-20 bg-gradient-to-b from-salon-cream/30 to-white">
+  
+  return (
+    <section id="about" className="py-20 bg-gradient-to-b from-salon-cream/30 to-white">
       <div className="section-container">
         {/* Introduction Section */}
-        <div ref={el => elementsRef.current[0] = el} className="animated-element text-center max-w-4xl mx-auto mb-20">
+        <div 
+          ref={el => elementsRef.current[0] = el} 
+          className="animated-element text-center max-w-4xl mx-auto mb-20"
+        >
           <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full mb-4">
             Om Oss
           </span>
@@ -38,9 +49,9 @@ const About: React.FC = () => {
           </h2>
           
           <div className="space-y-6 text-salon-dark/80 my-0 mx-0">
-            <p className="text-center">Sedan 2010 har Maria Louis varit en självklar del av Hägersten 
- en plats där skönhet, kvalitet och omtanke möts. Ett av våra största ögonblick var när vi, 
-tillsammans med våra fantastiska kunder, blev nominerade till Årets Lokala Företag – en ära vi aldrig 
+            <p className="text-center">Sedan 2010 har Maria Louis varit en självklar del av Hägersten 
+ en plats där skönhet, kvalitet och omtanke möts. Ett av våra största ögonblick var när vi, 
+tillsammans med våra fantastiska kunder, blev nominerade till Årets Lokala Företag – en ära vi aldrig 
 hade uppnått utan ert stöd.</p>
             
             <p className="text-center">
@@ -58,7 +69,10 @@ hade uppnått utan ert stöd.</p>
         </div>
         
         {/* Maria Section */}
-        <div ref={el => elementsRef.current[1] = el} className="animated-element mb-24">
+        <div 
+          ref={el => elementsRef.current[1] = el} 
+          className="animated-element mb-24"
+        >
           <div className="bg-white rounded-xl shadow-xl overflow-hidden">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative h-full bg-salon-cream/30 p-8 md:p-12 flex items-center justify-center order-2 md:order-1">
@@ -102,9 +116,13 @@ hade uppnått utan ert stöd.</p>
                 </div>
               </div>
               
-              <div className="relative order-1 md:order-2">
+              <div className="relative order-1 md:order-2 h-72 md:h-auto">
                 <div className="h-full">
-                  <img src="/lovable-uploads/4d446271-aa78-473e-be1e-ae8d64314e46.png" alt="Maria Louis med diplom" className="w-full h-full object-cover object-center" />
+                  <img 
+                    src="/lovable-uploads/4d446271-aa78-473e-be1e-ae8d64314e46.png" 
+                    alt="Maria Louis med diplom" 
+                    className="w-full h-full object-cover object-center"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent md:bg-gradient-to-l"></div>
                 </div>
               </div>
@@ -113,12 +131,19 @@ hade uppnått utan ert stöd.</p>
         </div>
         
         {/* Valentina Section */}
-        <div ref={el => elementsRef.current[2] = el} className="animated-element">
+        <div 
+          ref={el => elementsRef.current[2] = el} 
+          className="animated-element"
+        >
           <div className="bg-white rounded-xl shadow-xl overflow-hidden">
             <div className="grid md:grid-cols-2 gap-0">
-              <div className="relative">
+              <div className="relative h-72 md:h-auto">
                 <div className="h-full">
-                  <img src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png" alt="Valentina" className="w-full h-full object-cover object-center" />
+                  <img 
+                    src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png" 
+                    alt="Valentina" 
+                    className="w-full h-full object-cover object-center"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent md:bg-gradient-to-r"></div>
                 </div>
               </div>
@@ -141,19 +166,44 @@ hade uppnått utan ert stöd.</p>
                   </div>
                   
                   <ul className="space-y-4 mb-6">
-                    {["Expert på keratinbehandlingar", "Skapar friskt, glänsande och lättstylat hår", "Erbjuder individuellt anpassade behandlingar"].map((item, index) => <li key={index} className="flex items-center group">
+                    {["Expert på keratinbehandlingar", "Skapar friskt, glänsande och lättstylat hår", "Erbjuder individuellt anpassade behandlingar"].map((item, index) => (
+                      <li key={index} className="flex items-center group">
                         <div className="mr-3 p-1 bg-salon-gold/10 rounded-full group-hover:bg-salon-gold/30 transition-all duration-300">
                           <Check size={16} className="text-salon-gold" />
                         </div>
                         <span className="text-salon-dark/90 group-hover:text-salon-dark transition-colors duration-300">{item}</span>
-                      </li>)}
+                      </li>
+                    ))}
                   </ul>
+                  
+                  <div className="space-y-4">
+                    <a 
+                      href="https://www.instagram.com/hair.skinsprofessional__/?hl=en" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center text-salon-gold hover:text-salon-brown transition-colors"
+                    >
+                      <Instagram size={20} className="mr-2" />
+                      <span>Följ Valentina på Instagram: Hair & Skin Professional för att se fler vackra förvandlingar efter behandlingar.</span>
+                    </a>
+                    
+                    <a 
+                      href="https://bokning.voady.se/marialouis/marialouisebarbershop/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center px-8 py-3 bg-salon-gold text-white hover:bg-salon-brown transition-all font-medium rounded-full shadow-md hover:shadow-lg transform hover:scale-105 duration-300 mt-4"
+                    >
+                      Boka Tid
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default About;

@@ -70,7 +70,7 @@ const Gallery: React.FC = () => {
             className="animated-element mb-4"
           >
             <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full">
-              Vårt Arbete
+              Galleri
             </span>
           </div>
           
@@ -104,17 +104,17 @@ const Gallery: React.FC = () => {
             <div 
               key={index}
               ref={el => elementsRef.current[index + 3] = el} 
-              className="animated-element overflow-hidden rounded-lg cursor-pointer group shadow-md"
+              className="animated-element overflow-hidden rounded-lg cursor-pointer shadow-md"
               onClick={() => openLightbox(image)}
             >
               <div className="relative overflow-hidden h-72 md:h-[350px]">
                 <img 
                   src={image} 
                   alt={`Salongarbete ${index + 1}`}
-                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-salon-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="text-white font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 bg-salon-gold/70 px-4 py-2 rounded-full backdrop-blur-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-salon-dark/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="text-white font-medium transform translate-y-4 hover:translate-y-0 transition-transform duration-300 bg-salon-gold/70 px-4 py-2 rounded-full backdrop-blur-sm">
                     Visa Större
                   </div>
                 </div>
