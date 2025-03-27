@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
     <section id="home" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0">
         <img 
-          src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" 
+          src="/lovable-uploads/2caa78f5-f83a-423d-b043-03fcbcf01718.png" 
           alt="Vackert svart hår" 
           className="w-full h-full object-cover object-center" 
         />
@@ -66,14 +66,6 @@ const Hero: React.FC = () => {
             className="animated-element md:text-xl text-white/90 mb-6 max-w-xl mx-auto font-light text-xl"
           >
             Sedan 2010 har vi förenat skönhet och omtanke – en prisbelönt salong med hjärta
-          </p>
-          
-          <p
-            ref={el => elementsRef.current[3] = el}
-            className="animated-element text-white/80 mb-10 max-w-2xl mx-auto"
-          >
-            Välkommen till Maria Louis – en plats där personlig service möter yrkesskicklighet. 
-            Här lyssnar vi på dig och formar varje behandling med omsorg. Du lämnar salongen med ett resultat du kan känna dig stolt över.
           </p>
           
           <div 

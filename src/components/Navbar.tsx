@@ -19,6 +19,27 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    // Close mobile menu if open
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+    
+    // Scroll to section with a small delay to ensure menu closes properly
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else if (href === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.location.href = href;
+      }
+    }, 10);
+  };
+
   const navLinks = [
     {
       name: 'Hem',
@@ -44,9 +65,14 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className={cn('fixed w-full z-50 transition-all duration-500', isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md py-3' : 'bg-transparent py-6')}>
+      <nav className={cn(
+        'fixed w-full z-50 transition-all duration-500',
+        isScrolled 
+          ? 'backdrop-blur-md bg-white/75 shadow-md py-3' 
+          : 'bg-transparent py-6'
+      )}>
         <div className="container flex justify-between items-center">
-          <a href="/" className="flex items-center">
+          <a href="/" className="flex items-center" onClick={(e) => handleNavLinkClick(e, '/')}>
             <img 
               src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
               alt="Maria Louis Logotyp" 
@@ -60,6 +86,7 @@ const Navbar: React.FC = () => {
               <a 
                 key={link.name}
                 href={link.href} 
+                onClick={(e) => handleNavLinkClick(e, link.href)}
                 className={cn(
                   "text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-2 px-1",
                   isScrolled ? "text-salon-dark" : "text-white drop-shadow-md",
@@ -94,8 +121,10 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Navigation */}
         <div className={cn(
-          "fixed inset-0 bg-white/95 backdrop-blur-md z-40 flex flex-col pt-24 px-6 transition-all duration-500 ease-in-out md:hidden shadow-lg",
-          isMobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
+          "fixed inset-0 backdrop-blur-md z-40 flex flex-col pt-24 px-6 transition-all duration-500 ease-in-out md:hidden shadow-lg",
+          isMobileMenuOpen 
+            ? "opacity-100 translate-x-0 bg-salon-cream/95" 
+            : "opacity-0 translate-x-full pointer-events-none"
         )}>
           <div className="flex flex-col space-y-6 items-center">
             {navLinks.map(link => (
@@ -103,7 +132,7 @@ const Navbar: React.FC = () => {
                 key={link.name}
                 href={link.href} 
                 className="text-salon-dark text-lg font-medium relative after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:w-1/2 after:mx-auto after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:right-0 hover:text-salon-gold pb-1 block" 
-                onClick={toggleMobileMenu}
+                onClick={(e) => handleNavLinkClick(e, link.href)}
               >
                 {link.name}
               </a>
@@ -113,7 +142,7 @@ const Navbar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="w-full text-center px-5 py-3 rounded-full bg-salon-gold text-white font-medium mt-4 hover:bg-salon-brown transition-all" 
-              onClick={toggleMobileMenu}
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Boka Nu
             </a>
