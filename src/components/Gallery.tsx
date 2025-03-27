@@ -1,13 +1,13 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ArrowRight, X } from 'lucide-react';
+import { ArrowRight, X, Instagram } from 'lucide-react';
 
 const Gallery: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
-
+  
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -62,9 +62,9 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <section id="gallery" className="py-16 bg-white">
+    <section id="gallery" className="py-14 bg-white">
       <div className="section-container">
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <div 
             ref={el => elementsRef.current[0] = el} 
             className="animated-element mb-4"
@@ -76,36 +76,28 @@ const Gallery: React.FC = () => {
           
           <h2 
             ref={el => elementsRef.current[1] = el} 
-            className="animated-element text-3xl md:text-4xl font-serif font-medium mb-8"
+            className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6"
           >
-            Se vårt arbete
+            Följ oss på Instagram för fler inspirerande bilder
           </h2>
           
           <div 
             ref={el => elementsRef.current[2] = el} 
-            className="animated-element flex flex-wrap justify-center gap-4 mb-10"
+            className="animated-element flex justify-center mb-10"
           >
             <a 
-              href="#services" 
-              className="inline-flex items-center px-6 py-3 bg-white border border-salon-gold text-salon-gold font-medium rounded-full hover:bg-salon-gold hover:text-white transition-all shadow-sm hover:shadow-md"
-            >
-              Våra Behandlingar
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-            
-            <a 
-              href="https://bokning.voady.se/marialouis/marialouisebarbershop/" 
+              href="https://www.instagram.com/marialouisharsalong/" 
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg"
             >
-              Boka Tid
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <Instagram className="mr-2 h-5 w-5" />
+              Instagram
             </a>
           </div>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
           {galleryImages.map((image, index) => (
             <div 
               key={index}
@@ -113,7 +105,7 @@ const Gallery: React.FC = () => {
               className="animated-element overflow-hidden rounded-lg cursor-pointer shadow-md"
               onClick={() => openLightbox(image)}
             >
-              <div className="relative overflow-hidden h-72 md:h-[350px]">
+              <div className="relative overflow-hidden h-64 md:h-[300px]">
                 <img 
                   src={image} 
                   alt={`Salongarbete ${index + 1}`}
@@ -127,6 +119,18 @@ const Gallery: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+        
+        <div className="text-center mt-10">
+          <a 
+            href="https://bokning.voady.se/marialouis/marialouisebarbershop/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300"
+          >
+            Boka Tid
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </a>
         </div>
       </div>
 

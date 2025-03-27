@@ -1,7 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
 import ReviewCarousel from './ReviewCarousel';
-import { ArrowRight } from 'lucide-react';
 
 const CustomerReviews: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -34,9 +33,9 @@ const CustomerReviews: React.FC = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="py-16 bg-white">
+    <section id="testimonials" className="py-14 bg-white">
       <div className="section-container">
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
             <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full">
               Omdömen
@@ -50,16 +49,6 @@ const CustomerReviews: React.FC = () => {
 
         <div ref={el => elementsRef.current[2] = el} className="animated-element">
           <ReviewCarousel />
-        </div>
-        
-        <div ref={el => elementsRef.current[3] = el} className="animated-element text-center mt-8">
-          <a 
-            href="/reviews" 
-            className="inline-flex items-center px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg"
-          >
-            Se fler omdömen
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </a>
         </div>
       </div>
     </section>

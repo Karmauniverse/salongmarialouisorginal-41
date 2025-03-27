@@ -83,6 +83,8 @@ export default {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 				serif: ['Playfair Display', 'serif'],
+				playfair: ['Playfair Display', 'serif'],
+				lora: ['Lora', 'serif'],
 			},
 			keyframes: {
 				'accordion-down': {

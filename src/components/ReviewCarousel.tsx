@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { ChevronLeft, ChevronRight, Facebook, Star, ArrowRight } from 'lucide-react';
+import { Facebook, Star } from 'lucide-react';
 
 interface ReviewProps {
   name: string;
@@ -34,11 +34,6 @@ const ReviewCarousel: React.FC = () => {
       name: "Nesrin",
       text: "Toppenbra frisörer som lyssnar på ens önskemål och vägleder en om man är osäker. Duktiga på att klippa och färga!",
       rating: 5
-    },
-    {
-      name: "Thomas",
-      text: "Friendly, great hairstylists.",
-      rating: 5
     }
   ];
 
@@ -50,22 +45,6 @@ const ReviewCarousel: React.FC = () => {
     return () => clearInterval(interval);
   }, [activeReview]);
 
-  const handlePrev = () => {
-    if (transitioning) return;
-    
-    setDirection('left');
-    setTransitioning(true);
-    
-    setTimeout(() => {
-      setActiveReview((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
-      
-      setTimeout(() => {
-        setDirection(null);
-        setTransitioning(false);
-      }, 50);
-    }, 300);
-  };
-
   const handleNext = () => {
     if (transitioning) return;
     
@@ -74,22 +53,6 @@ const ReviewCarousel: React.FC = () => {
     
     setTimeout(() => {
       setActiveReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
-      
-      setTimeout(() => {
-        setDirection(null);
-        setTransitioning(false);
-      }, 50);
-    }, 300);
-  };
-
-  const handleDotClick = (index: number) => {
-    if (transitioning || index === activeReview) return;
-    
-    setDirection(index > activeReview ? 'right' : 'left');
-    setTransitioning(true);
-    
-    setTimeout(() => {
-      setActiveReview(index);
       
       setTimeout(() => {
         setDirection(null);
@@ -126,46 +89,19 @@ const ReviewCarousel: React.FC = () => {
         </div>
       </div>
       
-      <div className="flex justify-center mt-6 space-x-4">
-        <button 
-          onClick={handlePrev}
-          className="p-2 rounded-full border border-salon-gold text-salon-gold hover:bg-salon-gold hover:text-white transition-colors"
-        >
-          <ChevronLeft size={20} />
-        </button>
-        
-        <div className="flex space-x-2 items-center">
-          {reviews.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleDotClick(index)}
-              className={cn(
-                "transition-all duration-300 rounded-full",
-                activeReview === index 
-                  ? "bg-salon-gold w-4 h-4" 
-                  : "bg-salon-gold/30 w-3 h-3 hover:bg-salon-gold/60"
-              )}
-              aria-label={`Go to review ${index + 1}`}
-            />
-          ))}
-        </div>
-        
-        <button 
-          onClick={handleNext}
-          className="p-2 rounded-full border border-salon-gold text-salon-gold hover:bg-salon-gold hover:text-white transition-colors"
-        >
-          <ChevronRight size={20} />
-        </button>
-      </div>
-      
-      <div className="text-center mt-6">
-        <a 
-          href="/reviews" 
-          className="inline-flex items-center text-salon-gold hover:text-salon-brown transition-colors"
-        >
-          Se alla omdömen
-          <ArrowRight className="ml-1 h-4 w-4" />
-        </a>
+      <div className="flex justify-center mt-6 space-x-2 items-center">
+        {reviews.map((_, index) => (
+          <button
+            key={index}
+            className={cn(
+              "transition-all duration-300 rounded-full",
+              activeReview === index 
+                ? "bg-salon-gold w-4 h-4" 
+                : "bg-salon-gold/30 w-3 h-3 hover:bg-salon-gold/60"
+            )}
+            aria-label={`Go to review ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
   );
