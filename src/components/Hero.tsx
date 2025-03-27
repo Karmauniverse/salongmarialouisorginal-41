@@ -47,10 +47,7 @@ const Hero: React.FC = () => {
             Sedan 2010 har vi förenat skönhet och omtanke – en prisbelönt salong med hjärta
           </p>
           
-          <p ref={el => elementsRef.current[3] = el} className="animated-element text-lg text-white/80 mb-8 max-w-2xl mx-auto font-lora">
-            Välkommen till Maria Louis – en plats där personlig service möter yrkesskicklighet. 
-            Här lyssnar vi på dig och formar varje behandling med omsorg.
-          </p>
+          
           
           <div ref={el => elementsRef.current[4] = el} className="animated-element flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#services" className="px-8 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all text-center shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
