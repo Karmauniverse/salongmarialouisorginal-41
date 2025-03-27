@@ -65,20 +65,10 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-white/10 pt-8 text-center">
-          <p className="text-white/50 text-sm mb-4">
+          <p className="text-white/50 text-sm mb-4 my-0">
             Salong Marialouis © 2025
           </p>
-          <div className="flex justify-center items-center space-x-4">
-            <div className="bg-white/90 p-1.5 rounded w-8">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png" alt="Visa" className="h-3" />
-            </div>
-            <div className="bg-white/90 p-1.5 rounded w-8">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1200px-Mastercard-logo.svg.png" alt="Mastercard" className="h-3" />
-            </div>
-            <div className="bg-white/90 p-1.5 rounded w-8">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/1200px-American_Express_logo_%282018%29.svg.png" alt="American Express" className="h-3" />
-            </div>
-          </div>
+          
         </div>
       </div>
     </footer>;
