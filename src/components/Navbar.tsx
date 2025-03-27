@@ -27,17 +27,31 @@ const Navbar: React.FC = () => {
       setIsMobileMenuOpen(false);
     }
     
-    // Scroll to section with a small delay to ensure menu closes properly
-    setTimeout(() => {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      } else if (href === '/') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        window.location.href = href;
-      }
-    }, 10);
+    // Get the element to scroll to
+    let targetElement: Element | null = null;
+    
+    if (href === '/') {
+      // Scroll to top for home link
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    } else if (href.startsWith('/#')) {
+      // Handle fragment identifiers
+      const id = href.substring(2);
+      targetElement = document.getElementById(id);
+    } else if (href.startsWith('#')) {
+      // Handle fragment identifiers without the leading slash
+      const id = href.substring(1);
+      targetElement = document.getElementById(id);
+    } else {
+      // For external links or other pages
+      window.location.href = href;
+      return;
+    }
+    
+    // Scroll to the element if found
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const navLinks = [
@@ -47,19 +61,19 @@ const Navbar: React.FC = () => {
     }, 
     {
       name: 'Behandlingar',
-      href: '/#services'
+      href: '#services'
     }, 
     {
       name: 'Galleri',
-      href: '/#gallery'
+      href: '#gallery'
     }, 
     {
       name: 'Om Oss',
-      href: '/#about'
+      href: '#about'
     }, 
     {
       name: 'Kontakt',
-      href: '/#contact'
+      href: '#contact'
     }
   ];
 

@@ -103,7 +103,7 @@
 }
 
 .section-container {
-  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16;
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12;
 }
 
 .service-item {
@@ -171,4 +171,18 @@ html {
 /* Photo overlay with group trigger */
 .group:hover .photo-overlay {
   @apply opacity-100;
+}
+
+/* Font styles */
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-lora {
+  font-family: 'Lora', serif;
+}
+
+/* Glass effect */
+.glass-effect {
+  @apply backdrop-blur-md bg-white/70;
 }

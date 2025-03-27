@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
           </h2>
         </div>
         
-        <div ref={el => elementsRef.current[2] = el} className="animated-element grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-start mb-16">
+        <div ref={el => elementsRef.current[2] = el} className="animated-element grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center mb-12">
           {/* Left Side - Contact Form */}
           <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg">
             <form onSubmit={handleSubmit} className="space-y-5">

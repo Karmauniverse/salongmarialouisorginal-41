@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -42,7 +42,7 @@ const Testimonials: React.FC = () => {
     }, 6000);
     
     return () => clearInterval(intervalId);
-  }, [activeTestimonial]);
+  }, [activeTestimonial, isTransitioning]);
 
   const testimonials = [
     {
@@ -96,9 +96,9 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-b from-white to-salon-cream/30">
+    <section id="testimonials" className="py-16 bg-gradient-to-b from-white to-salon-cream/30">
       <div className="section-container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <div 
             ref={el => elementsRef.current[0] = el} 
             className="animated-element mb-4"
@@ -152,16 +152,21 @@ const Testimonials: React.FC = () => {
                     <p className="font-serif font-medium text-salon-dark text-lg">
                       {testimonials[activeTestimonial].author}
                     </p>
-                    <p className="text-sm text-salon-dark/70">
+                    <p className="text-sm text-salon-dark/70 mb-2">
                       {testimonials[activeTestimonial].role}
                     </p>
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={16} className="text-yellow-400 fill-yellow-400 mr-1" />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="flex justify-center mt-10 space-x-4">
+          <div className="flex justify-center mt-8 space-x-4">
             <button 
               onClick={handlePrev}
               className="p-3 rounded-full border border-salon-gold text-salon-gold hover:bg-salon-gold hover:text-white transition-colors shadow-md hover:shadow-lg transform hover:scale-105 duration-300"

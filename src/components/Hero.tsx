@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
     <section id="home" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0">
         <img 
-          src="/lovable-uploads/2caa78f5-f83a-423d-b043-03fcbcf01718.png" 
+          src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" 
           alt="Vackert svart hår" 
           className="w-full h-full object-cover object-center" 
         />
@@ -56,16 +56,24 @@ const Hero: React.FC = () => {
           
           <h1 
             ref={el => elementsRef.current[1] = el} 
-            className="animated-element text-5xl md:text-6xl lg:text-7xl font-playfair font-medium mb-8 leading-tight text-white"
+            className="animated-element font-playfair text-5xl md:text-6xl lg:text-7xl font-medium mb-6 leading-tight text-white"
           >
             <span className="text-4xl md:text-5xl block mb-1 text-salon-gold font-light tracking-wider">Maria Louis</span>
           </h1>
           
           <p 
             ref={el => elementsRef.current[2] = el} 
-            className="animated-element md:text-xl text-white/90 mb-6 max-w-xl mx-auto font-light text-xl"
+            className="animated-element md:text-xl text-white/90 mb-4 max-w-xl mx-auto font-lora text-xl"
           >
             Sedan 2010 har vi förenat skönhet och omtanke – en prisbelönt salong med hjärta
+          </p>
+          
+          <p 
+            ref={el => elementsRef.current[3] = el} 
+            className="animated-element text-lg text-white/80 mb-8 max-w-2xl mx-auto font-lora"
+          >
+            Välkommen till Maria Louis – en plats där personlig service möter yrkesskicklighet. 
+            Här lyssnar vi på dig och formar varje behandling med omsorg.
           </p>
           
           <div 

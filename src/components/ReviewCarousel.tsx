@@ -38,12 +38,15 @@ const ReviewCarousel: React.FC = () => {
   ];
 
   useEffect(() => {
+    // Auto-rotate every 5 seconds
     const interval = setInterval(() => {
-      handleNext();
+      if (!transitioning) {
+        handleNext();
+      }
     }, 5000);
     
     return () => clearInterval(interval);
-  }, [activeReview]);
+  }, [activeReview, transitioning]);
 
   const handleNext = () => {
     if (transitioning) return;
@@ -93,6 +96,21 @@ const ReviewCarousel: React.FC = () => {
         {reviews.map((_, index) => (
           <button
             key={index}
+            onClick={() => {
+              if (!transitioning && activeReview !== index) {
+                setDirection(index > activeReview ? 'right' : 'left');
+                setTransitioning(true);
+                
+                setTimeout(() => {
+                  setActiveReview(index);
+                  
+                  setTimeout(() => {
+                    setDirection(null);
+                    setTransitioning(false);
+                  }, 50);
+                }, 300);
+              }
+            }}
             className={cn(
               "transition-all duration-300 rounded-full",
               activeReview === index 
