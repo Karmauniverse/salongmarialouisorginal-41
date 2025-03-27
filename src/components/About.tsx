@@ -112,7 +112,7 @@ hade uppnått utan ert stöd.</p>
                 </div>
               </div>
               
-              <div className="relative order-1 md:order-2 h-64 md:h-[340px]">
+              <div className="relative order-1 md:order-2 h-64 md:h-auto">
                 <div className="h-full overflow-hidden">
                   <img 
                     src="/lovable-uploads/4d446271-aa78-473e-be1e-ae8d64314e46.png" 
@@ -133,7 +133,7 @@ hade uppnått utan ert stöd.</p>
         >
           <div className="bg-white rounded-xl shadow-xl overflow-hidden">
             <div className="grid md:grid-cols-2 gap-0">
-              <div className="relative h-64 md:h-[340px]">
+              <div className="relative h-64 md:h-auto">
                 <div className="h-full overflow-hidden">
                   <img 
                     src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png" 
