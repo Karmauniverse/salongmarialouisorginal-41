@@ -38,7 +38,7 @@ const ReviewCarousel: React.FC = () => {
   ];
 
   useEffect(() => {
-    // Auto-rotate every 5 seconds
+    // Auto-rotate every 5 seconds if not transitioning
     const interval = setInterval(() => {
       if (!transitioning) {
         handleNext();
@@ -56,6 +56,22 @@ const ReviewCarousel: React.FC = () => {
     
     setTimeout(() => {
       setActiveReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
+      
+      setTimeout(() => {
+        setDirection(null);
+        setTransitioning(false);
+      }, 50);
+    }, 300);
+  };
+
+  const handlePrev = () => {
+    if (transitioning) return;
+    
+    setDirection('left');
+    setTransitioning(true);
+    
+    setTimeout(() => {
+      setActiveReview((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
       
       setTimeout(() => {
         setDirection(null);
@@ -84,7 +100,7 @@ const ReviewCarousel: React.FC = () => {
           
           <div className="flex mb-3">
             {Array.from({ length: reviews[activeReview].rating }).map((_, i) => (
-              <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+              <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400 mr-1" />
             ))}
           </div>
           
@@ -93,33 +109,57 @@ const ReviewCarousel: React.FC = () => {
       </div>
       
       <div className="flex justify-center mt-6 space-x-2 items-center">
-        {reviews.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              if (!transitioning && activeReview !== index) {
-                setDirection(index > activeReview ? 'right' : 'left');
-                setTransitioning(true);
-                
-                setTimeout(() => {
-                  setActiveReview(index);
+        <button 
+          onClick={handlePrev}
+          className="p-2 rounded-full bg-salon-gold/20 text-salon-gold hover:bg-salon-gold hover:text-white transition-colors duration-300"
+          aria-label="Föregående omdöme"
+          disabled={transitioning}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+        </button>
+        
+        <div className="flex space-x-3 items-center">
+          {reviews.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (!transitioning && activeReview !== index) {
+                  setDirection(index > activeReview ? 'right' : 'left');
+                  setTransitioning(true);
                   
                   setTimeout(() => {
-                    setDirection(null);
-                    setTransitioning(false);
-                  }, 50);
-                }, 300);
-              }
-            }}
-            className={cn(
-              "transition-all duration-300 rounded-full",
-              activeReview === index 
-                ? "bg-salon-gold w-4 h-4" 
-                : "bg-salon-gold/30 w-3 h-3 hover:bg-salon-gold/60"
-            )}
-            aria-label={`Go to review ${index + 1}`}
-          />
-        ))}
+                    setActiveReview(index);
+                    
+                    setTimeout(() => {
+                      setDirection(null);
+                      setTransitioning(false);
+                    }, 50);
+                  }, 300);
+                }
+              }}
+              className={cn(
+                "transition-all duration-300 rounded-full",
+                activeReview === index 
+                  ? "bg-salon-gold w-6 h-2" 
+                  : "bg-salon-gold/30 w-2 h-2 hover:bg-salon-gold/60"
+              )}
+              aria-label={`Gå till omdöme ${index + 1}`}
+            />
+          ))}
+        </div>
+        
+        <button 
+          onClick={handleNext}
+          className="p-2 rounded-full bg-salon-gold/20 text-salon-gold hover:bg-salon-gold hover:text-white transition-colors duration-300"
+          aria-label="Nästa omdöme"
+          disabled={transitioning}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </button>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight, X, Instagram } from 'lucide-react';
@@ -54,8 +55,9 @@ const Gallery: React.FC = () => {
             </span>
           </div>
           
-          <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6 whitespace-normal">Följ oss på Instagram för fler 
-inspirerande bilder</h2>
+          <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6">
+            Följ oss på Instagram för fler inspirerande bilder
+          </h2>
           
           <div ref={el => elementsRef.current[2] = el} className="animated-element flex justify-center mb-10">
             <a href="https://www.instagram.com/marialouisharsalong/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg">

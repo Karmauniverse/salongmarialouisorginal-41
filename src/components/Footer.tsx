@@ -22,29 +22,9 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-salon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-12">
-          {/* Map section */}
-          <div className="order-3 lg:order-1">
-            <h4 className="text-white font-medium mb-6 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
-              Hitta Hit
-            </h4>
-            <div className="rounded-xl overflow-hidden shadow-xl h-[250px]">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2028.9250243611065!2d18.069699415981644!3d59.44113108169673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9b3d5d6eaedd%3A0xb6e30f06b5b23da7!2sCentralv%C3%A4gen%201%2C%20187%2062%20T%C3%A4by!5e0!3m2!1ssv!2sse!4v1657881642421!5m2!1ssv!2sse" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen={false} 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade" 
-                title="Maria Louis Hårsalong karta" 
-                className="w-full h-full"
-              ></iframe>
-            </div>
-          </div>
-          
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {/* Logo and description */}
-          <div className="order-1 lg:order-2 flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center md:items-start">
             <img 
               src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
               alt="Maria Louis Logotyp" 
@@ -75,29 +55,16 @@ const Footer: React.FC = () => {
                 <Facebook className="text-white group-hover:animate-pulse" size={18} />
               </a>
             </div>
-
-            {/* Services */}
-            <div className="mb-6 w-full">
-              <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
-                Tjänster
-              </h4>
-              <ul className="grid grid-cols-2 gap-2">
-                {['Klippning & Styling', 'Färgtjänster', 'Keratinbehandlingar', 'Barberartjänster', 'Bryn & Fransar'].map((item, index) => (
-                  <li key={index} className="text-white/70 hover:text-white transition-colors duration-300">
-                    <a href="#services" className="hover:text-salon-gold transition-colors duration-300">
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            {/* Navigation links vertical */}
-            <div className="mb-6 w-full">
+          </div>
+          
+          {/* Links and Services */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {/* Navigation links */}
+            <div className="mb-6">
               <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
                 Navigation
               </h4>
-              <ul className="grid grid-cols-2 gap-2">
+              <ul className="space-y-2">
                 {[
                   { name: 'Hem', href: '/' },
                   { name: 'Behandlingar', href: '#services' },
@@ -117,10 +84,26 @@ const Footer: React.FC = () => {
                 ))}
               </ul>
             </div>
+            
+            {/* Services */}
+            <div className="mb-6">
+              <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
+                Tjänster
+              </h4>
+              <ul className="space-y-2">
+                {['Klippning & Styling', 'Färgtjänster', 'Keratinbehandlingar', 'Barberartjänster', 'Bryn & Fransar'].map((item, index) => (
+                  <li key={index} className="text-white/70 hover:text-white transition-colors duration-300">
+                    <a href="#services" className="hover:text-salon-gold transition-colors duration-300">
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
           
           {/* Contact info */}
-          <div className="order-2 lg:order-3">
+          <div>
             <h4 className="text-white font-medium mb-6 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Kontakt
             </h4>
@@ -175,10 +158,25 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
+        {/* Map section */}
+        <div className="rounded-xl overflow-hidden shadow-xl mb-12 h-[250px]">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2028.9250243611065!2d18.069699415981644!3d59.44113108169673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9b3d5d6eaedd%3A0xb6e30f06b5b23da7!2sCentralv%C3%A4gen%201%2C%20187%2062%20T%C3%A4by!5e0!3m2!1ssv!2sse!4v1657881642421!5m2!1ssv!2sse" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen={false} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade" 
+            title="Maria Louis Hårsalong karta" 
+            className="w-full h-full"
+          ></iframe>
+        </div>
+        
         {/* Copyright */}
         <div className="border-t border-white/10 pt-6 text-center">
           <p className="text-white/50 text-sm">
-            © Maria Louis 2025 · Alla rättigheter förbehållna
+            © Maria Louis {new Date().getFullYear()} · Alla rättigheter förbehållna
           </p>
         </div>
       </div>

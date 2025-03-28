@@ -27,30 +27,18 @@ const Navbar: React.FC = () => {
       setIsMobileMenuOpen(false);
     }
     
-    // Get the element to scroll to
-    let targetElement: Element | null = null;
-    
+    // Handle home link
     if (href === '/') {
-      // Scroll to top for home link
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    } else if (href.startsWith('/#')) {
-      // Handle fragment identifiers
-      const id = href.substring(2);
-      targetElement = document.getElementById(id);
-    } else if (href.startsWith('#')) {
-      // Handle fragment identifiers without the leading slash
-      const id = href.substring(1);
-      targetElement = document.getElementById(id);
-    } else {
-      // For external links or other pages
-      window.location.href = href;
       return;
     }
     
-    // Scroll to the element if found
+    // Get the element to scroll to
+    const targetElement = document.querySelector(href);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = href;
     }
   };
 
@@ -82,7 +70,7 @@ const Navbar: React.FC = () => {
       <nav className={cn(
         'fixed w-full z-50 transition-all duration-500',
         isScrolled 
-          ? 'backdrop-blur-md bg-white/75 shadow-md py-3' 
+          ? 'backdrop-blur-md bg-white/90 shadow-md py-3' 
           : 'bg-transparent py-6'
       )}>
         <div className="container flex justify-between items-center">
@@ -135,9 +123,9 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Navigation */}
         <div className={cn(
-          "fixed inset-0 backdrop-blur-md z-40 flex flex-col pt-24 px-6 transition-all duration-500 ease-in-out md:hidden shadow-lg",
+          "fixed inset-0 z-40 flex flex-col pt-24 px-6 bg-salon-cream/95 backdrop-blur-md transition-all duration-500 ease-in-out md:hidden shadow-lg",
           isMobileMenuOpen 
-            ? "opacity-100 translate-x-0 bg-salon-cream/95" 
+            ? "opacity-100 translate-x-0" 
             : "opacity-0 translate-x-full pointer-events-none"
         )}>
           <div className="flex flex-col space-y-6 items-center">
