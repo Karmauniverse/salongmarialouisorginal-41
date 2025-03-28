@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Facebook, Quote, Star } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -48,20 +48,22 @@ const Testimonials: React.FC = () => {
     {
       quote: "A big thanks goes to the best hair stylist in the world, Maria Louise, for fixing my hair before the Swedish Idol Final. Thank you!",
       author: "Kevin",
-      role: "Stammis",
-      image: "https://source.unsplash.com/random/100x100/?man,portrait,1"
+      role: "Stammis"
     },
     {
       quote: "Tack för en otrolig fin uppsättning på mig och mina tärnor. Vi är så glada att just ni ordnade våra bröllopsfrisyrer!",
       author: "Magdalena",
-      role: "Brud",
-      image: "https://source.unsplash.com/random/100x100/?woman,portrait,1"
+      role: "Brud"
     },
     {
       quote: "Maria är jätteduktig på sitt jobb och gör allting på bästa sätt.",
       author: "Jasmina",
-      role: "Nöjd Kund",
-      image: "https://source.unsplash.com/random/100x100/?woman,portrait,2"
+      role: "Nöjd Kund"
+    },
+    {
+      quote: "Toppenbra frisörer som lyssnar på ens önskemål och vägleder en om man är osäker. Duktiga på att klippa och färga!",
+      author: "Nesrin",
+      role: "Nöjd Kund"
     }
   ];
 
@@ -141,12 +143,8 @@ const Testimonials: React.FC = () => {
                 </blockquote>
                 
                 <div className="flex items-center">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-salon-gold/30">
-                    <img 
-                      src={testimonials[activeTestimonial].image} 
-                      alt={testimonials[activeTestimonial].author}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-salon-gold/30 bg-salon-gold/10 flex items-center justify-center">
+                    <Facebook className="w-8 h-8 text-salon-gold" />
                   </div>
                   <div>
                     <p className="font-serif font-medium text-salon-dark text-lg">
