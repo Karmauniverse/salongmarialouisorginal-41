@@ -46,21 +46,21 @@ const Testimonials: React.FC = () => {
 
   const testimonials = [
     {
-      quote: "Maria Louis är en sann konstnär. Hon förvandlade mitt hår från tråkigt och skadat till vibrerande och friskt. Hela upplevelsen på salongen var lyxig och avkopplande. Jag kommer inte att lita på någon annan med mitt hår!",
-      author: "Sophia Martinez",
+      quote: "A big thanks goes to the best hair stylist in the world, Maria Louise, for fixing my hair before the Swedish Idol Final. Thank you!",
+      author: "Kevin",
       role: "Stammis",
-      image: "https://source.unsplash.com/random/100x100/?woman,portrait,1"
-    },
-    {
-      quote: "Jag har kommit till Maria Louis i över tre år nu, och jag är konsekvent imponerad av kvaliteten på servicen. Stylisterna är kunniga och tar sig tid att förstå exakt vad jag vill ha. Rekommenderas starkt!",
-      author: "James Wilson",
-      role: "Lojal Kund",
       image: "https://source.unsplash.com/random/100x100/?man,portrait,1"
     },
     {
-      quote: "Atmosfären hos Maria Louis är så välkomnande, och resultaten talar för sig själva. Min färg är alltid perfekt, och mitt hår har aldrig varit friskare. Salongen erbjuder verkligen en premiumupplevelse från början till slut.",
-      author: "Emma Thompson",
-      role: "Förstagångskund",
+      quote: "Tack för en otrolig fin uppsättning på mig och mina tärnor. Vi är så glada att just ni ordnade våra bröllopsfrisyrer!",
+      author: "Magdalena",
+      role: "Brud",
+      image: "https://source.unsplash.com/random/100x100/?woman,portrait,1"
+    },
+    {
+      quote: "Maria är jätteduktig på sitt jobb och gör allting på bästa sätt.",
+      author: "Jasmina",
+      role: "Nöjd Kund",
       image: "https://source.unsplash.com/random/100x100/?woman,portrait,2"
     }
   ];
