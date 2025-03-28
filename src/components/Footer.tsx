@@ -1,57 +1,40 @@
-
 import React from 'react';
 import { Instagram, Facebook, Phone, MapPin, Mail, Clock } from 'lucide-react';
-
 const Footer: React.FC = () => {
   const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    
     if (href === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
       return;
     }
-    
     const targetElement = document.querySelector(href);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      targetElement.scrollIntoView({
+        behavior: 'smooth'
+      });
     } else {
       window.location.href = href;
     }
   };
-
-  return (
-    <footer className="bg-salon-dark text-white pt-16 pb-8">
+  return <footer className="bg-salon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {/* Logo and description */}
           <div className="flex flex-col items-center md:items-start">
-            <img 
-              src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
-              alt="Maria Louis Logotyp" 
-              className="h-24 mb-4 object-scale-down" 
-            />
-            <p className="text-white/60 text-sm max-w-md mb-6">
+            <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-24 mb-4 object-scale-down" />
+            <p className="text-white/60 max-w-md mb-6 mx-[52px] text-center my-[45px] py-0 text-xs">
               Sedan 2010 har vi levererat högkvalitativ hårservice i Hägersten – en prisbelönt salong med hjärta!
             </p>
 
             {/* Social media icons */}
             <div className="flex space-x-4 mb-6">
-              <a 
-                href="https://www.instagram.com/salongmarialouiis/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" 
-                aria-label="Instagram"
-              >
+              <a href="https://www.instagram.com/salongmarialouiis/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" aria-label="Instagram">
                 <Instagram className="text-white group-hover:animate-pulse" size={18} />
               </a>
-              <a 
-                href="https://www.facebook.com/profile.php?id=100063562662842" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" 
-                aria-label="Facebook"
-              >
+              <a href="https://www.facebook.com/profile.php?id=100063562662842" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" aria-label="Facebook">
                 <Facebook className="text-white group-hover:animate-pulse" size={18} />
               </a>
             </div>
@@ -65,23 +48,26 @@ const Footer: React.FC = () => {
                 Navigation
               </h4>
               <ul className="space-y-2">
-                {[
-                  { name: 'Hem', href: '/' },
-                  { name: 'Behandlingar', href: '#services' },
-                  { name: 'Galleri', href: '#gallery' },
-                  { name: 'Om Oss', href: '#about' },
-                  { name: 'Kontakt', href: '#contact' }
-                ].map((link) => (
-                  <li key={link.name}>
-                    <a 
-                      href={link.href} 
-                      onClick={(e) => handleNavLinkClick(e, link.href)}
-                      className="text-white/60 hover:text-salon-gold transition-colors duration-300"
-                    >
+                {[{
+                name: 'Hem',
+                href: '/'
+              }, {
+                name: 'Behandlingar',
+                href: '#services'
+              }, {
+                name: 'Galleri',
+                href: '#gallery'
+              }, {
+                name: 'Om Oss',
+                href: '#about'
+              }, {
+                name: 'Kontakt',
+                href: '#contact'
+              }].map(link => <li key={link.name}>
+                    <a href={link.href} onClick={e => handleNavLinkClick(e, link.href)} className="text-white/60 hover:text-salon-gold transition-colors duration-300">
                       {link.name}
                     </a>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
             
@@ -91,13 +77,11 @@ const Footer: React.FC = () => {
                 Tjänster
               </h4>
               <ul className="space-y-2">
-                {['Klippning & Styling', 'Färgtjänster', 'Keratinbehandlingar', 'Barberartjänster', 'Bryn & Fransar'].map((item, index) => (
-                  <li key={index} className="text-white/70 hover:text-white transition-colors duration-300">
+                {['Klippning & Styling', 'Färgtjänster', 'Keratinbehandlingar', 'Barberartjänster', 'Bryn & Fransar'].map((item, index) => <li key={index} className="text-white/70 hover:text-white transition-colors duration-300">
                     <a href="#services" className="hover:text-salon-gold transition-colors duration-300">
                       {item}
                     </a>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
           </div>
@@ -112,12 +96,7 @@ const Footer: React.FC = () => {
                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mr-3 mt-1 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
                   <MapPin size={16} className="text-salon-gold group-hover:animate-pulse" />
                 </div>
-                <a 
-                  href="https://www.google.com/maps?q=Hägerstensvägen+170,+126+53+Hägersten" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-white/70 group-hover:text-white transition-colors duration-300"
-                >
+                <a href="https://www.google.com/maps?q=Hägerstensvägen+170,+126+53+Hägersten" target="_blank" rel="noopener noreferrer" className="text-white/70 group-hover:text-white transition-colors duration-300">
                   Hägerstensvägen 170<br />
                   126 53 Hägersten
                 </a>
@@ -136,10 +115,7 @@ const Footer: React.FC = () => {
                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
                   <Mail size={16} className="text-salon-gold group-hover:animate-pulse" />
                 </div>
-                <a 
-                  href="mailto:salongmarialouis@gmail.com" 
-                  className="text-white/70 group-hover:text-white transition-colors duration-300"
-                >
+                <a href="mailto:salongmarialouis@gmail.com" className="text-white/70 group-hover:text-white transition-colors duration-300">
                   salongmarialouis@gmail.com
                 </a>
               </li>
@@ -160,17 +136,9 @@ const Footer: React.FC = () => {
         
         {/* Map section */}
         <div className="rounded-xl overflow-hidden shadow-xl mb-12 h-[250px]">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2028.9250243611065!2d18.069699415981644!3d59.44113108169673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9b3d5d6eaedd%3A0xb6e30f06b5b23da7!2sCentralv%C3%A4gen%201%2C%20187%2062%20T%C3%A4by!5e0!3m2!1ssv!2sse!4v1657881642421!5m2!1ssv!2sse" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen={false} 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade" 
-            title="Maria Louis Hårsalong karta" 
-            className="w-full h-full"
-          ></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2028.9250243611065!2d18.069699415981644!3d59.44113108169673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9b3d5d6eaedd%3A0xb6e30f06b5b23da7!2sCentralv%C3%A4gen%201%2C%20187%2062%20T%C3%A4by!5e0!3m2!1ssv!2sse!4v1657881642421!5m2!1ssv!2sse" width="100%" height="100%" style={{
+          border: 0
+        }} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Maria Louis Hårsalong karta" className="w-full h-full"></iframe>
         </div>
         
         {/* Copyright */}
@@ -180,8 +148,6 @@ const Footer: React.FC = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
