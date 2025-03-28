@@ -44,9 +44,7 @@ const Footer: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {/* Navigation links */}
             <div className="mb-6">
-              <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
-                Navigation
-              </h4>
+              <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">Meny</h4>
               <ul className="space-y-2">
                 {[{
                 name: 'Hem',
