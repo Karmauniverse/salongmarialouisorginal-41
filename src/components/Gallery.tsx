@@ -56,7 +56,7 @@ const Gallery: React.FC = () => {
           </div>
           
           <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6">
-            Följ oss på Instagram för fler inspirerande bilder
+            Följ oss på Instagram för fler<br />inspirerande bilder
           </h2>
           
           <div ref={el => elementsRef.current[2] = el} className="animated-element flex justify-center mb-10">
