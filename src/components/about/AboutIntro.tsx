@@ -2,13 +2,13 @@
 import React from 'react';
 
 interface AboutIntroProps {
-  ref: (el: HTMLDivElement | null) => void;
+  refCallback: (el: HTMLDivElement | null) => void;
 }
 
-const AboutIntro: React.FC<AboutIntroProps> = ({ ref }) => {
+const AboutIntro: React.FC<AboutIntroProps> = ({ refCallback }) => {
   return (
     <div 
-      ref={ref} 
+      ref={refCallback} 
       className="animated-element text-center max-w-4xl mx-auto mb-14"
     >
       <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full mb-4">

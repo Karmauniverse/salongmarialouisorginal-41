@@ -4,18 +4,18 @@ import { Instagram } from 'lucide-react';
 import FeatureItem from './FeatureItem';
 
 interface ValentinaBioProps {
-  ref: (el: HTMLDivElement | null) => void;
+  refCallback: (el: HTMLDivElement | null) => void;
 }
 
-const ValentinaBio: React.FC<ValentinaBioProps> = ({ ref }) => {
+const ValentinaBio: React.FC<ValentinaBioProps> = ({ refCallback }) => {
   return (
     <div 
-      ref={ref} 
+      ref={refCallback} 
       className="animated-element"
     >
       <div className="bg-white rounded-xl shadow-xl overflow-hidden">
         <div className="grid md:grid-cols-2 gap-0">
-          <div className="relative h-64 md:h-auto">
+          <div className="relative md:h-auto">
             <div className="h-full overflow-hidden">
               <img 
                 src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png" 

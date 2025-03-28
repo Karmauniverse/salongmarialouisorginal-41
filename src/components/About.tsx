@@ -37,14 +37,9 @@ const About: React.FC = () => {
   return (
     <section id="about" className="py-12 bg-gradient-to-b from-salon-cream/30 to-white">
       <div className="section-container">
-        {/* Introduction Section */}
-        <AboutIntro ref={el => elementsRef.current[0] = el} />
-        
-        {/* Maria Section */}
-        <MariaBio ref={el => elementsRef.current[1] = el} />
-        
-        {/* Valentina Section */}
-        <ValentinaBio ref={el => elementsRef.current[2] = el} />
+        <AboutIntro refCallback={(el) => elementsRef.current[0] = el} />
+        <MariaBio refCallback={(el) => elementsRef.current[1] = el} />
+        <ValentinaBio refCallback={(el) => elementsRef.current[2] = el} />
       </div>
     </section>
   );

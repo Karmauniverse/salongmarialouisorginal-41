@@ -3,13 +3,13 @@ import React from 'react';
 import AwardFeature from './AwardFeature';
 
 interface MariaBioProps {
-  ref: (el: HTMLDivElement | null) => void;
+  refCallback: (el: HTMLDivElement | null) => void;
 }
 
-const MariaBio: React.FC<MariaBioProps> = ({ ref }) => {
+const MariaBio: React.FC<MariaBioProps> = ({ refCallback }) => {
   return (
     <div 
-      ref={ref} 
+      ref={refCallback} 
       className="animated-element mb-16"
     >
       <div className="bg-white rounded-xl shadow-xl overflow-hidden">
@@ -45,7 +45,7 @@ const MariaBio: React.FC<MariaBioProps> = ({ ref }) => {
             </div>
           </div>
           
-          <div className="relative order-1 md:order-2 h-64 md:h-auto">
+          <div className="relative order-1 md:order-2 md:h-auto">
             <div className="h-full overflow-hidden">
               <img 
                 src="/lovable-uploads/4d446271-aa78-473e-be1e-ae8d64314e46.png" 
