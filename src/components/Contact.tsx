@@ -1,16 +1,27 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    service: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -34,6 +45,7 @@ const Contact: React.FC = () => {
       });
     };
   }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -44,6 +56,14 @@ const Contact: React.FC = () => {
       [name]: value
     }));
   };
+
+  const handleServiceChange = (value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      service: value
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -55,6 +75,7 @@ const Contact: React.FC = () => {
         name: '',
         email: '',
         phone: '',
+        service: '',
         message: ''
       });
       setTimeout(() => {
@@ -69,7 +90,9 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-  return <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
+
+  return (
+    <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
@@ -77,15 +100,14 @@ const Contact: React.FC = () => {
               Kontakt
             </span>
           </div>
-          
-          <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6">
-            Boka Din Tid
-          </h2>
         </div>
         
         <div ref={el => elementsRef.current[2] = el} className="animated-element grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center mb-12">
           {/* Left Side - Contact Form */}
           <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+            <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-2xl font-serif font-medium mb-6">
+              Maila Oss
+            </h2>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-salon-dark mb-1">
@@ -109,6 +131,25 @@ const Contact: React.FC = () => {
               </div>
               
               <div>
+                <label htmlFor="service" className="block text-sm font-medium text-salon-dark mb-1">
+                  Behandling
+                </label>
+                <Select onValueChange={handleServiceChange} value={formData.service}>
+                  <SelectTrigger className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition">
+                    <SelectValue placeholder="Välj behandling" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white">
+                    <SelectItem value="klippning">Klippning & Styling</SelectItem>
+                    <SelectItem value="färg">Färgtjänster</SelectItem>
+                    <SelectItem value="keratin">Keratinbehandlingar</SelectItem>
+                    <SelectItem value="barberare">Barberartjänster</SelectItem>
+                    <SelectItem value="bryn">Bryn & Fransar</SelectItem>
+                    <SelectItem value="annat">Annat</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div>
                 <label htmlFor="message" className="block text-sm font-medium text-salon-dark mb-1">
                   Meddelande
                 </label>
@@ -129,24 +170,37 @@ const Contact: React.FC = () => {
           
           {/* Right Side - Booking Online */}
           <div className="flex flex-col h-full justify-center items-center bg-white p-8 rounded-xl shadow-lg">
-            
+            <h2 className="text-2xl font-serif font-medium mb-4 self-start">
+              Boka Din Tid
+            </h2>
+            <p className="text-salon-dark/80 mb-6 self-start">
+              Boka enkelt din behandling online. Våra erfarna stylister är redo att ge dig en lyxig och professionell upplevelse.
+            </p>
             
             <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="block text-center w-full max-w-xs px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
-              Boka Online
+              Boka Tid
               <ArrowRight className="inline-block ml-2 h-4 w-4" />
             </a>
             
-            <div className="mt-8 space-y-4 text-center">
-              <p className="text-salon-dark/80 font-medium">Öppettider</p>
-              <p className="text-salon-dark/70">
-                Måndag–Fredag: 10:00 – 18:00<br />
-                Lördag: 10:00 – 16:00<br />
-                Söndag: Stängt
-              </p>
+            <div className="mt-8 p-4 rounded-lg bg-salon-gold/10 w-full">
+              <div className="flex items-center mb-3">
+                <Clock size={18} className="text-salon-gold mr-2" />
+                <h5 className="text-salon-dark font-medium">Öppettider</h5>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-salon-dark/80">Måndag–Fredag:</div>
+                <div className="text-salon-dark/80">10:00 – 18:00</div>
+                <div className="text-salon-dark/80">Lördag:</div>
+                <div className="text-salon-dark/80">10:00 – 16:00</div>
+                <div className="text-salon-dark/80">Söndag:</div>
+                <div className="text-salon-dark/80">Stängt</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Contact;

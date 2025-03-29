@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 const Hero: React.FC = () => {
@@ -40,14 +41,12 @@ const Hero: React.FC = () => {
           </div>
           
           <h1 ref={el => elementsRef.current[1] = el} className="animated-element font-playfair text-5xl md:text-6xl lg:text-7xl font-medium mb-6 leading-tight text-white">
-            <span className="text-4xl md:text-5xl block mb-1 text-salon-gold font-light tracking-wider">Maria Louis</span>
+            <span className="text-4xl md:text-5xl block mb-1 text-white font-light tracking-wider font-lora">Maria Louis</span>
           </h1>
           
-          <p ref={el => elementsRef.current[2] = el} className="animated-element md:text-xl text-white/90 mb-4 max-w-xl mx-auto font-lora px-0 py-0 text-center font-normal text-2xl">
+          <p ref={el => elementsRef.current[2] = el} className="animated-element md:text-2xl text-salon-beige mb-6 max-w-xl mx-auto font-lora px-0 py-0 text-center font-normal text-2xl">
             Sedan 2010 har vi förenat skönhet och omtanke – en prisbelönt salong med hjärta
           </p>
-          
-          
           
           <div ref={el => elementsRef.current[4] = el} className="animated-element flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#services" className="px-8 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all text-center shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
