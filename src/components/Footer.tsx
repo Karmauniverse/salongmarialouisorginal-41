@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
           </div>
           
           {/* Column 3: Services */}
-          <div className="order-3 md:order-3">
+          <div className="order-3 md:order-3 my-0 mx-[26px]">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Behandlingar  
             </h4>
