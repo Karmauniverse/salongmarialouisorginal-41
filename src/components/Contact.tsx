@@ -133,12 +133,12 @@ const Contact: React.FC = () => {
           </div>
           
           {/* Right Side - Booking Online */}
-          <div className="flex flex-col h-full justify-start bg-white p-8 rounded-xl shadow-lg">
+          <div className="flex flex-col h-full justify-start p-8 rounded-xl shadow-lg bg-salon-dark">
             <div className="mb-6">
-              <h2 className="text-2xl font-serif font-medium mb-4">
+              <h2 className="text-2xl font-serif font-medium mb-4 text-salon-beige">
                 Boka Din Tid
               </h2>
-              <p className="text-salon-dark">
+              <p className="text-salon-gold font-extralight">
                 Välj tid och behandling direkt online – snabbt, tryggt och enkelt.
               </p>
               
@@ -150,10 +150,10 @@ const Contact: React.FC = () => {
               </a>
             </div>
             
-            <div className="p-5 rounded-xl bg-salon-gold/10 w-full">
+            <div className="p-5 rounded-xl w-full my-[17px] py-[29px] bg-white">
               <div className="flex items-center mb-4">
                 <Clock size={18} className="text-salon-gold mr-2" />
-                <h5 className="text-salon-dark font-medium">Öppettider</h5>
+                <h5 className="font-medium text-salon-dark">Öppettider</h5>
               </div>
               <div className="grid grid-cols-2 gap-1 text-sm">
                 <div className="text-salon-dark/80 py-1">Måndag:</div>
