@@ -159,7 +159,7 @@ const Contact: React.FC = () => {
             <h2 className="text-2xl font-serif font-medium mb-4 self-start my-0 mx-[164px]">
               Boka Din Tid
             </h2>
-            <p className="mb-6 self-start text-salon-brown my-0 mx-[69px] text-xl">Boka enkelt din behandling online av 
+            <p className="mb-6 self-start my-0 mx-[69px] text-xl text-salon-dark">Boka enkelt din behandling online av 
 våra erfarna frisörer & barberare </p>
             
             <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="block text-center w-full max-w-xs px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
