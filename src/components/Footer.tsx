@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Instagram, Facebook, Phone, MapPin, Mail, Clock } from 'lucide-react';
 const Footer: React.FC = () => {
@@ -24,11 +23,9 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {/* Logo and description */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center md:items-start my-0">
             <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-24 mb-4 object-scale-down" />
-            <p className="text-white/60 max-w-md mb-6 text-center md:text-left">
-              Sedan 2010 har vi levererat högkvalitativ hårservice i Hägersten – en prisbelönt salong med hjärta!
-            </p>
+            
 
             {/* Social media icons */}
             <div className="flex space-x-4 mb-6">
