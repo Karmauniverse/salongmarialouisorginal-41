@@ -85,9 +85,7 @@ const Contact: React.FC = () => {
             <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-2xl font-serif font-medium mb-3 text-salon-cream">
               Kontakta Oss Direkt
             </h2>
-            <p className="mb-3 text-salon-gold font-thin">
-              Hör av dig om du har frågor, vill boka manuellt, samarbeta med oss eller få våra erbjudanden.
-            </p>
+            <p className="mb-3 text-salon-gold font-thin px-0">Hör av dig om du har frågor, vill samarbeta med oss eller få våra erbjudanden.</p>
             <p className="italic mb-5 text-salon-beige text-xs py-0 px-0 my-0">
               För bokning – klicka på knappen till höger. Använd formuläret för andra ärenden.
             </p>
@@ -150,12 +148,12 @@ const Contact: React.FC = () => {
               </a>
             </div>
             
-            <div className="p-5 rounded-xl w-full my-[17px] py-[29px] bg-white">
+            <div className="p-5 rounded-xl w-full my-[17px] bg-white px-[69px] py-[64px]">
               <div className="flex items-center mb-4">
                 <Clock size={18} className="text-salon-gold mr-2" />
                 <h5 className="font-medium text-salon-dark">Öppettider</h5>
               </div>
-              <div className="grid grid-cols-2 gap-1 text-sm">
+              <div className="grid grid-cols-2 gap-1 text-sm my-0 py-0 px-[6px]">
                 <div className="text-salon-dark/80 py-1">Måndag:</div>
                 <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
                 <div className="text-salon-dark/80 py-1">Tisdag:</div>
