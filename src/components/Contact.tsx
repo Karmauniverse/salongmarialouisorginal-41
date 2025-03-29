@@ -85,10 +85,10 @@ const Contact: React.FC = () => {
             <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-2xl font-serif font-medium mb-3 text-salon-cream">
               Kontakta Oss Direkt
             </h2>
-            <p className="text-salon-dark/80 mb-3">
+            <p className="mb-3 text-salon-gold font-thin">
               Hör av dig om du har frågor, vill boka manuellt, samarbeta med oss eller få våra erbjudanden.
             </p>
-            <p className="text-salon-dark/70 text-sm italic mb-5">
+            <p className="italic mb-5 text-salon-beige text-xs">
               För bokning – klicka på knappen till höger. Använd formuläret för andra ärenden.
             </p>
             <form onSubmit={handleSubmit} className="space-y-5">
