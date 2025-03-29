@@ -151,7 +151,7 @@ const Contact: React.FC = () => {
             <div className="p-5 rounded-xl w-full bg-white py-[58px] my-0 px-[65px]">
               <div className="flex items-center mb-4">
                 <Clock size={18} className="text-salon-gold mr-2" />
-                <h5 className="text-salon-dark font-medium text-base">Öppettider</h5>
+                <h5 className="text-salon-dark font-normal text-base mx-0 my-0 py-0 px-0 text-left">Öppettider</h5>
               </div>
               <div className="grid grid-cols-2 gap-1 text-sm my-0 py-0 px-[6px]">
                 <div className="text-salon-dark/80 py-0">Måndag:</div>
