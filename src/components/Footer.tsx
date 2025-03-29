@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                 <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center mr-3 mt-1 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
                   <MapPin size={10} className="text-salon-gold group-hover:animate-pulse" />
                 </div>
-                <a href="https://www.google.com/maps?q=Hägerstensvägen+170,+126+53+Hägersten" target="_blank" rel="noopener noreferrer" className="text-white/70 group-hover:text-white transition-colors duration-300">
+                <a href="https://www.google.com/maps?q=Hägerstensvägen+170,+126+53+Hägersten" target="_blank" rel="noopener noreferrer" className="text-white/70 group-hover:text-white transition-colors duration-300 my-[3px]">
                   Hägerstensvägen 170, 126 53 Hägersten
                 </a>
               </li>
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
                 <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
                   <Phone size={10} className="text-salon-gold group-hover:animate-pulse" />
                 </div>
-                <a href="tel:08-549 040 50" className="text-white/70 group-hover:text-white transition-colors duration-300">
+                <a href="tel:08-549 040 50" className="text-white/70 group-hover:text-white transition-colors duration-300 my-[2px]">
                   08-549 040 50
                 </a>
               </li>
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
                 <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
                   <Mail size={10} className="text-salon-gold group-hover:animate-pulse" />
                 </div>
-                <a href="mailto:salongmarialouis@gmail.com" className="text-white/70 group-hover:text-white transition-colors duration-300">
+                <a href="mailto:salongmarialouis@gmail.com" className="text-white/70 group-hover:text-white transition-colors duration-300 my-[6px]">
                   salongmarialouis@gmail.com
                 </a>
               </li>
@@ -58,12 +58,15 @@ const Footer: React.FC = () => {
             
             {/* Opening hours in inline format */}
             <div className="mb-4 text-white/70 text-sm flex items-start">
-              <span className="text-salon-gold mr-2">🕒</span>
-              <span>Öppettider: Mån–Fre: 10:00–18:00 · Lör: 10:00–16:00 · Sön: Stängt</span>
+              <span className="text-salon-gold mr-2">           </span>
+              <span>        Öppettider
+ Mån–Fre: 10:00–18:00
+ Lördag : 10:00–16:00 
+ Söndag : Stängt</span>
             </div>
             
             {/* Social media icons */}
-            <div className="flex space-x-3 mb-2">
+            <div className="flex space-x-3 mb-2 py-0 px-[10px] bg-inherit my-[8px] mx-[76px]">
               <a href="https://www.instagram.com/salongmarialouiis/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" aria-label="Instagram">
                 <Instagram className="text-white group-hover:animate-pulse" size={14} />
               </a>
