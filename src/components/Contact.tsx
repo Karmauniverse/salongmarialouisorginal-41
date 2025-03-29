@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight, Clock, Calendar } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -36,6 +38,7 @@ const Contact: React.FC = () => {
       });
     };
   }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -46,12 +49,14 @@ const Contact: React.FC = () => {
       [name]: value
     }));
   };
+
   const handleServiceChange = (value: string) => {
     setFormData(prev => ({
       ...prev,
       service: value
     }));
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -78,6 +83,7 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
+
   return <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-10">
@@ -88,7 +94,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
         
-        <div ref={el => elementsRef.current[2] = el} className="animated-element grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center mb-12">
+        <div ref={el => elementsRef.current[2] = el} className="animated-element grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start mb-12">
           {/* Left Side - Contact Form */}
           <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg">
             <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-2xl font-serif font-medium mb-6">
@@ -155,35 +161,49 @@ const Contact: React.FC = () => {
           </div>
           
           {/* Right Side - Booking Online */}
-          <div className="flex flex-col h-full justify-center items-center bg-white p-8 rounded-xl shadow-lg">
-            <h2 className="text-2xl font-serif font-medium mb-4 self-start my-0 mx-[164px]">
-              Boka Din Tid
-            </h2>
-            <p className="mb-6 self-start my-0 mx-[69px] text-xl text-salon-dark">Boka enkelt din behandling online av 
-våra erfarna frisörer & barberare </p>
+          <div className="flex flex-col h-full justify-start bg-white p-8 rounded-xl shadow-lg">
+            <div>
+              <h2 className="text-2xl font-serif font-medium mb-4">
+                Boka Din Tid
+              </h2>
+              <p className="mb-6 text-salon-dark">
+                Boka enkelt din behandling online av våra erfarna frisörer & barberare
+              </p>
+            </div>
             
-            <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="block text-center w-full max-w-xs px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
-              Boka Tid
-              <ArrowRight className="inline-block ml-2 h-4 w-4" />
-            </a>
-            
-            <div className="mt-8 p-4 rounded-lg bg-salon-gold/10 w-full">
-              <div className="flex items-center mb-3">
+            <div className="my-6 p-5 rounded-xl bg-salon-gold/10 w-full">
+              <div className="flex items-center mb-4">
                 <Clock size={18} className="text-salon-gold mr-2" />
                 <h5 className="text-salon-dark font-medium">Öppettider</h5>
               </div>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="text-salon-dark/80">Måndag–Fredag:</div>
-                <div className="text-salon-dark/80">10:00 – 18:00</div>
-                <div className="text-salon-dark/80">Lördag:</div>
-                <div className="text-salon-dark/80">10:00 – 16:00</div>
-                <div className="text-salon-dark/80">Söndag:</div>
-                <div className="text-salon-dark/80">Stängt</div>
+              <div className="grid grid-cols-2 gap-1 text-sm">
+                <div className="text-salon-dark/80 py-1">Måndag:</div>
+                <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
+                <div className="text-salon-dark/80 py-1">Tisdag:</div>
+                <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
+                <div className="text-salon-dark/80 py-1">Onsdag:</div>
+                <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
+                <div className="text-salon-dark/80 py-1">Torsdag:</div>
+                <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
+                <div className="text-salon-dark/80 py-1">Fredag:</div>
+                <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
+                <div className="text-salon-dark/80 py-1">Lördag:</div>
+                <div className="text-salon-dark/80 py-1">10:00 – 16:00</div>
+                <div className="text-salon-dark/80 py-1">Söndag:</div>
+                <div className="text-salon-dark/80 py-1">Stängt</div>
               </div>
             </div>
+            
+            <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="mt-4 block text-center w-full max-w-xs mx-auto px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
+              <span className="flex items-center justify-center">
+                <Calendar className="mr-2 h-5 w-5" />
+                Boka Tid
+              </span>
+            </a>
           </div>
         </div>
       </div>
     </section>;
 };
+
 export default Contact;

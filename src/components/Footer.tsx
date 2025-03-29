@@ -1,5 +1,7 @@
+
 import React from 'react';
-import { Instagram, Facebook, Phone, MapPin, Mail, Clock } from 'lucide-react';
+import { Instagram, Facebook, Phone, MapPin, Mail, Clock, CalendarIcon } from 'lucide-react';
+
 const Footer: React.FC = () => {
   const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -19,32 +21,47 @@ const Footer: React.FC = () => {
       window.location.href = href;
     }
   };
-  return <footer className="bg-salon-dark text-white pt-16 pb-8">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {/* Logo and description */}
-          <div className="flex flex-col items-center md:items-start my-0">
-            <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-24 mb-4 object-scale-down" />
-            
 
-            {/* Social media icons */}
-            <div className="flex space-x-4 mb-6">
-              <a href="https://www.instagram.com/salongmarialouiis/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" aria-label="Instagram">
-                <Instagram className="text-white group-hover:animate-pulse" size={18} />
-              </a>
-              <a href="https://www.facebook.com/profile.php?id=100063562662842" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" aria-label="Facebook">
-                <Facebook className="text-white group-hover:animate-pulse" size={18} />
-              </a>
+  return (
+    <footer className="bg-salon-dark text-white pt-16 pb-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          {/* Logo, description and opening hours */}
+          <div className="flex flex-col items-center md:items-start space-y-6">
+            <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-24 mb-2 object-scale-down" />
+            
+            {/* Opening hours card - Now under the logo */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 shadow-lg w-full">
+              <div className="flex items-center mb-3">
+                <Clock size={18} className="text-salon-gold mr-2" />
+                <h5 className="text-white font-medium">Öppettider</h5>
+              </div>
+              <div className="grid grid-cols-2 gap-1 text-sm">
+                <div className="text-white/80">Måndag:</div>
+                <div className="text-white/80">10:00 – 18:00</div>
+                <div className="text-white/80">Tisdag:</div>
+                <div className="text-white/80">10:00 – 18:00</div>
+                <div className="text-white/80">Onsdag:</div>
+                <div className="text-white/80">10:00 – 18:00</div>
+                <div className="text-white/80">Torsdag:</div>
+                <div className="text-white/80">10:00 – 18:00</div>
+                <div className="text-white/80">Fredag:</div>
+                <div className="text-white/80">10:00 – 18:00</div>
+                <div className="text-white/80">Lördag:</div>
+                <div className="text-white/80">10:00 – 16:00</div>
+                <div className="text-white/80">Söndag:</div>
+                <div className="text-white/80">Stängt</div>
+              </div>
             </div>
           </div>
           
-          {/* Links and Services */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {/* Navigation links */}
-            <div className="mb-6">
-              
-              <ul className="space-y-2">
-                {[{
+          {/* Navigation Links - Cleaner design */}
+          <div className="md:col-span-1">
+            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
+              Navigera
+            </h4>
+            <ul className="space-y-3">
+              {[{
                 name: 'Hem',
                 href: '/'
               }, {
@@ -59,51 +76,42 @@ const Footer: React.FC = () => {
               }, {
                 name: 'Kontakt',
                 href: '#contact'
-              }].map(link => <li key={link.name}>
-                    <a href={link.href} onClick={e => handleNavLinkClick(e, link.href)} className="text-white/60 hover:text-salon-gold transition-colors duration-300">
-                      {link.name}
-                    </a>
-                  </li>)}
-              </ul>
-            </div>
-            
-            {/* Services */}
-            <div className="mb-6">
-              <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
-                Tjänster
-              </h4>
-              <ul className="space-y-2">
-                {['Klippning & Styling', 'Färgtjänster', 'Keratinbehandlingar', 'Barberartjänster', 'Bryn & Fransar'].map((item, index) => <li key={index} className="text-white/70 hover:text-white transition-colors duration-300">
-                    <a href="#services" className="hover:text-salon-gold transition-colors duration-300">
-                      {item}
-                    </a>
-                  </li>)}
-              </ul>
-            </div>
+              }].map(link => (
+                <li key={link.name}>
+                  <a href={link.href} 
+                    onClick={e => handleNavLinkClick(e, link.href)} 
+                    className="text-white/60 hover:text-salon-gold transition-colors duration-300 flex items-center">
+                    <span className="w-1 h-1 bg-salon-gold rounded-full mr-2"></span>
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
           
-          {/* Opening hours - Redesigned */}
+          {/* Services */}
           <div>
-            <h4 className="text-white font-medium mb-6 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
-              Kontakt & Öppettider
+            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
+              Tjänster
             </h4>
-            
-            {/* Opening hours card */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 mb-6 border border-white/10 shadow-lg">
-              <div className="flex items-center mb-3">
-                <Clock size={18} className="text-salon-gold mr-2" />
-                <h5 className="text-white font-medium">Öppettider</h5>
-              </div>
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                <div className="text-white/80">Måndag–Fredag:</div>
-                <div className="text-white/80">10:00 – 18:00</div>
-                <div className="text-white/80">Lördag:</div>
-                <div className="text-white/80">10:00 – 16:00</div>
-                <div className="text-white/80">Söndag:</div>
-                <div className="text-white/80">Stängt</div>
-              </div>
-            </div>
-                
+            <ul className="space-y-3">
+              {['Klippning & Styling', 'Färgtjänster', 'Keratinbehandlingar', 'Barberartjänster', 'Bryn & Fransar'].map((item, index) => (
+                <li key={index}>
+                  <a href="#services" 
+                    className="text-white/60 hover:text-salon-gold transition-colors duration-300 flex items-center">
+                    <span className="w-1 h-1 bg-salon-gold rounded-full mr-2"></span>
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
+              Kontakta Oss
+            </h4>
             <ul className="space-y-4">
               <li className="flex items-start group">
                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mr-3 mt-1 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
@@ -132,15 +140,35 @@ const Footer: React.FC = () => {
                   salongmarialouis@gmail.com
                 </a>
               </li>
+              
+              {/* Social media icons - Moved under contact info */}
+              <li className="pt-2">
+                <div className="flex space-x-3">
+                  <a href="https://www.instagram.com/salongmarialouiis/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" aria-label="Instagram">
+                    <Instagram className="text-white group-hover:animate-pulse" size={18} />
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=100063562662842" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" aria-label="Facebook">
+                    <Facebook className="text-white group-hover:animate-pulse" size={18} />
+                  </a>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
         
-        {/* Map section - Updated to correct location */}
+        {/* Map section */}
         <div className="rounded-xl overflow-hidden shadow-xl mb-12 h-[250px]">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2035.6872873958072!2d17.979410576922515!3d59.29883711575019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77bfcad5de59%3A0x6f608f4b756a585a!2zSMOkZ2Vyc3RlbnN2w6RnZW4gMTcwLCAxMjYgNTMgSMOkZ2Vyc3Rlbg!5e0!3m2!1ssv!2sse!4v1721584307855!5m2!1ssv!2sse" width="100%" height="100%" style={{
-          border: 0
-        }} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Maria Louis Hårsalong karta" className="w-full h-full"></iframe>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2035.6872873958072!2d17.979410576922515!3d59.29883711575019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77bfcad5de59%3A0x6f608f4b756a585a!2zSMOkZ2Vyc3RlbnN2w6RnZW4gMTcwLCAxMjYgNTMgSMOkZ2Vyc3Rlbg!5e0!3m2!1ssv!2sse!4v1721584307855!5m2!1ssv!2sse" 
+            width="100%" 
+            height="100%" 
+            style={{border: 0}} 
+            allowFullScreen={false} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade" 
+            title="Maria Louis Hårsalong karta" 
+            className="w-full h-full"
+          ></iframe>
         </div>
         
         {/* Copyright */}
@@ -150,6 +178,8 @@ const Footer: React.FC = () => {
           </p>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;

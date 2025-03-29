@@ -1,11 +1,12 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight, X, Instagram } from 'lucide-react';
+
 const Gallery: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
+
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -30,7 +31,6 @@ const Gallery: React.FC = () => {
     };
   }, []);
 
-  // Real salon work images
   const galleryImages = ["/lovable-uploads/d14c977f-f972-4ec3-88bb-7d6b06f1876d.png", "/lovable-uploads/af9782d7-4108-4c69-9b7b-53511f0ec2a5.png", "/lovable-uploads/c84be25b-3ca4-43bb-a30f-961db1e4d981.png", "/lovable-uploads/38443ee9-4f2f-49c8-8d41-b0657c4fb46a.png", "/lovable-uploads/bc783992-385e-4d23-b3ba-4eaa376e0e67.png", "/lovable-uploads/2ad83c14-43d0-4473-894c-d539476f52cf.png"];
   const openLightbox = (image: string) => {
     setIsAnimating(true);
@@ -46,6 +46,7 @@ const Gallery: React.FC = () => {
       setIsAnimating(false);
     }, 300);
   };
+
   return <section id="gallery" className="py-14 bg-white">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-10">
@@ -60,7 +61,7 @@ const Gallery: React.FC = () => {
           </h2>
           
           <div ref={el => elementsRef.current[2] = el} className="animated-element flex justify-center mb-10">
-            <a href="https://www.instagram.com/marialouisharsalong/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg">
+            <a href="https://www.instagram.com/salongmarialouiis/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg">
               <Instagram className="mr-2 h-5 w-5" />
               Instagram
             </a>
@@ -88,7 +89,6 @@ const Gallery: React.FC = () => {
         </div>
       </div>
 
-      {/* Lightbox */}
       {selectedImage && <div className={cn("fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4", isAnimating ? "opacity-0" : "opacity-100 transition-opacity duration-300")} onClick={closeLightbox}>
           <div className={cn("relative max-w-5xl w-full max-h-[90vh] transition-all duration-500", isAnimating ? "scale-95 opacity-0" : "scale-100 opacity-100")} onClick={e => e.stopPropagation()}>
             <img src={selectedImage} alt="Förstorat salongarbete" className="max-w-full max-h-[80vh] object-contain mx-auto shadow-2xl rounded" />
@@ -99,4 +99,5 @@ const Gallery: React.FC = () => {
         </div>}
     </section>;
 };
+
 export default Gallery;
