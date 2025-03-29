@@ -1,7 +1,9 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [formData, setFormData] = useState({
@@ -13,12 +15,14 @@ const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
+    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -27,34 +31,37 @@ const Contact: React.FC = () => {
         }
       });
     }, observerOptions);
+    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
+    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
+
   const handleServiceChange = (value: string) => {
     setFormData(prev => ({
       ...prev,
       service: value
     }));
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    
     try {
       // Simulating email sending to salongmarialouis@gmail.com
       await new Promise(resolve => setTimeout(resolve, 1500));
@@ -66,11 +73,13 @@ const Contact: React.FC = () => {
         service: '',
         message: ''
       });
+      
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 3000);
     } catch (error) {
       setSubmitStatus('error');
+      
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 3000);
@@ -78,7 +87,9 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-  return <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
+
+  return (
+    <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
@@ -156,16 +167,23 @@ const Contact: React.FC = () => {
           
           {/* Right Side - Booking Online */}
           <div className="flex flex-col h-full justify-start bg-white p-8 rounded-xl shadow-lg">
-            <div>
+            <div className="mb-6">
               <h2 className="text-2xl font-serif font-medium mb-4">
                 Boka Din Tid
               </h2>
-              <p className="mb-6 text-salon-dark">
+              <p className="text-salon-dark">
                 Boka enkelt din behandling online av våra erfarna frisörer & barberare
               </p>
+              
+              <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="mt-6 mb-6 block text-center w-full px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
+                <span className="flex items-center justify-center">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Boka Tid
+                </span>
+              </a>
             </div>
             
-            <div className="p-5 rounded-xl bg-salon-gold/10 w-full my-[57px] py-[22px]">
+            <div className="p-5 rounded-xl bg-salon-gold/10 w-full">
               <div className="flex items-center mb-4">
                 <Clock size={18} className="text-salon-gold mr-2" />
                 <h5 className="text-salon-dark font-medium">Öppettider</h5>
@@ -187,16 +205,11 @@ const Contact: React.FC = () => {
                 <div className="text-salon-dark/80 py-1">Stängt</div>
               </div>
             </div>
-            
-            <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="mt-4 block text-center w-full max-w-xs mx-auto px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
-              <span className="flex items-center justify-center">
-                <Calendar className="mr-2 h-5 w-5" />
-                Boka Tid
-              </span>
-            </a>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Contact;

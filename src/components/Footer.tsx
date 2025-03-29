@@ -26,37 +26,26 @@ const Footer: React.FC = () => {
     <footer className="bg-salon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Logo and opening hours - Adjusted position */}
-          <div className="flex flex-col space-y-6">
-            <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-20 object-scale-down" />
+          {/* Logo and opening hours */}
+          <div className="flex flex-col space-y-5">
+            <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-24 object-scale-down" />
             
-            {/* Opening hours card - Adjusted style to match previous design */}
+            {/* Opening hours - Traditional style */}
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 shadow-lg w-full">
               <div className="flex items-center mb-3">
                 <Clock size={18} className="text-salon-gold mr-2" />
                 <h5 className="text-white font-medium">Öppettider</h5>
               </div>
-              <div className="grid grid-cols-2 gap-1 text-sm">
-                <div className="text-white/80">Måndag:</div>
-                <div className="text-white/80">10:00 – 18:00</div>
-                <div className="text-white/80">Tisdag:</div>
-                <div className="text-white/80">10:00 – 18:00</div>
-                <div className="text-white/80">Onsdag:</div>
-                <div className="text-white/80">10:00 – 18:00</div>
-                <div className="text-white/80">Torsdag:</div>
-                <div className="text-white/80">10:00 – 18:00</div>
-                <div className="text-white/80">Fredag:</div>
-                <div className="text-white/80">10:00 – 18:00</div>
-                <div className="text-white/80">Lördag:</div>
-                <div className="text-white/80">10:00 – 16:00</div>
-                <div className="text-white/80">Söndag:</div>
-                <div className="text-white/80">Stängt</div>
-              </div>
+              <ul className="text-sm space-y-1">
+                <li className="text-white/80">Måndag - Fredag: 10:00 – 18:00</li>
+                <li className="text-white/80">Lördag: 10:00 – 16:00</li>
+                <li className="text-white/80">Söndag: Stängt</li>
+              </ul>
             </div>
           </div>
           
           {/* Navigation Links */}
-          <div className="md:col-span-1">
+          <div className="md:col-span-1 order-1 md:order-2">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Navigera
             </h4>
@@ -89,8 +78,8 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          {/* Services */}
-          <div>
+          {/* Services - Moved up in mobile order */}
+          <div className="order-2 md:order-3">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Tjänster
             </h4>
@@ -108,7 +97,7 @@ const Footer: React.FC = () => {
           </div>
           
           {/* Contact Info */}
-          <div>
+          <div className="order-4">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Kontakta Oss
             </h4>

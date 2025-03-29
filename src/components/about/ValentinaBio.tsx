@@ -49,24 +49,24 @@ const ValentinaBio: React.FC<ValentinaBioProps> = ({ refCallback }) => {
                 ))}
               </ul>
               
-              <div className="space-y-4">
-                <a 
-                  href="https://www.instagram.com/hair.skinsprofessional__/?hl=en" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center text-salon-gold hover:text-salon-brown transition-colors"
-                >
-                  <Instagram size={20} className="mr-2" />
-                  <span>Följ Valentina på Instagram: Hair & Skin Professional</span>
-                </a>
-                
+              <div className="flex flex-wrap items-center gap-4">
                 <a 
                   href="https://bokning.voady.se/marialouis/marialouisebarbershop/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-2 bg-salon-gold text-white hover:bg-salon-brown transition-all font-medium rounded-full shadow-md hover:shadow-lg transform hover:scale-105 duration-300 mt-2"
+                  className="inline-flex items-center justify-center px-6 py-2 bg-salon-gold text-white hover:bg-salon-brown transition-all font-medium rounded-full shadow-md hover:shadow-lg transform hover:scale-105 duration-300"
                 >
                   Boka Tid
+                </a>
+                
+                <a 
+                  href="https://www.instagram.com/hair.skinsprofessional__/?hl=en" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-5 py-2 border border-salon-gold text-salon-dark hover:bg-salon-gold/10 transition-all font-medium rounded-full"
+                >
+                  <Instagram size={18} className="mr-2 text-salon-gold" />
+                  <span>Hair & Skin Professional</span>
                 </a>
               </div>
             </div>
