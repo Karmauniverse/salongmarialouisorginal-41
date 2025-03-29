@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
             <p className="mb-3 text-salon-gold font-thin">
               Hör av dig om du har frågor, vill boka manuellt, samarbeta med oss eller få våra erbjudanden.
             </p>
-            <p className="italic mb-5 text-salon-beige text-xs">
+            <p className="italic mb-5 text-salon-beige text-xs py-0 px-0 my-0">
               För bokning – klicka på knappen till höger. Använd formuläret för andra ärenden.
             </p>
             <form onSubmit={handleSubmit} className="space-y-5">
