@@ -33,7 +33,7 @@ export const serviceCategories: ServiceCategory[] = [
     description: "Färgning och toning för ett perfekt resultat.",
     services: [
       { name: "Bottenfärg", price: "fr. 740 kr" },
-      { name: "Toning", price: "fr. 350 kr" },
+      { name: "Toning", price: "fr. 1 100 kr" },
       { name: "Slingor i hätta", price: "930 kr" }
     ]
   },

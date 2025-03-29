@@ -26,11 +26,11 @@ const Footer: React.FC = () => {
     <footer className="bg-salon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Logo, description and opening hours */}
-          <div className="flex flex-col items-center md:items-start space-y-6">
-            <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-24 mb-2 object-scale-down" />
+          {/* Logo and opening hours - Adjusted position */}
+          <div className="flex flex-col space-y-6">
+            <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-20 object-scale-down" />
             
-            {/* Opening hours card - Now under the logo */}
+            {/* Opening hours card - Adjusted style to match previous design */}
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 shadow-lg w-full">
               <div className="flex items-center mb-3">
                 <Clock size={18} className="text-salon-gold mr-2" />
@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
           
-          {/* Navigation Links - Cleaner design */}
+          {/* Navigation Links */}
           <div className="md:col-span-1">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Navigera
@@ -141,7 +141,7 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               
-              {/* Social media icons - Moved under contact info */}
+              {/* Social media icons */}
               <li className="pt-2">
                 <div className="flex space-x-3">
                   <a href="https://www.instagram.com/salongmarialouiis/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" aria-label="Instagram">
