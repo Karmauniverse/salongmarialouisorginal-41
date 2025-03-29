@@ -1,15 +1,7 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight, Clock } from 'lucide-react';
-import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [formData, setFormData] = useState({
@@ -21,7 +13,6 @@ const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -45,7 +36,6 @@ const Contact: React.FC = () => {
       });
     };
   }, []);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -56,14 +46,12 @@ const Contact: React.FC = () => {
       [name]: value
     }));
   };
-
   const handleServiceChange = (value: string) => {
     setFormData(prev => ({
       ...prev,
       service: value
     }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -90,9 +78,7 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-
-  return (
-    <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
+  return <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
@@ -170,12 +156,11 @@ const Contact: React.FC = () => {
           
           {/* Right Side - Booking Online */}
           <div className="flex flex-col h-full justify-center items-center bg-white p-8 rounded-xl shadow-lg">
-            <h2 className="text-2xl font-serif font-medium mb-4 self-start">
+            <h2 className="text-2xl font-serif font-medium mb-4 self-start my-0 mx-[164px]">
               Boka Din Tid
             </h2>
-            <p className="text-salon-dark/80 mb-6 self-start">
-              Boka enkelt din behandling online. Våra erfarna stylister är redo att ge dig en lyxig och professionell upplevelse.
-            </p>
+            <p className="mb-6 self-start text-salon-brown my-0 mx-[69px] text-xl">Boka enkelt din behandling online av 
+våra erfarna frisörer & barberare </p>
             
             <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="block text-center w-full max-w-xs px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
               Boka Tid
@@ -199,8 +184,6 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
