@@ -25,11 +25,85 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-salon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Column 1: Navigation */}
-          <div className="md:col-span-1 order-1 md:order-1 border-r border-white/10 pr-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          {/* Column 1: Contact Info - Now first column */}
+          <div className="order-1 md:order-1">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
-              Navigera
+              Kontakta Oss
+            </h4>
+            <ul className="space-y-3 text-sm mb-5">
+              <li className="flex items-start group">
+                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center mr-3 mt-1 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
+                  <MapPin size={10} className="text-salon-gold group-hover:animate-pulse" />
+                </div>
+                <a 
+                  href="https://www.google.com/maps?q=Hägerstensvägen+170,+126+53+Hägersten" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white/70 group-hover:text-white transition-colors duration-300"
+                >
+                  Hägerstensvägen 170, 126 53 Hägersten
+                </a>
+              </li>
+              
+              <li className="flex items-center group">
+                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
+                  <Phone size={10} className="text-salon-gold group-hover:animate-pulse" />
+                </div>
+                <a 
+                  href="tel:08-549 040 50" 
+                  className="text-white/70 group-hover:text-white transition-colors duration-300"
+                >
+                  08-549 040 50
+                </a>
+              </li>
+              
+              <li className="flex items-center group">
+                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
+                  <Mail size={10} className="text-salon-gold group-hover:animate-pulse" />
+                </div>
+                <a 
+                  href="mailto:salongmarialouis@gmail.com" 
+                  className="text-white/70 group-hover:text-white transition-colors duration-300"
+                >
+                  salongmarialouis@gmail.com
+                </a>
+              </li>
+            </ul>
+            
+            {/* Opening hours in inline format */}
+            <div className="mb-4 text-white/70 text-sm flex items-start">
+              <span className="text-salon-gold mr-2">🕒</span>
+              <span>Öppettider: Mån–Fre: 10:00–18:00 · Lör: 10:00–16:00 · Sön: Stängt</span>
+            </div>
+            
+            {/* Social media icons */}
+            <div className="flex space-x-3 mb-2">
+              <a 
+                href="https://www.instagram.com/salongmarialouiis/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" 
+                aria-label="Instagram"
+              >
+                <Instagram className="text-white group-hover:animate-pulse" size={14} />
+              </a>
+              <a 
+                href="https://www.facebook.com/profile.php?id=100063562662842" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" 
+                aria-label="Facebook"
+              >
+                <Facebook className="text-white group-hover:animate-pulse" size={14} />
+              </a>
+            </div>
+          </div>
+          
+          {/* Column 2: Navigation */}
+          <div className="md:col-span-1 order-2 md:order-2 border-r border-white/10 pr-4">
+            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
+              Snabbmeny
             </h4>
             <ul className="space-y-3 text-sm">
               {[{
@@ -62,8 +136,8 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          {/* Column 2: Services */}
-          <div className="order-2 md:order-2 border-r border-white/10 pr-4">
+          {/* Column 3: Services */}
+          <div className="order-3 md:order-3">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Behandlingar  
             </h4>
@@ -79,89 +153,6 @@ const Footer: React.FC = () => {
                   </a>
                 </li>
               ))}
-            </ul>
-          </div>
-          
-          {/* Column 3: Opening hours */}
-          <div className="order-3 md:order-3 bg-white/5 rounded-lg p-4">
-            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
-              Öppettider
-            </h4>
-            <ul className="text-sm space-y-1 text-white/70">
-              <li>Måndag - Fredag: 10:00 – 18:00</li>
-              <li>Lördag: 10:00 – 16:00</li>
-              <li>Söndag: Stängt</li>
-            </ul>
-          </div>
-          
-          {/* Column 4: Contact Info */}
-          <div className="order-4 bg-white/5 rounded-lg p-4">
-            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
-              Kontakta Oss
-            </h4>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start group">
-                <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mr-3 mt-1 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
-                  <MapPin size={12} className="text-salon-gold group-hover:animate-pulse" />
-                </div>
-                <a 
-                  href="https://www.google.com/maps?q=Hägerstensvägen+170,+126+53+Hägersten" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-white/70 group-hover:text-white transition-colors duration-300"
-                >
-                  Hägerstensvägen 170<br />
-                  126 53 Hägersten
-                </a>
-              </li>
-              
-              <li className="flex items-center group">
-                <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
-                  <Phone size={12} className="text-salon-gold group-hover:animate-pulse" />
-                </div>
-                <a 
-                  href="tel:08-549 040 50" 
-                  className="text-white/70 group-hover:text-white transition-colors duration-300"
-                >
-                  08-549 040 50
-                </a>
-              </li>
-              
-              <li className="flex items-center group">
-                <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
-                  <Mail size={12} className="text-salon-gold group-hover:animate-pulse" />
-                </div>
-                <a 
-                  href="mailto:salongmarialouis@gmail.com" 
-                  className="text-white/70 group-hover:text-white transition-colors duration-300"
-                >
-                  salongmarialouis@gmail.com
-                </a>
-              </li>
-              
-              {/* Social media icons */}
-              <li className="pt-2">
-                <div className="flex space-x-3">
-                  <a 
-                    href="https://www.instagram.com/salongmarialouiis/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" 
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="text-white group-hover:animate-pulse" size={14} />
-                  </a>
-                  <a 
-                    href="https://www.facebook.com/profile.php?id=100063562662842" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" 
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="text-white group-hover:animate-pulse" size={14} />
-                  </a>
-                </div>
-              </li>
             </ul>
           </div>
         </div>

@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -10,7 +9,6 @@ const Contact: React.FC = () => {
     name: '',
     email: '',
     phone: '',
-    service: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -51,13 +49,6 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleServiceChange = (value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      service: value
-    }));
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -70,7 +61,6 @@ const Contact: React.FC = () => {
         name: '',
         email: '',
         phone: '',
-        service: '',
         message: ''
       });
       
@@ -102,9 +92,15 @@ const Contact: React.FC = () => {
         <div ref={el => elementsRef.current[2] = el} className="animated-element grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start mb-12">
           {/* Left Side - Contact Form */}
           <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-            <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-2xl font-serif font-medium mb-6">
-              Maila Oss
+            <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-2xl font-serif font-medium mb-3">
+              Kontakta Oss Direkt
             </h2>
+            <p className="text-salon-dark/80 mb-3">
+              Hör av dig om du har frågor, vill boka manuellt, samarbeta med oss eller få våra erbjudanden.
+            </p>
+            <p className="text-salon-dark/70 text-sm italic mb-5">
+              För bokning – klicka på knappen till höger. Använd formuläret för andra ärenden.
+            </p>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-salon-dark mb-1">
@@ -125,25 +121,6 @@ const Contact: React.FC = () => {
                   Telefon
                 </label>
                 <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" placeholder="070 123 45 67" />
-              </div>
-              
-              <div>
-                <label htmlFor="service" className="block text-sm font-medium text-salon-dark mb-1">
-                  Behandling
-                </label>
-                <Select onValueChange={handleServiceChange} value={formData.service}>
-                  <SelectTrigger className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition">
-                    <SelectValue placeholder="Välj behandling" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-white">
-                    <SelectItem value="klippning">Klippning & Styling</SelectItem>
-                    <SelectItem value="färg">Färgtjänster</SelectItem>
-                    <SelectItem value="keratin">Keratinbehandlingar</SelectItem>
-                    <SelectItem value="barberare">Barberartjänster</SelectItem>
-                    <SelectItem value="bryn">Bryn & Fransar</SelectItem>
-                    <SelectItem value="annat">Annat</SelectItem>
-                  </SelectContent>
-                </Select>
               </div>
               
               <div>
@@ -172,7 +149,7 @@ const Contact: React.FC = () => {
                 Boka Din Tid
               </h2>
               <p className="text-salon-dark">
-                Boka enkelt din behandling online av våra erfarna frisörer & barberare
+                Välj tid och behandling direkt online – snabbt, tryggt och enkelt.
               </p>
               
               <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="mt-6 mb-6 block text-center w-full px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
