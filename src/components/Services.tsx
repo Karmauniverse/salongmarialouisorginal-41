@@ -36,9 +36,7 @@ const Services: React.FC = () => {
             </span>
           </div>
           
-          <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6">
-            Din stund hos oss
-          </h2>
+          <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6">Vi tar hand om dig</h2>
           
           <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/80">Alla våra klippningar inkluderar tvätt, fön & styling. Vi ser till att du får ett färdigt 
 resultat – redo för vardag, fest eller vila.</p>
