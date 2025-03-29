@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [formData, setFormData] = useState({
@@ -14,7 +13,6 @@ const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -38,7 +36,6 @@ const Contact: React.FC = () => {
       });
     };
   }, []);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -49,14 +46,12 @@ const Contact: React.FC = () => {
       [name]: value
     }));
   };
-
   const handleServiceChange = (value: string) => {
     setFormData(prev => ({
       ...prev,
       service: value
     }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -83,7 +78,6 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-
   return <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-10">
@@ -171,7 +165,7 @@ const Contact: React.FC = () => {
               </p>
             </div>
             
-            <div className="my-6 p-5 rounded-xl bg-salon-gold/10 w-full">
+            <div className="p-5 rounded-xl bg-salon-gold/10 w-full my-[57px] py-[22px]">
               <div className="flex items-center mb-4">
                 <Clock size={18} className="text-salon-gold mr-2" />
                 <h5 className="text-salon-dark font-medium">Öppettider</h5>
@@ -205,5 +199,4 @@ const Contact: React.FC = () => {
       </div>
     </section>;
 };
-
 export default Contact;
