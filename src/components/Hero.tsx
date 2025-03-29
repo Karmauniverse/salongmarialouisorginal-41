@@ -1,14 +1,17 @@
 
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
-const Hero: React.FC = () => {
+
+const Hero = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
+  
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
+    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -17,16 +20,20 @@ const Hero: React.FC = () => {
         }
       });
     }, observerOptions);
+    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
+    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-  return <section id="home" className="relative min-h-screen flex items-center">
+  
+  return (
+    <section id="home" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0">
         <img src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" alt="Vackert svart hår" className="w-full h-full object-cover object-center" />
       </div>
@@ -71,6 +78,8 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent">
         <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
