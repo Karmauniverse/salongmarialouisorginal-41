@@ -6,7 +6,6 @@ import { Menu, X } from 'lucide-react';
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isServicesHovered, setIsServicesHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +49,6 @@ const Navbar: React.FC = () => {
     }, 
     {
       name: 'Behandlingar',
-      hoverName: 'Priser',
       href: '#services'
     }, 
     {
@@ -72,7 +70,7 @@ const Navbar: React.FC = () => {
       <nav className={cn(
         'fixed w-full z-50 transition-all duration-500',
         isScrolled 
-          ? 'backdrop-blur-md bg-white/90 shadow-md py-3' 
+          ? 'backdrop-blur-lg bg-white/70 shadow-md py-3' 
           : 'bg-transparent py-6'
       )}>
         <div className="container flex justify-between items-center">
@@ -91,15 +89,13 @@ const Navbar: React.FC = () => {
                 key={link.name}
                 href={link.href} 
                 onClick={(e) => handleNavLinkClick(e, link.href)}
-                onMouseEnter={() => link.hoverName && setIsServicesHovered(true)}
-                onMouseLeave={() => link.hoverName && setIsServicesHovered(false)}
                 className={cn(
                   "text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-2 px-1",
                   isScrolled ? "text-salon-dark" : "text-white drop-shadow-md",
                   "after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full"
                 )}
               >
-                {link.name === 'Behandlingar' && isServicesHovered ? link.hoverName : link.name}
+                {link.name}
               </a>
             ))}
             <a 

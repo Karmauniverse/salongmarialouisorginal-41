@@ -26,31 +26,8 @@ const Footer: React.FC = () => {
     <footer className="bg-salon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Logo and opening hours */}
-          <div className="flex flex-col">
-            <a 
-              href="/" 
-              onClick={(e) => handleNavLinkClick(e, '/')}
-              className="mb-4"
-            >
-              <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-20 object-scale-down" />
-            </a>
-            
-            {/* Opening hours with consistent height as other columns */}
-            <div className="mt-1">
-              <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
-                Öppettider
-              </h4>
-              <ul className="text-sm space-y-1 text-white/70">
-                <li>Måndag - Fredag: 10:00 – 18:00</li>
-                <li>Lördag: 10:00 – 16:00</li>
-                <li>Söndag: Stängt</li>
-              </ul>
-            </div>
-          </div>
-          
-          {/* Navigation Links */}
-          <div className="md:col-span-1 order-1 md:order-2">
+          {/* Column 1: Navigation */}
+          <div className="md:col-span-1 order-1 md:order-1">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Navigera
             </h4>
@@ -83,8 +60,8 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          {/* Services - Moved up in mobile order */}
-          <div className="order-2 md:order-3">
+          {/* Column 2: Services */}
+          <div className="order-2 md:order-2">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Tjänster
             </h4>
@@ -101,7 +78,32 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          {/* Contact Info */}
+          {/* Column 3: Opening hours and logo */}
+          <div className="order-3 md:order-3">
+            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
+              Öppettider
+            </h4>
+            <ul className="text-sm space-y-1 text-white/70 mb-6">
+              <li>Måndag - Fredag: 10:00 – 18:00</li>
+              <li>Lördag: 10:00 – 16:00</li>
+              <li>Söndag: Stängt</li>
+            </ul>
+            
+            {/* Logo below opening hours */}
+            <a 
+              href="/" 
+              onClick={(e) => handleNavLinkClick(e, '/')}
+              className="block mt-4"
+            >
+              <img 
+                src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
+                alt="Maria Louis Logotyp" 
+                className="h-20 object-scale-down" 
+              />
+            </a>
+          </div>
+          
+          {/* Column 4: Contact Info */}
           <div className="order-4">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Kontakta Oss
