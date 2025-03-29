@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Instagram, Facebook, Phone, MapPin, Mail, Clock, CalendarIcon } from 'lucide-react';
+import { Instagram, Facebook, Phone, MapPin, Mail, Clock } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -27,19 +27,24 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Logo and opening hours */}
-          <div className="flex flex-col space-y-5">
-            <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-24 object-scale-down" />
+          <div className="flex flex-col">
+            <a 
+              href="/" 
+              onClick={(e) => handleNavLinkClick(e, '/')}
+              className="mb-4"
+            >
+              <img src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" alt="Maria Louis Logotyp" className="h-20 object-scale-down" />
+            </a>
             
-            {/* Opening hours - Traditional style */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 shadow-lg w-full">
-              <div className="flex items-center mb-3">
-                <Clock size={18} className="text-salon-gold mr-2" />
-                <h5 className="text-white font-medium">Öppettider</h5>
-              </div>
-              <ul className="text-sm space-y-1">
-                <li className="text-white/80">Måndag - Fredag: 10:00 – 18:00</li>
-                <li className="text-white/80">Lördag: 10:00 – 16:00</li>
-                <li className="text-white/80">Söndag: Stängt</li>
+            {/* Opening hours with consistent height as other columns */}
+            <div className="mt-1">
+              <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
+                Öppettider
+              </h4>
+              <ul className="text-sm space-y-1 text-white/70">
+                <li>Måndag - Fredag: 10:00 – 18:00</li>
+                <li>Lördag: 10:00 – 16:00</li>
+                <li>Söndag: Stängt</li>
               </ul>
             </div>
           </div>
@@ -116,9 +121,9 @@ const Footer: React.FC = () => {
                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
                   <Phone size={16} className="text-salon-gold group-hover:animate-pulse" />
                 </div>
-                <span className="text-white/70 group-hover:text-white transition-colors duration-300">
+                <a href="tel:08-549 040 50" className="text-white/70 group-hover:text-white transition-colors duration-300">
                   08-549 040 50
-                </span>
+                </a>
               </li>
               
               <li className="flex items-center group">
