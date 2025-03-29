@@ -40,7 +40,7 @@ const Hero = () => {
           </div>
           
           <h1 ref={el => elementsRef.current[1] = el} className="animated-element font-playfair text-5xl md:text-6xl lg:text-7xl font-medium mb-6 leading-tight text-white">
-            <span className="text-4xl block mb-1 text-white font-light tracking-wider font-lora md:text-7xl">Maria Louis</span>
+            <span className="text-4xl block mb-1 text-white font-light tracking-wider font-serif md:text-7xl">Maria Louis</span>
           </h1>
           
           <p ref={el => elementsRef.current[2] = el} className="animated-element md:text-2xl text-salon-beige mb-6 max-w-xl mx-auto font-lora px-0 py-0 text-center font-normal text-2xl">
