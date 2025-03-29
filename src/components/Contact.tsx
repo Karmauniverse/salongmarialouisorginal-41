@@ -1,8 +1,6 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
-
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [formData, setFormData] = useState({
@@ -13,14 +11,12 @@ const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -29,30 +25,28 @@ const Contact: React.FC = () => {
         }
       });
     }, observerOptions);
-
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
-
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    const {
+      name,
+      value
+    } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
     try {
       // Simulating email sending to salongmarialouis@gmail.com
       await new Promise(resolve => setTimeout(resolve, 1500));
@@ -63,7 +57,6 @@ const Contact: React.FC = () => {
         phone: '',
         message: ''
       });
-      
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 3000);
@@ -76,9 +69,7 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-
-  return (
-    <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
+  return <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
@@ -100,103 +91,47 @@ const Contact: React.FC = () => {
                 <label htmlFor="name" className="block text-sm font-medium text-salon-dark mb-1">
                   Ditt Namn
                 </label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
-                  value={formData.name} 
-                  onChange={handleChange} 
-                  required 
-                  className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" 
-                  placeholder="Anna Andersson" 
-                />
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" placeholder="Anna Andersson" />
               </div>
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-salon-dark mb-1">
                   E-post
                 </label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  value={formData.email} 
-                  onChange={handleChange} 
-                  required 
-                  className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" 
-                  placeholder="anna@example.com" 
-                />
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" placeholder="anna@example.com" />
               </div>
               
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-salon-dark mb-1">
                   Telefon
                 </label>
-                <input 
-                  type="tel" 
-                  id="phone" 
-                  name="phone" 
-                  value={formData.phone} 
-                  onChange={handleChange} 
-                  className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" 
-                  placeholder="070 123 45 67" 
-                />
+                <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" placeholder="070 123 45 67" />
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-salon-dark mb-1">
                   Meddelande
                 </label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  value={formData.message} 
-                  onChange={handleChange} 
-                  required 
-                  rows={4} 
-                  className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition resize-none" 
-                  placeholder="Skriv ditt meddelande här..."
-                ></textarea>
+                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={4} className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition resize-none" placeholder="Skriv ditt meddelande här..."></textarea>
               </div>
               
-              <button 
-                type="submit" 
-                disabled={isSubmitting} 
-                className={cn(
-                  "w-full px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed", 
-                  submitStatus === 'success' && "bg-green-600 hover:bg-green-700",
-                  submitStatus === 'error' && "bg-red-600 hover:bg-red-700"
-                )}
-              >
-                {isSubmitting ? (
-                  <span className="flex items-center justify-center">
+              <button type="submit" disabled={isSubmitting} className={cn("w-full px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed", submitStatus === 'success' && "bg-green-600 hover:bg-green-700", submitStatus === 'error' && "bg-red-600 hover:bg-red-700")}>
+                {isSubmitting ? <span className="flex items-center justify-center">
                     <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
                     Skickar...
-                  </span>
-                ) : submitStatus === 'success' ? (
-                  "Meddelande skickat!"
-                ) : submitStatus === 'error' ? (
-                  "Ett fel uppstod, försök igen"
-                ) : (
-                  "Skicka Meddelande"
-                )}
+                  </span> : submitStatus === 'success' ? "Meddelande skickat!" : submitStatus === 'error' ? "Ett fel uppstod, försök igen" : "Skicka Meddelande"}
               </button>
             </form>
           </div>
           
           {/* Right Side - Booking Online */}
           <div className="flex flex-col h-full justify-center items-center bg-white p-8 rounded-xl shadow-lg">
-            <h3 className="text-xl font-serif font-medium mb-6 text-salon-dark">Boka direkt via vårt bokningssystem</h3>
             
-            <a 
-              href="https://bokning.voady.se/marialouis/marialouisebarbershop/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="block text-center w-full max-w-xs px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300"
-            >
+            
+            <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="block text-center w-full max-w-xs px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
               Boka Online
               <ArrowRight className="inline-block ml-2 h-4 w-4" />
             </a>
@@ -212,8 +147,6 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
