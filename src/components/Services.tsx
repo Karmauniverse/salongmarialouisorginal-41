@@ -38,8 +38,7 @@ const Services: React.FC = () => {
           
           <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6">Vi tar hand om dig</h2>
           
-          <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/80">Alla våra klippningar inkluderar tvätt, fön & styling. Vi ser till att du får ett färdigt 
-resultat – redo för vardag, fest eller vila.</p>
+          <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/80">Alla våra klippningar inkluderar tvätt, fön & styling. Vi ser till att du får ett färdigt  resultat – redo för vardag, fest eller vila.</p>
         </div>
         
         <div ref={el => elementsRef.current[3] = el} className="animated-element">
