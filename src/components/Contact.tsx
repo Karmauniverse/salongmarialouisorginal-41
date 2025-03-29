@@ -1,8 +1,6 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
-
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [formData, setFormData] = useState({
@@ -13,14 +11,12 @@ const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -29,30 +25,28 @@ const Contact: React.FC = () => {
         }
       });
     }, observerOptions);
-    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
-    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    const {
+      name,
+      value
+    } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
     try {
       // Simulating email sending to salongmarialouis@gmail.com
       await new Promise(resolve => setTimeout(resolve, 1500));
@@ -63,13 +57,11 @@ const Contact: React.FC = () => {
         phone: '',
         message: ''
       });
-      
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 3000);
     } catch (error) {
       setSubmitStatus('error');
-      
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 3000);
@@ -77,9 +69,7 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-
-  return (
-    <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
+  return <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
@@ -91,8 +81,8 @@ const Contact: React.FC = () => {
         
         <div ref={el => elementsRef.current[2] = el} className="animated-element grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start mb-12">
           {/* Left Side - Contact Form */}
-          <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-            <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-2xl font-serif font-medium mb-3">
+          <div className="p-6 md:p-8 rounded-xl shadow-lg bg-salon-dark">
+            <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-2xl font-serif font-medium mb-3 text-salon-cream">
               Kontakta Oss Direkt
             </h2>
             <p className="text-salon-dark/80 mb-3">
@@ -185,8 +175,6 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
