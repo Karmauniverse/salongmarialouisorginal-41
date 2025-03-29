@@ -1,17 +1,13 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
-
 const Hero = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
-  
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -20,20 +16,16 @@ const Hero = () => {
         }
       });
     }, observerOptions);
-    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
-    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-  
-  return (
-    <section id="home" className="relative min-h-screen flex items-center">
+  return <section id="home" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0">
         <img src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" alt="Vackert svart hår" className="w-full h-full object-cover object-center" />
       </div>
@@ -48,7 +40,7 @@ const Hero = () => {
           </div>
           
           <h1 ref={el => elementsRef.current[1] = el} className="animated-element font-playfair text-5xl md:text-6xl lg:text-7xl font-medium mb-6 leading-tight text-white">
-            <span className="text-4xl md:text-5xl block mb-1 text-white font-light tracking-wider font-lora">Maria Louis</span>
+            <span className="text-4xl block mb-1 text-white font-light tracking-wider font-lora md:text-7xl">Maria Louis</span>
           </h1>
           
           <p ref={el => elementsRef.current[2] = el} className="animated-element md:text-2xl text-salon-beige mb-6 max-w-xl mx-auto font-lora px-0 py-0 text-center font-normal text-2xl">
@@ -78,8 +70,6 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent">
         <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
