@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Heart, Phone, GraduationCap, Ring, GlassWater, User } from 'lucide-react';
+import { Heart, Phone, GraduationCap, Wine, GlassWater, User } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const SpecialDay: React.FC = () => {
@@ -58,7 +58,7 @@ const SpecialDay: React.FC = () => {
             </div>
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                <Ring className="w-8 h-8 text-salon-brown" />
+                <Heart className="w-8 h-8 text-salon-brown" />
               </div>
               <span className="text-sm text-salon-dark/80 font-lora">Bröllop</span>
             </div>
