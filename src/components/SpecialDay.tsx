@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Heart, Phone, GraduationCap, Wine, GlassWater, User } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const SpecialDay: React.FC = () => {
@@ -46,25 +46,44 @@ const SpecialDay: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                <GlassWater className="w-8 h-8 text-salon-brown" />
+                <img 
+                  src="/lovable-uploads/ac340b06-f02c-4aeb-a4a5-779c8587b3de.png" 
+                  alt="Champagne" 
+                  className="w-16 h-16 object-contain p-3"
+                />
               </div>
               <span className="text-sm text-salon-dark/80 font-lora">Champagne</span>
             </div>
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                <User className="w-8 h-8 text-salon-brown" />
+                <img 
+                  src="/lovable-uploads/ac340b06-f02c-4aeb-a4a5-779c8587b3de.png" 
+                  alt="Styling" 
+                  className="w-16 h-16 object-contain p-3"
+                  style={{ objectPosition: "25% center" }}
+                />
               </div>
               <span className="text-sm text-salon-dark/80 font-lora">Styling</span>
             </div>
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                <Heart className="w-8 h-8 text-salon-brown" />
+                <img 
+                  src="/lovable-uploads/ac340b06-f02c-4aeb-a4a5-779c8587b3de.png" 
+                  alt="Bröllop" 
+                  className="w-16 h-16 object-contain p-3"
+                  style={{ objectPosition: "50% center" }}
+                />
               </div>
               <span className="text-sm text-salon-dark/80 font-lora">Bröllop</span>
             </div>
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                <GraduationCap className="w-8 h-8 text-salon-brown" />
+                <img 
+                  src="/lovable-uploads/ac340b06-f02c-4aeb-a4a5-779c8587b3de.png" 
+                  alt="Student"
+                  className="w-16 h-16 object-contain p-3"
+                  style={{ objectPosition: "75% center" }}
+                />
               </div>
               <span className="text-sm text-salon-dark/80 font-lora">Student</span>
             </div>
