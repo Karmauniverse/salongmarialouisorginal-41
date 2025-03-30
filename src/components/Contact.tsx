@@ -233,7 +233,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="flex flex-col h-full justify-start p-8 rounded-xl shadow-lg bg-salon-dark py-[7px]">
-                <div className="mb-6">
+                <div className="mb-6 my-[16px]">
                   <h2 className="text-2xl font-serif font-medium mb-4 text-salon-beige">
                     Boka Din Tid
                   </h2>
