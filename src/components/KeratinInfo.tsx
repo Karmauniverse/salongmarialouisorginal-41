@@ -61,40 +61,32 @@ const KeratinInfo: React.FC = () => {
             {/* Keratin Icons */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                  <img 
-                    src="/lovable-uploads/d63ca13d-69ca-453b-be7f-3e193e8b60b1.png" 
-                    alt="Återfuktande" 
-                    className="w-12 h-12 object-contain"
-                  />
-                </div>
+                <img 
+                  src="/lovable-uploads/d9800f05-60a3-449a-8344-519bf6ef75b2.png" 
+                  alt="Återfuktande" 
+                  className="w-20 h-20 object-contain"
+                />
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                  <img 
-                    src="/lovable-uploads/71ec8801-db45-4bf9-b456-accfdce44c19.png" 
-                    alt="Glansigt Hår" 
-                    className="w-12 h-12 object-contain"
-                  />
-                </div>
+                <img 
+                  src="/lovable-uploads/74957e92-f96b-4292-8d02-d613eddeea7f.png" 
+                  alt="Glansigt Hår" 
+                  className="w-20 h-20 object-contain"
+                />
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                  <img 
-                    src="/lovable-uploads/2bb75429-e85f-4b25-9926-068ec1a61002.png" 
-                    alt="100% Vegan" 
-                    className="w-12 h-12 object-contain"
-                  />
-                </div>
+                <img 
+                  src="/lovable-uploads/8e69a651-b522-4584-9263-9107e238f35c.png" 
+                  alt="100% Vegan" 
+                  className="w-20 h-20 object-contain"
+                />
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                  <img 
-                    src="/lovable-uploads/d1417059-fbca-40c2-8e43-27848b63ee32.png" 
-                    alt="Cruelty-Free" 
-                    className="w-12 h-12 object-contain"
-                  />
-                </div>
+                <img 
+                  src="/lovable-uploads/a2f10262-03e7-411b-8a3e-f9902dcd5d27.png" 
+                  alt="Cruelty-Free" 
+                  className="w-20 h-20 object-contain"
+                />
               </div>
             </div>
             

@@ -42,55 +42,47 @@ const SpecialDay: React.FC = () => {
             FIRA MED STIL
           </h3>
           
-          {/* Icons Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                <img 
-                  src="/lovable-uploads/37b76650-bc95-4fff-8985-47923e1d72d0.png" 
-                  alt="Champagne" 
-                  className="w-12 h-12 object-contain"
-                />
-              </div>
-              <span className="text-sm text-salon-dark/80 font-lora">Champagne</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                <img 
-                  src="/lovable-uploads/21dad99f-7c1c-4bce-a2e7-d0ac4b9d818b.png" 
-                  alt="Styling" 
-                  className="w-12 h-12 object-contain"
-                />
-              </div>
-              <span className="text-sm text-salon-dark/80 font-lora">Styling</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                <img 
-                  src="/lovable-uploads/e7c35b05-5b04-437b-aef8-e2a5c333d50d.png" 
-                  alt="Bröllop" 
-                  className="w-12 h-12 object-contain"
-                />
-              </div>
-              <span className="text-sm text-salon-dark/80 font-lora">Bröllop</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                <img 
-                  src="/lovable-uploads/18a3b2d0-d168-4b51-a1bf-73253bf0ae9e.png"
-                  alt="Student"
-                  className="w-12 h-12 object-contain"
-                />
-              </div>
-              <span className="text-sm text-salon-dark/80 font-lora">Student</span>
-            </div>
-          </div>
-          
           <div className="bg-salon-beige/30 p-8 md:p-10 rounded-xl shadow-md border border-salon-gold/10 relative">
             <div className="relative z-10">
               <p className="text-lg font-lora text-salon-dark/90 mb-6 leading-relaxed max-w-2xl mx-auto">
                 Ska du på bröllop, ta studenten, eller har du ett annat viktigt tillfälle på gång?
               </p>
+              
+              {/* Icons Row - Placed above the white box */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
+                <div className="flex flex-col items-center">
+                  <img 
+                    src="/lovable-uploads/2bf4bdaa-ca27-42a6-9c8c-ed97f0058ff0.png" 
+                    alt="Champagne" 
+                    className="w-20 h-20 object-contain"
+                  />
+                  <span className="text-sm text-salon-dark/80 font-lora mt-2">Champagne</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <img 
+                    src="/lovable-uploads/d8cfa377-a904-4e60-af98-7fa38559c6fd.png" 
+                    alt="Styling" 
+                    className="w-20 h-20 object-contain"
+                  />
+                  <span className="text-sm text-salon-dark/80 font-lora mt-2">Styling</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <img 
+                    src="/lovable-uploads/b108dc2c-7eb6-4ed9-927d-e943d4a73315.png" 
+                    alt="Bröllop" 
+                    className="w-20 h-20 object-contain"
+                  />
+                  <span className="text-sm text-salon-dark/80 font-lora mt-2">Bröllop</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <img 
+                    src="/lovable-uploads/66759130-777a-43be-8271-92b24f27e078.png"
+                    alt="Student"
+                    className="w-20 h-20 object-contain"
+                  />
+                  <span className="text-sm text-salon-dark/80 font-lora mt-2">Student</span>
+                </div>
+              </div>
               
               <div className="bg-white/70 backdrop-blur-sm p-6 md:p-8 rounded-lg border border-salon-gold/20 mb-6">
                 <p className="text-salon-dark/80 leading-relaxed max-w-2xl mx-auto font-lora">
