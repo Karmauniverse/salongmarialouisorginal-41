@@ -21,8 +21,11 @@ const Index = () => {
     // Fix for mobile scrolling bug
     const preventScrollJitter = () => {
       document.body.style.overflowX = 'hidden';
+      document.documentElement.style.overscrollBehavior = 'none';
+      
       return () => {
         document.body.style.overflowX = '';
+        document.documentElement.style.overscrollBehavior = '';
       };
     };
     
@@ -35,9 +38,10 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Services />
+      {/* Keratin section moved after Services as requested */}
+      <KeratinInfo />
       <Gallery />
       <About />
-      <KeratinInfo />
       
       {/* Different order based on screen size */}
       {isMobile ? (
