@@ -47,9 +47,9 @@ const SpecialDay: React.FC = () => {
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
                 <img 
-                  src="/lovable-uploads/ac340b06-f02c-4aeb-a4a5-779c8587b3de.png" 
+                  src="/lovable-uploads/37b76650-bc95-4fff-8985-47923e1d72d0.png" 
                   alt="Champagne" 
-                  className="w-16 h-16 object-contain p-3"
+                  className="w-12 h-12 object-contain"
                 />
               </div>
               <span className="text-sm text-salon-dark/80 font-lora">Champagne</span>
@@ -57,10 +57,9 @@ const SpecialDay: React.FC = () => {
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
                 <img 
-                  src="/lovable-uploads/ac340b06-f02c-4aeb-a4a5-779c8587b3de.png" 
+                  src="/lovable-uploads/21dad99f-7c1c-4bce-a2e7-d0ac4b9d818b.png" 
                   alt="Styling" 
-                  className="w-16 h-16 object-contain p-3"
-                  style={{ objectPosition: "25% center" }}
+                  className="w-12 h-12 object-contain"
                 />
               </div>
               <span className="text-sm text-salon-dark/80 font-lora">Styling</span>
@@ -68,10 +67,9 @@ const SpecialDay: React.FC = () => {
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
                 <img 
-                  src="/lovable-uploads/ac340b06-f02c-4aeb-a4a5-779c8587b3de.png" 
+                  src="/lovable-uploads/e7c35b05-5b04-437b-aef8-e2a5c333d50d.png" 
                   alt="Bröllop" 
-                  className="w-16 h-16 object-contain p-3"
-                  style={{ objectPosition: "50% center" }}
+                  className="w-12 h-12 object-contain"
                 />
               </div>
               <span className="text-sm text-salon-dark/80 font-lora">Bröllop</span>
@@ -79,10 +77,9 @@ const SpecialDay: React.FC = () => {
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
                 <img 
-                  src="/lovable-uploads/ac340b06-f02c-4aeb-a4a5-779c8587b3de.png" 
+                  src="/lovable-uploads/18a3b2d0-d168-4b51-a1bf-73253bf0ae9e.png"
                   alt="Student"
-                  className="w-16 h-16 object-contain p-3"
-                  style={{ objectPosition: "75% center" }}
+                  className="w-12 h-12 object-contain"
                 />
               </div>
               <span className="text-sm text-salon-dark/80 font-lora">Student</span>

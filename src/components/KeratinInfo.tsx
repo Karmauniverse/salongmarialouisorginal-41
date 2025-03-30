@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { SparkleIcon, Droplet, Star, Leaf, CircleSlash } from 'lucide-react';
+import { SparkleIcon } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const KeratinInfo: React.FC = () => {
@@ -62,27 +62,39 @@ const KeratinInfo: React.FC = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                  <Droplet className="w-8 h-8 text-salon-brown" />
+                  <img 
+                    src="/lovable-uploads/d63ca13d-69ca-453b-be7f-3e193e8b60b1.png" 
+                    alt="Återfuktande" 
+                    className="w-12 h-12 object-contain"
+                  />
                 </div>
-                <span className="text-sm text-salon-dark/80 font-lora">Återfuktande</span>
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                  <Star className="w-8 h-8 text-salon-brown" />
+                  <img 
+                    src="/lovable-uploads/71ec8801-db45-4bf9-b456-accfdce44c19.png" 
+                    alt="Glansigt Hår" 
+                    className="w-12 h-12 object-contain"
+                  />
                 </div>
-                <span className="text-sm text-salon-dark/80 font-lora">Glansigt Hår</span>
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                  <Leaf className="w-8 h-8 text-salon-brown" />
+                  <img 
+                    src="/lovable-uploads/2bb75429-e85f-4b25-9926-068ec1a61002.png" 
+                    alt="100% Vegan" 
+                    className="w-12 h-12 object-contain"
+                  />
                 </div>
-                <span className="text-sm text-salon-dark/80 font-lora">100% Vegan</span>
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full bg-salon-cream/70 flex items-center justify-center mb-2 border border-salon-gold/20">
-                  <CircleSlash className="w-8 h-8 text-salon-brown" />
+                  <img 
+                    src="/lovable-uploads/d1417059-fbca-40c2-8e43-27848b63ee32.png" 
+                    alt="Cruelty-Free" 
+                    className="w-12 h-12 object-contain"
+                  />
                 </div>
-                <span className="text-sm text-salon-dark/80 font-lora">Cruelty-Free</span>
               </div>
             </div>
             
