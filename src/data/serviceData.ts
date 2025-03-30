@@ -13,7 +13,8 @@ export const serviceCategories: ServiceCategory[] = [
       { name: "Långt hår", price: "fr. 470 kr" },
       { name: "Ny frisyr/tjockt hår", price: "fr. 560 kr" },
       { name: "Ungdom (8–18 år)", price: "350 kr" },
-      { name: "Barnklippning (t.o.m. 7 år)", price: "290 kr" }
+      { name: "Barnklippning (t.o.m. 7 år)", price: "290 kr" },
+      { name: "Pensionärer", price: "fr. 350 kr" }
     ]
   },
   {
@@ -33,7 +34,7 @@ export const serviceCategories: ServiceCategory[] = [
     description: "Färgning och toning för ett perfekt resultat.",
     services: [
       { name: "Bottenfärg", price: "fr. 740 kr" },
-      { name: "Toning", price: "fr. 1 100 kr" },
+      { name: "Toning", price: "fr. 690 kr" },
       { name: "Slingor i hätta", price: "930 kr" }
     ]
   },
@@ -44,6 +45,7 @@ export const serviceCategories: ServiceCategory[] = [
     services: [
       { name: "Herrklippning", price: "fr. 390 kr" },
       { name: "Kort skägg", price: "fr. 220 kr" },
+      { name: "Långt skägg", price: "fr. 290 kr" },
       { name: "Klipp + kort skägg", price: "fr. 540 kr" },
       { name: "Klipp + långt skägg", price: "650 kr" }
     ]

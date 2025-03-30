@@ -1,9 +1,12 @@
 
 import React from 'react';
-import { Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
+import { Instagram, Facebook, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Separator } from "@/components/ui/separator";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Footer: React.FC = () => {
+  const isMobile = useIsMobile();
+  
   const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     if (href === '/') {
@@ -85,25 +88,37 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Öppettider
             </h4>
-            <ul className="space-y-2 text-sm">
-              {[
-                { day: 'Måndag', hours: '10:00–18:00' },
-                { day: 'Tisdag', hours: '10:00–18:00' },
-                { day: 'Onsdag', hours: '10:00–18:00' },
-                { day: 'Torsdag', hours: '10:00–18:00' },
-                { day: 'Fredag', hours: '10:00–18:00' },
-                { day: 'Lördag', hours: '10:00–16:00' },
-                { day: 'Söndag', hours: 'Stängt' }
-              ].map((item, index) => (
-                <li 
-                  key={index} 
-                  className="text-white/70 flex justify-between items-center"
-                >
-                  <span>{item.day}:</span>
-                  <span>{item.hours}</span>
-                </li>
-              ))}
-            </ul>
+            {isMobile ? (
+              // Mobile: Condensed hours format
+              <div className="space-y-2 text-sm">
+                <p className="text-white/70 flex flex-col">
+                  <span className="mb-1">Mån–Fre: 10–18</span>
+                  <span className="mb-1">Lördag: 10–16</span>
+                  <span>Söndag: Stängt</span>
+                </p>
+              </div>
+            ) : (
+              // Desktop: Detailed hours format
+              <ul className="space-y-2 text-sm">
+                {[
+                  { day: 'Måndag', hours: '10:00–18:00' },
+                  { day: 'Tisdag', hours: '10:00–18:00' },
+                  { day: 'Onsdag', hours: '10:00–18:00' },
+                  { day: 'Torsdag', hours: '10:00–18:00' },
+                  { day: 'Fredag', hours: '10:00–18:00' },
+                  { day: 'Lördag', hours: '10:00–16:00' },
+                  { day: 'Söndag', hours: 'Stängt' }
+                ].map((item, index) => (
+                  <li 
+                    key={index} 
+                    className="text-white/70 flex justify-between items-center"
+                  >
+                    <span>{item.day}:</span>
+                    <span>{item.hours}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           
           {/* Column 4: Kontakta Oss */}

@@ -17,6 +17,13 @@ const Navbar: React.FC = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    
+    // Prevent background scrolling when menu is open
+    if (!isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   };
 
   const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -25,6 +32,7 @@ const Navbar: React.FC = () => {
     // Close mobile menu if open
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
+      document.body.style.overflow = '';
     }
     
     // Handle home link
@@ -121,9 +129,10 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Now with frosted glass effect */}
         <div className={cn(
-          "fixed inset-0 z-40 flex flex-col pt-24 px-6 bg-salon-cream/95 backdrop-blur-md transition-all duration-500 ease-in-out md:hidden shadow-lg",
+          "fixed inset-0 z-40 flex flex-col pt-24 px-6 backdrop-blur-md transition-all duration-500 ease-in-out md:hidden shadow-lg",
+          "bg-gradient-to-b from-salon-dark/90 to-salon-dark/85",
           isMobileMenuOpen 
             ? "opacity-100 translate-x-0" 
             : "opacity-0 translate-x-full pointer-events-none"
@@ -133,7 +142,7 @@ const Navbar: React.FC = () => {
               <a 
                 key={link.name}
                 href={link.href} 
-                className="text-salon-dark text-lg font-medium relative after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:w-1/2 after:mx-auto after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:right-0 hover:text-salon-gold pb-1 block" 
+                className="text-white text-lg font-medium relative after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:w-1/2 after:mx-auto after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:right-0 hover:text-salon-gold pb-1 block" 
                 onClick={(e) => handleNavLinkClick(e, link.href)}
               >
                 {link.name}
@@ -144,7 +153,10 @@ const Navbar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="w-full text-center px-5 py-3 rounded-full bg-salon-gold text-white font-medium mt-4 hover:bg-salon-brown transition-all" 
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                document.body.style.overflow = '';
+              }}
             >
               Boka Nu
             </a>

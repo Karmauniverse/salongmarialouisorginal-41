@@ -8,10 +8,23 @@ import Testimonials from '../components/Testimonials';
 import About from '../components/About';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import KeratinInfo from '../components/KeratinInfo';
+import SpecialDay from '../components/SpecialDay';
 
 const Index = () => {
   useEffect(() => {
     document.title = 'Maria Louis Hårsalong | Premiumstyling';
+    
+    // Fix for mobile scrolling bug
+    const preventScrollJitter = () => {
+      document.body.style.overflowX = 'hidden';
+      return () => {
+        document.body.style.overflowX = '';
+      };
+    };
+    
+    const cleanup = preventScrollJitter();
+    return cleanup;
   }, []);
 
   return (
@@ -21,6 +34,8 @@ const Index = () => {
       <Services />
       <Gallery />
       <About />
+      <KeratinInfo />
+      <SpecialDay />
       <Testimonials />
       <Contact />
       <Footer />
