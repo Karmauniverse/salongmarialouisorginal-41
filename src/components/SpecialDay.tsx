@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Phone } from 'lucide-react';
+import { Phone, Heart } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const SpecialDay: React.FC = () => {
