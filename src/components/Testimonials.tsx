@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight, Facebook, Quote, Star } from 'lucide-react';
@@ -7,6 +6,7 @@ const Testimonials: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [autoRotate, setAutoRotate] = useState(false);
 
   useEffect(() => {
     const observerOptions = {
@@ -36,13 +36,16 @@ const Testimonials: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Auto-rotate testimonials
-    const intervalId = setInterval(() => {
-      handleNext();
-    }, 6000);
-    
-    return () => clearInterval(intervalId);
-  }, [activeTestimonial, isTransitioning]);
+    if (autoRotate) {
+      const intervalId = setInterval(() => {
+        if (!isTransitioning) {
+          handleNext();
+        }
+      }, 6000);
+      
+      return () => clearInterval(intervalId);
+    }
+  }, [activeTestimonial, isTransitioning, autoRotate]);
 
   const testimonials = [
     {
@@ -119,7 +122,7 @@ const Testimonials: React.FC = () => {
           
           <p 
             ref={el => elementsRef.current[2] = el} 
-            className="animated-element text-salon-dark/80"
+            className="animated-element text-salon-dark/80 font-lora"
           >
             Vi är stolta över att skapa exceptionella upplevelser för våra kunder.
           </p>
@@ -138,7 +141,7 @@ const Testimonials: React.FC = () => {
                 "transition-all duration-500 ease-in-out",
                 isTransitioning ? "opacity-0 transform scale-95" : "opacity-100 transform scale-100"
               )}>
-                <blockquote className="text-lg md:text-xl mb-8 text-salon-dark/90 leading-relaxed">
+                <blockquote className="text-lg md:text-xl mb-8 text-salon-dark/90 leading-relaxed font-lora">
                   "{testimonials[activeTestimonial].quote}"
                 </blockquote>
                 
@@ -150,7 +153,7 @@ const Testimonials: React.FC = () => {
                     <p className="font-serif font-medium text-salon-dark text-lg">
                       {testimonials[activeTestimonial].author}
                     </p>
-                    <p className="text-sm text-salon-dark/70 mb-2">
+                    <p className="text-sm text-salon-dark/70 mb-2 font-lora">
                       {testimonials[activeTestimonial].role}
                     </p>
                     <div className="flex">

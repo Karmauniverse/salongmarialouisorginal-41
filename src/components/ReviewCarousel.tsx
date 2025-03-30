@@ -13,6 +13,7 @@ const ReviewCarousel: React.FC = () => {
   const [activeReview, setActiveReview] = useState(0);
   const [direction, setDirection] = useState<'left' | 'right' | null>(null);
   const [transitioning, setTransitioning] = useState(false);
+  const [autoRotate, setAutoRotate] = useState(false); // Disabled by default to fix mobile scrolling issue
   
   const reviews: ReviewProps[] = [
     {
@@ -38,15 +39,17 @@ const ReviewCarousel: React.FC = () => {
   ];
 
   useEffect(() => {
-    // Auto-rotate every 5 seconds if not transitioning
-    const interval = setInterval(() => {
-      if (!transitioning) {
-        handleNext();
-      }
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, [activeReview, transitioning]);
+    // Auto-rotate - now disabled by default
+    if (autoRotate) {
+      const interval = setInterval(() => {
+        if (!transitioning) {
+          handleNext();
+        }
+      }, 5000);
+      
+      return () => clearInterval(interval);
+    }
+  }, [activeReview, transitioning, autoRotate]);
 
   const handleNext = () => {
     if (transitioning) return;
@@ -95,7 +98,7 @@ const ReviewCarousel: React.FC = () => {
             <div className="p-2 bg-salon-gold/10 rounded-full mr-3">
               <Facebook className="text-salon-gold w-5 h-5" />
             </div>
-            <h3 className="font-medium text-lg text-salon-dark">{reviews[activeReview].name}</h3>
+            <h3 className="font-medium text-lg text-salon-dark font-lora">{reviews[activeReview].name}</h3>
           </div>
           
           <div className="flex mb-3">
@@ -104,7 +107,7 @@ const ReviewCarousel: React.FC = () => {
             ))}
           </div>
           
-          <p className="text-salon-dark/80 leading-relaxed text-lg mb-4">"{reviews[activeReview].text}"</p>
+          <p className="text-salon-dark/80 leading-relaxed text-lg mb-4 font-lora">"{reviews[activeReview].text}"</p>
         </div>
       </div>
       

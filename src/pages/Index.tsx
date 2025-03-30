@@ -18,14 +18,18 @@ const Index = () => {
   useEffect(() => {
     document.title = 'Maria Louis Hårsalong | Premiumstyling';
     
-    // Fix for mobile scrolling bug
+    // Enhanced fix for mobile scrolling bug
     const preventScrollJitter = () => {
       document.body.style.overflowX = 'hidden';
       document.documentElement.style.overscrollBehavior = 'none';
       
+      // Fix for automatic scrolling from sliders
+      document.body.style.overscrollBehaviorY = 'none';
+      
       return () => {
         document.body.style.overflowX = '';
         document.documentElement.style.overscrollBehavior = '';
+        document.body.style.overscrollBehaviorY = '';
       };
     };
     
