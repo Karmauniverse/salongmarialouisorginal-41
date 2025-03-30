@@ -1,7 +1,6 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Clock, Calendar } from 'lucide-react';
+import { ArrowRight, Clock, Calendar, Phone } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Contact: React.FC = () => {
@@ -117,28 +116,29 @@ const Contact: React.FC = () => {
                     <Clock size={18} className="text-salon-gold mr-2" />
                     <h5 className="text-salon-dark font-normal text-base m-0 p-0 text-left">Öppettider</h5>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 text-sm my-0 py-0 px-1.5">
-                    <div className="text-salon-dark/80 py-1">Måndag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
-                    <div className="text-salon-dark/80 py-1">Tisdag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
-                    <div className="text-salon-dark/80 py-1">Onsdag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
-                    <div className="text-salon-dark/80 py-1">Torsdag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
-                    <div className="text-salon-dark/80 py-1">Fredag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
-                    <div className="text-salon-dark/80 py-1">Lördag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 16:00</div>
-                    <div className="text-salon-dark/80 py-1">Söndag:</div>
-                    <div className="text-salon-dark/80 py-1">Stängt</div>
+                  <div className="grid grid-cols-2 gap-3 text-sm my-0 py-0 px-1.5">
+                    <div className="text-salon-dark/80 py-1 text-base">Måndag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Tisdag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Onsdag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Torsdag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Fredag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Lördag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 16:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Söndag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Stängt</div>
                   </div>
                 </div>
               </div>
 
               {/* Left side (Contact form) rendered second on mobile */}
               <div className="p-6 md:p-8 rounded-xl shadow-lg bg-salon-dark">
-                <h2 ref={el => (elementsRef.current[1] = el)} className="animated-element text-2xl font-serif font-medium mb-3 text-salon-cream">
+                {/* Fix: Ensure the heading is always rendered by removing animation here */}
+                <h2 className="text-2xl font-serif font-medium mb-3 text-salon-cream">
                   Kontakta Oss Direkt
                 </h2>
                 <p className="mb-3 text-salon-gold font-thin px-0">
@@ -247,7 +247,8 @@ const Contact: React.FC = () => {
             <>
               {/* Desktop layout stays the same */}
               <div className="p-6 md:p-8 rounded-xl shadow-lg bg-salon-dark">
-                <h2 ref={el => (elementsRef.current[1] = el)} className="animated-element text-2xl font-serif font-medium mb-3 text-salon-cream">
+                {/* Fix: Ensure the heading is always rendered by removing animation here */}
+                <h2 className="text-2xl font-serif font-medium mb-3 text-salon-cream">
                   Kontakta Oss Direkt
                 </h2>
                 <p className="mb-3 text-salon-gold font-thin px-0">
@@ -379,21 +380,21 @@ const Contact: React.FC = () => {
                     <Clock size={18} className="text-salon-gold mr-2" />
                     <h5 className="text-salon-dark font-normal text-base mx-0 my-0 py-0 px-0 text-left">Öppettider</h5>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 text-sm my-0 py-0 px-[6px]">
-                    <div className="text-salon-dark/80 py-1">Måndag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
-                    <div className="text-salon-dark/80 py-1">Tisdag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
-                    <div className="text-salon-dark/80 py-1">Onsdag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
-                    <div className="text-salon-dark/80 py-1">Torsdag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
-                    <div className="text-salon-dark/80 py-1">Fredag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 18:00</div>
-                    <div className="text-salon-dark/80 py-1">Lördag:</div>
-                    <div className="text-salon-dark/80 py-1">10:00 – 16:00</div>
-                    <div className="text-salon-dark/80 py-1">Söndag:</div>
-                    <div className="text-salon-dark/80 py-1">Stängt</div>
+                  <div className="grid grid-cols-2 gap-3 text-sm my-0 py-0 px-[6px]">
+                    <div className="text-salon-dark/80 py-1 text-base">Måndag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Tisdag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Onsdag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Torsdag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Fredag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Lördag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 16:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Söndag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Stängt</div>
                   </div>
                 </div>
               </div>

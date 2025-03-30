@@ -10,8 +10,11 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import KeratinInfo from '../components/KeratinInfo';
 import SpecialDay from '../components/SpecialDay';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const Index = () => {
+  const isMobile = useIsMobile();
+
   useEffect(() => {
     document.title = 'Maria Louis Hårsalong | Premiumstyling';
     
@@ -35,9 +38,22 @@ const Index = () => {
       <Gallery />
       <About />
       <KeratinInfo />
-      <SpecialDay />
-      <Testimonials />
-      <Contact />
+      
+      {/* Different order based on screen size */}
+      {isMobile ? (
+        <>
+          <Testimonials />
+          <Contact />
+          <SpecialDay /> {/* After Contact on mobile */}
+        </>
+      ) : (
+        <>
+          <Testimonials />
+          <SpecialDay /> {/* After Testimonials but before Contact on desktop */}
+          <Contact />
+        </>
+      )}
+      
       <Footer />
     </div>
   );
