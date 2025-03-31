@@ -37,6 +37,10 @@ const KeratinInfo: React.FC = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
       <div className="section-container">
+        <div className="bg-salon-beige/30 py-2 px-4 rounded-full w-fit mx-auto mb-4">
+          <p className="text-salon-dark/80 font-medium font-lora text-center">BEHANDLINGAR</p>
+        </div>
+        
         <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4">
           <h3 className="text-3xl md:text-4xl font-serif font-medium mb-8 text-salon-dark">
             KERATINBEHANDLING
@@ -45,7 +49,7 @@ const KeratinInfo: React.FC = () => {
           <div className="bg-white p-8 md:p-10 rounded-xl shadow-md">
             <p className="text-lg font-lora text-salon-dark/90 mb-8 leading-relaxed max-w-3xl mx-auto">
               Keratin är ett protein som finns naturligt i håret, men faktorer som sol, saltvatten och produkter av dålig kvalité bryter ner det.<br/><br/>
-              En keratinbehandling återställer hårets styrka och glans genom att kapsla in varje hårstrå och ge det en chans att läka och vila.
+              En keratinbehandling återställer hårets styrka och glans genom att kapsla in varje hårstrå och ge det en chans att läka och vila. Våra behandlingar är 100% veganska och cruelty-free – skonsamma mot både dig och miljön.
             </p>
             
             <div className="bg-salon-cream/40 p-6 md:p-8 rounded-lg border border-salon-gold/20 mb-8">
@@ -62,30 +66,30 @@ const KeratinInfo: React.FC = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <div className="flex flex-col items-center">
                 <img 
-                  src="/lovable-uploads/d9800f05-60a3-449a-8344-519bf6ef75b2.png" 
+                  src="/lovable-uploads/4f030c05-4b0c-4707-be92-418290b5a609.png" 
                   alt="Återfuktande" 
-                  className="w-20 h-20 object-contain"
+                  className="w-16 h-16 object-contain"
                 />
               </div>
               <div className="flex flex-col items-center">
                 <img 
-                  src="/lovable-uploads/74957e92-f96b-4292-8d02-d613eddeea7f.png" 
+                  src="/lovable-uploads/71017648-7268-4dd7-806d-f04557b45081.png" 
                   alt="Glansigt Hår" 
-                  className="w-20 h-20 object-contain"
+                  className="w-16 h-16 object-contain"
                 />
               </div>
               <div className="flex flex-col items-center">
                 <img 
-                  src="/lovable-uploads/8e69a651-b522-4584-9263-9107e238f35c.png" 
+                  src="/lovable-uploads/4bb90aca-51ba-464b-b255-1dc4d11a4df1.png" 
                   alt="100% Vegan" 
-                  className="w-20 h-20 object-contain"
+                  className="w-16 h-16 object-contain"
                 />
               </div>
               <div className="flex flex-col items-center">
                 <img 
-                  src="/lovable-uploads/a2f10262-03e7-411b-8a3e-f9902dcd5d27.png" 
+                  src="/lovable-uploads/e12c1cbf-6e18-442f-95a4-9ca53561bc18.png" 
                   alt="Cruelty-Free" 
-                  className="w-20 h-20 object-contain"
+                  className="w-16 h-16 object-contain"
                 />
               </div>
             </div>

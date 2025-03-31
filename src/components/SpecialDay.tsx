@@ -37,6 +37,10 @@ const SpecialDay: React.FC = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20 relative overflow-hidden">
       <div className="section-container">
+        <div className="bg-salon-beige/30 py-2 px-4 rounded-full w-fit mx-auto mb-4">
+          <p className="text-salon-dark/80 font-medium font-lora text-center">EVENT</p>
+        </div>
+        
         <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4 relative">
           <h3 className="text-3xl md:text-4xl font-serif font-medium mb-8 text-salon-dark relative z-10">
             FIRA MED STIL
@@ -48,42 +52,6 @@ const SpecialDay: React.FC = () => {
                 Ska du på bröllop, ta studenten, eller har du ett annat viktigt tillfälle på gång?
               </p>
               
-              {/* Icons Row - Placed above the white box */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
-                <div className="flex flex-col items-center">
-                  <img 
-                    src="/lovable-uploads/2bf4bdaa-ca27-42a6-9c8c-ed97f0058ff0.png" 
-                    alt="Champagne" 
-                    className="w-20 h-20 object-contain"
-                  />
-                  <span className="text-sm text-salon-dark/80 font-lora mt-2">Champagne</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <img 
-                    src="/lovable-uploads/d8cfa377-a904-4e60-af98-7fa38559c6fd.png" 
-                    alt="Styling" 
-                    className="w-20 h-20 object-contain"
-                  />
-                  <span className="text-sm text-salon-dark/80 font-lora mt-2">Styling</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <img 
-                    src="/lovable-uploads/b108dc2c-7eb6-4ed9-927d-e943d4a73315.png" 
-                    alt="Bröllop" 
-                    className="w-20 h-20 object-contain"
-                  />
-                  <span className="text-sm text-salon-dark/80 font-lora mt-2">Bröllop</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <img 
-                    src="/lovable-uploads/66759130-777a-43be-8271-92b24f27e078.png"
-                    alt="Student"
-                    className="w-20 h-20 object-contain"
-                  />
-                  <span className="text-sm text-salon-dark/80 font-lora mt-2">Student</span>
-                </div>
-              </div>
-              
               <div className="bg-white/70 backdrop-blur-sm p-6 md:p-8 rounded-lg border border-salon-gold/20 mb-6">
                 <p className="text-salon-dark/80 leading-relaxed max-w-2xl mx-auto font-lora">
                   Vi på Maria Louis hjälper dig gärna att göra dig fin inför din stora dag – med hårstyling, färg & Champagne eller annat som passar dina önskemål.
@@ -91,6 +59,38 @@ const SpecialDay: React.FC = () => {
                 <p className="text-salon-dark/80 leading-relaxed mt-4 max-w-2xl mx-auto font-lora">
                   Vi lyssnar gärna på dina behov och ser vad vi kan erbjuda utifrån vår tillgänglighet.
                 </p>
+              </div>
+              
+              {/* Icons Row - Placed after the white box */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
+                <div className="flex flex-col items-center">
+                  <img 
+                    src="/lovable-uploads/0aa78917-3ae9-4600-9de8-cb12145385ca.png" 
+                    alt="Champagne" 
+                    className="w-16 h-16 object-contain"
+                  />
+                </div>
+                <div className="flex flex-col items-center">
+                  <img 
+                    src="/lovable-uploads/ac7c431e-6889-47a7-8aa8-c64f0f75f30b.png" 
+                    alt="Styling" 
+                    className="w-16 h-16 object-contain"
+                  />
+                </div>
+                <div className="flex flex-col items-center">
+                  <img 
+                    src="/lovable-uploads/8f382ea0-3f64-487a-9d70-85bc06d3ad91.png" 
+                    alt="Bröllop" 
+                    className="w-16 h-16 object-contain"
+                  />
+                </div>
+                <div className="flex flex-col items-center">
+                  <img 
+                    src="/lovable-uploads/c1775302-24de-4393-8591-312baa264dfb.png"
+                    alt="Student"
+                    className="w-16 h-16 object-contain"
+                  />
+                </div>
               </div>
               
               <p className="text-salon-dark/80 italic mb-6 max-w-2xl mx-auto font-lora">
