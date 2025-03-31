@@ -31,9 +31,7 @@ const Services: React.FC = () => {
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
-            <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full">
-              Våra Behandlingar
-            </span>
+            <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full"> Behandlingar</span>
           </div>
           
           <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6">Vi tar hand om dig</h2>
