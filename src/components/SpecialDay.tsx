@@ -1,19 +1,15 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Phone, Heart } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const SpecialDay: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
-
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -22,23 +18,19 @@ const SpecialDay: React.FC = () => {
         }
       });
     }, observerOptions);
-    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
-    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-
-  return (
-    <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20 relative overflow-hidden">
+  return <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20 relative overflow-hidden">
       <div className="section-container">
         <div className="bg-salon-beige/30 py-2 px-4 rounded-full w-fit mx-auto mb-4">
-          <p className="text-salon-dark/80 font-medium font-lora text-center">EVENT</p>
+          <p className="font-medium font-lora text-center px-[24px] text-sm py-[8px] text-salon-gold">EVENT</p>
         </div>
         
         <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4 relative">
@@ -64,32 +56,16 @@ const SpecialDay: React.FC = () => {
               {/* Icons Row - Placed after the white box */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
                 <div className="flex flex-col items-center">
-                  <img 
-                    src="/lovable-uploads/0aa78917-3ae9-4600-9de8-cb12145385ca.png" 
-                    alt="Champagne" 
-                    className="w-16 h-16 object-contain"
-                  />
+                  <img src="/lovable-uploads/0aa78917-3ae9-4600-9de8-cb12145385ca.png" alt="Champagne" className="w-16 h-16 object-contain" />
                 </div>
                 <div className="flex flex-col items-center">
-                  <img 
-                    src="/lovable-uploads/ac7c431e-6889-47a7-8aa8-c64f0f75f30b.png" 
-                    alt="Styling" 
-                    className="w-16 h-16 object-contain"
-                  />
+                  <img src="/lovable-uploads/ac7c431e-6889-47a7-8aa8-c64f0f75f30b.png" alt="Styling" className="w-16 h-16 object-contain" />
                 </div>
                 <div className="flex flex-col items-center">
-                  <img 
-                    src="/lovable-uploads/8f382ea0-3f64-487a-9d70-85bc06d3ad91.png" 
-                    alt="Bröllop" 
-                    className="w-16 h-16 object-contain"
-                  />
+                  <img src="/lovable-uploads/8f382ea0-3f64-487a-9d70-85bc06d3ad91.png" alt="Bröllop" className="w-16 h-16 object-contain" />
                 </div>
                 <div className="flex flex-col items-center">
-                  <img 
-                    src="/lovable-uploads/c1775302-24de-4393-8591-312baa264dfb.png"
-                    alt="Student"
-                    className="w-16 h-16 object-contain"
-                  />
+                  <img src="/lovable-uploads/c1775302-24de-4393-8591-312baa264dfb.png" alt="Student" className="w-16 h-16 object-contain" />
                 </div>
               </div>
               
@@ -98,10 +74,7 @@ const SpecialDay: React.FC = () => {
               </p>
               
               <div className="mt-2 flex flex-col sm:flex-row items-center justify-center gap-6 md:px-6">
-                <a 
-                  href="#contact"
-                  className="inline-flex items-center px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg w-full sm:w-auto justify-center"
-                >
+                <a href="#contact" className="inline-flex items-center px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg w-full sm:w-auto justify-center">
                   <Heart className="mr-2 h-5 w-5" />
                   Skicka förfrågan
                 </a>
@@ -117,8 +90,6 @@ const SpecialDay: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default SpecialDay;
