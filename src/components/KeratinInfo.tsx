@@ -34,12 +34,12 @@ const KeratinInfo: React.FC = () => {
         </div>
         
         <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4 py-[25px]">
-          <h3 className="text-3xl md:text-4xl font-serif font-medium mb-8 text-salon-dark">
+          <h3 className="md:text-4xl font-serif font-medium mb-8 text-salon-dark text-2xl my-0">
             KERATINBEHANDLING
           </h3>
           
-          <div className="bg-white p-8 md:p-10 rounded-xl shadow-md">
-            <p className="text-lg font-lora text-salon-dark/90 mb-8 leading-relaxed max-w-3xl mx-auto">
+          <div className="bg-white p-8 md:p-10 rounded-xl shadow-md py-[29px]">
+            <p className="text-lg font-lora text-salon-dark/90 mb-8 leading-relaxed max-w-3xl mx-auto my-0">
               Keratin är ett protein som finns naturligt i håret, men faktorer som sol, saltvatten och produkter av dålig kvalité bryter ner det.<br /><br />
               En keratinbehandling återställer hårets styrka och glans genom att kapsla in varje hårstrå och ge det en chans att läka och vila. Våra behandlingar är 100% veganska och cruelty-free – skonsamma mot både dig och miljön.
             </p>
