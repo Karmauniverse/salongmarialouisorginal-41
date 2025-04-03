@@ -33,7 +33,7 @@ const KeratinInfo: React.FC = () => {
           <p className="font-medium font-lora text-center text-salon-gold px-[24px] py-[8px] text-sm">Behandlingar</p>
         </div>
         
-        <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4">
+        <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4 py-[25px]">
           <h3 className="text-3xl md:text-4xl font-serif font-medium mb-8 text-salon-dark">
             KERATINBEHANDLING
           </h3>
