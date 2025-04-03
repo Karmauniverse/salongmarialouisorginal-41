@@ -70,7 +70,7 @@ const KeratinInfo: React.FC = () => {
               </div>
             </div>
             
-            <p className="text-salon-dark/80 italic font-lora mb-6">
+            <p className="text-salon-dark/80 italic font-lora mb-6 py-0">
               Kontakta oss gärna för mer information eller för att boka en konsultation.
             </p>
             

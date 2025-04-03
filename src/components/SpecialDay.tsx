@@ -38,9 +38,9 @@ const SpecialDay: React.FC = () => {
             FIRA MED STIL
           </h3>
           
-          <div className="bg-salon-beige/30 p-8 md:p-10 rounded-xl shadow-md border border-salon-gold/10 relative">
+          <div className="bg-salon-beige/30 p-8 md:p-10 rounded-xl shadow-md border border-salon-gold/10 relative py-[107px]">
             <div className="relative z-10">
-              <p className="text-lg font-lora text-salon-dark/90 mb-6 leading-relaxed max-w-2xl mx-auto">
+              <p className="font-lora text-salon-dark/90 mb-6 leading-relaxed max-w-2xl mx-auto text-lg my-[44px] py-0 font-normal">
                 Ska du på bröllop, ta studenten, eller har du ett annat viktigt tillfälle på gång?
               </p>
               
