@@ -30,7 +30,7 @@ const KeratinInfo: React.FC = () => {
   return <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
       <div className="section-container">
         <div className="bg-salon-beige/30 py-2 px-4 rounded-full w-fit mx-auto mb-4">
-          <p className="font-medium font-lora text-center text-salon-gold">Behandlingar</p>
+          <p className="font-medium font-lora text-center text-salon-gold px-[24px] py-[8px] text-sm">Behandlingar</p>
         </div>
         
         <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4">
