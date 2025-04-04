@@ -41,7 +41,7 @@ const KeratinInfo: React.FC = () => {
           <div className="bg-white p-8 md:p-10 rounded-xl shadow-md py-[17px] px-[41px]">
             {/* Image of woman with dark hair */}
             <div className="mb-8">
-              <img src="/lovable-uploads/09ee0d34-8776-4e34-9099-7c28d0ca9359.png" alt="Keratinbehandling" className="rounded-lg w-full max-w-2xl mx-auto shadow-sm" />
+              <img src="/lovable-uploads/09ee0d34-8776-4e34-9099-7c28d0ca9359.png" alt="Keratinbehandling" className="rounded-lg w-full max-w-2xl mx-auto shadow-sm object-fill" />
             </div>
             
             <p className="text-lg font-lora text-salon-dark/90 mb-8 leading-relaxed max-w-3xl mx-auto my-0">
