@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight, Facebook, Quote, Star } from 'lucide-react';
@@ -7,6 +6,7 @@ const Testimonials: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [autoRotate, setAutoRotate] = useState(false);
 
   useEffect(() => {
     const observerOptions = {
@@ -35,16 +35,17 @@ const Testimonials: React.FC = () => {
     };
   }, []);
 
-  // Auto rotation effect
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (!isTransitioning) {
-        handleNext();
-      }
-    }, 7000);
-    
-    return () => clearInterval(intervalId);
-  }, [activeTestimonial, isTransitioning]);
+    if (autoRotate) {
+      const intervalId = setInterval(() => {
+        if (!isTransitioning) {
+          handleNext();
+        }
+      }, 6000);
+      
+      return () => clearInterval(intervalId);
+    }
+  }, [activeTestimonial, isTransitioning, autoRotate]);
 
   const testimonials = [
     {
@@ -76,7 +77,7 @@ const Testimonials: React.FC = () => {
     setTimeout(() => {
       setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
       setIsTransitioning(false);
-    }, 500);
+    }, 300);
   };
 
   const handlePrev = () => {
@@ -86,7 +87,7 @@ const Testimonials: React.FC = () => {
     setTimeout(() => {
       setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
       setIsTransitioning(false);
-    }, 500);
+    }, 300);
   };
 
   const handleDotClick = (index: number) => {
@@ -96,7 +97,7 @@ const Testimonials: React.FC = () => {
     setTimeout(() => {
       setActiveTestimonial(index);
       setIsTransitioning(false);
-    }, 500);
+    }, 300);
   };
 
   return (
@@ -131,16 +132,14 @@ const Testimonials: React.FC = () => {
           ref={el => elementsRef.current[3] = el} 
           className="animated-element relative max-w-4xl mx-auto"
         >
-          <div className="relative overflow-hidden bg-white rounded-lg shadow-xl p-8 md:p-12 border border-salon-gold/10">
+          <div className="relative overflow-hidden bg-white rounded-lg shadow-xl p-8 md:p-12">
             <Quote size={120} className="text-salon-gold/5 absolute top-0 left-0 transform -translate-x-1/4 -translate-y-1/4" />
             <Quote size={120} className="text-salon-gold/5 absolute bottom-0 right-0 transform translate-x-1/4 translate-y-1/4 rotate-180" />
             
             <div className="relative z-10">
               <div className={cn(
                 "transition-all duration-500 ease-in-out",
-                isTransitioning 
-                  ? "opacity-0 transform translate-x-full" 
-                  : "opacity-100 transform translate-x-0"
+                isTransitioning ? "opacity-0 transform scale-95" : "opacity-100 transform scale-100"
               )}>
                 <blockquote className="text-lg md:text-xl mb-8 text-salon-dark/90 leading-relaxed font-lora">
                   "{testimonials[activeTestimonial].quote}"
@@ -148,14 +147,7 @@ const Testimonials: React.FC = () => {
                 
                 <div className="flex items-center">
                   <div className="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-salon-gold/30 bg-salon-gold/10 flex items-center justify-center">
-                    <a 
-                      href="https://www.facebook.com/SalongMariaLouis" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="w-full h-full flex items-center justify-center hover:bg-salon-gold/20 transition-colors"
-                    >
-                      <Facebook className="w-8 h-8 text-salon-gold" />
-                    </a>
+                    <Facebook className="w-8 h-8 text-salon-gold" />
                   </div>
                   <div>
                     <p className="font-serif font-medium text-salon-dark text-lg">

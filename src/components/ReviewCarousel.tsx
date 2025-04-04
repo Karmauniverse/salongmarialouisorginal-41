@@ -13,7 +13,7 @@ const ReviewCarousel: React.FC = () => {
   const [activeReview, setActiveReview] = useState(0);
   const [direction, setDirection] = useState<'left' | 'right' | null>(null);
   const [transitioning, setTransitioning] = useState(false);
-  const [autoRotate, setAutoRotate] = useState(true); // Enabled auto-rotate
+  const [autoRotate, setAutoRotate] = useState(false); // Disabled by default to fix mobile scrolling issue
   
   const reviews: ReviewProps[] = [
     {
@@ -38,14 +38,14 @@ const ReviewCarousel: React.FC = () => {
     }
   ];
 
-  // Auto-rotate - now enabled with longer duration
   useEffect(() => {
+    // Auto-rotate - now disabled by default
     if (autoRotate) {
       const interval = setInterval(() => {
         if (!transitioning) {
           handleNext();
         }
-      }, 7000); // Slower rotation - 7 seconds
+      }, 5000);
       
       return () => clearInterval(interval);
     }
@@ -64,7 +64,7 @@ const ReviewCarousel: React.FC = () => {
         setDirection(null);
         setTransitioning(false);
       }, 50);
-    }, 600); // Longer transition duration
+    }, 300);
   };
 
   const handlePrev = () => {
@@ -80,29 +80,24 @@ const ReviewCarousel: React.FC = () => {
         setDirection(null);
         setTransitioning(false);
       }, 50);
-    }, 600); // Longer transition duration
+    }, 300);
   };
 
   return (
     <div className="relative max-w-3xl mx-auto py-8">
-      <div className="relative overflow-hidden bg-white rounded-xl shadow-xl p-8 mb-8">
+      <div className="relative overflow-hidden bg-white rounded-xl shadow-xl p-8">
         <div
           className={cn(
-            "transition-all duration-600 ease-in-out",
+            "transition-all duration-300",
             direction === 'left' && "translate-x-full opacity-0",
             direction === 'right' && "-translate-x-full opacity-0",
             !direction && "translate-x-0 opacity-100"
           )}
         >
           <div className="flex items-start mb-4">
-            <a 
-              href="https://www.facebook.com/SalongMariaLouis" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-2 bg-salon-gold/10 rounded-full mr-3 hover:bg-salon-gold/20 transition-colors"
-            >
+            <div className="p-2 bg-salon-gold/10 rounded-full mr-3">
               <Facebook className="text-salon-gold w-5 h-5" />
-            </a>
+            </div>
             <h3 className="font-medium text-lg text-salon-dark font-lora">{reviews[activeReview].name}</h3>
           </div>
           
@@ -144,7 +139,7 @@ const ReviewCarousel: React.FC = () => {
                       setDirection(null);
                       setTransitioning(false);
                     }, 50);
-                  }, 600);
+                  }, 300);
                 }
               }}
               className={cn(

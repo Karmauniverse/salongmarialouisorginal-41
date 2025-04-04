@@ -1,12 +1,9 @@
-
 import React, { useEffect, useRef } from 'react';
 import { SparkleIcon } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const KeratinInfo: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
-  
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -30,28 +27,25 @@ const KeratinInfo: React.FC = () => {
       });
     };
   }, []);
-  
-  return (
-    <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
+  return <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
       <div className="section-container">
         <div className="bg-salon-beige/30 rounded-full w-fit mx-auto mb-4 py-0 px-[8px]">
           <p className="font-medium font-lora text-center text-salon-gold px-[24px] py-[8px] text-sm my-0">Behandlingar</p>
         </div>
         
         <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4 py-[25px] my-0">
-          <h3 className="md:text-4xl font-serif font-medium mb-5 text-salon-dark text-2xl my-0">
+          <h3 className="md:text-4xl font-serif font-medium mb-8 text-salon-dark text-2xl my-0">
             KERATINBEHANDLING
           </h3>
           
           <div className="bg-white p-8 md:p-10 rounded-xl shadow-md py-[17px] px-[41px]">
             {/* Image of woman with dark hair */}
             <div className="mb-8">
-              <img src="/lovable-uploads/09ee0d34-8776-4e34-9099-7c28d0ca9359.png" alt="Keratinbehandling" className="rounded-lg w-full max-w-2xl mx-auto shadow-sm" />
+              <img src="/lovable-uploads/09ee0d34-8776-4e34-9099-7c28d0ca9359.png" alt="Keratinbehandling" className="rounded-lg w-full max-w-2xl mx-auto shadow-sm object-fill" />
             </div>
             
             <p className="text-lg font-lora text-salon-dark/90 mb-8 leading-relaxed max-w-3xl mx-auto my-0">
-              Keratin är ett protein som finns naturligt i håret, men faktorer som sol, saltvatten och produkter av dålig kvalité bryter ner det.
-              <br /><br />
+              Keratin är ett protein som finns naturligt i håret, men faktorer som sol, saltvatten och produkter av dålig kvalité bryter ner det.<br /><br />
               En keratinbehandling återställer hårets styrka och glans genom att kapsla in varje hårstrå och ge det en chans att läka och vila. Våra behandlingar är 100% veganska och cruelty-free – skonsamma mot både dig och miljön.
             </p>
             
@@ -65,39 +59,27 @@ const KeratinInfo: React.FC = () => {
               </p>
             </div>
             
-            {/* Keratin Icons with labels - updated */}
-            <div className="grid grid-cols-4 gap-4 mb-8 mx-auto max-w-2xl">
+            {/* Keratin Icons with labels */}
+            <div className="grid grid-cols-5 md:grid-cols-5 gap-4 mb-8">
               <div className="flex flex-col items-center">
-                <img 
-                  src="/lovable-uploads/b4739355-ecb8-4cb8-bb92-e0e82ffeb79a.png" 
-                  alt="Glans" 
-                  className={`${isMobile ? 'w-10 h-10' : 'w-14 h-14'} object-contain mb-2`} 
-                />
-                <span className="text-xs font-medium text-salon-dark/80">Glans</span>
+                <img src="/lovable-uploads/71017648-7268-4dd7-806d-f04557b45081.png" alt="Glans" className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} object-contain`} />
+                <span className="text-xs font-medium text-salon-dark/70 mt-2">Glans</span>
               </div>
               <div className="flex flex-col items-center">
-                <img 
-                  src="/lovable-uploads/2e4131c5-f210-498b-88a4-e8d9de0c08f6.png" 
-                  alt="Återfukt" 
-                  className={`${isMobile ? 'w-10 h-10' : 'w-14 h-14'} object-contain mb-2`} 
-                />
-                <span className="text-xs font-medium text-salon-dark/80">Återfukt</span>
+                <img src="/lovable-uploads/4f030c05-4b0c-4707-be92-418290b5a609.png" alt="Återfukt" className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} object-contain`} />
+                <span className="text-xs font-medium text-salon-dark/70 mt-2">Återfukt</span>
               </div>
               <div className="flex flex-col items-center">
-                <img 
-                  src="/lovable-uploads/7030afd0-4c33-4ea1-b999-2a6b2690e503.png" 
-                  alt="Vegan" 
-                  className={`${isMobile ? 'w-10 h-10' : 'w-14 h-14'} object-contain mb-2`} 
-                />
-                <span className="text-xs font-medium text-salon-dark/80">Vegan</span>
+                <img src="/lovable-uploads/4bb90aca-51ba-464b-b255-1dc4d11a4df1.png" alt="Vegan" className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} object-contain`} />
+                <span className="text-xs font-medium text-salon-dark/70 mt-2">Vegan</span>
               </div>
               <div className="flex flex-col items-center">
-                <img 
-                  src="/lovable-uploads/129c046f-e57e-493b-a26f-688bb3ad1e3a.png" 
-                  alt="Cruelty-free" 
-                  className={`${isMobile ? 'w-10 h-10' : 'w-14 h-14'} object-contain mb-2`} 
-                />
-                <span className="text-xs font-medium text-salon-dark/80">Cruelty-Free</span>
+                <img src="/lovable-uploads/e12c1cbf-6e18-442f-95a4-9ca53561bc18.png" alt="Cruelty-free" className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} object-contain`} />
+                <span className="text-xs font-medium text-salon-dark/70 mt-2">Cruelty-free</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <img src="/lovable-uploads/80d832d2-ab53-482b-b3c8-e62c7db7292a.png" alt="Växtbaserad" className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} object-contain`} />
+                <span className="text-xs font-medium text-salon-dark/70 mt-2">Växtbaserad</span>
               </div>
             </div>
             
@@ -113,8 +95,6 @@ const KeratinInfo: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default KeratinInfo;

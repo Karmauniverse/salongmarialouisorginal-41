@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Calendar, Phone, Clock } from 'lucide-react';
+import { ArrowRight, Clock, Calendar, Phone } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Contact: React.FC = () => {
@@ -103,14 +103,7 @@ const Contact: React.FC = () => {
                     Välj tid och behandling direkt online – snabbt, tryggt och enkelt.
                   </p>
 
-                  <div className="flex items-center mt-4 mb-4">
-                    <Phone size={18} className="text-salon-gold mr-2" />
-                    <a href="tel:+46733121152" className="text-salon-beige hover:text-salon-gold transition-colors">
-                      073-312 11 52
-                    </a>
-                  </div>
-
-                  <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="mt-2 mb-6 block text-center w-full px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
+                  <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="mt-6 mb-6 block text-center w-full px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
                     <span className="flex items-center justify-center">
                       <Calendar className="mr-2 h-5 w-5" />
                       Boka Tid
@@ -151,13 +144,7 @@ const Contact: React.FC = () => {
                 <p className="mb-3 text-salon-gold font-thin px-0">
                   Hör av dig om du har frågor, vill samarbeta med oss eller få våra erbjudanden.
                 </p>
-                <div className="flex items-center mb-3">
-                  <Phone size={18} className="text-salon-gold mr-2" />
-                  <a href="tel:+46733121152" className="text-salon-beige hover:text-salon-gold transition-colors">
-                    073-312 11 52
-                  </a>
-                </div>
-                <p className="italic mb-5 text-salon-beige text-xs py-0 px-0 my-0">
+                <p className="italic mb-3 text-salon-beige text-xs py-0 px-0 my-0">
                   För bokning – klicka på knappen "Boka Tid" ovan. Använd formuläret för andra ärenden.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -220,13 +207,7 @@ const Contact: React.FC = () => {
                 <p className="mb-3 text-salon-gold font-thin px-0">
                   Hör av dig om du har frågor, vill samarbeta med oss eller få våra erbjudanden.
                 </p>
-                <div className="flex items-center mb-3">
-                  <Phone size={18} className="text-salon-gold mr-2" />
-                  <a href="tel:+46733121152" className="text-salon-beige hover:text-salon-gold transition-colors">
-                    073-312 11 52
-                  </a>
-                </div>
-                <p className="italic mb-5 text-salon-beige text-xs py-0 px-0 my-0">
+                <p className="italic mb-3 text-salon-beige text-xs py-0 px-0 my-0">
                   För bokning – klicka på knappen till höger. Använd formuläret för andra ärenden.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -287,14 +268,7 @@ const Contact: React.FC = () => {
                     Välj tid och behandling direkt online – snabbt, tryggt och enkelt.
                   </p>
 
-                  <div className="flex items-center mt-4 mb-4">
-                    <Phone size={18} className="text-salon-gold mr-2" />
-                    <a href="tel:+46733121152" className="text-salon-beige hover:text-salon-gold transition-colors">
-                      073-312 11 52
-                    </a>
-                  </div>
-
-                  <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="mt-2 mb-6 block text-center w-full px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
+                  <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="mt-6 mb-6 block text-center w-full px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
                     <span className="flex items-center justify-center">
                       <Calendar className="mr-2 h-5 w-5" />
                       Boka Tid

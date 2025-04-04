@@ -1,7 +1,5 @@
-
 import React, { useEffect, useRef } from 'react';
-import { ChevronDown, Phone } from 'lucide-react';
-
+import { ChevronDown } from 'lucide-react';
 const Hero = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   useEffect(() => {
@@ -29,7 +27,7 @@ const Hero = () => {
   }, []);
   return <section id="home" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0">
-        <img src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" alt="Vackert svart hår" className="w-full h-full object-cover md:object-center object-[65%_center]" />
+        <img src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" alt="Vackert svart hår" className="w-full h-full object-cover object-center" />
       </div>
       
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 backdrop-blur-[2px]"></div>
@@ -56,17 +54,6 @@ const Hero = () => {
             </a>
             <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="px-8 py-3 border border-salon-gold text-white font-medium rounded-full hover:bg-salon-gold/30 transition-all text-center backdrop-blur-sm hover:border-white">
               Boka Tid
-            </a>
-          </div>
-
-          {/* Phone number for mobile - visible on small screens only */}
-          <div className="mt-4 sm:hidden animated-element flex justify-center">
-            <a 
-              href="tel:+46733121152"
-              className="flex items-center px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white font-medium border border-white/30 transition-all hover:bg-white/20"
-            >
-              <Phone size={16} className="mr-2" />
-              073-312 11 52
             </a>
           </div>
         </div>

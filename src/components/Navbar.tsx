@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,12 +33,6 @@ const Navbar: React.FC = () => {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
       document.body.style.overflow = '';
-    }
-
-    // Check if we're navigating to a dedicated page
-    if (href === '/reviews' || href === '/event') {
-      window.location.href = href;
-      return;
     }
     
     // Handle home link
@@ -74,10 +68,6 @@ const Navbar: React.FC = () => {
       href: '#about'
     }, 
     {
-      name: 'Event',
-      href: '/event'
-    },
-    {
       name: 'Kontakt',
       href: '#contact'
     }
@@ -88,7 +78,7 @@ const Navbar: React.FC = () => {
       <nav className={cn(
         'fixed w-full z-50 transition-all duration-500',
         isScrolled 
-          ? 'backdrop-blur-lg bg-white/90 shadow-md py-3' 
+          ? 'backdrop-blur-lg bg-white/70 shadow-md py-3' 
           : 'bg-transparent py-6'
       )}>
         <div className="container flex justify-between items-center">
@@ -117,14 +107,12 @@ const Navbar: React.FC = () => {
               </a>
             ))}
             <a 
-              href="tel:+46733121152"
-              className={cn(
-                "px-4 py-1.5 rounded-full border border-salon-gold text-salon-gold font-medium text-sm transition-all flex items-center",
-                isScrolled ? "hover:bg-salon-gold/10" : "hover:bg-salon-gold/20"
-              )}
+              href="https://bokning.voady.se/marialouis/marialouisebarbershop/"
+              target="_blank"
+              rel="noopener noreferrer" 
+              className="px-5 py-2 rounded-full bg-salon-gold text-white font-medium text-sm hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105"
             >
-              <Phone size={14} className="mr-1" />
-              073-312 11 52
+              Boka Nu
             </a>
           </div>
 
@@ -141,17 +129,20 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation - with updated cream background color */}
+        {/* Mobile Navigation - Now with frosted glass effect */}
         <div className={cn(
-          "fixed inset-0 z-40 flex flex-col pt-24 px-6 bg-salon-cream/95 shadow-lg backdrop-blur-md transition-all duration-500 ease-in-out md:hidden", 
-          isMobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
+          "fixed inset-0 z-40 flex flex-col pt-24 px-6 backdrop-blur-md transition-all duration-500 ease-in-out md:hidden shadow-lg",
+          "bg-gradient-to-b from-salon-dark/90 to-salon-dark/85",
+          isMobileMenuOpen 
+            ? "opacity-100 translate-x-0" 
+            : "opacity-0 translate-x-full pointer-events-none"
         )}>
           <div className="flex flex-col space-y-6 items-center">
             {navLinks.map(link => (
               <a 
                 key={link.name}
                 href={link.href} 
-                className="text-salon-dark text-lg font-medium relative after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:w-1/2 after:mx-auto after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:right-0 hover:text-salon-gold pb-1 block" 
+                className="text-white text-lg font-medium relative after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:w-1/2 after:mx-auto after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:right-0 hover:text-salon-gold pb-1 block" 
                 onClick={(e) => handleNavLinkClick(e, link.href)}
               >
                 {link.name}
@@ -168,17 +159,6 @@ const Navbar: React.FC = () => {
               }}
             >
               Boka Nu
-            </a>
-            <a 
-              href="tel:+46733121152"
-              className="flex items-center justify-center px-5 py-2 rounded-full border border-salon-gold text-salon-dark font-medium transition-all hover:bg-salon-gold/10 mt-2"
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                document.body.style.overflow = '';
-              }}
-            >
-              <Phone size={16} className="mr-2" />
-              073-312 11 52
             </a>
           </div>
         </div>

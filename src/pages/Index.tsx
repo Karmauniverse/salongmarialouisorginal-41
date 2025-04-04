@@ -42,14 +42,26 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Services />
-      {/* Keratin section after Services */}
+      {/* Keratin section moved after Services as requested */}
       <KeratinInfo />
       <Gallery />
-      {/* SpecialDay moved to after Gallery */}
-      <SpecialDay />
       <About />
-      <Testimonials />
-      <Contact />
+      
+      {/* Different order based on screen size */}
+      {isMobile ? (
+        <>
+          <Testimonials />
+          <Contact />
+          <SpecialDay /> {/* After Contact on mobile */}
+        </>
+      ) : (
+        <>
+          <Testimonials />
+          <SpecialDay /> {/* After Testimonials but before Contact on desktop */}
+          <Contact />
+        </>
+      )}
+      
       <Footer />
     </div>
   );
