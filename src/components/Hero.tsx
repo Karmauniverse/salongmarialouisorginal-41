@@ -37,7 +37,7 @@ const Hero = () => {
         <img 
           src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" 
           alt="Vackert svart hår" 
-          className={`w-full h-full object-cover ${isMobile ? 'object-top scale-[1.35]' : 'object-center'}`} 
+          className={`w-full h-full object-cover ${isMobile ? 'object-top scale-[1.15]' : 'object-center'}`} 
         />
       </div>
       
