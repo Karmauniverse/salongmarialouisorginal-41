@@ -1,19 +1,15 @@
-
 import React, { useEffect, useRef } from 'react';
 import { SparkleIcon } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const KeratinInfo: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
-  
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -22,38 +18,30 @@ const KeratinInfo: React.FC = () => {
         }
       });
     }, observerOptions);
-    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
-    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-  
-  return (
-    <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
+  return <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
       <div className="section-container">
         <div className="bg-salon-beige/30 rounded-full w-fit mx-auto mb-4 py-0 px-[8px]">
-          <p className="font-medium font-lora text-center text-salon-gold px-[24px] py-[8px] text-sm">Behandlingar</p>
+          <p className="font-medium font-lora text-center text-salon-gold px-[24px] py-[8px] text-sm my-0">Behandlingar</p>
         </div>
         
-        <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4 py-[25px]">
+        <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4 py-[25px] my-0">
           <h3 className="md:text-4xl font-serif font-medium mb-8 text-salon-dark text-2xl my-0">
             KERATINBEHANDLING
           </h3>
           
-          <div className="bg-white p-8 md:p-10 rounded-xl shadow-md py-[29px]">
+          <div className="bg-white p-8 md:p-10 rounded-xl shadow-md py-[17px] px-[41px]">
             {/* Image of woman with dark hair */}
             <div className="mb-8">
-              <img 
-                src="/lovable-uploads/09ee0d34-8776-4e34-9099-7c28d0ca9359.png" 
-                alt="Keratinbehandling" 
-                className="rounded-lg w-full max-w-2xl mx-auto shadow-sm" 
-              />
+              <img src="/lovable-uploads/09ee0d34-8776-4e34-9099-7c28d0ca9359.png" alt="Keratinbehandling" className="rounded-lg w-full max-w-2xl mx-auto shadow-sm" />
             </div>
             
             <p className="text-lg font-lora text-salon-dark/90 mb-8 leading-relaxed max-w-3xl mx-auto my-0">
@@ -107,8 +95,6 @@ const KeratinInfo: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default KeratinInfo;
