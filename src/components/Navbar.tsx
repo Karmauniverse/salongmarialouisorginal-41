@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -107,12 +107,15 @@ const Navbar: React.FC = () => {
               </a>
             ))}
             <a 
-              href="https://bokning.voady.se/marialouis/marialouisebarbershop/"
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="px-5 py-2 rounded-full bg-salon-gold text-white font-medium text-sm hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105"
+              href="tel:+46701234567" 
+              className={cn(
+                "flex items-center text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-2 px-3",
+                isScrolled ? "text-salon-dark" : "text-white drop-shadow-md",
+                "border border-salon-gold/30 rounded-full hover:bg-salon-gold/10"
+              )}
             >
-              Boka Nu
+              <Phone size={14} className="mr-1.5" />
+              070-123 45 67
             </a>
           </div>
 
@@ -159,6 +162,17 @@ const Navbar: React.FC = () => {
               }}
             >
               Boka Nu
+            </a>
+            <a 
+              href="tel:+46701234567" 
+              className="flex items-center justify-center w-full text-center px-5 py-2.5 rounded-full border border-salon-gold text-white font-medium hover:bg-salon-gold/30 transition-all"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                document.body.style.overflow = '';
+              }}
+            >
+              <Phone size={16} className="mr-2" />
+              070-123 45 67
             </a>
           </div>
         </div>

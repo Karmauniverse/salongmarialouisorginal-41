@@ -1,7 +1,12 @@
+
 import React, { useEffect, useRef } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Phone } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
+
 const Hero = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const isMobile = useIsMobile();
+  
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -25,9 +30,15 @@ const Hero = () => {
       });
     };
   }, []);
-  return <section id="home" className="relative min-h-screen flex items-center">
+  
+  return (
+    <section id="home" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0">
-        <img src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" alt="Vackert svart hår" className="w-full h-full object-cover object-center" />
+        <img 
+          src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" 
+          alt="Vackert svart hår" 
+          className={`w-full h-full object-cover ${isMobile ? 'object-top scale-[1.35]' : 'object-center'}`} 
+        />
       </div>
       
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 backdrop-blur-[2px]"></div>
@@ -56,6 +67,15 @@ const Hero = () => {
               Boka Tid
             </a>
           </div>
+          
+          {isMobile && (
+            <div className="mt-4 animated-element">
+              <a href="tel:+46701234567" className="inline-flex items-center px-5 py-2 border border-salon-gold/60 text-white rounded-full backdrop-blur-sm hover:bg-salon-gold/20 transition-all">
+                <Phone size={16} className="mr-2" />
+                070-123 45 67
+              </a>
+            </div>
+          )}
         </div>
       </div>
       
@@ -71,6 +91,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent">
         <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
