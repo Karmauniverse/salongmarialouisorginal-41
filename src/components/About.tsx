@@ -57,7 +57,7 @@ const About: React.FC = () => {
           <div ref={el => elementsRef.current[3] = el} className="animated-element bg-white p-5 rounded-xl shadow-lg hover-lift">
             <div className="mb-3 overflow-hidden rounded-lg">
               <img 
-                src="/lovable-uploads/c49c7b7c-ef2c-4a8d-a5e3-b7e2e31fcecc.png" 
+                src="/lovable-uploads/4d446271-aa78-473e-be1e-ae8d64314e46.png" 
                 alt="Maria Louis" 
                 className="w-full h-auto rounded-lg transition-transform duration-700 hover:scale-105" 
               />
@@ -97,7 +97,7 @@ const About: React.FC = () => {
           <div ref={el => elementsRef.current[4] = el} className="animated-element bg-white p-5 rounded-xl shadow-lg hover-lift">
             <div className="mb-3 overflow-hidden rounded-lg">
               <img 
-                src="/lovable-uploads/d6e3a89a-95f9-48a3-9f76-0a246bec9e1a.png" 
+                src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png" 
                 alt="Valentina" 
                 className="w-full h-auto rounded-lg transition-transform duration-700 hover:scale-105" 
               />

@@ -34,6 +34,12 @@ const Navbar: React.FC = () => {
       setIsMobileMenuOpen(false);
       document.body.style.overflow = '';
     }
+
+    // Check if we're navigating to a dedicated page
+    if (href === '/reviews' || href === '/event') {
+      window.location.href = href;
+      return;
+    }
     
     // Handle home link
     if (href === '/') {
@@ -69,7 +75,7 @@ const Navbar: React.FC = () => {
     }, 
     {
       name: 'Event',
-      href: '#special-day'
+      href: '/event'
     },
     {
       name: 'Kontakt',
@@ -82,7 +88,7 @@ const Navbar: React.FC = () => {
       <nav className={cn(
         'fixed w-full z-50 transition-all duration-500',
         isScrolled 
-          ? 'backdrop-blur-lg bg-white/70 shadow-md py-3' 
+          ? 'backdrop-blur-lg bg-white/90 shadow-md py-3' 
           : 'bg-transparent py-6'
       )}>
         <div className="container flex justify-between items-center">
@@ -113,11 +119,11 @@ const Navbar: React.FC = () => {
             <a 
               href="tel:+46733121152"
               className={cn(
-                "px-5 py-2 rounded-full border border-salon-gold text-salon-gold font-medium text-sm transition-all flex items-center",
+                "px-4 py-1.5 rounded-full border border-salon-gold text-salon-gold font-medium text-sm transition-all flex items-center",
                 isScrolled ? "hover:bg-salon-gold/10" : "hover:bg-salon-gold/20"
               )}
             >
-              <Phone size={16} className="mr-2" />
+              <Phone size={14} className="mr-1" />
               073-312 11 52
             </a>
           </div>
@@ -135,13 +141,10 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation - Updated with creamy bg color */}
+        {/* Mobile Navigation - with updated cream background color */}
         <div className={cn(
-          "fixed inset-0 z-40 flex flex-col pt-24 px-6 backdrop-blur-md transition-all duration-500 ease-in-out md:hidden shadow-lg",
-          "bg-salon-cream/95",
-          isMobileMenuOpen 
-            ? "opacity-100 translate-x-0" 
-            : "opacity-0 translate-x-full pointer-events-none"
+          "fixed inset-0 z-40 flex flex-col pt-24 px-6 bg-salon-cream/95 shadow-lg backdrop-blur-md transition-all duration-500 ease-in-out md:hidden", 
+          isMobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
         )}>
           <div className="flex flex-col space-y-6 items-center">
             {navLinks.map(link => (
@@ -168,7 +171,7 @@ const Navbar: React.FC = () => {
             </a>
             <a 
               href="tel:+46733121152"
-              className="flex items-center justify-center px-5 py-2 rounded-full border border-salon-gold text-salon-dark font-medium transition-all hover:bg-salon-gold/10"
+              className="flex items-center justify-center px-5 py-2 rounded-full border border-salon-gold text-salon-dark font-medium transition-all hover:bg-salon-gold/10 mt-2"
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 document.body.style.overflow = '';

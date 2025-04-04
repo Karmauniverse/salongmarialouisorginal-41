@@ -29,7 +29,7 @@ const Hero = () => {
   }, []);
   return <section id="home" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0">
-        <img src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" alt="Vackert svart hår" className="w-full h-full object-cover object-center" />
+        <img src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" alt="Vackert svart hår" className="w-full h-full object-cover md:object-center object-[65%_center]" />
       </div>
       
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 backdrop-blur-[2px]"></div>
