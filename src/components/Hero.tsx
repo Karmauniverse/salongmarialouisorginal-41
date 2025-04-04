@@ -1,5 +1,7 @@
+
 import React, { useEffect, useRef } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Phone } from 'lucide-react';
+
 const Hero = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   useEffect(() => {
@@ -54,6 +56,17 @@ const Hero = () => {
             </a>
             <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="px-8 py-3 border border-salon-gold text-white font-medium rounded-full hover:bg-salon-gold/30 transition-all text-center backdrop-blur-sm hover:border-white">
               Boka Tid
+            </a>
+          </div>
+
+          {/* Phone number for mobile - visible on small screens only */}
+          <div className="mt-4 sm:hidden animated-element flex justify-center">
+            <a 
+              href="tel:+46733121152"
+              className="flex items-center px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white font-medium border border-white/30 transition-all hover:bg-white/20"
+            >
+              <Phone size={16} className="mr-2" />
+              073-312 11 52
             </a>
           </div>
         </div>

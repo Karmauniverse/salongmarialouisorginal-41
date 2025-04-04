@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,6 +68,10 @@ const Navbar: React.FC = () => {
       href: '#about'
     }, 
     {
+      name: 'Event',
+      href: '#special-day'
+    },
+    {
       name: 'Kontakt',
       href: '#contact'
     }
@@ -107,12 +111,14 @@ const Navbar: React.FC = () => {
               </a>
             ))}
             <a 
-              href="https://bokning.voady.se/marialouis/marialouisebarbershop/"
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="px-5 py-2 rounded-full bg-salon-gold text-white font-medium text-sm hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105"
+              href="tel:+46733121152"
+              className={cn(
+                "px-5 py-2 rounded-full border border-salon-gold text-salon-gold font-medium text-sm transition-all flex items-center",
+                isScrolled ? "hover:bg-salon-gold/10" : "hover:bg-salon-gold/20"
+              )}
             >
-              Boka Nu
+              <Phone size={16} className="mr-2" />
+              073-312 11 52
             </a>
           </div>
 
@@ -129,10 +135,10 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation - Now with frosted glass effect */}
+        {/* Mobile Navigation - Updated with creamy bg color */}
         <div className={cn(
           "fixed inset-0 z-40 flex flex-col pt-24 px-6 backdrop-blur-md transition-all duration-500 ease-in-out md:hidden shadow-lg",
-          "bg-gradient-to-b from-salon-dark/90 to-salon-dark/85",
+          "bg-salon-cream/95",
           isMobileMenuOpen 
             ? "opacity-100 translate-x-0" 
             : "opacity-0 translate-x-full pointer-events-none"
@@ -142,7 +148,7 @@ const Navbar: React.FC = () => {
               <a 
                 key={link.name}
                 href={link.href} 
-                className="text-white text-lg font-medium relative after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:w-1/2 after:mx-auto after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:right-0 hover:text-salon-gold pb-1 block" 
+                className="text-salon-dark text-lg font-medium relative after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:w-1/2 after:mx-auto after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:right-0 hover:text-salon-gold pb-1 block" 
                 onClick={(e) => handleNavLinkClick(e, link.href)}
               >
                 {link.name}
@@ -159,6 +165,17 @@ const Navbar: React.FC = () => {
               }}
             >
               Boka Nu
+            </a>
+            <a 
+              href="tel:+46733121152"
+              className="flex items-center justify-center px-5 py-2 rounded-full border border-salon-gold text-salon-dark font-medium transition-all hover:bg-salon-gold/10"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                document.body.style.overflow = '';
+              }}
+            >
+              <Phone size={16} className="mr-2" />
+              073-312 11 52
             </a>
           </div>
         </div>
