@@ -30,7 +30,7 @@ const KeratinInfo: React.FC = () => {
   return <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
       <div className="section-container">
         <div className="bg-salon-beige/30 rounded-full w-fit mx-auto mb-4 py-0 px-[8px]">
-          <p className="font-medium font-lora text-center text-salon-gold px-[24px] py-[8px] text-sm my-0">Behandlingar</p>
+          <p className="font-medium font-lora text-center text-salon-gold px-[24px] text-sm my-0 py-[35px]">Behandlingar</p>
         </div>
         
         <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4 py-[25px] my-0">
@@ -70,7 +70,7 @@ const KeratinInfo: React.FC = () => {
               </div>
               <div className="flex flex-col items-center">
                 <img src="/lovable-uploads/6d229b61-d343-44be-8f29-98f8bd23d332.png" alt="Återfukt" className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} />
-                <span className="text-xs font-medium text-salon-dark/70 mt-2">Återfukt</span>
+                <span className="text-xs font-medium text-salon-dark/70 mt-2 py-[8px] my-[16px]">Återfukt</span>
               </div>
               <div className="flex flex-col items-center">
                 <img src="/lovable-uploads/676e9e55-34a5-4db4-a58d-553fd76d764b.png" alt="Vegan" className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} />
