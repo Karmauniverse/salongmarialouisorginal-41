@@ -35,7 +35,7 @@ const Hero = () => {
       {/* Hero-bild */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/lovable-uploads/hero%20final.jpg"
+          src="/lovable-uploads/hero-final.png"
           alt="Maria Louis Hårsalong"
           className="w-full h-full object-cover object-[center_top] transition-all duration-500 ease-in-out"
         />
@@ -44,7 +44,7 @@ const Hero = () => {
       {/* Logga */}
       <div className="absolute top-4 left-4 z-10">
         <img
-          src="/uploads/logo-final.jpg"
+          src="/uploads/logo-final.png"
           alt="Maria Louis Logo"
           className="h-20 w-auto object-contain"
         />
