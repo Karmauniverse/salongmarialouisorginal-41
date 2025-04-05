@@ -41,7 +41,7 @@ const Hero = () => {
         />
       </div>
       
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm mix-blend-multiply"></div>
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
