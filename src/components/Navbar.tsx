@@ -46,31 +46,31 @@ const Navbar: React.FC = () => {
   };
 
   const navLinks = [
-  {
-    name: 'Hem',
-    href: '/'
-  }, 
-  {
-    name: 'Behandlingar',
-    href: '#services'
-  }, 
-  {
-    name: 'Galleri',
-    href: '#gallery'
-  }, 
-  {
-    name: 'Event',
-    href: '#event'
-  },
-  {
-    name: 'Om Oss',
-    href: '#about'
-  }, 
-  {
-    name: 'Kontakt',
-    href: '#contact'
-  }
-];
+    {
+      name: 'Hem',
+      href: '/'
+    }, 
+    {
+      name: 'Behandlingar',
+      href: '#services'
+    }, 
+    {
+      name: 'Event',
+      href: '#event'
+    },
+    {
+      name: 'Galleri',
+      href: '#gallery'
+    }, 
+    {
+      name: 'Om Oss',
+      href: '#about'
+    }, 
+    {
+      name: 'Kontakt',
+      href: '#contact'
+    }
+  ];
 
   return (
     <>
@@ -106,16 +106,16 @@ const Navbar: React.FC = () => {
               </a>
             ))}
             <a 
-              href="tel:+46701234567" 
-              className={cn(
-                "flex items-center text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-2 px-3",
-                isScrolled ? "text-salon-dark" : "text-white drop-shadow-md",
-                "border border-salon-gold/30 rounded-full hover:bg-salon-gold/10"
-              )}
-            >
-              <Phone size={12} className="mr-1.5" />
-              <span style={{ fontSize: '13px' }}>08-549 040 50</span>
-            </a>
+  href="tel:+46854904050" 
+  className={cn(
+    "flex items-center text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-2 px-3",
+    isScrolled ? "text-salon-dark" : "text-white drop-shadow-md",
+    "border border-salon-gold/30 rounded-full hover:bg-salon-gold/10"
+  )}
+>
+  <Phone size={12} className="mr-1.5" />
+  <span style={{ fontSize: '13px' }}>08-549 040 50</span>
+</a>
           </div>
 
           {/* Mobile menu button */}
