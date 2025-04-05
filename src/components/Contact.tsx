@@ -1,9 +1,7 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight, Clock, Calendar, Phone } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
@@ -15,14 +13,12 @@ const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -31,30 +27,28 @@ const Contact: React.FC = () => {
         }
       });
     }, observerOptions);
-    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
-    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    const {
+      name,
+      value
+    } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
-  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
     try {
       // Send email to salongmarialouis@gmail.com
       await new Promise(resolve => setTimeout(resolve, 1500));
@@ -77,9 +71,7 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-  
-  return (
-    <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30 overflow-hidden">
+  return <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30 overflow-hidden">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
@@ -91,8 +83,7 @@ const Contact: React.FC = () => {
 
         <div ref={el => elementsRef.current[2] = el} className="animated-element grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start mb-12">
           {/* Order is reversed on mobile */}
-          {isMobile ? (
-            <>
+          {isMobile ? <>
               {/* Right side (Booking) renders first on mobile */}
               <div className="flex flex-col h-full justify-start p-8 rounded-xl shadow-lg bg-salon-dark">
                 <div className="mb-6">
@@ -193,27 +184,17 @@ const Contact: React.FC = () => {
                   </div>
 
                   <button type="submit" disabled={isSubmitting} className={cn("w-full px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed", submitStatus === 'success' && "bg-green-600 hover:bg-green-700", submitStatus === 'error' && "bg-red-600 hover:bg-red-700")}>
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center">
+                    {isSubmitting ? <span className="flex items-center justify-center">
                         <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
                         Skickar...
-                      </span>
-                    ) : submitStatus === 'success' ? (
-                      "Meddelande skickat!"
-                    ) : submitStatus === 'error' ? (
-                      "Ett fel uppstod, försök igen"
-                    ) : (
-                      "Skicka Meddelande"
-                    )}
+                      </span> : submitStatus === 'success' ? "Meddelande skickat!" : submitStatus === 'error' ? "Ett fel uppstod, försök igen" : "Skicka Meddelande"}
                   </button>
                 </form>
               </div>
-            </>
-          ) : (
-            <>
+            </> : <>
               {/* Desktop layout stays the same */}
               <div className="p-6 md:p-8 rounded-xl shadow-lg bg-salon-dark">
                 {/* Fix: Ensure the heading is always rendered by removing animation here */}
@@ -226,9 +207,7 @@ const Contact: React.FC = () => {
                 
                 <div className="flex items-center gap-2 mb-4 text-salon-beige">
                   <Phone size={16} className="text-salon-gold" />
-                  <a href="tel:+46701234567" className="text-salon-beige hover:text-salon-gold transition-colors">
-                    070-123 45 67
-                  </a>
+                  <a href="tel:+46701234567" className="text-salon-beige hover:text-salon-gold transition-colors">08-549 040 50</a>
                 </div>
                 
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -265,21 +244,13 @@ const Contact: React.FC = () => {
                   </div>
 
                   <button type="submit" disabled={isSubmitting} className={cn("w-full px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed", submitStatus === 'success' && "bg-green-600 hover:bg-green-700", submitStatus === 'error' && "bg-red-600 hover:bg-red-700")}>
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center">
+                    {isSubmitting ? <span className="flex items-center justify-center">
                         <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
                         Skickar...
-                      </span>
-                    ) : submitStatus === 'success' ? (
-                      "Meddelande skickat!"
-                    ) : submitStatus === 'error' ? (
-                      "Ett fel uppstod, försök igen"
-                    ) : (
-                      "Skicka Meddelande"
-                    )}
+                      </span> : submitStatus === 'success' ? "Meddelande skickat!" : submitStatus === 'error' ? "Ett fel uppstod, försök igen" : "Skicka Meddelande"}
                   </button>
                 </form>
               </div>
@@ -295,9 +266,7 @@ const Contact: React.FC = () => {
                   
                   <div className="flex items-center justify-center gap-2 mb-3">
                     <Phone size={16} className="text-salon-gold" />
-                    <a href="tel:+46701234567" className="text-salon-beige hover:text-salon-gold transition-colors">
-                      070-123 45 67
-                    </a>
+                    <a href="tel:+46701234567" className="text-salon-beige hover:text-salon-gold transition-colors">08-549 040 50</a>
                   </div>
 
                   <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="mt-3 mb-6 block text-center w-full px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
@@ -331,12 +300,9 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </>
-          )}
+            </>}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
