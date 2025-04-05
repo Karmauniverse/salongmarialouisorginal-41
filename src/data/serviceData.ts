@@ -33,8 +33,8 @@ export const serviceCategories: ServiceCategory[] = [
     title: "Färgbehandlingar",
     description: "Färgning och toning för ett perfekt resultat.",
     services: [
-      { name: "Bottenfärg", price: "fr. 740 kr" },
-      { name: "Toning", price: "fr. 690 kr" },
+      { name: "Bottenfärg", price: "fr. 790 kr" },
+      { name: "Toning", price: "fr. 740 kr" },
       { name: "Slingor i hätta", price: "930 kr" }
     ]
   },
@@ -44,9 +44,9 @@ export const serviceCategories: ServiceCategory[] = [
     description: "Expertklippning för herrar och skäggvård.",
     services: [
       { name: "Herrklippning", price: "fr. 390 kr" },
-      { name: "Kort skägg", price: "fr. 220 kr" },
+      { name: "Kort skägg", price: "fr. 250 kr" },
       { name: "Långt skägg", price: "fr. 290 kr" },
-      { name: "Klipp + kort skägg", price: "fr. 540 kr" },
+      { name: "Klipp + kort skägg", price: "fr. 550 kr" },
       { name: "Klipp + långt skägg", price: "650 kr" }
     ]
   },
@@ -70,7 +70,9 @@ export const serviceCategories: ServiceCategory[] = [
       { name: "Ögonbrynsplock", price: "199 kr" },
       { name: "Franspaket", price: "420 kr" },
       { name: "Olaplex med behandling", price: "250 kr" },
-      { name: "Fristående Olaplex", price: "500 kr" }
+      { name: "Fristående Olaplex", price: "500 kr" },
+      { name: "Öronhåltagning - Ett hål", price: "190 kr" },
+      { name: "Öronhåltagning - Två hål", price: "370 kr" }
     ]
   }
 ];

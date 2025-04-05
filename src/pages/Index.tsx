@@ -22,11 +22,15 @@ const Index = () => {
       document.body.style.overflowX = 'hidden';
       document.documentElement.style.overscrollBehavior = 'none';
       document.body.style.overscrollBehaviorY = 'none';
+      document.documentElement.style.maxWidth = '100vw';
+      document.body.style.maxWidth = '100vw';
       
       return () => {
         document.body.style.overflowX = '';
         document.documentElement.style.overscrollBehavior = '';
         document.body.style.overscrollBehaviorY = '';
+        document.documentElement.style.maxWidth = '';
+        document.body.style.maxWidth = '';
       };
     };
     
@@ -35,7 +39,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-salon-cream">
+    <div className="min-h-screen bg-salon-cream overflow-x-hidden w-full max-w-[100vw]">
       <Navbar />
       <Hero />
       <Services />

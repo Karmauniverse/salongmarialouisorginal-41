@@ -36,7 +36,7 @@ const About: React.FC = () => {
   }, []);
   
   return (
-    <section id="about" className="py-12 bg-gradient-to-b from-salon-cream/30 to-white">
+    <section id="about" className="py-12 bg-gradient-to-b from-salon-cream/30 to-white overflow-hidden">
       <div className="section-container">
         <AboutIntro refCallback={(el) => elementsRef.current[0] = el} />
         <MariaBio refCallback={(el) => elementsRef.current[1] = el} />

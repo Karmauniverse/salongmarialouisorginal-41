@@ -1,9 +1,12 @@
+
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown, Phone } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+
 const Hero = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
+  
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -27,9 +30,14 @@ const Hero = () => {
       });
     };
   }, []);
+  
   return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src="/lovable-uploads/hero final" alt="Maria Louis Hårsalong" className="w-full h-full object-cover transition-all duration-500 ease-in-out" />
+        <img 
+          src="/lovable-uploads/hero final" 
+          alt="Maria Louis Hårsalong" 
+          className="w-full h-full object-cover object-center transition-all duration-500 ease-in-out" 
+        />
       </div>
       
       {/* Frosted glass effect overlay */}
@@ -79,4 +87,5 @@ const Hero = () => {
       </div>
     </section>;
 };
+
 export default Hero;

@@ -1,18 +1,26 @@
+
 import React from 'react';
 import { Instagram } from 'lucide-react';
 import FeatureItem from './FeatureItem';
+
 interface ValentinaBioProps {
   refCallback: (el: HTMLDivElement | null) => void;
 }
+
 const ValentinaBio: React.FC<ValentinaBioProps> = ({
   refCallback
 }) => {
-  return <div ref={refCallback} className="animated-element">
+  return (
+    <div ref={refCallback} className="animated-element mt-10">
       <div className="bg-white rounded-xl shadow-xl overflow-hidden">
         <div className="grid md:grid-cols-2 gap-0">
           <div className="relative md:h-auto">
             <div className="h-full overflow-hidden">
-              <img src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png" alt="Valentina" className="w-full h-full object-cover object-center" />
+              <img 
+                src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png" 
+                alt="Valentina" 
+                className="w-full h-full object-cover object-center" 
+              />
               <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent md:bg-gradient-to-r"></div>
             </div>
           </div>
@@ -39,8 +47,6 @@ const ValentinaBio: React.FC<ValentinaBioProps> = ({
               </ul>
               
               <div className="flex flex-wrap items-center gap-4">
-                
-                
                 <a href="https://www.instagram.com/hair.skinsprofessional__/?hl=en" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-5 py-2 border border-salon-gold text-salon-dark hover:bg-salon-gold/10 transition-all font-medium rounded-full">
                   <Instagram size={18} className="mr-2 text-salon-gold" />
                   <span>Hair & Skin Professional</span>
@@ -50,6 +56,8 @@ const ValentinaBio: React.FC<ValentinaBioProps> = ({
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default ValentinaBio;

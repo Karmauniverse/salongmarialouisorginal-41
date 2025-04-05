@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight, X, Instagram } from 'lucide-react';
@@ -32,7 +31,6 @@ const Gallery: React.FC = () => {
     };
   }, []);
 
-  // Remove the last two images from gallery
   const galleryImages = [
     "/lovable-uploads/d14c977f-f972-4ec3-88bb-7d6b06f1876d.png", 
     "/lovable-uploads/af9782d7-4108-4c69-9b7b-53511f0ec2a5.png", 
@@ -67,7 +65,7 @@ const Gallery: React.FC = () => {
           </div>
           
           <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6">
-            Följ oss på Instagram för fler<br />inspirerande bilder
+            Följ oss på Instagram<br />för fler inspirerande bilder
           </h2>
           
           <div ref={el => elementsRef.current[2] = el} className="animated-element flex justify-center mb-10">
