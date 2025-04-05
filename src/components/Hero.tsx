@@ -1,7 +1,7 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown, Phone } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import Image from 'next/image';
 
 const Hero = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -31,18 +31,29 @@ const Hero = () => {
     };
   }, []);
   
-  return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0">
+  return (
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Hero-bild */}
+      <div className="absolute inset-0 z-0">
         <img 
-          src="/lovable-uploads/hero final.jpg" 
+          src="/uploads/hero-final.jpg" 
           alt="Maria Louis Hårsalong" 
-          className="w-full h-full object-cover object-center transition-all duration-500 ease-in-out" 
+          className="w-full h-full object-cover object-[center_top] transition-all duration-500 ease-in-out" 
         />
       </div>
-      
-      {/* Frosted glass effect overlay */}
-      <div className="absolute inset-0 backdrop-blur-[2px] bg-black/[0.63]"></div>
-      
+
+      {/* Logga i övre vänstra hörnet */}
+      <div className="absolute top-4 left-4 z-10">
+        <Image
+          src="/uploads/logo-final.jpg"
+          alt="Maria Louis Logo"
+          width={160}
+          height={80}
+          className="object-contain"
+        />
+      </div>
+
+      {/* Text och knappar */}
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-6">
@@ -85,7 +96,8 @@ const Hero = () => {
           </div>
         </a>
       </div>
-    </section>;
+    </section>
+  );
 };
 
 export default Hero;
