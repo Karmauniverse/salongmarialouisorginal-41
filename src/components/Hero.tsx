@@ -1,12 +1,9 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown, Phone } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Hero = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
-  
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -30,14 +27,9 @@ const Hero = () => {
       });
     };
   }, []);
-  
   return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img 
-          src="/lovable-uploads/hero-final.png" 
-          alt="Maria Louis Hårsalong" 
-          className="w-full h-full object-cover object-center transition-all duration-500 ease-in-out" 
-        />
+        <img src="/lovable-uploads/hero final" alt="Maria Louis Hårsalong" className="w-full h-full object-cover object-center transition-all duration-500 ease-in-out" />
       </div>
       
       {/* Frosted glass effect overlay */}
@@ -55,9 +47,9 @@ const Hero = () => {
             </span>
           </h1>
           
-          <p ref={el => elementsRef.current[2] = el} className="animated-element md:text-xl text-salon-beige mb-6 max-w-xl mx-auto font-lora px-0 py-0 text-center font-normal text-lg md:text-xl">
-            Sedan 2010 har vi förenat skönhet och omtanke – en prisbelönt salong med hjärta
-          </p>
+          <p ref={el => elementsRef.current[2] = el} className="animated-element md:text-xl text-salon-beige mb-6 max-w-xl mx-auto font-lora px-0 py-0 text-center font-normal text-lg md:text-xl">Sedan 2010 har vi förenat skönhet 
+och omtanke – en prisbelönt 
+salong med hjärta</p>
           
           <div ref={el => elementsRef.current[4] = el} className="animated-element flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#services" className="px-8 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all text-center shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
@@ -87,5 +79,4 @@ const Hero = () => {
       </div>
     </section>;
 };
-
 export default Hero;
