@@ -1,12 +1,9 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown, Phone } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Hero = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
-  
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -30,19 +27,13 @@ const Hero = () => {
       });
     };
   }, []);
-  
-  return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+  return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img 
-          src="/lovable-uploads/hero final" 
-          alt="Maria Louis Hårsalong" 
-          className="w-full h-full object-cover transition-all duration-500 ease-in-out"
-        />
+        <img src="/lovable-uploads/hero final" alt="Maria Louis Hårsalong" className="w-full h-full object-cover transition-all duration-500 ease-in-out" />
       </div>
       
       {/* Frosted glass effect overlay */}
-      <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 backdrop-blur-[2px] bg-black/[0.63]"></div>
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
@@ -69,14 +60,12 @@ const Hero = () => {
             </a>
           </div>
           
-          {isMobile && (
-            <div className="mt-4 animated-element">
+          {isMobile && <div className="mt-4 animated-element">
               <a href="tel:+46701234567" className="inline-flex items-center px-5 py-2 border border-salon-gold/60 text-white rounded-full backdrop-blur-sm hover:bg-salon-gold/20 transition-all">
                 <Phone size={16} className="mr-2" />
                 070-123 45 67
               </a>
-            </div>
-          )}
+            </div>}
         </div>
       </div>
       
@@ -88,8 +77,6 @@ const Hero = () => {
           </div>
         </a>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
