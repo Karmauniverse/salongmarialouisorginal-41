@@ -1,17 +1,12 @@
-
 import React from 'react';
 import FeatureItem from './FeatureItem';
-
 interface GabrielBioProps {
   refCallback: (el: HTMLDivElement | null) => void;
 }
-
-const GabrielBio: React.FC<GabrielBioProps> = ({ refCallback }) => {
-  return (
-    <div 
-      ref={refCallback} 
-      className="animated-element mt-10"
-    >
+const GabrielBio: React.FC<GabrielBioProps> = ({
+  refCallback
+}) => {
+  return <div ref={refCallback} className="animated-element mt-10">
       <div className="bg-white rounded-xl shadow-xl overflow-hidden">
         <div className="grid md:grid-cols-2 gap-0">
           <div className="relative h-full bg-salon-cream/30 p-6 md:p-8 flex items-center justify-center">
@@ -36,38 +31,23 @@ const GabrielBio: React.FC<GabrielBioProps> = ({ refCallback }) => {
               </div>
               
               <ul className="space-y-3 mb-5">
-                {["Skicklig barberare", "Specialiserad på herr- och barnklippning", "20+ års erfarenhet"].map((item, index) => (
-                  <FeatureItem key={index} text={item} />
-                ))}
+                {["Skicklig barberare", "Specialiserad på herr- och barnklippning", "20+ års erfarenhet"].map((item, index) => <FeatureItem key={index} text={item} />)}
               </ul>
               
               <div className="flex flex-wrap items-center gap-4">
-                <a 
-                  href="https://bokning.voady.se/marialouis/marialouisebarbershop/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-2 bg-salon-gold text-white hover:bg-salon-brown transition-all font-medium rounded-full shadow-md hover:shadow-lg transform hover:scale-105 duration-300"
-                >
-                  Boka Tid
-                </a>
+                
               </div>
             </div>
           </div>
           
           <div className="relative md:h-auto">
             <div className="h-full overflow-hidden">
-              <img 
-                src="/lovable-uploads/gabriel-profile.jpg" 
-                alt="Gabriel" 
-                className="w-full h-full object-cover object-center"
-              />
+              <img src="/lovable-uploads/gabriel-profile.jpg" alt="Gabriel" className="w-full h-full object-cover object-center" />
               <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent md:bg-gradient-to-l"></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default GabrielBio;
