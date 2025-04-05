@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
   )}
 >
   <Phone size={12} className="mr-1.5" />
-  <span style={{ fontSize: '12px' }}>08-549 040 50</span>
+  <span style={{ fontSize: '11px' }}>08-549 040 50</span>
 </a>
           </div>
 
