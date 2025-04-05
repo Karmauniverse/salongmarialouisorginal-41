@@ -67,7 +67,7 @@ const Gabriel: React.FC = () => {
             <div className="relative">
               <div className="aspect-w-3 aspect-h-4 lg:aspect-w-1 lg:aspect-h-1 overflow-hidden rounded-xl shadow-xl">
                 <img 
-                  src="/lovable-uploads/4bb90aca-51ba-464b-b255-1dc4d11a4df1.png" 
+                  src="/lovable-uploads/gabriel-profile.jpg" 
                   alt="Gabriel - Frisör på Maria Louis" 
                   className="w-full h-full object-cover object-center" 
                 />
