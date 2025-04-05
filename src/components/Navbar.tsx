@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, Phone } from 'lucide-react';
@@ -17,8 +16,7 @@ const Navbar: React.FC = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    
-    // Prevent background scrolling when menu is open
+
     if (!isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -28,20 +26,17 @@ const Navbar: React.FC = () => {
 
   const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    
-    // Close mobile menu if open
+
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
       document.body.style.overflow = '';
     }
-    
-    // Handle home link
+
     if (href === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    
-    // Get the element to scroll to
+
     const targetElement = document.querySelector(href);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
@@ -59,6 +54,10 @@ const Navbar: React.FC = () => {
       name: 'Behandlingar',
       href: '#services'
     }, 
+    {
+      name: 'Event',
+      href: '#event'
+    },
     {
       name: 'Galleri',
       href: '#gallery'
@@ -114,8 +113,8 @@ const Navbar: React.FC = () => {
                 "border border-salon-gold/30 rounded-full hover:bg-salon-gold/10"
               )}
             >
-              <Phone size={14} className="mr-1.5" />
-              070-123 45 67
+              <Phone size={12} className="mr-1.5" />
+              <span style={{ fontSize: '13px' }}>070-123 45 67</span>
             </a>
           </div>
 
@@ -132,7 +131,7 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation - Now with frosted glass effect */}
+        {/* Mobile Navigation */}
         <div className={cn(
           "fixed inset-0 z-40 flex flex-col pt-24 px-6 backdrop-blur-md transition-all duration-500 ease-in-out md:hidden shadow-lg",
           "bg-gradient-to-b from-salon-dark/90 to-salon-dark/85",
@@ -171,8 +170,8 @@ const Navbar: React.FC = () => {
                 document.body.style.overflow = '';
               }}
             >
-              <Phone size={16} className="mr-2" />
-              070-123 45 67
+              <Phone size={14} className="mr-2" />
+              <span style={{ fontSize: '14px' }}>070-123 45 67</span>
             </a>
           </div>
         </div>
