@@ -1,19 +1,15 @@
-
 import React, { useEffect, useRef } from 'react';
 import { SparkleIcon } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const KeratinInfo: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
-  
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -22,20 +18,16 @@ const KeratinInfo: React.FC = () => {
         }
       });
     }, observerOptions);
-    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
-    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-  
-  return (
-    <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
+  return <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
       <div className="section-container">
         <div className="bg-salon-beige/30 rounded-full w-fit mx-auto mb-4 py-0 px-[8px]">
           <p className="font-medium font-lora text-center text-salon-gold px-[24px] py-[8px] text-sm my-0">Behandlingar</p>
@@ -46,7 +38,7 @@ const KeratinInfo: React.FC = () => {
             KERATINBEHANDLING
           </h3>
           
-          <div className="bg-white p-8 md:p-10 rounded-xl shadow-md py-[17px] px-[41px]">
+          <div className="bg-white p-8 md:p-10 rounded-xl shadow-md px-[41px] py-[65px]">
             {/* Image of woman with dark hair */}
             <div className="mb-8">
               <img src="/lovable-uploads/09ee0d34-8776-4e34-9099-7c28d0ca9359.png" alt="Keratinbehandling" className="rounded-lg w-full max-w-2xl mx-auto shadow-sm object-fill" />
@@ -73,35 +65,19 @@ const KeratinInfo: React.FC = () => {
             {/* New Keratin Icons with labels */}
             <div className="grid grid-cols-4 gap-4 mb-8">
               <div className="flex flex-col items-center">
-                <img 
-                  src="/lovable-uploads/a664e16e-6fed-443c-ab96-e509e8e64f7c.png" 
-                  alt="Glans" 
-                  className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} 
-                />
+                <img src="/lovable-uploads/a664e16e-6fed-443c-ab96-e509e8e64f7c.png" alt="Glans" className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} />
                 <span className="text-xs font-medium text-salon-dark/70 mt-2">Glans</span>
               </div>
               <div className="flex flex-col items-center">
-                <img 
-                  src="/lovable-uploads/6d229b61-d343-44be-8f29-98f8bd23d332.png" 
-                  alt="Återfukt" 
-                  className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} 
-                />
+                <img src="/lovable-uploads/6d229b61-d343-44be-8f29-98f8bd23d332.png" alt="Återfukt" className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} />
                 <span className="text-xs font-medium text-salon-dark/70 mt-2">Återfukt</span>
               </div>
               <div className="flex flex-col items-center">
-                <img 
-                  src="/lovable-uploads/676e9e55-34a5-4db4-a58d-553fd76d764b.png" 
-                  alt="Vegan" 
-                  className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} 
-                />
+                <img src="/lovable-uploads/676e9e55-34a5-4db4-a58d-553fd76d764b.png" alt="Vegan" className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} />
                 <span className="text-xs font-medium text-salon-dark/70 mt-2">Vegan</span>
               </div>
               <div className="flex flex-col items-center">
-                <img 
-                  src="/lovable-uploads/55b2088e-6c16-47ee-8d2d-e5e7554f14c7.png" 
-                  alt="Cruelty-Free" 
-                  className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} 
-                />
+                <img src="/lovable-uploads/55b2088e-6c16-47ee-8d2d-e5e7554f14c7.png" alt="Cruelty-Free" className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} />
                 <span className="text-xs font-medium text-salon-dark/70 mt-2">Cruelty-Free</span>
               </div>
             </div>
@@ -118,8 +94,6 @@ const KeratinInfo: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default KeratinInfo;
