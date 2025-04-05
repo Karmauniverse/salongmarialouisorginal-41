@@ -57,7 +57,7 @@ const GabrielBio: React.FC<GabrielBioProps> = ({ refCallback }) => {
           <div className="relative md:h-auto">
             <div className="h-full overflow-hidden">
               <img 
-                src="/lovable-uploads/WhatsApp Bild 2025-04-01 kl. 15.33.00_ecf4452e.jpg" 
+                src="/lovable-uploads/gabriel-profile.jpg" 
                 alt="Gabriel" 
                 className="w-full h-full object-cover object-center"
               />
