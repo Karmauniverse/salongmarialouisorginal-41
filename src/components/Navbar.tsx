@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
         <div className="container flex justify-between items-center">
           <a href="/" className="flex items-center" onClick={(e) => handleNavLinkClick(e, '/')}>
             <img 
-              src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
+              src="/lovable-uploads/logo-final.png" 
               alt="Maria Louis Logotyp" 
               className="h-16 md:h-20 mr-3 transition-all duration-300" 
             />
