@@ -35,10 +35,12 @@ const Hero = () => {
     <section id="home" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0">
         <img 
-          src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" 
-          alt="Vackert svart hår" 
-          className={`w-full h-full object-cover ${isMobile ? 'object-top scale-[1.35]' : 'object-center'}`} 
-        />
+  src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" 
+  alt="Vackert svart hår" 
+  className={`w-full h-full object-cover transition-all duration-500 ease-in-out ${
+    isMobile ? 'object-center scale-[1.1]' : 'object-center'
+  }`} 
+/>
       </div>
       
       <div className="absolute inset-0 bg-black/30 backdrop-blur-sm mix-blend-multiply"></div>
