@@ -35,15 +35,15 @@ const Hero = () => {
     <section id="home" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0">
         <img 
-  src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" 
-  alt="Vackert svart hår" 
-  className={`w-full h-full object-cover transition-all duration-500 ease-in-out ${
-    isMobile ? 'object-center scale-[1.1]' : 'object-center'
-  }`} 
-/>
+          src="/lovable-uploads/8762e4d0-f740-4982-97a2-dd66977bd945.png" 
+          alt="Vackert svart hår" 
+          className={`w-full h-full object-cover transition-all duration-500 ease-in-out ${
+            isMobile ? 'object-center scale-100' : 'object-center'
+          }`} 
+        />
       </div>
       
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm mix-blend-multiply"></div>
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px] mix-blend-multiply"></div>
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
@@ -91,7 +91,7 @@ const Hero = () => {
       </div>
       
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent">
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
       </div>
     </section>
   );

@@ -6,7 +6,6 @@ import Services from '../components/Services';
 import Gallery from '../components/Gallery';
 import Testimonials from '../components/Testimonials';
 import About from '../components/About';
-import Gabriel from '../components/Gabriel';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import KeratinInfo from '../components/KeratinInfo';
@@ -43,7 +42,6 @@ const Index = () => {
       <KeratinInfo />
       <Gallery />
       <About />
-      <Gabriel />
 
       {isMobile ? (
         <>
