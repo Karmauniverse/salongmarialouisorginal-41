@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -6,6 +5,7 @@ import Services from '../components/Services';
 import Gallery from '../components/Gallery';
 import Testimonials from '../components/Testimonials';
 import About from '../components/About';
+import Gabriel from '../components/Gabriel';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import KeratinInfo from '../components/KeratinInfo';
@@ -18,12 +18,9 @@ const Index = () => {
   useEffect(() => {
     document.title = 'Maria Louis Hårsalong | Premiumstyling';
     
-    // Enhanced fix for mobile scrolling bug
     const preventScrollJitter = () => {
       document.body.style.overflowX = 'hidden';
       document.documentElement.style.overscrollBehavior = 'none';
-      
-      // Fix for automatic scrolling from sliders
       document.body.style.overscrollBehaviorY = 'none';
       
       return () => {
@@ -42,30 +39,29 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Services />
-      {/* Keratin section moved after Services as requested */}
       <KeratinInfo />
       <Gallery />
       <About />
-      
-      {/* Different order based on screen size */}
+      <Gabriel />
+
       {isMobile ? (
         <>
           <Testimonials />
           <Contact />
           <section id="event">
-            <SpecialDay /> {/* After Contact on mobile */}
+            <SpecialDay />
           </section>
         </>
       ) : (
         <>
           <Testimonials />
           <section id="event">
-            <SpecialDay /> {/* Before Contact on desktop */}
+            <SpecialDay />
           </section>
           <Contact />
         </>
       )}
-      
+
       <Footer />
     </div>
   );
