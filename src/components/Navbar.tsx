@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, Phone } from 'lucide-react';
@@ -106,16 +107,16 @@ const Navbar: React.FC = () => {
               </a>
             ))}
             <a 
-  href="tel:+46854904050" 
-  className={cn(
-    "flex items-center text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-2 px-3",
-    isScrolled ? "text-salon-dark" : "text-white drop-shadow-md",
-    "border border-salon-gold/30 rounded-full hover:bg-salon-gold/10"
-  )}
->
-  <Phone size={12} className="mr-1.5" />
-  <span style={{ fontSize: '11px' }}>08-549 040 50</span>
-</a>
+              href="tel:+46854904050" 
+              className={cn(
+                "flex items-center text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-2 px-3",
+                isScrolled ? "text-salon-dark" : "text-white drop-shadow-md",
+                "border border-salon-gold/30 rounded-full hover:bg-salon-gold/10"
+              )}
+            >
+              <Phone size={12} className="mr-1.5" />
+              <span style={{ fontSize: '11px' }}>08-549 040 50</span>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -131,57 +132,56 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobilmeny - ny version utan glitch */}
-<div className={cn(
-  "fixed inset-0 z-40 flex flex-col items-center justify-center space-y-6 px-6 py-12 md:hidden transition-all duration-500 ease-in-out",
-  "bg-salon-dark text-white",
-  isMobileMenuOpen 
-    ? "opacity-100 translate-x-0" 
-    : "opacity-0 translate-x-full pointer-events-none"
-)}>
-  {/* Navigeringslänkar */}
-  <div className="flex flex-col items-center space-y-6">
-    {navLinks.map(link => (
-      <a 
-        key={link.name}
-        href={link.href} 
-        onClick={(e) => handleNavLinkClick(e, link.href)}
-        className="text-lg font-medium hover:text-salon-gold hover:tracking-wide transition-all"
-      >
-        {link.name}
-      </a>
-    ))}
-  </div>
+        {/* Mobile menu */}
+        <div className={cn(
+          "fixed inset-0 z-40 flex flex-col items-center justify-center space-y-6 px-6 py-12 md:hidden transition-all duration-500 ease-in-out",
+          "bg-salon-dark text-white",
+          isMobileMenuOpen 
+            ? "opacity-100 translate-x-0" 
+            : "opacity-0 translate-x-full pointer-events-none"
+        )}>
+          {/* Navigation links */}
+          <div className="flex flex-col items-center space-y-6">
+            {navLinks.map(link => (
+              <a 
+                key={link.name}
+                href={link.href} 
+                onClick={(e) => handleNavLinkClick(e, link.href)}
+                className="text-lg font-medium hover:text-salon-gold hover:tracking-wide transition-all"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
 
-  {/* Boka tid-knapp */}
-  <a 
-    href="https://bokning.voady.se/marialouis/marialouisebarbershop/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="mt-8 px-6 py-3 rounded-full bg-salon-gold text-white font-medium hover:bg-salon-brown transition-all text-center shadow-lg"
-    onClick={() => {
-      setIsMobileMenuOpen(false);
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    }}
-  >
-    Boka Nu
-  </a>
+          {/* Book now button */}
+          <a 
+            href="https://bokning.voady.se/marialouis/marialouisebarbershop/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 px-6 py-3 rounded-full bg-salon-gold text-white font-medium hover:bg-salon-brown transition-all text-center shadow-lg"
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              document.body.style.overflow = '';
+              document.documentElement.style.overflow = '';
+            }}
+          >
+            Boka Nu
+          </a>
 
-  {/* Telefonnummer rad */}
-  <a 
-    href="tel:+46854904050" 
-    className="flex items-center mt-4 text-white hover:text-salon-gold transition-all"
-    onClick={() => {
-      setIsMobileMenuOpen(false);
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    }}
-  >
-    <Phone size={16} className="mr-2" />
-    <span style={{ fontSize: '14px' }}>08-549 040 50</span>
-  </a>
-</div>
+          {/* Phone number row */}
+          <a 
+            href="tel:+46854904050" 
+            className="flex items-center mt-4 text-white hover:text-salon-gold transition-all"
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              document.body.style.overflow = '';
+              document.documentElement.style.overflow = '';
+            }}
+          >
+            <Phone size={16} className="mr-2" />
+            <span style={{ fontSize: '14px' }}>08-549 040 50</span>
+          </a>
         </div>
       </nav>
     </>
