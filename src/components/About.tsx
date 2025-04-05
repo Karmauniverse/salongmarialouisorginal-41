@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from 'react';
 import AboutIntro from './about/AboutIntro';
 import MariaBio from './about/MariaBio';
 import ValentinaBio from './about/ValentinaBio';
-import GabrielBio from './about/GabrielBio';
 
 const About: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -41,7 +40,6 @@ const About: React.FC = () => {
         <AboutIntro refCallback={(el) => elementsRef.current[0] = el} />
         <MariaBio refCallback={(el) => elementsRef.current[1] = el} />
         <ValentinaBio refCallback={(el) => elementsRef.current[2] = el} />
-        <GabrielBio refCallback={(el) => elementsRef.current[3] = el} />
       </div>
     </section>
   );

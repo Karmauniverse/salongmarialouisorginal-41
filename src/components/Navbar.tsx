@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, Phone } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,12 +41,6 @@ const Navbar: React.FC = () => {
       return;
     }
     
-    // Check if this is a separate page route
-    if (href === '/reviews' || href === '/event') {
-      window.location.href = href;
-      return;
-    }
-    
     // Get the element to scroll to
     const targetElement = document.querySelector(href);
     if (targetElement) {
@@ -74,10 +67,6 @@ const Navbar: React.FC = () => {
       name: 'Om Oss',
       href: '#about'
     }, 
-    {
-      name: 'Event',
-      href: '/event'
-    },
     {
       name: 'Kontakt',
       href: '#contact'
@@ -139,24 +128,24 @@ const Navbar: React.FC = () => {
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={28} strokeWidth={2.5} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation - Fixed position with solid background color */}
+        {/* Mobile Navigation - Now with frosted glass effect */}
         <div className={cn(
-          "fixed inset-0 z-40 flex flex-col pt-24 px-6 transition-all duration-500 ease-in-out md:hidden shadow-lg",
-          "bg-salon-cream",
+          "fixed inset-0 z-40 flex flex-col pt-24 px-6 backdrop-blur-md transition-all duration-500 ease-in-out md:hidden shadow-lg",
+          "bg-gradient-to-b from-salon-dark/90 to-salon-dark/85",
           isMobileMenuOpen 
             ? "opacity-100 translate-x-0" 
             : "opacity-0 translate-x-full pointer-events-none"
         )}>
-          <div className="flex flex-col space-y-6 items-center max-h-[calc(100vh-100px)] overflow-auto">
+          <div className="flex flex-col space-y-6 items-center">
             {navLinks.map(link => (
               <a 
                 key={link.name}
                 href={link.href} 
-                className="text-salon-dark text-lg font-medium relative after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:w-1/2 after:mx-auto after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:right-0 hover:text-salon-gold pb-1 block" 
+                className="text-white text-lg font-medium relative after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:w-1/2 after:mx-auto after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:right-0 hover:text-salon-gold pb-1 block" 
                 onClick={(e) => handleNavLinkClick(e, link.href)}
               >
                 {link.name}
@@ -176,7 +165,7 @@ const Navbar: React.FC = () => {
             </a>
             <a 
               href="tel:+46701234567" 
-              className="flex items-center justify-center w-full text-center px-5 py-2.5 rounded-full border border-salon-gold text-salon-dark font-medium hover:bg-salon-gold/30 transition-all"
+              className="flex items-center justify-center w-full text-center px-5 py-2.5 rounded-full border border-salon-gold text-white font-medium hover:bg-salon-gold/30 transition-all"
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 document.body.style.overflow = '';
