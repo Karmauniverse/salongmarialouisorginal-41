@@ -31,11 +31,11 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-black">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Hero-bild */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/uploads/hero-final.jpg"
+          src="/lovable-uploads/hero%20final.jpg"
           alt="Maria Louis Hårsalong"
           className="w-full h-full object-cover object-[center_top] transition-all duration-500 ease-in-out"
         />
