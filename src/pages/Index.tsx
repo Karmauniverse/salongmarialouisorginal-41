@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -52,19 +51,11 @@ const Index = () => {
         <>
           <Testimonials />
           <Contact />
-          <SpecialDay /> {/* After Contact on mobile */}
+          <section id="event">
+            <SpecialDay /> {/* After Contact on mobile */}
+          </section>
         </>
       ) : (
         <>
           <Testimonials />
-          <SpecialDay /> {/* After Testimonials but before Contact on desktop */}
-          <Contact />
-        </>
-      )}
-      
-      <Footer />
-    </div>
-  );
-};
-
-export default Index;
+          <section id
