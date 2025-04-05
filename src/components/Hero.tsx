@@ -1,7 +1,7 @@
+
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown, Phone } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import Image from 'next/image';
 
 const Hero = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -44,12 +44,12 @@ const Hero = () => {
 
       {/* Logga i övre vänstra hörnet */}
       <div className="absolute top-4 left-4 z-10">
-        <Image
+        <img
           src="/uploads/logo-final.jpg"
           alt="Maria Louis Logo"
           width={160}
           height={80}
-          className="object-contain"
+          className="object-contain w-[160px] h-[80px]"
         />
       </div>
 
