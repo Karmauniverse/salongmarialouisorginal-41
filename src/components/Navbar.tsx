@@ -131,49 +131,57 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <div className={cn(
-          "fixed inset-0 z-40 flex flex-col pt-24 px-6 backdrop-blur-md transition-all duration-500 ease-in-out md:hidden shadow-lg",
-          "bg-gradient-to-b from-salon-dark/90 to-salon-dark/85",
-          isMobileMenuOpen 
-            ? "opacity-100 translate-x-0" 
-            : "opacity-0 translate-x-full pointer-events-none"
-        )}>
-          <div className="flex flex-col space-y-6 items-center">
-            {navLinks.map(link => (
-              <a 
-                key={link.name}
-                href={link.href} 
-                className="text-white text-lg font-medium relative after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:w-1/2 after:mx-auto after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:right-0 hover:text-salon-gold pb-1 block" 
-                onClick={(e) => handleNavLinkClick(e, link.href)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <a 
-              href="https://bokning.voady.se/marialouis/marialouisebarbershop/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full text-center px-5 py-3 rounded-full bg-salon-gold text-white font-medium mt-4 hover:bg-salon-brown transition-all" 
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                document.body.style.overflow = '';
-              }}
-            >
-              Boka Nu
-            </a>
-            <a 
-              href="tel:+46701234567" 
-              className="flex items-center justify-center w-full text-center px-5 py-2.5 rounded-full border border-salon-gold text-white font-medium hover:bg-salon-gold/30 transition-all"
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                document.body.style.overflow = '';
-              }}
-            >
-              <Phone size={14} className="mr-2" />
-              <span style={{ fontSize: '14px' }}>070-123 45 67</span>
-            </a>
-          </div>
+        {/* Mobilmeny - ny version utan glitch */}
+<div className={cn(
+  "fixed inset-0 z-40 flex flex-col items-center justify-center space-y-6 px-6 py-12 md:hidden transition-all duration-500 ease-in-out",
+  "bg-salon-dark text-white",
+  isMobileMenuOpen 
+    ? "opacity-100 translate-x-0" 
+    : "opacity-0 translate-x-full pointer-events-none"
+)}>
+  {/* Navigeringslänkar */}
+  <div className="flex flex-col items-center space-y-6">
+    {navLinks.map(link => (
+      <a 
+        key={link.name}
+        href={link.href} 
+        onClick={(e) => handleNavLinkClick(e, link.href)}
+        className="text-lg font-medium hover:text-salon-gold hover:tracking-wide transition-all"
+      >
+        {link.name}
+      </a>
+    ))}
+  </div>
+
+  {/* Boka tid-knapp */}
+  <a 
+    href="https://bokning.voady.se/marialouis/marialouisebarbershop/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-8 px-6 py-3 rounded-full bg-salon-gold text-white font-medium hover:bg-salon-brown transition-all text-center shadow-lg"
+    onClick={() => {
+      setIsMobileMenuOpen(false);
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }}
+  >
+    Boka Nu
+  </a>
+
+  {/* Telefonnummer rad */}
+  <a 
+    href="tel:+46854904050" 
+    className="flex items-center mt-4 text-white hover:text-salon-gold transition-all"
+    onClick={() => {
+      setIsMobileMenuOpen(false);
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }}
+  >
+    <Phone size={16} className="mr-2" />
+    <span style={{ fontSize: '14px' }}>08-549 040 50</span>
+  </a>
+</div>
         </div>
       </nav>
     </>
