@@ -34,7 +34,7 @@ const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img 
-          src="/lovable-uploads/hero final" 
+          src="/lovable-uploads/hero-final.png" 
           alt="Maria Louis Hårsalong" 
           className="w-full h-full object-cover object-center transition-all duration-500 ease-in-out" 
         />
