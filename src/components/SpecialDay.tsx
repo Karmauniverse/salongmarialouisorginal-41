@@ -1,19 +1,15 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Phone, Heart } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const SpecialDay: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
-  
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -22,22 +18,18 @@ const SpecialDay: React.FC = () => {
         }
       });
     }, observerOptions);
-    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
-    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-  
-  return (
-    <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20 relative overflow-hidden">
+  return <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20 relative overflow-hidden">
       <div className="section-container">
-        <div className="bg-salon-beige/30 rounded-full w-fit mx-auto mb-4 py-0 px-[8px]">
+        <div className="bg-salon-beige/30 rounded-full w-fit mx-auto mb-4 py-0 px-[9px]">
           <p className="font-medium font-lora text-center px-[24px] text-sm py-[8px] text-salon-gold">Event</p>
         </div>
         
@@ -50,11 +42,7 @@ const SpecialDay: React.FC = () => {
             <div className="relative z-10">
               {/* Image of bride at hair salon */}
               <div className="mb-8">
-                <img 
-                  src="/lovable-uploads/4a0eeba4-f2e4-4729-8d06-3fe1219a956f.png" 
-                  alt="Brud hos frisören" 
-                  className="rounded-lg w-full max-w-2xl mx-auto shadow-sm" 
-                />
+                <img src="/lovable-uploads/4a0eeba4-f2e4-4729-8d06-3fe1219a956f.png" alt="Brud hos frisören" className="rounded-lg w-full max-w-2xl mx-auto shadow-sm" />
               </div>
               
               <p className="font-lora text-salon-dark/90 mb-6 leading-relaxed max-w-2xl mx-auto text-lg my-[44px] py-0 font-normal">
@@ -91,8 +79,6 @@ const SpecialDay: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default SpecialDay;
