@@ -25,7 +25,7 @@ export const serviceCategories: ServiceCategory[] = [
       { name: "Folieslingor inkl. klipp - Kort hår", price: "fr. 1 590 kr" },
       { name: "Folieslingor inkl. klipp - Mellanlångt", price: "fr. 1 930 kr" },
       { name: "Folieslingor inkl. klipp - Långt", price: "fr. 2 230 kr" },
-   { name: "Folieslingor", price: "", isTitle: true },
+   { name: "--- Folieslingor ---", price: "" },
 { name: "Kort hår/botten", price: "fr. 1 140 kr" },
 { name: "Mellanlångt hår", price: "fr. 1 690 kr" },
 { name: "Långt/tjockt hår", price: "fr. 1 990 kr" },
