@@ -10,7 +10,7 @@ export const serviceCategories: ServiceCategory[] = [
     description: "Professionell klippning anpassad efter din stil och önskemål.",
     services: [
       { name: "Kort hår", price: "fr. 390 kr" },
-      { name: "MellanLångt hår", price: "fr. 470 kr" },
+      { name: "Mellanlångt hår", price: "fr. 470 kr" },
       { name: "Ny frisyr/tjockt hår", price: "fr. 560 kr" },
       { name: "Ungdom (8–18 år)", price: "350 kr" },
       { name: "Barnklippning (t.o.m. 7 år)", price: "290 kr" },
