@@ -29,7 +29,7 @@ const Hero = () => {
   }, []);
   return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src="/lovable-uploads/2caa78f5-f83a-423d-b043-03fcbcf01718.png" alt="Maria Louis Hårsalong" className="w-full h-full object-center object-top transition-all duration-500 ease-in-out" />
+        <img src="/lovable-uploads/2caa78f5-f83a-423d-b043-03fcbcf01718.png" alt="Maria Louis Hårsalong" className="w-full h-full object-cover object-top transition-all duration-500 ease-in-out" />
       </div>
       
       {/* Frosted glass effect overlay */}
