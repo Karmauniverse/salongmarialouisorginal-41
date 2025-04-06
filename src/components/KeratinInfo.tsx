@@ -70,7 +70,7 @@ const KeratinInfo: React.FC = () => {
               </div>
               <div className="flex flex-col items-center">
                 <img src="/lovable-uploads/6d229b61-d343-44be-8f29-98f8bd23d332.png" alt="Återfukt" className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} />
-                <span className="text-xs font-medium text-salon-dark/70 mt-2 py-[8px] my-0">Återfukt</span>
+                <span className="text-xs font-medium text-salon-dark/70 mt-2 py-0 my-[9px]">Återfukt</span>
               </div>
               <div className="flex flex-col items-center">
                 <img src="/lovable-uploads/676e9e55-34a5-4db4-a58d-553fd76d764b.png" alt="Vegan" className={`${isMobile ? 'w-14 h-14' : 'w-20 h-20'} object-contain`} />
