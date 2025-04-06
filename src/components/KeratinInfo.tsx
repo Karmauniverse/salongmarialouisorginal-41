@@ -30,7 +30,7 @@ const KeratinInfo: React.FC = () => {
   return <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
       <div className="section-container">
         <div className="bg-salon-beige/30 rounded-full w-fit mx-auto mb-4 py-0 px-[8px]">
-          <p className="font-medium font-lora text-center text-salon-gold px-[24px] text-sm my-0 py-[35px]">Behandlingar</p>
+          <p className="font-medium font-lora text-center text-salon-gold text-sm my-0 py-0 px-[7px]">Behandlingar</p>
         </div>
         
         <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4 py-[25px] my-0">
@@ -38,7 +38,7 @@ const KeratinInfo: React.FC = () => {
             KERATINBEHANDLING
           </h3>
           
-          <div className="bg-white p-8 md:p-10 rounded-xl shadow-md px-[41px] py-[65px]">
+          <div className="bg-white p-8 md:p-10 rounded-xl shadow-md px-[41px] py-[21px]">
             {/* Image of woman with dark hair */}
             <div className="mb-8">
               <img src="/lovable-uploads/09ee0d34-8776-4e34-9099-7c28d0ca9359.png" alt="Keratinbehandling" className="rounded-lg w-full max-w-2xl mx-auto shadow-sm object-fill" />
