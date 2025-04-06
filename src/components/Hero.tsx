@@ -29,10 +29,11 @@ const Hero = () => {
   }, []);
   return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src="/lovable-uploads/2caa78f5-f83a-423d-b043-03fcbcf01718.png" alt="Maria Louis Hårsalong" className="w-full h-full object-cover object-top transition-all duration-500 ease-in-out" />
+        <img src="/lovable-uploads/2caa78f5-f83a-423d-b043-03fcbcf01718.png" alt="Maria Louis Hårsalong" className="w-full h-full object-cover object-left md:object-top transition-all duration-500 ease-in-out" />
       </div>
       
       {/* Frosted glass effect overlay */}
+      <div className="absolute inset-0 backdrop-blur-[2px] bg-black/[0.63]"></div>
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
