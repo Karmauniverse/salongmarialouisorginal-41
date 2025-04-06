@@ -34,7 +34,6 @@ export const serviceCategories: ServiceCategory[] = [
     { name: "Mellanlångt hår", price: "fr. 1 690 kr" },
     { name: "Långt/tjockt hår", price: "fr. 1 990 kr" }
   ]
-}
   },
   {
     icon: React.createElement(Droplet, { size: 28, className: "text-salon-gold" }),
