@@ -33,7 +33,7 @@ const Hero = () => {
       </div>
       
       {/* Frosted glass effect overlay */}
-      <div className="absolute inset-0 backdrop-blur-[4px] bg-transparent z-10"></div>
+      <div className="absolute inset-0 backdrop-blur-[2px] bg-black/40 z-10"></div>
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
