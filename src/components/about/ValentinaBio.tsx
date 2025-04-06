@@ -1,31 +1,23 @@
-
 import React from 'react';
 import { Instagram } from 'lucide-react';
 import FeatureItem from './FeatureItem';
-
 interface ValentinaBioProps {
   refCallback: (el: HTMLDivElement | null) => void;
 }
-
 const ValentinaBio: React.FC<ValentinaBioProps> = ({
   refCallback
 }) => {
-  return (
-    <div ref={refCallback} className="animated-element mt-10">
+  return <div ref={refCallback} className="animated-element mt-10">
       <div className="bg-white rounded-xl shadow-xl overflow-hidden">
         <div className="grid md:grid-cols-2 gap-0">
           <div className="relative md:h-auto">
             <div className="h-full overflow-hidden">
-              <img 
-                src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png" 
-                alt="Valentina" 
-                className="w-full h-full object-cover object-center" 
-              />
+              <img src="/lovable-uploads/5573a92a-5f13-4c18-9be6-e18b749cd68e.png" alt="Valentina" className="w-full h-full object-cover object-center" />
               <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent md:bg-gradient-to-r"></div>
             </div>
           </div>
           
-          <div className="relative h-full bg-salon-cream/30 p-6 md:p-8 flex items-center justify-center">
+          <div className="relative h-full bg-salon-cream/30 p-6 md:p-8 flex items-center justify-center py-[44px]">
             <div className="max-w-md">
               <span className="text-sm text-salon-brown font-medium mb-1 block">Keratinspecialist</span>
               <h2 className="text-3xl font-serif font-medium mb-5">
@@ -56,8 +48,6 @@ const ValentinaBio: React.FC<ValentinaBioProps> = ({
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ValentinaBio;
