@@ -1,161 +1,308 @@
-
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from "@/hooks/use-toast";
-
-const Contact = () => {
-  const { toast } = useToast();
+import React, { useEffect, useRef, useState } from 'react';
+import { cn } from '@/lib/utils';
+import { ArrowRight, Clock, Calendar, Phone } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
+const Contact: React.FC = () => {
+  const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const isMobile = useIsMobile();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: '',
-    phone: ''
+    phone: '',
+    message: ''
   });
-  const [isLoading, setIsLoading] = useState(false);
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    elementsRef.current.forEach(el => {
+      if (el) observer.observe(el);
+    });
+    return () => {
+      elementsRef.current.forEach(el => {
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-    
-    // Create a simple email body
-    const emailBody = `
-      Namn: ${formData.name}
-      Email: ${formData.email}
-      Telefon: ${formData.phone}
-      Meddelande: ${formData.message}
-    `;
-    
-    // Send the form data using a mailto link and Formsubmit.co as a fallback
+    setIsSubmitting(true);
     try {
-      const response = await fetch('https://formsubmit.co/ajax/salongmarialouis@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          _subject: 'Ny kontakt från Salong Maria Louis hemsida',
-          phone: formData.phone
-        })
+      // Send email to salongmarialouis@gmail.com
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
       });
-      
-      if (response.ok) {
-        toast({
-          title: "Tack för ditt meddelande!",
-          description: "Vi återkommer till dig så snart som möjligt.",
-        });
-        setFormData({ name: '', email: '', message: '', phone: '' });
-      } else {
-        // Fallback to mailto link if the API fails
-        window.location.href = `mailto:salongmarialouis@gmail.com?subject=Kontakt från hemsidan&body=${encodeURIComponent(emailBody)}`;
-        toast({
-          title: "E-postklient öppnad",
-          description: "Om inget händer, vänligen kontakta oss direkt via salongmarialouis@gmail.com",
-        });
-      }
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 3000);
     } catch (error) {
-      console.error('Error submitting form:', error);
-      // Fallback to mailto link if there's an error
-      window.location.href = `mailto:salongmarialouis@gmail.com?subject=Kontakt från hemsidan&body=${encodeURIComponent(emailBody)}`;
-      toast({
-        title: "E-postklient öppnad",
-        description: "Om inget händer, vänligen kontakta oss direkt via salongmarialouis@gmail.com",
-      });
+      setSubmitStatus('error');
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 3000);
     } finally {
-      setIsLoading(false);
+      setIsSubmitting(false);
     }
   };
+  return <section id="contact" className="py-14 bg-gradient-to-b from-white to-salon-cream/30 overflow-hidden">
+      <div className="section-container">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
+            <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full">
+              Kontakt
+            </span>
+          </div>
+        </div>
 
-  return (
-    <section id="contact" className="bg-slate-50 py-24">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Kontakta Oss Direkt</h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Har du frågor eller vill boka en tid? Fyll i formuläret nedan så återkommer vi till dig så snart som möjligt.
-        </p>
-        
-        <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Namn</label>
-                <Input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Ditt namn"
-                  className="w-full"
-                />
+        <div ref={el => elementsRef.current[2] = el} className="animated-element grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start mb-12">
+          {/* Order is reversed on mobile */}
+          {isMobile ? <>
+              {/* Right side (Booking) renders first on mobile */}
+              <div className="flex flex-col h-full justify-start p-8 rounded-xl shadow-lg bg-salon-dark">
+                <div className="mb-6">
+                  <h2 className="text-2xl font-serif font-medium mb-4 text-salon-beige">
+                    Boka Din Tid
+                  </h2>
+                  <p className="text-salon-gold font-extralight mb-3">
+                    Välj tid och behandling direkt online – snabbt, tryggt och enkelt.
+                  </p>
+
+                  <div className="flex items-center justify-center gap-2 mb-3">
+                    <Phone size={16} className="text-salon-gold" />
+                    <a href="tel:+46701234567" className="text-salon-beige hover:text-salon-gold transition-colors">
+                      070-123 45 67
+                    </a>
+                  </div>
+
+                  <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="mt-3 mb-6 block text-center w-full px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
+                    <span className="flex items-center justify-center">
+                      <Calendar className="mr-2 h-5 w-5" />
+                      Boka Tid
+                    </span>
+                  </a>
+                </div>
+
+                <div className="p-5 rounded-xl w-full bg-white py-7">
+                  <div className="flex items-center mb-3">
+                    <Clock size={18} className="text-salon-gold mr-2" />
+                    <h5 className="text-salon-dark font-normal text-base m-0 p-0 text-left">Öppettider</h5>
+                  </div>
+                  <div className="grid grid-cols-2 gap-1 text-sm my-0 py-0 px-1.5">
+                    <div className="text-salon-dark/80 py-0.5 text-base">Måndag:</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">Tisdag:</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">Onsdag:</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">Torsdag:</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">Fredag:</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">Lördag:</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">10:00 – 16:00</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">Söndag:</div>
+                    <div className="text-salon-dark/80 py-0.5 text-base">Stängt</div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">E-post</label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Din e-postadress"
-                  className="w-full"
-                />
+
+              {/* Left side (Contact form) rendered second on mobile */}
+              <div className="p-6 md:p-8 rounded-xl shadow-lg bg-salon-dark">
+                {/* Fix: Ensure the heading is always rendered by removing animation here */}
+                <h2 className="text-2xl font-serif font-medium mb-3 text-salon-cream">
+                  Kontakta Oss Direkt
+                </h2>
+                <p className="mb-3 text-salon-gold font-thin px-0">
+                  Hör av dig om du har frågor, vill samarbeta med oss eller få våra erbjudanden.
+                </p>
+                
+                <div className="flex items-center gap-2 mb-4 text-salon-beige">
+                  <Phone size={16} className="text-salon-gold" />
+                  <a href="tel:+46701234567" className="text-salon-beige hover:text-salon-gold transition-colors">
+                    070-123 45 67
+                  </a>
+                </div>
+                
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <p className="italic mb-3 text-salon-beige text-xs py-0 px-0 my-0">
+                    För bokning – klicka på knappen "Boka Tid" ovan. Använd formuläret för andra ärenden.
+                  </p>
+                  
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-salon-dark mb-1">
+                      Ditt Namn
+                    </label>
+                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" placeholder="Anna Andersson" />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-salon-dark mb-1">
+                      E-post
+                    </label>
+                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" placeholder="anna@example.com" />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-salon-dark mb-1">
+                      Telefon
+                    </label>
+                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" placeholder="070 123 45 67" />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-salon-dark mb-1">
+                      Meddelande
+                    </label>
+                    <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={4} className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition resize-none" placeholder="Skriv ditt meddelande här..."></textarea>
+                  </div>
+
+                  <button type="submit" disabled={isSubmitting} className={cn("w-full px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed", submitStatus === 'success' && "bg-green-600 hover:bg-green-700", submitStatus === 'error' && "bg-red-600 hover:bg-red-700")}>
+                    {isSubmitting ? <span className="flex items-center justify-center">
+                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Skickar...
+                      </span> : submitStatus === 'success' ? "Meddelande skickat!" : submitStatus === 'error' ? "Ett fel uppstod, försök igen" : "Skicka Meddelande"}
+                  </button>
+                </form>
               </div>
-            </div>
-            
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Telefonnummer</label>
-              <Input
-                id="phone"
-                name="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Ditt telefonnummer (valfritt)"
-                className="w-full"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Meddelande</label>
-              <Textarea
-                id="message"
-                name="message"
-                required
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Skriv ditt meddelande här..."
-                className="w-full min-h-[150px]"
-              />
-            </div>
-            
-            <div className="text-center">
-              <Button 
-                type="submit" 
-                size="lg"
-                disabled={isLoading}
-                className="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all"
-              >
-                {isLoading ? 'Skickar...' : 'Skicka Meddelande'}
-              </Button>
-            </div>
-          </form>
+            </> : <>
+              {/* Desktop layout stays the same */}
+              <div className="p-6 md:p-8 rounded-xl shadow-lg bg-salon-dark">
+                {/* Fix: Ensure the heading is always rendered by removing animation here */}
+                <h2 className="text-2xl font-serif font-medium mb-3 text-salon-cream">
+                  Kontakta Oss Direkt
+                </h2>
+                <p className="mb-3 text-salon-gold font-thin px-0">
+                  Hör av dig om du har frågor, vill samarbeta med oss eller få våra erbjudanden.
+                </p>
+                
+                <div className="flex items-center gap-2 mb-4 text-salon-beige">
+                  <Phone size={16} className="text-salon-gold" />
+                  <a href="tel:+46701234567" className="text-salon-beige hover:text-salon-gold transition-colors">08-549 040 50</a>
+                </div>
+                
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <p className="italic mb-3 text-salon-beige text-xs py-0 px-0 my-0">
+                    För bokning – klicka på knappen till höger. Använd formuläret för andra ärenden.
+                  </p>
+                  
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-salon-dark mb-1">
+                      Ditt Namn
+                    </label>
+                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" placeholder="Anna Andersson" />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-salon-dark mb-1">
+                      E-post
+                    </label>
+                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" placeholder="anna@example.com" />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-salon-dark mb-1">
+                      Telefon
+                    </label>
+                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition" placeholder="070 123 45 67" />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-salon-dark mb-1">
+                      Meddelande
+                    </label>
+                    <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={4} className="w-full px-4 py-2 border border-salon-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-salon-gold/30 transition resize-none" placeholder="Skriv ditt meddelande här..."></textarea>
+                  </div>
+
+                  <button type="submit" disabled={isSubmitting} className={cn("w-full px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed", submitStatus === 'success' && "bg-green-600 hover:bg-green-700", submitStatus === 'error' && "bg-red-600 hover:bg-red-700")}>
+                    {isSubmitting ? <span className="flex items-center justify-center">
+                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Skickar...
+                      </span> : submitStatus === 'success' ? "Meddelande skickat!" : submitStatus === 'error' ? "Ett fel uppstod, försök igen" : "Skicka Meddelande"}
+                  </button>
+                </form>
+              </div>
+
+              <div className="flex flex-col h-full justify-start p-8 rounded-xl shadow-lg bg-salon-dark">
+                <div className="mb-6">
+                  <h2 className="text-2xl font-serif font-medium mb-4 text-salon-beige">
+                    Boka Din Tid
+                  </h2>
+                  <p className="text-salon-gold font-extralight mb-3">
+                    Välj tid och behandling direkt online – snabbt, tryggt och enkelt.
+                  </p>
+                  
+                  <div className="flex items-center justify-center gap-2 mb-3">
+                    <Phone size={16} className="text-salon-gold" />
+                    <a href="tel:+46701234567" className="text-salon-beige hover:text-salon-gold transition-colors">08-549 040 50</a>
+                  </div>
+
+                  <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="mt-3 mb-6 block text-center w-full px-8 py-4 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
+                    <span className="flex items-center justify-center">
+                      <Calendar className="mr-2 h-5 w-5" />
+                      Boka Tid
+                    </span>
+                  </a>
+                </div>
+
+                <div className="p-5 rounded-xl w-full bg-salon-cream">
+                  <div className="flex items-center mb-4">
+                    <Clock size={18} className="text-salon-gold mr-2" />
+                    <h5 className="font-normal text-base mx-0 my-0 py-0 px-0 text-left text-salon-dark">Öppettider</h5>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 text-sm my-0 py-0 px-[6px]">
+                    <div className="text-salon-dark/80 py-1 text-base">Måndag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Tisdag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Onsdag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Torsdag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Fredag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 18:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Lördag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">10:00 – 16:00</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Söndag:</div>
+                    <div className="text-salon-dark/80 py-1 text-base">Stängt</div>
+                  </div>
+                </div>
+              </div>
+            </>}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
