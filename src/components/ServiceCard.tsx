@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 export interface ServiceItem {
   name: string;
   price: string;
+  isSubheading?: boolean;
 }
 
 interface ServiceCardProps {
@@ -80,16 +81,28 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <div className="border-t border-salon-beige/30">
             <div className="px-6 py-4 space-y-3">
               {services.map((service, index) => (
-                <div 
-                  key={index} 
-                  className={cn(
-                    "py-3 flex flex-col",
-                    index !== services.length - 1 && "border-b border-salon-beige/30"
-                  )}
-                >
-                  <span className="font-medium text-salon-dark">{service.name}</span>
-                  <span className="text-salon-brown mt-1">{service.price}</span>
-                </div>
+                service.isSubheading ? (
+                  <div 
+                    key={index} 
+                    className={cn(
+                      "py-3 mt-6 mb-3",
+                      index !== 0 && "border-t border-salon-beige/30 pt-5"
+                    )}
+                  >
+                    <span className="font-serif font-medium text-salon-dark text-lg">{service.name}</span>
+                  </div>
+                ) : (
+                  <div 
+                    key={index} 
+                    className={cn(
+                      "py-3 flex flex-col",
+                      index !== services.length - 1 && !services[index + 1]?.isSubheading && "border-b border-salon-beige/30"
+                    )}
+                  >
+                    <span className="font-medium text-salon-dark">{service.name}</span>
+                    <span className="text-salon-brown mt-1">{service.price}</span>
+                  </div>
+                )
               ))}
             </div>
           </div>
