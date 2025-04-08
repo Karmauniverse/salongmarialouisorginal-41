@@ -1,7 +1,7 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero'; 
+
 import Services from '../components/Services';
 import Gallery from '../components/Gallery';
 import Testimonials from '../components/Testimonials';
@@ -42,8 +42,9 @@ const Index = () => {
     <div className="min-h-screen bg-salon-cream overflow-x-hidden w-full max-w-[100vw]">
       <Navbar />
       <Hero />
-      
-      <section className="py-16 px-4 text-center bg-white">
+
+      {/* 👇 Välkomstsektion med beige bakgrund och större typografi */}
+      <section className="py-20 px-4 text-center" style={{ backgroundColor: "#f8f5f2" }}>
         <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-gray-900">
           Välkommen till Maria Louis – i hjärtat av Örnsberg
         </h2>
@@ -63,7 +64,7 @@ const Index = () => {
           </a>
         </div>
       </section>
-      
+
       <Services />
       <KeratinInfo />
       <Gallery />
