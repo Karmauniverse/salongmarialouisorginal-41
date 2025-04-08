@@ -24,6 +24,7 @@ const Navbar: React.FC = () => {
       document.body.style.overflow = '';
     }
   };
+
   const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
 
@@ -73,34 +74,29 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <>
-      <nav className={cn(
-        'fixed w-full z-50 transition-all duration-500',
-        isScrolled 
-          ? 'backdrop-blur-lg bg-white/70 shadow-md py-3' 
-          : 'bg-transparent py-6'
-      )}>
-        <div className="container flex justify-between items-center">
-          <a href="/" className="flex items-center" onClick={(e) => handleNavLinkClick(e, '/')}>
-            <img 
-              src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
-              alt="Maria Louis Logotyp" 
-              className="h-16 md:h-20 mr-3 transition-all duration-300" 
-            />
-          </a>
+    <nav
+      className={cn(
+        'fixed w-full z-50 transition-all duration-300',
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-3' : 'bg-transparent py-6'
+      )}
+    >
+      <div className="container flex justify-between items-center">
+        <a href="#home" className="flex items-center">
+          <img 
+            src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
+            alt="Maria Louis Logotyp" 
+            className="h-12 mr-3"
+          />
+          <span className="font-serif text-xl sm:text-2xl font-medium text-salon-dark hidden sm:inline-block">Maria Louis</span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map(link => (
-              <a 
-                key={link.name}
-                href={link.href} 
-                onClick={(e) => handleNavLinkClick(e, link.href)}
-                className={cn(
-                  "text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-2 px-1",
-                  isScrolled ? "text-salon-dark" : "text-white drop-shadow-md",
-                  "after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full"
-                )}
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <a key={link.name} href={link.href} className="nav-link text-sm font-medium">
+              {link.name}
+            </a>
+          ))}
               >
                 {link.name}
               </a>
