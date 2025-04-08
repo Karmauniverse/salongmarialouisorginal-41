@@ -4,6 +4,7 @@ import { MapPin, Phone, Clock, Mail, CalendarDays } from 'lucide-react';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
+
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [formState, setFormState] = useState({
@@ -12,6 +13,7 @@ const Contact: React.FC = () => {
     phone: '',
     message: ''
   });
+
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -35,6 +37,7 @@ const Contact: React.FC = () => {
       });
     };
   }, []);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -45,6 +48,7 @@ const Contact: React.FC = () => {
       [name]: value
     }));
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formState);
@@ -61,6 +65,7 @@ const Contact: React.FC = () => {
     // Show success message (would use a toast in a real implementation)
     alert('Tack för ditt meddelande! Vi återkommer så snart som möjligt.');
   };
+
   const contactInfoItems = [{
     icon: <MapPin size={22} className="text-white" />,
     title: "Plats",
@@ -76,7 +81,9 @@ const Contact: React.FC = () => {
     title: "Öppettider",
     details: ["Måndag–Fredag: 10:00 – 18:00", "Lördag: 10:00 – 16:00", "Söndag: Stängt"]
   }];
-  return <section id="contact" className="py-20 bg-gradient-to-b from-white to-salon-cream/50">
+
+  return (
+    <section id="contact" className="py-20 bg-gradient-to-b from-white to-salon-cream/50">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
@@ -97,21 +104,39 @@ const Contact: React.FC = () => {
                 <h3 className="text-2xl font-serif mb-8 text-salon-gold">Kontakt</h3>
                 
                 <div className="space-y-6">
-                  {contactInfoItems.map((item, index) => <div key={index} className="flex group">
+                  {contactInfoItems.map((item, index) => (
+                    <div key={index} className="flex group">
                       <div className="mr-4 p-3 bg-salon-gold/20 rounded-full group-hover:bg-salon-gold transition-all duration-300">
                         {item.icon}
                       </div>
                       <div>
                         <h4 className="font-serif text-lg mb-2 text-salon-gold">{item.title}</h4>
-                        {item.details.map((detail, i) => <p key={i} className="text-white/80">
-                            {item.link && i === 0 ? <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:text-salon-gold transition-colors">
+                        {item.details.map((detail, i) => (
+                          <p key={i} className="text-white/80">
+                            {item.link && i === 0 ? (
+                              <a
+                                href={item.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-salon-gold transition-colors"
+                              >
                                 {detail}
-                              </a> : item.emailLink && detail.includes('@') ? <a href={item.emailLink} className="hover:text-salon-gold transition-colors">
+                              </a>
+                            ) : item.emailLink && detail.includes('@') ? (
+                              <a
+                                href={item.emailLink}
+                                className="hover:text-salon-gold transition-colors"
+                              >
                                 {detail}
-                              </a> : detail}
-                          </p>)}
+                              </a>
+                            ) : (
+                              detail
+                            )}
+                          </p>
+                        ))}
                       </div>
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
                 
                 <div className="pt-6 border-t border-white/10">
@@ -134,14 +159,19 @@ const Contact: React.FC = () => {
           </div>
           
           <div className="order-1 md:order-2">
-            <div ref={el => elementsRef.current[4] = el} className="animated-element rounded-lg shadow-xl p-8 relative overflow-hidden bg-salon-beige">
+            <div ref={el => elementsRef.current[4] = el} className="animated-element bg-white rounded-lg shadow-xl p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-salon-gold/10 rounded-full -mt-16 -mr-16"></div>
               <div className="absolute bottom-0 left-0 w-20 h-20 bg-salon-gold/10 rounded-full -mb-10 -ml-10"></div>
               
               <h3 className="text-2xl font-serif mb-8 text-salon-dark relative z-10">Boka Online</h3>
               
               <div className="space-y-6 relative z-10">
-                <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full py-4 px-6 bg-salon-gold text-white font-medium rounded hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg transform hover:translate-y-[-2px] group">
+                <a 
+                  href="https://bokning.voady.se/marialouis/marialouisebarbershop/" 
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="flex items-center justify-center w-full py-4 px-6 bg-salon-gold text-white font-medium rounded hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg transform hover:translate-y-[-2px] group"
+                >
                   <CalendarDays className="mr-2 group-hover:animate-pulse" size={20} />
                   <span>Boka din tid</span>
                 </a>
@@ -151,13 +181,9 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="mt-12 rounded-xl overflow-hidden shadow-xl h-[350px] animated-element max-w-2xl mx-auto" ref={el => elementsRef.current[5] = el}>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2036.3045283405952!2d17.967927615875607!3d59.29749641368024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77a391c3fb89%3A0x8c7533c3058e1459!2sH%C3%A4gerstensv%C3%A4gen%20170%2C%20126%2053%20H%C3%A4gersten!5e0!3m2!1ssv!2sse!4v1712583456789!5m2!1ssv!2sse" width="100%" height="100%" style={{
-          border: 0,
-          borderRadius: '1rem',
-          filter: 'grayscale(100%) brightness(112%)'
-        }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Contact;
