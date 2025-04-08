@@ -18,19 +18,22 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
-    icon: React.createElement(Palette, { size: 28, className: "text-salon-gold" }),
-    title: "Folieslingor & Färg",
-    description: "Professionell färgning och slingor för ett perfekt resultat.",
-    services: [
-      { name: "Folieslingor inkl. klipp - Kort hår", price: "fr. 1 590 kr" },
-      { name: "Folieslingor inkl. klipp - Mellanlångt", price: "fr. 1 930 kr" },
-      { name: "Folieslingor inkl. klipp - Långt", price: "fr. 2 230 kr" },
-      { name: "Balayage inkl. klipp", price: "fr. 2 530 kr" },
-      { name: "Folieslingor (utan klipp)", price: "" },
-      { name: "Kort hår/botten", price: "fr. 1 140 kr" },
-      { name: "Mellanlångt hår", price: "fr. 1 690 kr" },
-      { name: "Långt/tjockt hår", price: "fr. 1 990 kr" }
-    ]
+  icon: React.createElement(Palette, { size: 28, className: "text-salon-gold" }),
+  title: "Folieslingor & Färg",
+  description: "Professionell färgning och slingor för ett perfekt resultat.",
+  services: [
+    { name: "Folieslingor inkl. klipp - Kort hår", price: "fr. 1 590 kr" },
+    { name: "Folieslingor inkl. klipp - Mellanlångt", price: "fr. 1 930 kr" },
+    { name: "Folieslingor inkl. klipp - Långt", price: "fr. 2 230 kr" },
+    { name: "Balayage inkl. klipp", price: "fr. 2 530 kr" },
+
+    // Underrubrik – visas som fet text utan pris
+    { name: "Folieslingor (utan klipp)", price: "", isSubheading: true },
+
+    { name: "Kort hår/botten", price: "fr. 1 140 kr" },
+    { name: "Mellanlångt hår", price: "fr. 1 690 kr" },
+    { name: "Långt/tjockt hår", price: "fr. 1 990 kr" }
+  ]
   },
   {
     icon: React.createElement(Droplet, { size: 28, className: "text-salon-gold" }),
@@ -39,7 +42,15 @@ export const serviceCategories: ServiceCategory[] = [
     services: [
       { name: "Bottenfärg", price: "fr. 790 kr" },
       { name: "Toning", price: "fr. 740 kr" },
-      { name: "Slingor i hätta", price: "930 kr" }
+      { name: "Slingor i hätta", price: "930 kr" },
+      
+      // Ny underrubrik för Färg inkl. Klipp
+      { name: "Färg inkl. Klipp", price: "", isSubheading: true },
+      
+      { name: "Kort hår", price: "fr. 1210 kr" },
+      { name: "Mellan", price: "fr. 1460 kr" },
+      { name: "Långt", price: "fr. 1650 kr" },
+      { name: "Extra långt", price: "fr. 1700 kr" }
     ]
   },
   {
