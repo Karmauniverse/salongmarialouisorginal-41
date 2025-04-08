@@ -28,7 +28,7 @@ const SpecialDay: React.FC = () => {
     };
   }, []);
   return <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20 relative overflow-hidden">
-      <div className="section-container">
+      <div className="section-container bg-transparent">
         <div className="bg-salon-beige/30 rounded-full w-fit mx-auto mb-4 py-0 px-[9px]">
           <p className="font-medium font-lora text-center px-[24px] text-sm py-[8px] text-salon-gold">Event</p>
         </div>
