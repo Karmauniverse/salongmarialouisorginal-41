@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { Calendar, Scissors } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 import ServiceGrid from './ServiceGrid';
-import { serviceData } from '@/data/serviceData';
+import { serviceCategories } from '@/data/serviceData';
 
 const Services: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -54,7 +54,7 @@ const Services: React.FC = () => {
           </p>
         </div>
         
-        <ServiceGrid elementsRef={elementsRef} />
+        <ServiceGrid serviceCategories={serviceCategories} elementsRef={elementsRef} />
         
         <div className="mt-16 flex flex-col lg:flex-row items-center justify-center gap-6 transition-all">
           <a
