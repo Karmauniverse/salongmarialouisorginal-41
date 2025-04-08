@@ -23,7 +23,7 @@ const MariaBio: React.FC<MariaBioProps> = ({ refCallback }) => {
               
               <div className="space-y-4 text-salon-dark/80 mb-6">
                 <p>
-                  Maria är en passionerad och erfaren frisör med över 30 års arbete inom branschen och grundaren av salongen. Sedan 2010 har hon drivit sin salong med stort engagemang och hjärta, där hon sätter kundens behov och önskemål i centrum.
+                  Maria är en passionerad och erfaren frisör med över 35 års arbete inom branschen och grundaren av salongen. Sedan 2010 har hon drivit sin salong med stort engagemang och hjärta, där hon sätter kundens behov och önskemål i centrum.
                 </p>
                 
                 <p>
