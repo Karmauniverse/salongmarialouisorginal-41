@@ -53,4 +53,17 @@ const Services: React.FC = () => {
       </div>
     </section>;
 };
+        <div ref={el => elementsRef.current[5] = el} className="animated-element mt-12 w-full h-[400px] rounded-xl overflow-hidden shadow-md">
+          <iframe
+            title="Maria Louis Karta"
+            className="w-full h-full grayscale"
+            frameBorder="0"
+            scrolling="no"
+            marginHeight={0}
+            marginWidth={0}
+            src="https://www.openstreetmap.org/export/embed.html?bbox=17.9655%2C59.2955%2C17.9703%2C59.2990&layer=mapnik&marker=59.2974%2C17.9679"
+            style={{ border: '1px solid #ccc', borderRadius: '1rem' }}
+          ></iframe>
+        </div>
+
 export default Services;
