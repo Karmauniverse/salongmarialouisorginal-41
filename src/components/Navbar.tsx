@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
       href: '#about'
     }, 
     {
-      name: 'Kontakt',
+      name: 'Boka tid',
       href: '#contact'
     }
   ];

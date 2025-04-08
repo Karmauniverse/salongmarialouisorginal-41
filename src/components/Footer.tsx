@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Instagram, Facebook, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Separator } from "@/components/ui/separator";
@@ -41,7 +40,7 @@ const Footer: React.FC = () => {
                 { name: 'Behandlingar', href: '#services' },
                 { name: 'Galleri', href: '#gallery' },
                 { name: 'Om Oss', href: '#about' },
-                { name: 'Kontakt', href: '#contact' }
+                { name: 'Boka tid', href: '#contact' }
               ].map(link => (
                 <li key={link.name}>
                   <a 

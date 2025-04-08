@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -10,8 +11,10 @@ import Footer from '../components/Footer';
 import KeratinInfo from '../components/KeratinInfo';
 import SpecialDay from '../components/SpecialDay';
 import { useIsMobile } from '../hooks/use-mobile';
+
 const Index = () => {
   const isMobile = useIsMobile();
+  
   useEffect(() => {
     document.title = 'Maria Louis Hårsalong | Premiumstyling';
     const preventScrollJitter = () => {
@@ -31,6 +34,7 @@ const Index = () => {
     const cleanup = preventScrollJitter();
     return cleanup;
   }, []);
+  
   return <div className="min-h-screen overflow-x-hidden w-full max-w-[100vw] bg-transparent">
       <Navbar />
       <Hero />
@@ -57,24 +61,31 @@ const Index = () => {
 
       <Services />
       <KeratinInfo />
-      <Gallery />
-      <About />
-
-      {isMobile ? <>
-          <Testimonials />
-          <Contact />
+      
+      {isMobile ? (
+        <>
           <section id="event">
             <SpecialDay />
           </section>
-        </> : <>
+          <Gallery />
+          <Testimonials />
+          <About />
+          <Contact />
+        </>
+      ) : (
+        <>
+          <Gallery />
+          <About />
           <Testimonials />
           <section id="event">
             <SpecialDay />
           </section>
           <Contact />
-        </>}
+        </>
+      )}
 
       <Footer />
     </div>;
 };
+
 export default Index;
