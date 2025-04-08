@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-6">
-            <span className="inline-block px-6 py-2 bg-salon-gold/20 text-salon-gold text-sm md:text-base font-medium rounded-full border border-salon-gold/30 backdrop-blur-sm">
+            <span className="inline-block px-6 py-2 bg-salon-gold/ backdrop-blur-sm text-center text-white font-thin text-base my-[7px]">
               Salong
             </span>
           </div>
