@@ -45,7 +45,7 @@ const Index = () => {
       
       <section className="py-12 px-4 text-center bg-white">
         <h2 className="text-2xl font-semibold mb-2">Välkommen till Maria Louis – i hjärtat av Örnsberg</h2>
-        <p className="text-base max-w-l mx-auto mb-4">
+        <p className="text-base max-w-lg mx-auto mb-4">
           Med över 35 års samlad expertis erbjuder vi en plats där skönhet, omtanke och kvalitet möts.
           Här står du i fokus – oavsett om du kommer för en klippning, färg eller barbering.
         </p>
