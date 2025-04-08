@@ -180,17 +180,24 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-12 rounded-lg overflow-hidden shadow-xl h-[400px] animated-element" ref={el => elementsRef.current[5] = el}>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2036.3053323532837!2d17.967876!3d59.297445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77a391c3fb89%3A0x8c7533c3058e1459!2zSMOkZ2Vyc3RlbnN2w6RnZW4gMTcwLCAxMjYgNTMgSMOkZ2Vyc3Rlbg!5e0!3m2!1ssv!2sse!4v1709234567890!5m2!1ssv!2sse"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
+  <section className="mt-12 mb-12 w-full max-w-4xl mx-auto">
+  <h3 className="text-xl font-semibold mb-4 text-center">Hitta till oss</h3>
+  <div className="w-full h-[350px] rounded-xl overflow-hidden shadow-md">
+    <iframe
+      title="Maria Louis Karta"
+      className="w-full h-full grayscale"
+      frameBorder="0"
+      scrolling="no"
+      marginHeight={0}
+      marginWidth={0}
+      src="https://www.openstreetmap.org/export/embed.html?bbox=18.0061%2C59.3001%2C18.0121%2C59.3031&amp;layer=mapnik&amp;marker=59.3016,18.0091"
+      style={{ border: '1px solid #ccc', borderRadius: '1rem' }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</section>
       </div>
     </section>
   );
