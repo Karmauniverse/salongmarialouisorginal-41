@@ -33,15 +33,11 @@ const GabrielBio: React.FC<GabrielBioProps> = ({
               
               <div className="space-y-4 text-salon-dark/80 mb-6">
                 <p>
-                  Gabriel är en erfaren och professionell frisör med över 20 år i branschen. 
-                  Hans passion för kreativitet och frisöryrket genomsyrar varje behandling, 
-                  där han med trygghet och känsla för detaljer skapar både stil och självkänsla hos sina kunder.
+                  Gabriel är en erfaren frisör med över 20 år i branschen. Hans passion för yrket och sinne för detaljer präglar varje behandling, där han skapar både stil och självkänsla.
+Han välkomnar både barn och vuxna, damer som herrar, och erbjuder allt från klippningar och färg till modern barbering – alltid med ett varmt bemötande och ett öga för det personliga.
                 </p>
                 
                 <p>
-                  Han lyssnar alltid in dina önskemål och välkomnar både barn och vuxna, 
-                  damer som herrar. Gabriel utför alla typer av klippningar och färgbehandlingar 
-                  – samt modern barbering – med ett varmt bemötande och ett öga för det personliga.
                 </p>
               </div>
               
