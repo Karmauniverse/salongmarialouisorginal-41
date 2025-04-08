@@ -1,6 +1,25 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero'; 
+
+<Hero />
+
+<section className="py-12 px-4 text-center bg-white">
+  <h2 className="text-2xl font-semibold mb-2">Välkommen till Maria Louis – i hjärtat av Örnsberg</h2>
+  <p className="text-base max-w-l mx-auto mb-4">
+    Med över 35 års samlad expertis erbjuder vi en plats där skönhet, omtanke och kvalitet möts.
+    Här står du i fokus – oavsett om du kommer för en klippning, färg eller barbering.
+  </p>
+  <div className="mt-2">
+    <a href="#about" className="italic text-sm inline-flex items-center gap-1 text-gray-700 hover:text-black hover:underline">
+      Läs mer om oss
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</section>
 
 import Services from '../components/Services';
 import Gallery from '../components/Gallery';
@@ -42,29 +61,6 @@ const Index = () => {
     <div className="min-h-screen bg-salon-cream overflow-x-hidden w-full max-w-[100vw]">
       <Navbar />
       <Hero />
-
-      {/* 👇 Välkomstsektion med beige bakgrund och större typografi */}
-      <section className="py-20 px-4 text-center" style={{ backgroundColor: "#f8f5f2" }}>
-        <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-gray-900">
-          Välkommen till Maria Louis – i hjärtat av Örnsberg
-        </h2>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto mb-6 text-gray-800 leading-relaxed">
-          Med över 35 års samlad expertis erbjuder vi en plats där skönhet, omtanke och kvalitet möts.
-          Här står du i fokus – oavsett om du kommer för en klippning, färg eller barbering.
-        </p>
-        <div className="mt-2">
-          <a
-            href="#about"
-            className="italic text-base inline-flex items-center gap-1 text-[#C8AA8B] hover:text-black hover:underline transition-colors"
-          >
-            Läs mer om oss
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      </section>
-
       <Services />
       <KeratinInfo />
       <Gallery />
