@@ -1,11 +1,14 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { MapPin, Phone, Clock, Mail, CalendarDays } from 'lucide-react';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
+import { useToast } from '@/hooks/use-toast';
 
 const Contact: React.FC = () => {
+  const { toast } = useToast();
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [formState, setFormState] = useState({
     name: '',
@@ -62,8 +65,11 @@ const Contact: React.FC = () => {
       message: ''
     });
 
-    // Show success message (would use a toast in a real implementation)
-    alert('Tack för ditt meddelande! Vi återkommer så snart som möjligt.');
+    // Show success message using toast
+    toast({
+      title: "Tack för ditt meddelande!",
+      description: "Vi återkommer så snart som möjligt."
+    });
   };
 
   const contactInfoItems = [{
@@ -83,7 +89,7 @@ const Contact: React.FC = () => {
   }];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-white to-salon-cream/50">
+    <div id="contact" className="py-20 bg-gradient-to-b from-white to-salon-cream/50">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
@@ -181,8 +187,20 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="mt-12 rounded-xl overflow-hidden shadow-xl h-[350px] animated-element max-w-2xl mx-auto" ref={el => elementsRef.current[5] = el}>
+          <iframe
+            title="Maria Louis Karta"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2035.6872873958072!2d17.979410576922515!3d59.29883711575019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77bfcad5de59%3A0x6f608f4b756a585a!2zSMOkZ2Vyc3RlbnN2w6RnZW4gMTcwLCAxMjYgNTMgSMOkZ2Vyc3Rlbg!5e0!3m2!1ssv!2sse!4v1721584307855!5m2!1ssv!2sse"
+            width="100%"
+            height="100%"
+            style={{ border: 0, filter: 'grayscale(100%) brightness(112%)' }}
+            allowFullScreen={false}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-full"
+          />
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
