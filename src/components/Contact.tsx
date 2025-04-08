@@ -1,7 +1,6 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { MapPin, Phone, Clock, CalendarDays } from 'lucide-react';
+import { MapPin, Phone, Clock, Mail, CalendarDays } from 'lucide-react';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
@@ -179,18 +178,6 @@ const Contact: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="mt-12 rounded-xl overflow-hidden shadow-xl h-[350px] animated-element max-w-2xl mx-auto" ref={el => elementsRef.current[5] = el}>
-          <iframe
-            title="Maria Louis Karta"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=17.966%2C59.2965%2C17.969%2C59.2985&layer=mapnik&marker=59.297445%2C17.967876"
-            style={{ border: 0 }}
-            width="100%"
-            height="100%"
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
         </div>
       </div>
     </section>
