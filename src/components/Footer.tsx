@@ -196,13 +196,15 @@ const Footer: React.FC = () => {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2035.6872873958072!2d17.979410576922515!3d59.29883711575019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77bfcad5de59%3A0x6f608f4b756a585a!2zSMOkZ2Vyc3RlbnN2w6RnZW4gMTcwLCAxMjYgNTMgSMOkZ2Vyc3Rlbg!5e0!3m2!1ssv!2sse!4v1721584307855!5m2!1ssv!2sse" 
             width="100%" 
             height="100%" 
-            style={{ border: 0 }} 
+            style={{ 
+              border: 0,
+              filter: 'grayscale(100%) brightness(112%)'
+            }}
             allowFullScreen={false} 
             loading="lazy" 
             referrerPolicy="no-referrer-when-downgrade" 
             title="Maria Louis Hårsalong karta" 
             className="w-full h-full"
-             filter: 'grayscale(100%) brightness(112%)'
           />
         </div>
         
