@@ -202,6 +202,7 @@ const Footer: React.FC = () => {
             referrerPolicy="no-referrer-when-downgrade" 
             title="Maria Louis Hårsalong karta" 
             className="w-full h-full"
+             filter: 'grayscale(100%) brightness(112%)'
           />
         </div>
         
