@@ -1,7 +1,6 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import Hero from '../components/Hero'; 
+import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Gallery from '../components/Gallery';
 import Testimonials from '../components/Testimonials';
@@ -11,20 +10,16 @@ import Footer from '../components/Footer';
 import KeratinInfo from '../components/KeratinInfo';
 import SpecialDay from '../components/SpecialDay';
 import { useIsMobile } from '../hooks/use-mobile';
-
 const Index = () => {
   const isMobile = useIsMobile();
-
   useEffect(() => {
     document.title = 'Maria Louis Hårsalong | Premiumstyling';
-    
     const preventScrollJitter = () => {
       document.body.style.overflowX = 'hidden';
       document.documentElement.style.overscrollBehavior = 'none';
       document.body.style.overscrollBehaviorY = 'none';
       document.documentElement.style.maxWidth = '100vw';
       document.body.style.maxWidth = '100vw';
-      
       return () => {
         document.body.style.overflowX = '';
         document.documentElement.style.overscrollBehavior = '';
@@ -33,24 +28,21 @@ const Index = () => {
         document.body.style.maxWidth = '';
       };
     };
-    
     const cleanup = preventScrollJitter();
     return cleanup;
   }, []);
-
-  return (
-    <div className="min-h-screen bg-salon-cream overflow-x-hidden w-full max-w-[100vw]">
+  return <div className="min-h-screen bg-salon-cream overflow-x-hidden w-full max-w-[100vw]">
       <Navbar />
       <Hero />
       
-      <section className="py-12 px-4 text-center bg-white">
-        <h2 className="text-2xl font-semibold mb-2">Välkommen till Maria Louis – i hjärtat av Örnsberg</h2>
-        <p className="text-base max-w-lg mx-auto mb-4">
+      <section className="py-12 px-4 text-center bg-salon-dark">
+        <h2 className="text-2xl mb-2 text-salon-cream font-semibold">Välkommen till Maria Louis – i hjärtat av Örnsberg</h2>
+        <p className="text-base max-w-l mx-auto mb-4 text-salon-beige font-thin">
           Med över 35 års samlad expertis erbjuder vi en plats där skönhet, omtanke och kvalitet möts.
           Här står du i fokus – oavsett om du kommer för en klippning, färg eller barbering.
         </p>
         <div className="mt-2">
-          <a href="#about" className="italic text-sm inline-flex items-center gap-1 text-gray-700 hover:text-black hover:underline">
+          <a href="#about" className="italic text-sm inline-flex items-center gap-1 text-gray-700 hover:text-salon-cream hover:underline">
             Läs mer om oss
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
@@ -64,27 +56,21 @@ const Index = () => {
       <Gallery />
       <About />
 
-      {isMobile ? (
-        <>
+      {isMobile ? <>
           <Testimonials />
           <Contact />
           <section id="event">
             <SpecialDay />
           </section>
-        </>
-      ) : (
-        <>
+        </> : <>
           <Testimonials />
           <section id="event">
             <SpecialDay />
           </section>
           <Contact />
-        </>
-      )}
+        </>}
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
