@@ -1,129 +1,109 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { MapPin, Phone, Clock, CalendarDays } from 'lucide-react';
+
+import React, { useEffect, useRef } from 'react';
+import { CalendarDays, Phone } from 'lucide-react';
+import { Button } from './ui/button';
 
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-up');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { root: null, rootMargin: '0px', threshold: 0.1 }
-    );
-    elementsRef.current.forEach(el => el && observer.observe(el));
-    return () => elementsRef.current.forEach(el => el && observer.unobserve(el));
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    elementsRef.current.forEach(el => {
+      if (el) observer.observe(el);
+    });
+    
+    return () => {
+      elementsRef.current.forEach(el => {
+        if (el) observer.unobserve(el);
+      });
+    };
   }, []);
 
-  const contactInfoItems = [
-    {
-      icon: <MapPin size={22} className="text-white" />,
-      title: "Plats",
-      details: ["Hägerstensvägen 170", "126 53 Hägersten"],
-      link: "https://www.google.com/maps?q=Hägerstensvägen+170,+126+53+Hägersten"
-    },
-    {
-      icon: <Phone size={22} className="text-white" />,
-      title: "Kontakt",
-      details: ["08-549 040 50", "salongmarialouis@gmail.com"],
-      emailLink: "mailto:salongmarialouis@gmail.com"
-    },
-    {
-      icon: <Clock size={22} className="text-white" />,
-      title: "Öppettider",
-      details: ["Måndag–Fredag: 10:00 – 18:00", "Lördag: 10:00 – 16:00", "Söndag: Stängt"]
-    }
-  ];
-
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-white to-salon-cream/50">
+    <div id="contact" className="py-20 bg-gradient-to-b from-white to-salon-cream/50">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4">
+          <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4 opacity-0">
             <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full">
-              Kontakt
+              Boka tid
             </span>
           </div>
-          <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6">
-            Boka Din Tid
+          
+          <h2 
+            ref={el => elementsRef.current[1] = el} 
+            className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6 opacity-0"
+          >
+            Välkommen till oss
           </h2>
         </div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Kontaktinformation */}
-          <div className="order-2 md:order-1">
-            <div ref={el => elementsRef.current[2] = el} className="animated-element bg-salon-dark rounded-lg overflow-hidden shadow-xl p-8 text-white space-y-12">
-              <h3 className="text-2xl font-serif mb-8 text-salon-gold">Kontakt</h3>
-              <div className="space-y-6">
-                {contactInfoItems.map((item, index) => (
-                  <div key={index} className="flex group">
-                    <div className="mr-4 p-3 bg-salon-gold/20 rounded-full group-hover:bg-salon-gold transition-all duration-300">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-serif text-lg mb-2 text-salon-gold">{item.title}</h4>
-                      {item.details.map((detail, i) => (
-                        <p key={i} className="text-white/80">
-                          {item.link && i === 0 ? (
-                            <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:text-salon-gold transition-colors">{detail}</a>
-                          ) : item.emailLink && detail.includes('@') ? (
-                            <a href={item.emailLink} className="hover:text-salon-gold transition-colors">{detail}</a>
-                          ) : (
-                            detail
-                          )}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="pt-6 border-t border-white/10">
-                <h4 className="font-serif text-lg mb-4 text-salon-gold">Följ oss</h4>
-                <div className="flex space-x-4">
-                  <a href="https://www.instagram.com/salongmarialouiis/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300">
-                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12.315 2c2.43..."/></svg>
-                  </a>
-                  <a href="https://www.facebook.com/profile.php?id=100063562662842" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300">
-                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M22 12c0-5.52..."/></svg>
-                  </a>
-                </div>
-              </div>
+        
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Image */}
+          <div ref={el => elementsRef.current[2] = el} className="animated-element opacity-0">
+            <div className="overflow-hidden rounded-2xl shadow-md hover:shadow-lg transition-all duration-500">
+              <img 
+                src="/lovable-uploads/43060cc3-2a10-4c5d-8048-43961faab9eb.png" 
+                alt="Diverse group of happy people enjoying together" 
+                className="w-full h-auto object-cover transition-all duration-500 hover:scale-105"
+              />
             </div>
           </div>
-
-          {/* Boka Online */}
-          <div className="order-1 md:order-2">
-            <div ref={el => elementsRef.current[3] = el} className="animated-element bg-white rounded-lg shadow-xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-salon-gold/10 rounded-full -mt-16 -mr-16"></div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 bg-salon-gold/10 rounded-full -mb-10 -ml-10"></div>
-              <h3 className="text-2xl font-serif mb-8 text-salon-dark relative z-10">Boka Online</h3>
-              <div className="space-y-6 relative z-10">
-                <a 
-                  href="https://bokning.voady.se/marialouis/marialouisebarbershop/" 
-                  target="_blank"
-                  rel="noopener noreferrer" 
-                  className="flex items-center justify-center w-full py-4 px-6 bg-salon-gold text-white font-medium rounded hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg transform hover:translate-y-[-2px] group"
-                >
-                  <CalendarDays className="mr-2 group-hover:animate-pulse" size={20} />
-                  <span>Boka din tid</span>
-                </a>
-              </div>
+          
+          {/* Right Column - Content */}
+          <div ref={el => elementsRef.current[3] = el} className="animated-element opacity-0 flex flex-col items-center md:items-start justify-center space-y-8">
+            <div className="text-center md:text-left">
+              <p className="text-lg md:text-xl text-salon-dark mb-4">
+                Vill du veta mer om våra klippningar, färgningar eller styling?
+              </p>
+              <a 
+                href="#services" 
+                className="text-lg md:text-xl font-medium text-salon-gold hover:text-salon-brown transition-colors group"
+              >
+                👉 Se våra behandlingar
+              </a>
             </div>
+            
+            <a 
+              href="tel:08-549 040 50" 
+              className="text-2xl md:text-3xl font-serif text-salon-dark hover:text-salon-gold transition-colors"
+            >
+              <span className="flex items-center gap-2">
+                <Phone size={24} className="text-salon-gold" />
+                08-549 040 50
+              </span>
+            </a>
+            
+            <a
+              href="https://bokning.voady.se/marialouis/marialouisebarbershop/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full md:w-auto"
+            >
+              <Button 
+                className="w-full md:w-auto px-8 py-6 bg-salon-gold hover:bg-salon-gold/90 text-white font-medium rounded-full shadow-md hover:shadow-lg transform hover:translate-y-[-2px] transition-all text-lg flex items-center gap-2"
+              >
+                <CalendarDays className="w-5 h-5" />
+                Boka tid
+              </Button>
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

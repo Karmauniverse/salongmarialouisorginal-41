@@ -1,11 +1,13 @@
+
 import React, { useEffect, useRef } from 'react';
-import { cn } from '@/lib/utils';
 import { Calendar, Scissors } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 import ServiceGrid from './ServiceGrid';
 import { serviceCategories } from '@/data/serviceData';
+
 const Services: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
+
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -29,6 +31,7 @@ const Services: React.FC = () => {
       });
     };
   }, []);
+
   return <section id="services" className="py-20 bg-salon-cream">
       <div className="section-container">
         <div className="text-center mb-12">
@@ -42,20 +45,24 @@ const Services: React.FC = () => {
             Premium Hårservice
           </h2>
           
-          <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/90 max-w-2xl mx-auto opacity-0">Alla våra klippningar inkluderar tvätt, fön & styling. Vi ser till att du får ett färdigt resultat – redo för vardag, fest eller vila.</p>
+          <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/90 max-w-2xl mx-auto opacity-0">
+            Alla våra klippningar inkluderar tvätt, fön & styling. Vi ser till att du får ett färdigt resultat – redo för vardag, fest eller vila.
+          </p>
         </div>
         
-        <ServiceGrid serviceCategories={serviceCategories} elementsRef={elementsRef} />
+        <ServiceGrid 
+          serviceCategories={serviceCategories} 
+          elementsRef={elementsRef}
+        />
         
         <div className="mt-16 flex flex-col lg:flex-row items-center justify-center gap-6 transition-all">
           <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 py-3 px-8 bg-salon-gold text-white hover:bg-salon-gold/90 transition-all rounded-full shadow-md hover:shadow-lg transform hover:translate-y-[-1px]">
             <Calendar size={18} />
             <span>Boka nu</span>
           </a>
-          
-          
         </div>
       </div>
     </section>;
 };
+
 export default Services;
