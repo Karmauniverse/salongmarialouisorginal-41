@@ -1,14 +1,11 @@
-
 import React, { useEffect, useRef } from 'react';
 import { CalendarDays, Phone, Clock, Scissors, Sparkles, Shield } from 'lucide-react';
 import { Button } from './ui/button';
 import { Separator } from './ui/separator';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
-
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -32,9 +29,7 @@ const Contact: React.FC = () => {
       });
     };
   }, []);
-
-  return (
-    <div id="contact" className="bg-gradient-to-b from-white to-salon-cream/50 py-24 md:py-32">
+  return <div id="contact" className="bg-gradient-to-b from-white to-salon-cream/50 py-24 md:py-32">
       <div className="section-container bg-salon-cream rounded-2xl shadow-sm">
         <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4 opacity-0">
@@ -50,7 +45,8 @@ const Contact: React.FC = () => {
           <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/80 max-w-2xl mx-auto opacity-0 font-lora text-lg px-4 md:px-0 leading-relaxed">
             Hos oss är alla välkomna – stora som små, unga som gamla. Vi lyssnar, anpassar oss och strävar efter att göra din stund hos oss trygg, smidig och personlig.
             <br className="hidden md:block" />
-            <span className="block mt-2">Vi värdesätter varje besök och möter dig med omtanke och respekt – oavsett vem du är.</span>
+            <span className="block mt-2">Vi värdesätter varje besök och möter dig med omtanke och respekt –
+oavsett vem du är.</span>
           </p>
         </div>
         
@@ -58,23 +54,16 @@ const Contact: React.FC = () => {
           {/* Left Column - Image */}
           <div ref={el => elementsRef.current[3] = el} className="animated-element opacity-0 flex flex-col gap-6">
             <div className="overflow-hidden rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 relative">
-              <img 
-                src="/lovable-uploads/43060cc3-2a10-4c5d-8048-43961faab9eb.png" 
-                alt="Diverse group of happy people enjoying together" 
-                className="w-full h-auto object-cover transition-all duration-500 hover:scale-105" 
-              />
-              {!isMobile && (
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-salon-dark/70 via-salon-dark/40 to-transparent p-6">
+              <img src="/lovable-uploads/43060cc3-2a10-4c5d-8048-43961faab9eb.png" alt="Diverse group of happy people enjoying together" className="w-full h-auto object-cover transition-all duration-500 hover:scale-105" />
+              {!isMobile && <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-salon-dark/70 via-salon-dark/40 to-transparent p-6">
                   <p className="text-white font-serif text-xl md:text-2xl font-light italic typewriter-text">
                     Alla är välkomna hos oss
                   </p>
-                </div>
-              )}
+                </div>}
             </div>
 
             {/* Feature cards - Only shown on desktop */}
-            {!isMobile && (
-              <div className="grid grid-cols-3 gap-4 w-full">
+            {!isMobile && <div className="grid grid-cols-3 gap-4 w-full">
                 <div className="bg-salon-gold/5 p-4 rounded-lg text-center">
                   <Clock className="w-6 h-6 mx-auto mb-2 text-salon-gold/70" />
                   <p className="text-sm font-medium text-salon-dark">Flexibla tider</p>
@@ -87,8 +76,7 @@ const Contact: React.FC = () => {
                   <Shield className="w-6 h-6 mx-auto mb-2 text-salon-gold/70" />
                   <p className="text-sm font-medium text-salon-dark">Tryggt & välkomnande</p>
                 </div>
-              </div>
-            )}
+              </div>}
           </div>
           
           {/* Right Column - Content */}
@@ -144,8 +132,6 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;
