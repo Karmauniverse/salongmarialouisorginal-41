@@ -1,15 +1,19 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Phone, Heart } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+
 const SpecialDay: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
+  
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
+    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -18,19 +22,22 @@ const SpecialDay: React.FC = () => {
         }
       });
     }, observerOptions);
+    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
+    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
+  
   return <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20 relative overflow-hidden">
       <div className="section-container bg-transparent">
         <div className="bg-salon-beige/30 rounded-full w-fit mx-auto mb-4 py-0 px-[9px]">
-          <p className="font-medium font-lora text-center px-[24px] text-sm py-[8px] text-salon-gold">Event</p>
+          <p className="font-medium font-lora text-center px-[24px] text-sm py-[8px] text-salon-gold">Exklusivt</p>
         </div>
         
         <div ref={el => elementsRef.current[0] = el} className="animated-element max-w-4xl mx-auto text-center mb-4 relative">
@@ -81,4 +88,5 @@ const SpecialDay: React.FC = () => {
       </div>
     </section>;
 };
+
 export default SpecialDay;

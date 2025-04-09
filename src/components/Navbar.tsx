@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
       href: '#services'
     }, 
     {
-      name: 'Event',
+      name: 'Exklusivt',
       href: '#event'
     },
     {

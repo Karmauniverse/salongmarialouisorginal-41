@@ -10,6 +10,7 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import KeratinInfo from '../components/KeratinInfo';
 import SpecialDay from '../components/SpecialDay';
+import ClosingMessage from '../components/ClosingMessage';
 import { useIsMobile } from '../hooks/use-mobile';
 
 const Index = () => {
@@ -78,6 +79,7 @@ const Index = () => {
           <About />
           <KeratinInfo />
           <Contact />
+          <ClosingMessage />
         </>
       ) : (
         <>
@@ -89,6 +91,7 @@ const Index = () => {
             <SpecialDay />
           </section>
           <Contact />
+          <ClosingMessage />
         </>
       )}
 
