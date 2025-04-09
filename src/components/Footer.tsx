@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`grid grid-cols-1 ${isMobile ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-4'} gap-8 mb-12`}>
           {/* Column 1: Snabbmeny */}
-          <div className="p-6 bg-salon-dark/80 rounded-lg border border-white/5">
+          <div className="p-6 bg-salon-dark/80 rounded-lg border border-white/5 shadow-md backdrop-blur-sm">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Snabbmeny
             </h4>
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
           
           {/* Column 2: Behandlingar - only show on desktop */}
           {!isMobile && (
-            <div className="p-6 bg-salon-dark/80 rounded-lg border border-white/5">
+            <div className="p-6 bg-salon-dark/80 rounded-lg border border-white/5 shadow-md backdrop-blur-sm">
               <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
                 Behandlingar
               </h4>
@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
           
           {/* Column 3: Öppettider */}
           <div className="p-6 bg-salon-dark/60 rounded-lg border border-white/10 shadow-md backdrop-blur-sm">
-            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2 text-center w-full">
+            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Öppettider
             </h4>
             
