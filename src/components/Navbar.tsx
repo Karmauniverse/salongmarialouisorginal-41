@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
         // Removing the backdrop-blur and transparency for consistency across devices
         isScrolled 
           ? 'bg-white shadow-md py-2' 
-          : 'bg-transparent py-4'
+          : 'bg-white py-4'
       )}
     >
       <div className="container flex justify-between items-center">
@@ -135,7 +135,7 @@ const Navbar: React.FC = () => {
         <button 
           className={cn(
             "md:hidden p-2 z-50 relative",
-            isMobileMenuOpen ? "text-white" : isScrolled ? "text-salon-dark" : "text-white"
+            isMobileMenuOpen ? "text-white" : isScrolled ? "text-salon-dark" : "text-salon-dark"
           )} 
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
@@ -158,17 +158,17 @@ const Navbar: React.FC = () => {
           backdropFilter: "none"
         }}
       >
-        {/* Logo at the top of mobile menu */}
+        {/* Logo at the top of mobile menu - making it larger */}
         <div className="absolute top-6 left-0 right-0 flex justify-center">
           <img 
             src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
             alt="Maria Louis Logotyp" 
-            className="h-14"
+            className="h-20" /* Increased from h-14 to h-20 */
           />
         </div>
 
-        {/* Navigation links */}
-        <div className="flex flex-col items-center space-y-6 mt-10">
+        {/* Navigation links - adjusted spacing for better balance */}
+        <div className="flex flex-col items-center space-y-6 mt-16"> {/* Increased top margin to accommodate larger logo */}
           {navLinks.map(link => (
             <a 
               key={link.name}

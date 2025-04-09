@@ -74,7 +74,7 @@ const CustomerReviews: React.FC = () => {
           </h2>
           
           <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/80 font-lora mb-12">
-            Vi är stolta över att skapa exceptionella upplevelser för våra kunder.
+            Här delar vi med oss av de fina ord som våra kunder har delat med oss.
           </p>
         </div>
 
