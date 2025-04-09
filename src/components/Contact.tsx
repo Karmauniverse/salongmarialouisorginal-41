@@ -1,12 +1,9 @@
-
 import React, { useEffect, useRef } from 'react';
 import { CalendarDays, Phone, Clock, Sparkles, Heart, Scissors } from 'lucide-react';
 import { Button } from './ui/button';
 import { Separator } from './ui/separator';
-
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
-  
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -30,7 +27,6 @@ const Contact: React.FC = () => {
       });
     };
   }, []);
-  
   return <div id="contact" className="bg-gradient-to-b from-white to-salon-cream/50 mx-0 px-0 py-0 my-[199px] bg-salon-beige">
       <div className="section-container bg-salon-cream">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -66,7 +62,7 @@ const Contact: React.FC = () => {
             <div className="bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-salon-gold/10 shadow-sm w-full">
               <div className="space-y-6">
                 <div className="text-center md:text-left">
-                  <h3 className="text-2xl font-serif mb-4 text-salon-dark">Våra tjänster</h3>
+                  <h3 className="text-2xl font-serif mb-4 text-salon-dark">Våra Behandlingar</h3>
                   <p className="text-lg md:text-xl text-salon-dark mb-4">
                     Vill du veta mer om våra klippningar, färgningar eller styling?
                   </p>
@@ -131,5 +127,4 @@ const Contact: React.FC = () => {
       </div>
     </div>;
 };
-
 export default Contact;
