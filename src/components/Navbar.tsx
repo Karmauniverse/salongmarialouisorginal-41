@@ -84,8 +84,9 @@ const Navbar: React.FC = () => {
     <nav
       className={cn(
         'fixed w-full z-50 transition-all duration-500',
+        // Removing the backdrop-blur and transparency for consistency across devices
         isScrolled 
-          ? 'backdrop-blur-lg bg-white/80 shadow-md py-2' 
+          ? 'bg-white shadow-md py-2' 
           : 'bg-transparent py-4'
       )}
     >
@@ -143,7 +144,7 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile menu - fixing the fixed background issue */}
+      {/* Mobile menu - ensuring solid background and proper z-index */}
       <div 
         className={cn(
           "fixed inset-0 z-40 flex flex-col items-center justify-center space-y-6 px-6 py-12 md:hidden transition-all duration-300 ease-in-out",

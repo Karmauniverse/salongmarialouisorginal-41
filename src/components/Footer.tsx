@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Instagram, Facebook, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Separator } from "@/components/ui/separator";
@@ -28,7 +29,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-salon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className={`grid grid-cols-1 ${isMobile ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-4'} gap-8 mb-12`}>
           {/* Column 1: Snabbmeny */}
           <div className="p-6 bg-salon-dark/80 rounded-lg border border-white/5">
             <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
@@ -56,31 +57,33 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          {/* Column 2: Behandlingar */}
-          <div className="p-6 bg-salon-dark/80 rounded-lg border border-white/5">
-            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
-              Behandlingar
-            </h4>
-            <ul className="space-y-3 text-sm">
-              {[
-                'Klippning & Styling', 
-                'Färgtjänster', 
-                'Keratinbehandlingar', 
-                'Barberartjänster', 
-                'Bryn & Fransar'
-              ].map((item, index) => (
-                <li key={index}>
-                  <a 
-                    href="#services" 
-                    className="text-white/70 hover:text-salon-gold transition-colors duration-300 flex items-center"
-                  >
-                    <span className="w-1 h-1 bg-salon-gold rounded-full mr-2"></span>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Column 2: Behandlingar - only show on desktop */}
+          {!isMobile && (
+            <div className="p-6 bg-salon-dark/80 rounded-lg border border-white/5">
+              <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
+                Behandlingar
+              </h4>
+              <ul className="space-y-3 text-sm">
+                {[
+                  'Klippning & Styling', 
+                  'Färgtjänster', 
+                  'Keratinbehandlingar', 
+                  'Barberartjänster', 
+                  'Bryn & Fransar'
+                ].map((item, index) => (
+                  <li key={index}>
+                    <a 
+                      href="#services" 
+                      className="text-white/70 hover:text-salon-gold transition-colors duration-300 flex items-center"
+                    >
+                      <span className="w-1 h-1 bg-salon-gold rounded-full mr-2"></span>
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           
           {/* Column 3: Öppettider */}
           <div className="p-6 bg-salon-dark/60 rounded-lg border border-white/10 shadow-md backdrop-blur-sm">
