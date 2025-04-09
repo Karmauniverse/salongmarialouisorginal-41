@@ -38,7 +38,8 @@ const Index = () => {
     return cleanup;
   }, []);
 
-  return <div className="min-h-screen overflow-x-hidden w-full max-w-[100vw] bg-inherit">
+  return (
+    <div className="min-h-screen overflow-x-hidden w-full max-w-[100vw] bg-inherit">
       <Navbar />
       <Hero />
 
@@ -66,18 +67,21 @@ const Index = () => {
       </section>
 
       <Services />
-      <KeratinInfo />
       
-      {isMobile ? <>
-          <Services />
+      {isMobile ? (
+        <>
           <section id="event">
             <SpecialDay />
           </section>
           <Gallery />
           <Testimonials />
           <About />
+          <KeratinInfo />
           <Contact />
-        </> : <>
+        </>
+      ) : (
+        <>
+          <KeratinInfo />
           <Gallery />
           <About />
           <Testimonials />
@@ -85,10 +89,12 @@ const Index = () => {
             <SpecialDay />
           </section>
           <Contact />
-        </>}
+        </>
+      )}
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
 
 export default Index;
