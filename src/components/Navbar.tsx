@@ -40,7 +40,14 @@ const Navbar: React.FC = () => {
 
     const targetElement = document.querySelector(href);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      // Add offset for header height to ensure proper scroll position
+      const navbarHeight = document.querySelector('nav')?.offsetHeight || 0;
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+      
+      window.scrollTo({ 
+        top: targetPosition, 
+        behavior: 'smooth' 
+      });
     } else {
       window.location.href = href;
     }
@@ -136,15 +143,19 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile menu - fixing the transparent background issue */}
+      {/* Mobile menu - fixing the fixed background issue */}
       <div 
         className={cn(
           "fixed inset-0 z-40 flex flex-col items-center justify-center space-y-6 px-6 py-12 md:hidden transition-all duration-300 ease-in-out",
-          "bg-salon-brown", /* Removed opacity and ensure solid background */
           isMobileMenuOpen 
             ? "opacity-100 pointer-events-auto" 
             : "opacity-0 pointer-events-none translate-x-full"
         )}
+        style={{
+          backgroundColor: "#3C3024", /* Using hard-coded value for salon-brown to ensure it's solid */
+          backgroundImage: "none",
+          backdropFilter: "none"
+        }}
       >
         {/* Navigation links */}
         <div className="flex flex-col items-center space-y-6">

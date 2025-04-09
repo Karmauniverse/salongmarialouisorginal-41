@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -10,7 +9,6 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import KeratinInfo from '../components/KeratinInfo';
 import SpecialDay from '../components/SpecialDay';
-import ClosingMessage from '../components/ClosingMessage';
 import { useIsMobile } from '../hooks/use-mobile';
 
 const Index = () => {
@@ -71,15 +69,14 @@ const Index = () => {
       
       {isMobile ? (
         <>
+          <KeratinInfo />
           <section id="event">
             <SpecialDay />
           </section>
           <Gallery />
           <Testimonials />
           <About />
-          <KeratinInfo />
           <Contact />
-          <ClosingMessage />
         </>
       ) : (
         <>
@@ -91,9 +88,10 @@ const Index = () => {
             <SpecialDay />
           </section>
           <Contact />
-          <ClosingMessage />
         </>
       )}
+
+      <div className="h-16 md:h-20 bg-gradient-to-b from-white to-salon-beige/10"></div>
 
       <Footer />
     </div>
