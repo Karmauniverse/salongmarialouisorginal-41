@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -11,10 +10,8 @@ import Footer from '../components/Footer';
 import KeratinInfo from '../components/KeratinInfo';
 import SpecialDay from '../components/SpecialDay';
 import { useIsMobile } from '../hooks/use-mobile';
-
 const Index = () => {
   const isMobile = useIsMobile();
-  
   useEffect(() => {
     document.title = 'Maria Louis Hårsalong | Premiumstyling';
     const preventScrollJitter = () => {
@@ -34,14 +31,13 @@ const Index = () => {
     const cleanup = preventScrollJitter();
     return cleanup;
   }, []);
-  
   return <div className="min-h-screen overflow-x-hidden w-full max-w-[100vw] bg-transparent">
       <Navbar />
       <Hero />
 
-      <section className="py-20 px-4 text-center" style={{
+      <section style={{
       backgroundColor: "#f8f5f2"
-    }}>
+    }} className="py-20 px-4 text-center bg-salon-beige">
         <h2 className="text-xl md:text-3xl font-semibold mb-4 text-gray-900">
           Välkommen till Maria Louis – i hjärtat av Örnsberg
         </h2>
@@ -62,8 +58,7 @@ const Index = () => {
       <Services />
       <KeratinInfo />
       
-      {isMobile ? (
-        <>
+      {isMobile ? <>
           <section id="event">
             <SpecialDay />
           </section>
@@ -71,9 +66,7 @@ const Index = () => {
           <Testimonials />
           <About />
           <Contact />
-        </>
-      ) : (
-        <>
+        </> : <>
           <Gallery />
           <About />
           <Testimonials />
@@ -81,11 +74,9 @@ const Index = () => {
             <SpecialDay />
           </section>
           <Contact />
-        </>
-      )}
+        </>}
 
       <Footer />
     </div>;
 };
-
 export default Index;
