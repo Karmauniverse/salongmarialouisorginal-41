@@ -87,108 +87,87 @@ const Footer: React.FC = () => {
           
           {/* Column 3: Öppettider */}
           <div className="p-6 bg-salon-dark/60 rounded-lg border border-white/10 shadow-md backdrop-blur-sm">
-            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
+            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2 text-center w-full">
               Öppettider
             </h4>
-            {isMobile ? (
-              // Mobile: Condensed hours format
-              <div className="space-y-2 text-sm">
-                <p className="text-white/70 flex flex-col">
-                  <span className="mb-1">Mån–Fre: 10–18</span>
-                  <span className="mb-1">Lördag: 10–16</span>
-                  <span>Söndag: Stängt</span>
-                </p>
-              </div>
-            ) : (
-              // Desktop: Detailed hours format
-              <ul className="space-y-2 text-sm">
-                {[
-                  { day: 'Måndag', hours: '10:00–18:00' },
-                  { day: 'Tisdag', hours: '10:00–18:00' },
-                  { day: 'Onsdag', hours: '10:00–18:00' },
-                  { day: 'Torsdag', hours: '10:00–18:00' },
-                  { day: 'Fredag', hours: '10:00–18:00' },
-                  { day: 'Lördag', hours: '10:00–16:00' },
-                  { day: 'Söndag', hours: 'Stängt' }
-                ].map((item, index) => (
-                  <li 
-                    key={index} 
-                    className="text-white/70 flex justify-between items-center"
-                  >
-                    <span>{item.day}:</span>
-                    <span>{item.hours}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
+            
+            {/* New opening hours format */}
+            <div className="text-center space-y-1 mb-6">
+              <p className="text-white/70">Måndag–Fredag: 10:00 – 18:00</p>
+              <p className="text-white/70">Lördag: 10:00 – 16:00</p>
+              <p className="text-white/70">Söndag: Stängt</p>
+            </div>
+            
+            {/* Separator line */}
+            <Separator className="my-4 bg-white/20" />
+            
+            {/* Social media icons - centered */}
+            <div className="flex justify-center space-x-4 mt-4">
+              <a 
+                href="https://www.instagram.com/salongmarialouiis/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" 
+                aria-label="Instagram"
+              >
+                <Instagram className="text-white group-hover:animate-pulse" size={16} />
+              </a>
+              <a 
+                href="https://www.facebook.com/profile.php?id=100063562662842" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" 
+                aria-label="Facebook"
+              >
+                <Facebook className="text-white group-hover:animate-pulse" size={16} />
+              </a>
+            </div>
           </div>
           
           {/* Column 4: Kontakta Oss */}
           <div className="p-6 bg-salon-dark/60 rounded-lg border border-white/10 shadow-md backdrop-blur-sm">
-            <h4 className="text-white font-medium mb-4 text-lg relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
+            <h4 className="text-white font-medium mb-6 text-xl relative inline-block after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-salon-gold pb-2">
               Kontakta Oss
             </h4>
-            <ul className="space-y-3 text-sm mb-5">
+            <ul className="space-y-4 text-base mb-5">
               <li className="flex items-start group">
-                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center mr-3 mt-1 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
-                  <MapPin size={10} className="text-salon-gold group-hover:animate-pulse" />
+                <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mr-3 mt-1 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
+                  <MapPin size={12} className="text-salon-gold group-hover:animate-pulse" />
                 </div>
                 <a 
                   href="https://www.google.com/maps?q=Hägerstensvägen+170,+126+53+Hägersten" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-white/70 group-hover:text-white transition-colors duration-300 my-[3px]"
+                  className="text-white/80 group-hover:text-white transition-colors duration-300 my-[3px]"
                 >
                   Hägerstensvägen 170, 126 53 Hägersten
                 </a>
               </li>
               
               <li className="flex items-center group">
-                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
-                  <Phone size={10} className="text-salon-gold group-hover:animate-pulse" />
+                <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
+                  <Phone size={12} className="text-salon-gold group-hover:animate-pulse" />
                 </div>
                 <a 
                   href="tel:08-549 040 50" 
-                  className="text-white/70 group-hover:text-white transition-colors duration-300 my-[2px]"
+                  className="text-white/80 group-hover:text-white transition-colors duration-300 my-[2px] text-lg"
                 >
                   08-549 040 50
                 </a>
               </li>
               
               <li className="flex items-center group">
-                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
-                  <Mail size={10} className="text-salon-gold group-hover:animate-pulse" />
+                <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-salon-cream/20 transition-colors duration-300">
+                  <Mail size={12} className="text-salon-gold group-hover:animate-pulse" />
                 </div>
                 <a 
                   href="mailto:salongmarialouis@gmail.com" 
-                  className="text-white/70 group-hover:text-white transition-colors duration-300 my-[6px]"
+                  className="text-white/80 group-hover:text-white transition-colors duration-300 my-[6px] text-lg"
                 >
                   salongmarialouis@gmail.com
                 </a>
               </li>
             </ul>
-            
-            {/* Social media icons */}
-            <div className="flex space-x-3 mt-4">
-              <a 
-                href="https://www.instagram.com/salongmarialouiis/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" 
-                aria-label="Instagram"
-              >
-                <Instagram className="text-white group-hover:animate-pulse" size={14} />
-              </a>
-              <a 
-                href="https://www.facebook.com/profile.php?id=100063562662842" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-salon-gold transition-all duration-300 group" 
-                aria-label="Facebook"
-              >
-                <Facebook className="text-white group-hover:animate-pulse" size={14} />
-              </a>
-            </div>
           </div>
         </div>
         

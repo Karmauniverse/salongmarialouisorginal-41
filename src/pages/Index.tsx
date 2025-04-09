@@ -71,7 +71,7 @@ const Index = () => {
       {isMobile ? (
         <>
           <KeratinInfo />
-          <section id="event">
+          <section id="event" className="pb-0">
             <SpecialDay />
           </section>
           <Gallery />
@@ -84,15 +84,13 @@ const Index = () => {
           <KeratinInfo />
           <Gallery />
           <About />
-          <section id="event">
+          <section id="event" className="pb-0">
             <SpecialDay />
           </section>
           <Contact />
           <CustomerReviews />
         </>
       )}
-
-      <div className="h-16 md:h-20 bg-gradient-to-b from-white to-salon-beige/10"></div>
 
       <Footer />
     </div>
