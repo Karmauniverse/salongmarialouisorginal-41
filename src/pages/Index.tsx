@@ -31,7 +31,7 @@ const Index = () => {
     const cleanup = preventScrollJitter();
     return cleanup;
   }, []);
-  return <div className="min-h-screen overflow-x-hidden w-full max-w-[100vw] bg-transparent">
+  return <div className="min-h-screen overflow-x-hidden w-full max-w-[100vw] bg-inherit">
       <Navbar />
       <Hero />
 
