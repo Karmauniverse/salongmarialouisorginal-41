@@ -1,21 +1,17 @@
-
 import React, { useEffect, useRef } from 'react';
 import { CalendarDays, Phone, Clock, Scissors, Sparkles, Shield } from 'lucide-react';
 import { Button } from './ui/button';
 import { Separator } from './ui/separator';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
-
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -24,18 +20,15 @@ const Contact: React.FC = () => {
         }
       });
     }, observerOptions);
-
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
-
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-
   return <div id="contact" className="bg-gradient-to-b from-white to-salon-cream/50 py-24 md:py-32">
       <div className="section-container bg-salon-cream rounded-2xl shadow-sm">
         <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
@@ -53,7 +46,7 @@ const Contact: React.FC = () => {
             Hos oss är alla välkomna – stora som små, unga som gamla. Vi lyssnar, anpassar oss och strävar efter att göra din stund hos oss trygg, smidig och personlig.
             <br className="hidden md:block" />
             <span className="block mt-2">Vi värdesätter varje besök och möter dig med omtanke och respekt –
-oavsett vem du är.</span>
+ oavsett vem du är.</span>
           </p>
         </div>
         
