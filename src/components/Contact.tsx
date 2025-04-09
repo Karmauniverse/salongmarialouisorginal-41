@@ -45,8 +45,8 @@ const Contact: React.FC = () => {
           <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/80 max-w-2xl mx-auto opacity-0 font-lora text-lg px-4 md:px-0 leading-relaxed">
             Hos oss är alla välkomna – stora som små, unga som gamla. Vi lyssnar, anpassar oss och strävar efter att göra din stund hos oss trygg, smidig och personlig.
             <br className="hidden md:block" />
-            <span className="block mt-2">Vi värdesätter varje besök och möter dig med omtanke och respekt –  
-oavsett vem du är.</span>
+            <span className="block mt-2">Vi värdesätter varje besök och möter dig med omtanke och respekt –
+  oavsett vem du är.</span>
           </p>
         </div>
         
