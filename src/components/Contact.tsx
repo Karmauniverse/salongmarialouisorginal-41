@@ -56,9 +56,7 @@ oavsett vem du är.</span>
             <div className="overflow-hidden rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 relative">
               <img src="/lovable-uploads/43060cc3-2a10-4c5d-8048-43961faab9eb.png" alt="Diverse group of happy people enjoying together" className="w-full h-auto object-cover transition-all duration-500 hover:scale-105" />
               {!isMobile && <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-salon-dark/70 via-salon-dark/40 to-transparent p-6">
-                  <p className="text-white font-serif text-xl md:text-2xl font-light italic typewriter-text">
-                    Alla är välkomna hos oss
-                  </p>
+                  
                 </div>}
             </div>
 
