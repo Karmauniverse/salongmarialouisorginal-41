@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import ReviewGrid from './ReviewGrid';
+import { Facebook } from 'lucide-react';
 
 const CustomerReviews: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -73,12 +74,23 @@ const CustomerReviews: React.FC = () => {
             Vad Våra Kunder Säger
           </h2>
           
-          <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/80 font-lora mb-12">
-            Här delar vi med oss av de fina ord som våra kunder har delat med oss.
+          <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/80 font-lora mb-8">
+            Dessa ord kommer från riktiga kunder som delat sina upplevelser via vår Facebook-sida. Vi är tacksamma för varje besök och förtroende.
           </p>
+          
+          <a 
+            href="https://www.facebook.com/profile.php?id=100063562662842"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-salon-gold/10 border border-salon-gold/30 rounded-md text-salon-gold hover:text-salon-gold transition-all duration-300 shadow-sm mb-8 animated-element"
+            ref={el => elementsRef.current[3] = el}
+          >
+            <Facebook size={18} />
+            <span className="font-medium">Besök vår Facebook</span>
+          </a>
         </div>
 
-        <div ref={el => elementsRef.current[2] = el} className="animated-element">
+        <div ref={el => elementsRef.current[4] = el} className="animated-element">
           <ReviewGrid reviews={reviews} />
         </div>
       </div>

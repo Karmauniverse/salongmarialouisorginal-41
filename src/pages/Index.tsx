@@ -84,11 +84,11 @@ const Index = () => {
           <KeratinInfo />
           <Gallery />
           <About />
-          <CustomerReviews />
           <section id="event">
             <SpecialDay />
           </section>
           <Contact />
+          <CustomerReviews />
         </>
       )}
 
