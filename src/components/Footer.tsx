@@ -78,9 +78,9 @@ const Footer: React.FC = () => {
             
             {/* New opening hours format */}
             <div className="text-center space-y-1 mb-6">
-              <p className="text-white/70">Måndag–Fredag: 10:00 – 18:00</p>
-              <p className="text-white/70">Lördag: 10:00 – 16:00</p>
-              <p className="text-white/70">Söndag: Stängt</p>
+              <p className="text-white/70 text-left my-[6px]">Måndag–Fredag: 10:00 – 18:00</p>
+              <p className="text-white/70 text-left">Lördag: 10:00 – 16:00</p>
+              <p className="text-white/70 text-left">Söndag: Stängt</p>
             </div>
             
             {/* Separator line */}
