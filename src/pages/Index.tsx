@@ -75,9 +75,9 @@ const Index = () => {
             <SpecialDay />
           </section>
           <Gallery />
-          <CustomerReviews />
           <About />
           <Contact />
+          <CustomerReviews />
         </>
       ) : (
         <>

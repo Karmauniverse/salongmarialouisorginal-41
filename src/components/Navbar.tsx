@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, Phone } from 'lucide-react';
@@ -40,7 +39,6 @@ const Navbar: React.FC = () => {
 
     const targetElement = document.querySelector(href);
     if (targetElement) {
-      // Add offset for header height to ensure proper scroll position
       const navbarHeight = document.querySelector('nav')?.offsetHeight || 0;
       const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
       
@@ -84,10 +82,9 @@ const Navbar: React.FC = () => {
     <nav
       className={cn(
         'fixed w-full z-50 transition-all duration-500',
-        // Removing the backdrop-blur and transparency for consistency across devices
         isScrolled 
           ? 'bg-white shadow-md py-2' 
-          : 'bg-white py-4'
+          : 'bg-transparent py-4'
       )}
     >
       <div className="container flex justify-between items-center">
@@ -102,7 +99,6 @@ const Navbar: React.FC = () => {
           />
         </a>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map(link => (
             <a 
@@ -131,11 +127,10 @@ const Navbar: React.FC = () => {
           </a>
         </div>
 
-        {/* Mobile menu button */}
         <button 
           className={cn(
             "md:hidden p-2 z-50 relative",
-            isMobileMenuOpen ? "text-white" : isScrolled ? "text-salon-dark" : "text-salon-dark"
+            isMobileMenuOpen ? "text-white" : isScrolled ? "text-salon-dark" : "text-white"
           )} 
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
@@ -144,7 +139,6 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile menu - ensuring solid background and proper z-index */}
       <div 
         className={cn(
           "fixed inset-0 z-40 flex flex-col items-center justify-center space-y-6 px-6 py-12 md:hidden transition-all duration-300 ease-in-out",
@@ -153,22 +147,20 @@ const Navbar: React.FC = () => {
             : "opacity-0 pointer-events-none translate-x-full"
         )}
         style={{
-          backgroundColor: "#3C3024", /* Using salon-brown color */
+          backgroundColor: "#3C3024",
           backgroundImage: "none",
           backdropFilter: "none"
         }}
       >
-        {/* Logo at the top of mobile menu - making it larger */}
         <div className="absolute top-6 left-0 right-0 flex justify-center">
           <img 
             src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
             alt="Maria Louis Logotyp" 
-            className="h-20" /* Increased from h-14 to h-20 */
+            className="h-20"
           />
         </div>
 
-        {/* Navigation links - adjusted spacing for better balance */}
-        <div className="flex flex-col items-center space-y-6 mt-16"> {/* Increased top margin to accommodate larger logo */}
+        <div className="flex flex-col items-center space-y-6 mt-16">
           {navLinks.map(link => (
             <a 
               key={link.name}
@@ -181,7 +173,6 @@ const Navbar: React.FC = () => {
           ))}
         </div>
 
-        {/* Book appointment button */}
         <a 
           href="https://bokning.voady.se/marialouis/marialouisebarbershop/"
           target="_blank"
@@ -195,7 +186,6 @@ const Navbar: React.FC = () => {
           Boka Nu
         </a>
 
-        {/* Phone number link */}
         <a 
           href="tel:+46854904050" 
           className="flex items-center mt-4 text-white hover:text-salon-gold transition-all"
