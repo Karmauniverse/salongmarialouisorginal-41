@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
+import { Heart } from 'lucide-react';
 
 const ClosingMessage: React.FC = () => {
   const messageRef = useRef<HTMLDivElement>(null);
@@ -36,10 +37,16 @@ const ClosingMessage: React.FC = () => {
       <div className="container mx-auto px-4">
         <div 
           ref={messageRef}
-          className="text-center opacity-0 transition-all duration-700"
+          className="text-center opacity-0 transition-all duration-700 flex flex-col items-center"
         >
-          <p className="font-serif text-salon-dark/70 text-lg md:text-xl italic">
-            Vi ser fram emot att träffa dig.
+          <p className="font-serif text-salon-dark/70 text-lg md:text-xl italic flex items-center gap-2 justify-center">
+            Vi ser fram emot att träffa dig
+            <Heart 
+              size={18} 
+              className="text-salon-gold ml-1 transition-all duration-500 hover:scale-110" 
+              fill="currentColor" 
+              fillOpacity={0.2}
+            />
           </p>
         </div>
       </div>

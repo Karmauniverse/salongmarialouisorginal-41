@@ -78,8 +78,8 @@ const Navbar: React.FC = () => {
       className={cn(
         'fixed w-full z-50 transition-all duration-500',
         isScrolled 
-          ? 'backdrop-blur-lg bg-white/70 shadow-md py-3' 
-          : 'bg-transparent py-6'
+          ? 'backdrop-blur-lg bg-white/80 shadow-md py-2' 
+          : 'bg-transparent py-4'
       )}
     >
       <div className="container flex justify-between items-center">
@@ -87,7 +87,10 @@ const Navbar: React.FC = () => {
           <img 
             src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
             alt="Maria Louis Logotyp" 
-            className="h-16 md:h-20 mr-3 transition-all duration-300" 
+            className={cn(
+              "transition-all duration-300",
+              isScrolled ? "h-14 md:h-16" : "h-16 md:h-20"
+            )}
           />
         </a>
 
@@ -99,7 +102,7 @@ const Navbar: React.FC = () => {
               href={link.href} 
               onClick={(e) => handleNavLinkClick(e, link.href)}
               className={cn(
-                "text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-2 px-1",
+                "text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-1 px-1",
                 isScrolled ? "text-salon-dark" : "text-white drop-shadow-md",
                 "after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-salon-gold after:transition-all after:duration-300 hover:after:w-full"
               )}
@@ -110,7 +113,7 @@ const Navbar: React.FC = () => {
           <a 
             href="tel:+46854904050" 
             className={cn(
-              "flex items-center text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-2 px-3",
+              "flex items-center text-sm font-medium transition-all duration-300 relative hover:text-salon-gold py-1 px-3",
               isScrolled ? "text-salon-dark" : "text-white drop-shadow-md",
               "border border-salon-gold/30 rounded-full hover:bg-salon-gold/10"
             )}
@@ -133,15 +136,16 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile menu - improved stable version */}
+      {/* Mobile menu - fixed bug with transparent background */}
       <div 
         className={cn(
           "fixed inset-0 z-40 flex flex-col items-center justify-center space-y-6 px-6 py-12 md:hidden transition-all duration-300 ease-in-out",
-          "bg-salon-brown text-white",
+          "bg-salon-brown text-white", 
           isMobileMenuOpen 
             ? "opacity-100 pointer-events-auto" 
             : "opacity-0 pointer-events-none translate-x-full"
         )}
+        style={{ backdropFilter: 'none' }} // Prevent any backdrop-blur effects
       >
         {/* Navigation links */}
         <div className="flex flex-col items-center space-y-6">

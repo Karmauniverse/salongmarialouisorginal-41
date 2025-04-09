@@ -46,13 +46,13 @@ const Index = () => {
 
       <section style={{
         backgroundColor: "#f8f5f2"
-      }} className="py-16 md:py-20 px-4 text-center bg-gradient-to-b from-salon-beige/80 to-white relative overflow-hidden">
+      }} className="py-12 md:py-16 px-4 text-center bg-gradient-to-b from-salon-beige/80 to-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/lovable-uploads/1efcadfc-9bef-48e3-b161-b1401bfbe36d.png')] opacity-[0.03] bg-repeat"></div>
         <div className="max-w-4xl mx-auto relative z-10">
-          <h2 className="text-xl md:text-3xl font-semibold mb-5 text-gray-900">
-            Välkommen till Maria Louis – i hjärtat av Örnsberg
+          <h2 className="text-xl md:text-3xl font-serif font-medium mb-4 text-gray-900">
+            Välkommen till oss
           </h2>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-6 text-gray-800 leading-relaxed">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-5 text-gray-800 leading-relaxed font-lora">
             Med över 35 års samlad expertis erbjuder vi en plats där skönhet, omtanke och kvalitet möts.
             Här står du i fokus – oavsett om du kommer för en klippning, färg eller barbering.
           </p>
