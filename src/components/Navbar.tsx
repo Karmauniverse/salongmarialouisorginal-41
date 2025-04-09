@@ -136,16 +136,15 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile menu - fixed bug with transparent background */}
+      {/* Mobile menu - fixing the transparent background issue */}
       <div 
         className={cn(
           "fixed inset-0 z-40 flex flex-col items-center justify-center space-y-6 px-6 py-12 md:hidden transition-all duration-300 ease-in-out",
-          "bg-salon-brown text-white", 
+          "bg-salon-brown", /* Removed opacity and ensure solid background */
           isMobileMenuOpen 
             ? "opacity-100 pointer-events-auto" 
             : "opacity-0 pointer-events-none translate-x-full"
         )}
-        style={{ backdropFilter: 'none' }} // Prevent any backdrop-blur effects
       >
         {/* Navigation links */}
         <div className="flex flex-col items-center space-y-6">
