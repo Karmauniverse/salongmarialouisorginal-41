@@ -1,15 +1,19 @@
+
 import React, { useEffect, useRef } from 'react';
-import { SparkleIcon } from 'lucide-react';
+import { SparkleIcon, Phone } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+
 const KeratinInfo: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isMobile = useIsMobile();
+  
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.1
     };
+    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -18,16 +22,20 @@ const KeratinInfo: React.FC = () => {
         }
       });
     }, observerOptions);
+    
     elementsRef.current.forEach(el => {
       if (el) observer.observe(el);
     });
+    
     return () => {
       elementsRef.current.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };
   }, []);
-  return <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
+  
+  return (
+    <section className="py-16 bg-gradient-to-b from-white to-salon-cream/20">
       <div className="section-container">
         <div className="bg-salon-beige/30 rounded-full w-fit mx-auto mb-4 px-[8px] py-[6px]">
           <p className="font-medium font-lora text-center text-salon-gold px-[24px] text-sm my-0 py-0">Behandlingar</p>
@@ -86,14 +94,21 @@ const KeratinInfo: React.FC = () => {
               Kontakta oss gärna för mer information eller för att boka en konsultation.
             </p>
             
-            <div className="mt-6">
-              <a href="https://bokning.voady.se/marialouis/marialouisebarbershop/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-salon-gold text-white font-medium rounded-full hover:bg-salon-brown transition-all shadow-md hover:shadow-lg transform hover:scale-105 duration-300">
-                Boka Konsultation
+            {/* Replace button with text layout */}
+            <div className="mt-8 flex flex-col items-center">
+              <p className="text-lg font-medium text-salon-dark mb-2 font-lora">
+                Boka konsultation via telefon
+              </p>
+              <a href="tel:+46854904050" className="flex items-center text-salon-gold hover:text-salon-brown transition-colors duration-300 border-b border-salon-gold/30 hover:border-salon-gold pb-1">
+                <Phone className="mr-2 w-5 h-5" />
+                <span className="font-medium">08-549 040 50</span>
               </a>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default KeratinInfo;

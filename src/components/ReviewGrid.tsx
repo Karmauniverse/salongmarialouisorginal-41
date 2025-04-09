@@ -4,6 +4,7 @@ import { Facebook, Star } from 'lucide-react';
 
 interface ReviewProps {
   name: string;
+  role?: string;
   text: string;
   rating: number;
 }
@@ -14,24 +15,32 @@ interface ReviewGridProps {
 
 const ReviewGrid: React.FC<ReviewGridProps> = ({ reviews }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {reviews.map((review, index) => (
         <div
           key={index}
-          className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100"
         >
-          <div className="flex items-start mb-4">
-            <div className="p-2 bg-salon-gold/10 rounded-full mr-3">
+          <p className="text-salon-dark/80 leading-relaxed mb-6 italic font-lora">
+            "{review.text}"
+          </p>
+          
+          <div className="flex items-center">
+            <div className="mr-3 w-10 h-10 rounded-full bg-salon-gold/10 flex items-center justify-center">
               <Facebook className="text-salon-gold w-5 h-5" />
             </div>
-            <h3 className="font-medium text-lg text-salon-dark">{review.name}</h3>
+            <div>
+              <h3 className="font-medium text-lg text-salon-dark">{review.name}</h3>
+              {review.role && (
+                <p className="text-sm text-salon-dark/60">{review.role}</p>
+              )}
+              <div className="flex mt-1">
+                {Array.from({ length: review.rating }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="flex mb-3">
-            {Array.from({ length: review.rating }).map((_, i) => (
-              <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-            ))}
-          </div>
-          <p className="text-salon-dark/80 leading-relaxed">{review.text}</p>
         </div>
       ))}
     </div>

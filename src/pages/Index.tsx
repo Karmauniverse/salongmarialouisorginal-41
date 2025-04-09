@@ -1,9 +1,10 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Gallery from '../components/Gallery';
-import Testimonials from '../components/Testimonials';
+import CustomerReviews from '../components/CustomerReviews';
 import About from '../components/About';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -74,7 +75,7 @@ const Index = () => {
             <SpecialDay />
           </section>
           <Gallery />
-          <Testimonials />
+          <CustomerReviews />
           <About />
           <Contact />
         </>
@@ -83,7 +84,7 @@ const Index = () => {
           <KeratinInfo />
           <Gallery />
           <About />
-          <Testimonials />
+          <CustomerReviews />
           <section id="event">
             <SpecialDay />
           </section>

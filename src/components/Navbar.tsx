@@ -153,13 +153,22 @@ const Navbar: React.FC = () => {
             : "opacity-0 pointer-events-none translate-x-full"
         )}
         style={{
-          backgroundColor: "#3C3024", /* Using hard-coded value for salon-brown to ensure it's solid */
+          backgroundColor: "#3C3024", /* Using salon-brown color */
           backgroundImage: "none",
           backdropFilter: "none"
         }}
       >
+        {/* Logo at the top of mobile menu */}
+        <div className="absolute top-6 left-0 right-0 flex justify-center">
+          <img 
+            src="/lovable-uploads/7f539d77-5c4f-417e-bc3b-e9a15c1628bf.png" 
+            alt="Maria Louis Logotyp" 
+            className="h-14"
+          />
+        </div>
+
         {/* Navigation links */}
-        <div className="flex flex-col items-center space-y-6">
+        <div className="flex flex-col items-center space-y-6 mt-10">
           {navLinks.map(link => (
             <a 
               key={link.name}
