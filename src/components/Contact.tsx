@@ -1,9 +1,12 @@
+
 import React, { useEffect, useRef } from 'react';
-import { CalendarDays, Phone, Clock, Sparkles, Heart, Scissors } from 'lucide-react';
+import { CalendarDays, Phone, Clock, Scissors, Heart, Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
 import { Separator } from './ui/separator';
+
 const Contact: React.FC = () => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
+
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -27,43 +30,48 @@ const Contact: React.FC = () => {
       });
     };
   }, []);
-  return <div id="contact" className="bg-gradient-to-b from-white to-salon-cream/50 mx-0 px-0 py-0 my-[199px] bg-salon-beige">
-      <div className="section-container bg-salon-cream">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+
+  return <div id="contact" className="bg-gradient-to-b from-white to-salon-cream/50 py-24 md:py-32">
+      <div className="section-container bg-salon-cream rounded-2xl shadow-sm">
+        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
           <div ref={el => elementsRef.current[0] = el} className="animated-element mb-4 opacity-0">
             <span className="inline-block px-6 py-2 bg-salon-gold/10 text-salon-gold text-sm font-medium rounded-full">
               Boka tid
             </span>
           </div>
           
-          <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-6 opacity-0">
+          <h2 ref={el => elementsRef.current[1] = el} className="animated-element text-3xl md:text-4xl font-serif font-medium mb-5 opacity-0">
             Välkommen till oss
           </h2>
           
-          <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/80 max-w-2xl mx-auto opacity-0 text-lg">
+          <p ref={el => elementsRef.current[2] = el} className="animated-element text-salon-dark/80 max-w-2xl mx-auto opacity-0 text-lg px-4 md:px-0">
             Hos oss får du professionell service i en avslappnad atmosfär. 
             Vårt team av erfarna stylister ser fram emot att uppfylla dina önskemål.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center px-4 md:px-8 py-6">
           {/* Left Column - Image */}
           <div ref={el => elementsRef.current[3] = el} className="animated-element opacity-0">
             <div className="overflow-hidden rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 relative">
-              <img src="/lovable-uploads/43060cc3-2a10-4c5d-8048-43961faab9eb.png" alt="Diverse group of happy people enjoying together" className="w-full h-auto object-cover transition-all duration-500 hover:scale-105" />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-salon-dark/70 to-transparent p-6">
-                <p className="text-white font-serif text-xl">Alla är välkomna hos Maria Louis</p>
+              <img 
+                src="/lovable-uploads/43060cc3-2a10-4c5d-8048-43961faab9eb.png" 
+                alt="Diverse group of happy people enjoying together" 
+                className="w-full h-auto object-cover transition-all duration-500 hover:scale-105" 
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-salon-dark/70 via-salon-dark/40 to-transparent p-6">
+                <p className="text-white font-serif text-xl md:text-2xl">Alla är välkomna hos Maria Louis</p>
               </div>
             </div>
           </div>
           
           {/* Right Column - Content */}
           <div ref={el => elementsRef.current[4] = el} className="animated-element opacity-0 flex flex-col items-center md:items-start justify-center space-y-8">
-            <div className="bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-salon-gold/10 shadow-sm w-full">
+            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-xl border border-salon-gold/10 shadow-sm w-full">
               <div className="space-y-6">
                 <div className="text-center md:text-left">
                   <h3 className="text-2xl font-serif mb-4 text-salon-dark">Våra Behandlingar</h3>
-                  <p className="text-lg md:text-xl text-salon-dark mb-4">
+                  <p className="text-lg md:text-xl text-salon-dark mb-6 leading-relaxed">
                     Vill du veta mer om våra klippningar, färgningar eller styling?
                   </p>
                   
@@ -75,7 +83,7 @@ const Contact: React.FC = () => {
                 
                 <Separator className="my-6 bg-salon-gold/20" />
                 
-                <div className="flex flex-col items-center md:items-start space-y-2">
+                <div className="flex flex-col items-center md:items-start space-y-3">
                   <span className="text-salon-dark/60 text-sm">Ring oss direkt</span>
                   <a href="tel:08-549 040 50" className="text-2xl md:text-3xl font-serif text-salon-dark hover:text-salon-gold transition-colors">
                     <span className="flex items-center gap-2">
@@ -94,7 +102,7 @@ const Contact: React.FC = () => {
                       35+ års erfarenhet
                     </span>
                     <span className="inline-block px-3 py-1 bg-salon-cream text-salon-brown text-xs font-medium rounded-full">
-                      Bästa produkterna
+                      Noggrant utvalda produkter
                     </span>
                   </div>
                   
@@ -127,4 +135,5 @@ const Contact: React.FC = () => {
       </div>
     </div>;
 };
+
 export default Contact;
