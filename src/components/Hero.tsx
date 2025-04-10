@@ -12,7 +12,7 @@ const Hero = () => {
     >
       <div className="absolute inset-0">
         <img
-          src="/lovable-uploads/hero-startsida.webp"
+          src="/hero-startsida.webp"
           alt="Kvinna med elegant hårstil på Salong Maria Louis"
           width={1920}
           height={1080}
@@ -21,7 +21,7 @@ const Hero = () => {
             console.error('Hero image failed to load')
             const target = e.target as HTMLImageElement
             target.onerror = null
-            target.style.display = 'none'
+            target.src = '/placeholder.svg'
           }}
         />
       </div>
